@@ -1,0 +1,43 @@
+/* -------------------------------------
+ * MEDIA QUERIES
+ * -------------------------------------
+@mixin media($breakpoint)
+	$mq-xs: "(max-width: 767px)"
+	$mq-sm: "(min-width: 768px) and (max-width: 991px)"
+	$mq-md: "(min-width: 992px) and (max-width: 1199px)"
+	$mq-lg: "(min-width: 1200px)"
+
+	@if $breakpoint == xs
+		@media #{$mq-xs}
+			@content
+
+	@if $breakpoint == sm
+		@media #{$mq-sm}
+			@content
+
+	@if $breakpoint == md
+		@media #{$mq-md}
+			@content
+
+	@if $breakpoint == lg
+		@media #{$mq-lg}
+			@content
+
+/* -------------------------------------
+ * COLORS
+ * -------------------------------------
+$dark-primary-color: #0B2266
+$primary-color: #D9D9D9
+$light-primary-color: #F5F5F5
+$icons-color: #212121
+$accent-color: #3EB7E6
+$secondary-accent-color: #0C3C64
+$primary-text: #0B2266
+$secondary-text: #727272
+$divider-color: #B6B6B6
+
+/* -------------------------------------
+ * FONTS
+ * -------------------------------------
+$roboto: 'Roboto', sans-serif
+$open-sans: 'Open Sans', sans-serif

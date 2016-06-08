@@ -1,5 +1,4 @@
 angular.module('asics').controller('AdminCtrl', [
-	'$mdEditDialog',
 	'$mdToast',
 	'$q',
 	'$scope',
@@ -7,7 +6,7 @@ angular.module('asics').controller('AdminCtrl', [
 	'$state',
 	'$stateParams',
 	'admin',
-	function ($mdEditDialog, $mdToast, $q, $scope, $timeout, $state, $stateParams, admin) {
+	function ($mdToast, $q, $scope, $timeout, $state, $stateParams, admin) {
 		$scope.asics = [];
 
 		$scope.$on('$viewContentLoaded', function () {

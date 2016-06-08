@@ -4,7 +4,6 @@ var asics = angular.module('asics', [
     'ngMaterial',
     'ngMessages',
     'ngMask',
-    'md.data.table',
 	'monospaced.qrcode'
 ]);
 
@@ -38,8 +37,8 @@ asics.config([
             });
 
         $mdThemingProvider.theme('default')
-            .primaryPalette('green')
-            .accentPalette('teal');
+            .primaryPalette('indigo')
+            .accentPalette('blue');
     }
 ]);
 
