@@ -11,6 +11,7 @@ services:
       - db
     environment:
       - POSTGRES_HOST=postgres://db/sicuro
+    env_file: ./web/.env
 
   db:
     image: postgres
