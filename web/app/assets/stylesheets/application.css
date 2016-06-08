@@ -12,4 +12,12 @@
  *
  *= require_tree .
  *= require_self
+
+
+// build:css /css/main.css
+link(rel='stylesheet', href='../vendor/bootstrap/dist/css/bootstrap.min.css')
+link(rel="stylesheet", href='../vendor/angular-material/angular-material.min.css')
+link(rel="stylesheet", href='../vendor/angular-material-data-table/dist/md-data-table.min.css')
+
+link(rel='stylesheet', href='../sass/style.css')
  */

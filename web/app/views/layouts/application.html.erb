@@ -1,14 +1,21 @@
+
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>AsicsAccess</title>
-    <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  </head>
-
-  <body>
-    <%= yield %>
-  </body>
+<html ng-app="asics">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <base href="/">
+  <title>Asics Access</title>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons"/>
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700"/>
+  <!-- <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"/> -->
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="wrapper" ng-view></div>
+<!-- <div class="wrapper" style="background:#ffffff"><%=yield%></div> -->
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+</body>
 </html>
