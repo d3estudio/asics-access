@@ -2,12 +2,11 @@ angular.module('asics').controller('AdminCtrl', [
 	'$mdToast',
 	'$q',
 	'$scope',
-	'$timeout',
 	'$state',
 	'$stateParams',
 	'admin',
-	function ($mdToast, $q, $scope, $timeout, $state, $stateParams, admin) {
-		$scope.asics = [];
+	function ($mdToast, $q, $scope, $state, $stateParams, admin) {
+		$scope.admin = admin;
 
 		$scope.$on('$viewContentLoaded', function () {
 			updateGuestForm();

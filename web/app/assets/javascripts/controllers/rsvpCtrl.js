@@ -1,15 +1,15 @@
-angular.module('asics').controller('FormCtrl', [
+angular.module('asics').controller('RsvpCtrl', [
     '$scope',
     '$mdDialog',
     '$mdToast',
-    'form',
-    function ($scope, $mdDialog, $mdToast, form) {
+    'rsvp',
+    function ($scope, $mdDialog, $mdToast, rsvp) {
         $scope.result = '';
         $scope.hideHints = false;
-        $scope.confInfo = form.confInfo;
+        $scope.rsvp = rsvp;
         $scope.formData = {};
 
-        function initForm() {
+        function clearForm() {
             $scope.formData = {
                 guest: {
                     email: '',
@@ -22,7 +22,7 @@ angular.module('asics').controller('FormCtrl', [
             }
         }
 
-        initForm();
+        clearForm();
 
         $scope.addEntry = function () {
             $scope.formData.entries.push({
@@ -35,7 +35,7 @@ angular.module('asics').controller('FormCtrl', [
             if (err) showErrorToast(err.message);
             else {
                 showDialog($scope.formData);
-                initForm();
+                clearForm();
                 $scope.userForm.$setPristine();
                 $scope.userForm.email.$touched = false;
                 $scope.userForm.phone.$touched = false;
@@ -73,14 +73,6 @@ angular.module('asics').controller('FormCtrl', [
                 //cancel callback
             });
         }
-
-        form.injectControllerDepedencies(showErrorToast, showDialog);
-
-        $(document).ready(function () {
-            setTimeout(function () {
-                $('input#input-address').attr('placeholder', null)
-            }, 1500)
-        });
     }]);
 
 function DialogController($scope, $mdDialog, data) {
