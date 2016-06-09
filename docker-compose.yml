@@ -10,7 +10,7 @@ services:
     links:
       - db
     environment:
-      - POSTGRES_HOST=postgres://db/sicuro
+      - POSTGRES_HOST=postgres://db/asicsaccess
     env_file: ./web/.env
 
   db:
