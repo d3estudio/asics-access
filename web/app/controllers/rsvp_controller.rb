@@ -3,7 +3,7 @@ class RsvpController < ApplicationController
 
 
 
-  def create
+  def invite_guest
     name = params[:name]
     email = params[:email]
 
