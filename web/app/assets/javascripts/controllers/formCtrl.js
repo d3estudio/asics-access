@@ -4,39 +4,50 @@ angular.module('asics').controller('FormCtrl', [
     '$mdToast',
     'form',
     function ($scope, $mdDialog, $mdToast, form) {
-		$scope.result = '';
-		$scope.hideHints = false;
+        $scope.result = '';
+        $scope.hideHints = false;
         $scope.confInfo = form.confInfo;
         $scope.formData = {};
-		$scope.details = '';
 
-		function initForm() {
-			$scope.formData = {
-				responsible: {
-					email: '',
-					name: '',
-					birthday: '',
-					phone: '',
-					cellphone: '',
-					address: ''
-				},
-				entries: []
-			}
-		}
-		initForm();
+        function initForm() {
+            $scope.formData = {
+                guest: {
+                    email: '',
+                    name: '',
+                    birthday: '',
+                    phone: ''
+                },
+                isVegan: false,
+                dontDrink: false
+            }
+        }
 
-		$scope.addEntry = function () {
-			$scope.formData.entries.push({
-				name: '',
-				birthday: ''
-			});
-		};
+        initForm();
 
-		$scope.subscribeGroup = function () {
-			showDialog($scope.formData);
-		};
+        $scope.addEntry = function () {
+            $scope.formData.entries.push({
+                name: '',
+                birthday: ''
+            });
+        };
 
-		function showErrorToast(message) {
+        $scope.confirmRSVP = function (err, data) {
+            if (err) showErrorToast(err.message);
+            else {
+                showDialog($scope.formData);
+                initForm();
+                $scope.userForm.$setPristine();
+                $scope.userForm.email.$touched = false;
+                $scope.userForm.phone.$touched = false;
+                $scope.userForm.name.$touched = false;
+                $scope.userForm.birthday.$touched = false;
+
+                $scope.hideHints = false;
+            }
+
+        };
+
+        function showErrorToast(message) {
             $mdToast.show(
                 $mdToast.simple()
                     .textContent(message)
@@ -46,63 +57,36 @@ angular.module('asics').controller('FormCtrl', [
             );
         }
 
-        function clearEmptyEntries() {
-			$scope.formData.entries = $scope.formData.entries.filter(function(entry) {
-				return entry.name != '' && entry.birthday != '';
-			})
-        }
-
-		function subscribeCallback(err, data) {
-			if(err) showErrorToast(err.message);
-			else {
-				showDialog();
-				initForm();
-
-				$scope.userForm.$setPristine();
-				$scope.userForm.address.$touched = false;
-				$scope.userForm.email.$touched = false;
-				$scope.userForm.phone.$touched = false;
-				$scope.userForm.cellphone.$touched = false;
-				$scope.userForm.name.$touched = false;
-				$scope.userForm.birthday.$touched = false;
-
-				$scope.hideHints = false;
-			}
-		}
-
         function showDialog(data) {
-			clearEmptyEntries();
-
-            var template = data?'tabDialog.review.html':'tabDialog.confirm.html';
             $mdDialog.show({
                 controller: DialogController,
-                templateUrl: template,
+                templateUrl: 'tabDialog.confirm.html',
                 parent: angular.element(document.body),
                 clickOutsideToClose: true,
-                locals : {
-                    data : data
+                locals: {
+                    data: data
                 }
-            }).then(function() {
+            }).then(function () {
                 //confirm callback
                 // form.subscribeGroup(data, subscribeCallback);
-            }, function() {
+            }, function () {
                 //cancel callback
             });
         }
 
-		form.injectControllerDepedencies(showErrorToast, showDialog);
+        form.injectControllerDepedencies(showErrorToast, showDialog);
 
-		$( document ).ready(function() {
-			setTimeout(function () {
-				$('input#input-address').attr('placeholder',null)
-			}, 1500)
-		});
+        $(document).ready(function () {
+            setTimeout(function () {
+                $('input#input-address').attr('placeholder', null)
+            }, 1500)
+        });
     }]);
 
 function DialogController($scope, $mdDialog, data) {
     $scope.formData = data;
 
-    $scope.confirm = function() {
+    $scope.confirm = function () {
         $mdDialog.hide();
     };
 
@@ -112,28 +96,28 @@ function DialogController($scope, $mdDialog, data) {
 }
 
 angular.module('asics')
-    .filter('to_html', ['$sce', function($sce){
-        return function(text) {
+    .filter('to_html', ['$sce', function ($sce) {
+        return function (text) {
             return $sce.trustAsHtml(text);
         };
     }]);
 
 angular.module('asics')
-	.directive('namesOnly', function(){
-		return {
-			require: 'ngModel',
-			link: function(scope, element, attrs, modelCtrl) {
+    .directive('namesOnly', function () {
+        return {
+            require: 'ngModel',
+            link: function (scope, element, attrs, modelCtrl) {
 
-				modelCtrl.$parsers.push(function (inputValue) {
-					var transformedInput = inputValue ? inputValue.replace(/[^a-zA-ZáéíóúàâêôãõöüçÁÉÍÓÚÀÂÊÖÔÃÕÜÇ'\- ]/g,'') : null;
+                modelCtrl.$parsers.push(function (inputValue) {
+                    var transformedInput = inputValue ? inputValue.replace(/[^a-zA-ZáéíóúàâêôãõöüçÁÉÍÓÚÀÂÊÖÔÃÕÜÇ'\- ]/g, '') : null;
 
-					if (transformedInput!=inputValue) {
-						modelCtrl.$setViewValue(transformedInput);
-						modelCtrl.$render();
-					}
+                    if (transformedInput != inputValue) {
+                        modelCtrl.$setViewValue(transformedInput);
+                        modelCtrl.$render();
+                    }
 
-					return transformedInput;
-				});
-			}
-		};
-	});
+                    return transformedInput;
+                });
+            }
+        };
+    });
