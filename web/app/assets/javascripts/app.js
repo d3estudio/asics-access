@@ -23,7 +23,7 @@ asics.config([
             .state('home', {
                 url: '/',
                 templateUrl: 'views/index',
-                controller: 'FormCtrl'
+                controller: 'RsvpCtrl'
             })
             .state('admin', {
                 url: '/admin',

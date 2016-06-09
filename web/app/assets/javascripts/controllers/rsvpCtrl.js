@@ -8,6 +8,20 @@ angular.module('asics').controller('RsvpCtrl', [
         $scope.hideHints = false;
         $scope.rsvp = rsvp;
         $scope.formData = {};
+        
+        $scope.$on('$viewContentLoaded', function () {
+            clearForm();
+        });
+
+        $scope.confirmRSVP = function (err, data) {
+            if (err) showErrorToast(err.message);
+            else {
+                showDialog($scope.formData);
+                clearForm();
+
+            }
+
+        };
 
         function clearForm() {
             $scope.formData = {
@@ -19,33 +33,14 @@ angular.module('asics').controller('RsvpCtrl', [
                 },
                 isVegan: false,
                 dontDrink: false
-            }
+            };
+            $scope.userForm.$setPristine();
+            $scope.userForm.email.$touched = false;
+            $scope.userForm.phone.$touched = false;
+            $scope.userForm.name.$touched = false;
+            $scope.userForm.birthday.$touched = false;
+            $scope.hideHints = false;
         }
-
-        clearForm();
-
-        $scope.addEntry = function () {
-            $scope.formData.entries.push({
-                name: '',
-                birthday: ''
-            });
-        };
-
-        $scope.confirmRSVP = function (err, data) {
-            if (err) showErrorToast(err.message);
-            else {
-                showDialog($scope.formData);
-                clearForm();
-                $scope.userForm.$setPristine();
-                $scope.userForm.email.$touched = false;
-                $scope.userForm.phone.$touched = false;
-                $scope.userForm.name.$touched = false;
-                $scope.userForm.birthday.$touched = false;
-
-                $scope.hideHints = false;
-            }
-
-        };
 
         function showErrorToast(message) {
             $mdToast.show(

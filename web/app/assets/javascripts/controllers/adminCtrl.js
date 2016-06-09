@@ -7,16 +7,44 @@ angular.module('asics').controller('AdminCtrl', [
 	'admin',
 	function ($mdToast, $q, $scope, $state, $stateParams, admin) {
 		$scope.admin = admin;
+        $scope.formData = {};
 
-		$scope.$on('$viewContentLoaded', function () {
+        $scope.$on('$viewContentLoaded', function () {
 			updateGuestForm();
-		});
+            clearForm();
+        });
 
 		$scope.guestType = 'athlete';
 
 		$scope.updateForm = function () {
 			updateGuestForm();
 		};
+
+        $scope.inviteGuest = function () {
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent("Convite enviado com sucesso!")
+                    .position('top right')
+                    .hideDelay(3000)
+                    .theme('error-toast')
+            );
+        };
+
+        function clearForm() {
+            $scope.formData = {
+                guest: {
+                    email: '',
+                    name: '',
+                    occupation: ''
+                }
+            };
+
+            $scope.adminForm.$setPristine();
+            $scope.adminForm.athlete.$touched = false;
+            $scope.adminForm.guest.name.$touched = false;
+            $scope.adminForm.guest.email.$touched = false;
+            $scope.adminForm.guest.occupation.$touched = false;
+        }
 
 		function updateGuestForm() {
 			if ($scope.guestType === 'athlete') {
@@ -30,15 +58,6 @@ angular.module('asics').controller('AdminCtrl', [
 			}
 		}
 
-		$scope.inviteGuest = function () {
-			$mdToast.show(
-				$mdToast.simple()
-					.textContent("Convite enviado com sucesso!")
-					.position('top right')
-					.hideDelay(3000)
-					.theme('error-toast')
-				);
-		};
 	}]);
 
 angular.module('asics').directive('notBizarreAmericanDate', function ($window) {
