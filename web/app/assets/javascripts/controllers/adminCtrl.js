@@ -1,24 +1,24 @@
 angular.module('asics').controller('AdminCtrl', [
-	'$mdToast',
-	'$q',
-	'$scope',
-	'$state',
-	'$stateParams',
-	'admin',
-	function ($mdToast, $q, $scope, $state, $stateParams, admin) {
-		$scope.admin = admin;
+    '$mdToast',
+    '$q',
+    '$scope',
+    '$state',
+    '$stateParams',
+    'admin',
+    function ($mdToast, $q, $scope, $state, $stateParams, admin) {
+        $scope.admin = admin;
         $scope.formData = {};
 
         $scope.$on('$viewContentLoaded', function () {
-			updateGuestForm();
+            updateGuestForm();
             clearForm();
         });
 
-		$scope.guestType = 'athlete';
+        $scope.guestType = 'athlete';
 
-		$scope.updateForm = function () {
-			updateGuestForm();
-		};
+        $scope.updateForm = function () {
+            updateGuestForm();
+        };
 
         $scope.inviteGuest = function () {
             $mdToast.show(
@@ -46,66 +46,65 @@ angular.module('asics').controller('AdminCtrl', [
             $scope.adminForm.guest.occupation.$touched = false;
         }
 
-		function updateGuestForm() {
-			if ($scope.guestType === 'athlete') {
-				$scope.isAthlete = true;
-				$('.other-field').hide();
-				$('.athlete-field').show(200);
-			} else {
-				$scope.isAthlete = false;
-				$('.athlete-field').hide();
-				$('.other-field').show(200);
-			}
-		}
-
-	}]);
+        function updateGuestForm() {
+            if ($scope.guestType === 'athlete') {
+                $scope.isAthlete = true;
+                $('.other-field').hide();
+                $('.athlete-field').show(200);
+            } else {
+                $scope.isAthlete = false;
+                $('.athlete-field').hide();
+                $('.other-field').show(200);
+            }
+        }
+    }]);
 
 angular.module('asics').directive('notBizarreAmericanDate', function ($window) {
-	return {
-		require: '^ngModel',
-		restrict: 'A',
-		link: function (scope, elm, attrs, ctrl) {
+    return {
+        require: '^ngModel',
+        restrict: 'A',
+        link: function (scope, elm, attrs, ctrl) {
 
-			ctrl.$formatters.unshift(function (modelValue) {
-				// console.log(modelValue);
-				if (!modelValue) return "";
+            ctrl.$formatters.unshift(function (modelValue) {
+                // console.log(modelValue);
+                if (!modelValue) return "";
 
-				var varDate = new Date(modelValue);
-				var string = ("0" + varDate.getDate()).slice(-2)
-					+ "/" + ("0" + (varDate.getMonth() + 1)).slice(-2)
-					+ "/" + varDate.getFullYear();
-				// console.log(modelValue);
-				// console.log(string);
-				return string;
-			});
+                var varDate = new Date(modelValue);
+                var string = ("0" + varDate.getDate()).slice(-2)
+                    + "/" + ("0" + (varDate.getMonth() + 1)).slice(-2)
+                    + "/" + varDate.getFullYear();
+                // console.log(modelValue);
+                // console.log(string);
+                return string;
+            });
 
-			ctrl.$parsers.unshift(function (viewValue) {
-				if (!viewValue) return "";
+            ctrl.$parsers.unshift(function (viewValue) {
+                if (!viewValue) return "";
 
-				viewValue = viewValue.slice(0, 10);
-				var transformedInput = viewValue.replace(/[^0-9.]/g, "");
+                viewValue = viewValue.slice(0, 10);
+                var transformedInput = viewValue.replace(/[^0-9.]/g, "");
 
-				var newViewString = transformedInput.slice(0, 2);
-				if (transformedInput.length > 2)
-					newViewString += "/" + transformedInput.slice(2, 4);
-				if (transformedInput.length > 4)
-					newViewString += "/" + transformedInput.slice(4);
+                var newViewString = transformedInput.slice(0, 2);
+                if (transformedInput.length > 2)
+                    newViewString += "/" + transformedInput.slice(2, 4);
+                if (transformedInput.length > 4)
+                    newViewString += "/" + transformedInput.slice(4);
 
-				if (transformedInput != newViewString) {
-					ctrl.$setViewValue(newViewString);
-					ctrl.$render();
-				}
+                if (transformedInput != newViewString) {
+                    ctrl.$setViewValue(newViewString);
+                    ctrl.$render();
+                }
 
-				var m = transformedInput.match(/^(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[012])(19|20)[0-9][0-9]$/g);
-				if (m) {
-					ctrl.$setValidity("pattern", true);
-					var from = viewValue.split("/");
-					return new Date(from[2], from[1] - 1, from[0]);
-				} else {
-					ctrl.$setValidity("pattern", false);
-					return null;
-				}
-			});
-		}
-	};
+                var m = transformedInput.match(/^(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[012])(19|20)[0-9][0-9]$/g);
+                if (m) {
+                    ctrl.$setValidity("pattern", true);
+                    var from = viewValue.split("/");
+                    return new Date(from[2], from[1] - 1, from[0]);
+                } else {
+                    ctrl.$setValidity("pattern", false);
+                    return null;
+                }
+            });
+        }
+    };
 });
