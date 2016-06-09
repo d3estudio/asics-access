@@ -26,9 +26,9 @@ class Guest < ApplicationRecord
 
   private
     def fill_fields
-      invite_token = Digest::SHA1.hexdigest([Time.now, rand].join) if invite_token.nil?
-      rsvp = false if rsvp.nil?
-      presence = false if presence.nil?
+      self.invite_token = Digest::SHA1.hexdigest([Time.now, rand].join) if self.invite_token.nil?
+      self.rsvp = false if self.rsvp.nil?
+      self.presence = false if self.presence.nil?
       # ...
     end
 end
