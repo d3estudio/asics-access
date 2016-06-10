@@ -8,9 +8,6 @@ angular.module('asics').controller('InvitationCtrl', [
     function ($mdToast, $q, $scope, $state, $stateParams, admin) {
         $scope.guest = {};
 
-        $scope.guestType = 'athlete';
-
-
 
         $scope.inviteGuest = function () {
             admin.postInvite($scope.guest)
@@ -21,13 +18,8 @@ angular.module('asics').controller('InvitationCtrl', [
 
 
         $scope.$on('$viewContentLoaded', function () {
-            updateGuestForm();
             clearForm();
         });
-
-        $scope.updateForm = function () {
-            updateGuestForm();
-        };
 
         function errorToast(error) {
             $mdToast.show(
@@ -57,22 +49,9 @@ angular.module('asics').controller('InvitationCtrl', [
             };
 
             $scope.adminForm.$setPristine();
-            $scope.adminForm.athlete.$touched = false;
             $scope.adminForm.name.$touched = false;
             $scope.adminForm.email.$touched = false;
             $scope.adminForm.occupation.$touched = false;
-        }
-
-        function updateGuestForm() {
-            if ($scope.guestType === 'athlete') {
-                $scope.isAthlete = true;
-                $('.other-field').hide();
-                $('.athlete-field').show(200);
-            } else {
-                $scope.isAthlete = false;
-                $('.athlete-field').hide();
-                $('.other-field').show(200);
-            }
         }
     }]);
 
