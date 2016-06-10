@@ -14,6 +14,18 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
                 })
     };
 
+    o.postInvite = function(guest) {
+        return $http.post('/api/rsvp/invite', guest)
+            .then(
+                function(response) {
+                    return response.data.result
+                },
+                function (error) {
+                    throw error.data.message
+                }
+            )
+    };
+
     return o;
 
 }]);

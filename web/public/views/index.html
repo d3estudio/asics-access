@@ -11,7 +11,7 @@
                         <div layout-gt-xs="row">
                             <md-input-container flex-gt-xs="100" class="md-block">
                                 <label>Nome *</label>
-                                <input ng-model="formData.guest.name" name="name" required="required" names-only="names-only"/>
+                                <input ng-model="guest.name" name="name" required="required" names-only="names-only"/>
                                 <div ng-messages="userForm.name.$error">
                                     <div ng-message="required">Por favor, preencha seu nome</div>
                                 </div>
@@ -20,7 +20,7 @@
                         <div layout-gt-xs="row">
                             <md-input-container flex-gt-xs="100" class="md-block">
                                 <label>Email *</label>
-                                <input ng-model="formData.guest.email" name="email" type="email" minlength="5" maxlength="100" ng-pattern="/^.+@.+..+$/" required="required"/>
+                                <input ng-model="guest.email" name="email" type="email" minlength="5" maxlength="100" ng-pattern="/^.+@.+..+$/" required="required" readonly/>
                                 <div ng-messages="userForm.email.$error" multiple="" md-auto-hide="true">
                                     <div ng-message="required">Por favor, preencha seu email</div>
                                     <div ng-message="pattern">Email inválido</div>
@@ -29,26 +29,19 @@
                         </div>
                         <div layout-gt-xs="row">
                             <md-input-container flex-gt-xs="100" class="md-block">
-                                <label>Telefone</label>
-                                <input ng-model="formData.guest.phone" name="phone" mask="(99) 9?9999 9999" restrict="reject"/>
-                            </md-input-container>
-                        </div>
-                        <div layout-gt-xs="row">
-                            <md-input-container flex-gt-xs="100" class="md-block">
                                 <label>Nascimento *</label>
-                                <input ng-model="formData.guest.birthday" type="text" name="birthday" mask="39/19/9999" restrict="reject" ng-focus="hideBdayHints = true" ng-blur="hideBdayHints = false" required="required"/>
-                                <div ng-if="hideBdayHints" class="hint">Ex.: 01/01/1980</div>
-                                <div ng-messages="userForm.date.$error" ng-if="!hideBdayHints">
+                                <input ng-model="guest.birthday" type="text" name="birthday" mask="39/19/9999" restrict="reject" required="required"/>
+                                <div ng-messages="userForm.date.$error">
                                     <div ng-message="required">Preencha sua data de nascimento</div>
                                 </div>
                             </md-input-container>
                         </div>
                         <div layout-gt-xs="row">
-                            <md-checkbox ng-model="formData.isVegan" aria-label="Is vegan?">Sou vegano</md-checkbox>
-                            <md-checkbox ng-model="formData.dontDrink" aria-label="Dont drink?">Não bebo bebida alcólica</md-checkbox>
+                            <md-checkbox ng-model="guest.isVegan" aria-label="Is vegan?">Sou vegano</md-checkbox>
+                            <md-checkbox ng-model="guest.dontDrink" aria-label="Dont drink?">Não bebo bebida alcólica</md-checkbox>
                         </div>
                         <div layout="row" layout-align-gt-xs="end" layout-align="center">
-                            <md-button id="confirm-button" ng-click="confirmRSVP()" ng-disabled="userForm.$invalid" flex-xs="100" class="md-raised button-dark">Confirmar presença</md-button>
+                            <md-button id="confirm-button" ng-click="confirmInvitation()" ng-disabled="userForm.$invalid" flex-xs="100" class="md-raised button-dark">Confirmar presença</md-button>
                         </div>
                     </form>
                 </div>
@@ -61,7 +54,7 @@
     <md-dialog aria-label="Imprima seu código">
         <md-toolbar>
             <div class="md-toolbar-tools">
-                <h1 style="color:white">Esse é seu código para entrar no evento</h1>
+                <h1 style="color:white">{{ guest.name }}, Esse é seu código para entrar no evento</h1>
             </div>
         </md-toolbar>
         <md-dialog-content style="max-width:1200px;padding:20px;">

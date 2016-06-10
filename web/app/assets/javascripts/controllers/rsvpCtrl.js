@@ -2,64 +2,38 @@ angular.module('asics').controller('RsvpCtrl', [
     '$scope',
     '$mdDialog',
     '$mdToast',
+    '$stateParams',
     'rsvp',
-    function ($scope, $mdDialog, $mdToast, rsvp) {
+    function ($scope, $mdDialog, $mdToast, $stateParams, rsvp) {
         $scope.result = '';
-        $scope.hideHints = false;
-        $scope.rsvp = rsvp;
-        $scope.formData = {};
-        
-        $scope.$on('$viewContentLoaded', function () {
-            clearForm();
-        });
+        $scope.guest = {};
 
-        $scope.confirmRSVP = function (err, data) {
-            if (err) showErrorToast(err.message);
-            else {
-                showDialog($scope.formData);
-                clearForm();
-
-            }
-
+        $scope.confirmInvitation = function () {
+            rsvp.postConfirm($scope.guest)
+                .then(showDialog)
+                .catch(errorToast);
         };
 
-        function clearForm() {
-            $scope.formData = {
-                guest: {
-                    email: '',
-                    name: '',
-                    birthday: '',
-                    phone: ''
-                },
-                isVegan: false,
-                dontDrink: false
-            };
-            $scope.userForm.$setPristine();
-            $scope.userForm.email.$touched = false;
-            $scope.userForm.phone.$touched = false;
-            $scope.userForm.name.$touched = false;
-            $scope.userForm.birthday.$touched = false;
-            $scope.hideHints = false;
-        }
 
-        function showErrorToast(message) {
+
+        function errorToast(error) {
             $mdToast.show(
                 $mdToast.simple()
-                    .textContent(message)
+                    .textContent("Erro ao confirmar presença: " + error)
                     .position('top right')
                     .hideDelay(3000)
                     .theme('error-toast')
             );
         }
 
-        function showDialog(data) {
+        function showDialog(guest) {
             $mdDialog.show({
                 controller: DialogController,
                 templateUrl: 'tabDialog.confirm.html',
                 parent: angular.element(document.body),
                 clickOutsideToClose: true,
                 locals: {
-                    data: data
+                    data: guest
                 }
             }).then(function () {
                 //confirm callback
@@ -68,10 +42,34 @@ angular.module('asics').controller('RsvpCtrl', [
                 //cancel callback
             });
         }
+
+
+
+        $scope.$on('$viewContentLoaded', function () {
+            clearForm();
+        });
+
+        function clearForm() {
+            $scope.guest = {
+                invite_token: $stateParams.token,
+                email: $stateParams.email,
+                name: '',
+                birthday: '',
+                phone: '',
+                isVegan: false,
+                dontDrink: false
+            };
+            $scope.userForm.$setPristine();
+            $scope.userForm.email.$touched = false;
+            $scope.userForm.phone.$touched = false;
+            $scope.userForm.name.$touched = false;
+            $scope.userForm.birthday.$touched = false;
+        }
     }]);
 
+
 function DialogController($scope, $mdDialog, data) {
-    $scope.formData = data;
+    $scope.guest = data;
 
     $scope.confirm = function () {
         $mdDialog.hide();
@@ -82,12 +80,6 @@ function DialogController($scope, $mdDialog, data) {
     };
 }
 
-angular.module('asics')
-    .filter('to_html', ['$sce', function ($sce) {
-        return function (text) {
-            return $sce.trustAsHtml(text);
-        };
-    }]);
 
 angular.module('asics')
     .directive('namesOnly', function () {

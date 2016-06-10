@@ -21,15 +21,25 @@ asics.config([
 
         $stateProvider
             .state('home', {
-                url: '/',
+                url: '/rsvp/:email/:token',
                 templateUrl: 'views/index',
                 controller: 'RsvpCtrl'
             })
             .state('admin', {
                 url: '/admin',
-                templateUrl: '/views/admin/invitation',
-				controller: 'AdminCtrl'
+                redirectTo: 'admin.invitation',
+                template: '<ui-view/>'
 			})
+            .state('admin.invitation', {
+                url: '/invitation',
+                templateUrl: '/views/admin/invitation',
+                controller: 'InvitationCtrl'
+            })
+            .state('admin.guests', {
+                url: '/guests',
+                templateUrl: '/views/admin/guests',
+                controller: 'GuestsCtrl'
+            })
             .state('login', {
                 url: '/admin/login',
                 templateUrl: 'views/admin/login',
@@ -45,6 +55,15 @@ asics.config([
 
 asics.run(['$rootScope', 'auth', '$state', function ($rootScope, auth, $state) {
 
+    // Allows redirects to redirecTo parameter
+    $rootScope.$on('$stateChangeStart', function(evt, to, params) {
+        if (to.redirectTo) {
+            evt.preventDefault();
+            $state.go(to.redirectTo, params, {location: 'replace'})
+        }
+    });
+    
+
     //Add fast click on iphones
     if ('addEventListener' in document) {
         $(document).ready(function () {
@@ -52,6 +71,7 @@ asics.run(['$rootScope', 'auth', '$state', function ($rootScope, auth, $state) {
         });
     }
 
+    
     //Listen to routes changes
     // $rootScope.$on('$stateChangeStart',
     //     function (event, toState) {
