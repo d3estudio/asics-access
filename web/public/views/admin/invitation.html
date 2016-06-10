@@ -15,7 +15,7 @@
                         <div id="admin-form-athlete" layout-gt-xs="row" class="admin-form athlete-field">
                             <md-input-container flex-gt-xs="100" class="md-block">
                                 <label>Selecione o atleta *</label>
-                                <md-select ng-model="formData.athlete" name="athlete">
+                                <md-select ng-model="athlete" name="athlete">
                                     <md-option>Daiane dos Santos</md-option>
                                     <md-option>Diego Silva</md-option>
                                     <md-option>Esdras Kiupern</md-option>
@@ -28,8 +28,8 @@
                         <div id="admin-form-name" layout-gt-xs="row" class="admin-form other-field">
                             <md-input-container flex-gt-xs="100" class="md-block">
                                 <label>Nome *</label>
-                                <input ng-model="formData.guest.name" name="name" ng-required="!isAthlete" names-only="names-only"/>
-                                <div ng-messages="formData.name.$error">
+                                <input ng-model="guest.name" name="name" ng-required="!isAthlete" names-only="names-only"/>
+                                <div ng-messages="guest.name.$error">
                                     <div ng-message="required">Por favor, preencha o nome</div>
                                 </div>
                             </md-input-container>
@@ -37,8 +37,8 @@
                         <div id="admin-form-email" layout-gt-xs="row" class="admin-form athlete-field other-field">
                             <md-input-container flex-gt-xs="100" class="md-block">
                                 <label>Email para envio do convite *</label>
-                                <input ng-model="formData.guest.email" name="email" type="email" minlength="5" maxlength="100" ng-pattern="/^.+@.+..+$/" required="required"/>
-                                <div ng-messages="formData.email.$error" multiple="" md-auto-hide="true">
+                                <input ng-model="guest.email" name="email" type="email" minlength="5" maxlength="100" ng-pattern="/^.+@.+..+$/" required="required"/>
+                                <div ng-messages="guest.email.$error" multiple="" md-auto-hide="true">
                                     <div ng-message="required">Por favor, preencha o email</div>
                                     <div ng-message="pattern">Email inválido</div>
                                 </div>
@@ -47,7 +47,7 @@
                         <div id="admin-form-occupation" layout-gt-xs="row" class="admin-form other-field">
                             <md-input-container flex-gt-xs="100" class="md-block">
                                 <label>Área de atuação</label>
-                                <input ng-model="formData.guest.occupation" name="occupation"/>
+                                <input ng-model="guest.occupation" name="occupation"/>
                             </md-input-container>
                         </div>
                         <div layout="row" layout-align-gt-xs="end" layout-align="center">

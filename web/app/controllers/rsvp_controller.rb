@@ -22,7 +22,7 @@ class RsvpController < ApplicationController
     if guest.save
       CommonMailer.invite_email(guest).deliver_later
 
-      render json: { succeeded: true, result: guest.to_json }
+      render json: { succeeded: true, result: guest }
     else
       reject_request(error: 'ValidationFailed',
                      message: guest.errors,

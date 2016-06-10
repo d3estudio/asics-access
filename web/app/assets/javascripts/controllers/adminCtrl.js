@@ -6,37 +6,54 @@ angular.module('asics').controller('AdminCtrl', [
     '$stateParams',
     'admin',
     function ($mdToast, $q, $scope, $state, $stateParams, admin) {
-        $scope.admin = admin;
-        $scope.formData = {};
+        $scope.guest = {};
+
+        $scope.guestType = 'athlete';
+
+
+
+        $scope.inviteGuest = function () {
+            admin.postInvite($scope.guest)
+                .then(successToast)
+                .catch(errorToast)
+        };
+
+
 
         $scope.$on('$viewContentLoaded', function () {
             updateGuestForm();
             clearForm();
         });
 
-        $scope.guestType = 'athlete';
-
         $scope.updateForm = function () {
             updateGuestForm();
         };
 
-        $scope.inviteGuest = function () {
+        function errorToast(error) {
             $mdToast.show(
                 $mdToast.simple()
-                    .textContent("Convite enviado com sucesso!")
+                    .textContent("Erro ao enviar convite: " + error)
                     .position('top right')
                     .hideDelay(3000)
                     .theme('error-toast')
             );
-        };
+        }
+
+        function successToast(guest) {
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent("Convite para " + guest.name + " enviado com sucesso!")
+                    .position('top right')
+                    .hideDelay(3000)
+                    .theme('error-toast')
+            );
+        }
 
         function clearForm() {
-            $scope.formData = {
-                guest: {
-                    email: '',
-                    name: '',
-                    occupation: ''
-                }
+            $scope.guest = {
+                email: '',
+                name: '',
+                occupation: ''
             };
 
             $scope.adminForm.$setPristine();
@@ -59,52 +76,3 @@ angular.module('asics').controller('AdminCtrl', [
         }
     }]);
 
-angular.module('asics').directive('notBizarreAmericanDate', function ($window) {
-    return {
-        require: '^ngModel',
-        restrict: 'A',
-        link: function (scope, elm, attrs, ctrl) {
-
-            ctrl.$formatters.unshift(function (modelValue) {
-                // console.log(modelValue);
-                if (!modelValue) return "";
-
-                var varDate = new Date(modelValue);
-                var string = ("0" + varDate.getDate()).slice(-2)
-                    + "/" + ("0" + (varDate.getMonth() + 1)).slice(-2)
-                    + "/" + varDate.getFullYear();
-                // console.log(modelValue);
-                // console.log(string);
-                return string;
-            });
-
-            ctrl.$parsers.unshift(function (viewValue) {
-                if (!viewValue) return "";
-
-                viewValue = viewValue.slice(0, 10);
-                var transformedInput = viewValue.replace(/[^0-9.]/g, "");
-
-                var newViewString = transformedInput.slice(0, 2);
-                if (transformedInput.length > 2)
-                    newViewString += "/" + transformedInput.slice(2, 4);
-                if (transformedInput.length > 4)
-                    newViewString += "/" + transformedInput.slice(4);
-
-                if (transformedInput != newViewString) {
-                    ctrl.$setViewValue(newViewString);
-                    ctrl.$render();
-                }
-
-                var m = transformedInput.match(/^(0[1-9]|[12][0-9]|3[01])(0[1-9]|1[012])(19|20)[0-9][0-9]$/g);
-                if (m) {
-                    ctrl.$setValidity("pattern", true);
-                    var from = viewValue.split("/");
-                    return new Date(from[2], from[1] - 1, from[0]);
-                } else {
-                    ctrl.$setValidity("pattern", false);
-                    return null;
-                }
-            });
-        }
-    };
-});

@@ -28,9 +28,9 @@
 //= require angular-qrcode.js
 
 //= require app.js
-//= require controllers/rsvpCtrl.js
-//= require controllers/authCtrl.js
-//= require controllers/adminCtrl.js
 //= require services/rsvpFactory.js
 //= require services/authFactory.js
 //= require services/adminFactory.js
+//= require controllers/rsvpCtrl.js
+//= require controllers/authCtrl.js
+//= require controllers/adminCtrl.js
