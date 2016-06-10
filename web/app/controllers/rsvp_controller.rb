@@ -33,7 +33,7 @@ class RsvpController < ApplicationController
 
 
   def confirm_invite
-    token = params[:token]
+    token = params[:invite_token]
     name = params[:name]
     email = params[:email]
 
@@ -66,7 +66,7 @@ class RsvpController < ApplicationController
     if guest.save
       CommonMailer.confirm_email(guest).deliver_later
 
-      render json: { succeeded: true, result: guest.to_json }
+      render json: { succeeded: true, result: guest }
     else
       reject_request(error: 'ValidationFailed',
                             message: guest.errors,
