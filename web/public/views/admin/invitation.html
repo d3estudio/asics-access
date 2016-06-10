@@ -6,26 +6,7 @@
                     <h2 class="md-padding">Casa Asics</h2>
                     <h3 class="md-padding">Preencha os campos abaixo para realizar o convite</h3>
                     <form name="adminForm" class="md-padding">
-                        <div id="admin-form-guest-type" layout-gt-xs="row">
-                            <md-radio-group ng-model="guestType" ng-change="updateForm()">
-                                <md-radio-button value="athlete" aria-label="Atleta">Atleta</md-radio-button>
-                                <md-radio-button value="other" aria-label="Outro">Outra pessoa</md-radio-button>
-                            </md-radio-group>
-                        </div>
-                        <div id="admin-form-athlete" layout-gt-xs="row" class="admin-form athlete-field">
-                            <md-input-container flex-gt-xs="100" class="md-block">
-                                <label>Selecione o atleta *</label>
-                                <md-select ng-model="athlete" name="athlete">
-                                    <md-option>Daiane dos Santos</md-option>
-                                    <md-option>Diego Silva</md-option>
-                                    <md-option>Esdras Kiupern</md-option>
-                                    <md-option>Fabricio Tavares</md-option>
-                                    <md-option>Gabriel Ramos Araujo</md-option>
-                                    <md-option>Ricardo Tavares</md-option>
-                                </md-select>
-                            </md-input-container>
-                        </div>
-                        <div id="admin-form-name" layout-gt-xs="row" class="admin-form other-field">
+                        <div id="admin-form-name" layout-gt-xs="row" class="admin-form">
                             <md-input-container flex-gt-xs="100" class="md-block">
                                 <label>Nome *</label>
                                 <input ng-model="guest.name" name="name" ng-required="!isAthlete" names-only="names-only"/>
@@ -34,7 +15,7 @@
                                 </div>
                             </md-input-container>
                         </div>
-                        <div id="admin-form-email" layout-gt-xs="row" class="admin-form athlete-field other-field">
+                        <div id="admin-form-email" layout-gt-xs="row" class="admin-form">
                             <md-input-container flex-gt-xs="100" class="md-block">
                                 <label>Email para envio do convite *</label>
                                 <input ng-model="guest.email" name="email" type="email" minlength="5" maxlength="100" ng-pattern="/^.+@.+..+$/" required="required"/>
@@ -44,7 +25,7 @@
                                 </div>
                             </md-input-container>
                         </div>
-                        <div id="admin-form-occupation" layout-gt-xs="row" class="admin-form other-field">
+                        <div id="admin-form-occupation" layout-gt-xs="row" class="admin-form">
                             <md-input-container flex-gt-xs="100" class="md-block">
                                 <label>Área de atuação</label>
                                 <input ng-model="guest.occupation" name="occupation"/>

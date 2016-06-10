@@ -29,12 +29,6 @@
                         </div>
                         <div layout-gt-xs="row">
                             <md-input-container flex-gt-xs="100" class="md-block">
-                                <label>Telefone</label>
-                                <input ng-model="guest.phone" name="phone" mask="(99) 9?9999 9999" restrict="reject"/>
-                            </md-input-container>
-                        </div>
-                        <div layout-gt-xs="row">
-                            <md-input-container flex-gt-xs="100" class="md-block">
                                 <label>Nascimento *</label>
                                 <input ng-model="guest.birthday" type="text" name="birthday" mask="39/19/9999" restrict="reject" required="required"/>
                                 <div ng-messages="userForm.date.$error">
