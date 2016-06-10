@@ -41,9 +41,9 @@ angular.module('asics').controller('AdminCtrl', [
 
             $scope.adminForm.$setPristine();
             $scope.adminForm.athlete.$touched = false;
-            $scope.adminForm.guest.name.$touched = false;
-            $scope.adminForm.guest.email.$touched = false;
-            $scope.adminForm.guest.occupation.$touched = false;
+            $scope.adminForm.name.$touched = false;
+            $scope.adminForm.email.$touched = false;
+            $scope.adminForm.occupation.$touched = false;
         }
 
         function updateGuestForm() {
