@@ -3,11 +3,11 @@ class CommonMailer < ApplicationMailer
 
   def confirm_email(user)
     @user = user
-    mail(to: @user.email, subject: 'Sample Email')
+    mail(to: @user.email, subject: 'Confirmação Asics Hub')
   end
 
   def invite_email(user)
     @user = user
-    mail(to: @user.email, subject: 'Sample Email')
+    mail(to: @user.email, subject: 'Convite Asics Hub')
   end
 end

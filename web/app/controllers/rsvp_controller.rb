@@ -20,6 +20,8 @@ class RsvpController < ApplicationController
     guest.email = email
 
     if guest.save
+      CommonMailer.invite_email(guest).deliver_later
+
       render json: { succeeded: true, result: guest.to_json }
     else
       reject_request(error: 'ValidationFailed',
@@ -45,27 +47,29 @@ class RsvpController < ApplicationController
                           message: 'Missing email field',
                           action: ['Retry']) unless email
 
-    g = Guest.find_by(email:email, invite_token: token)
+    guest = Guest.find_by(email:email, invite_token: token)
     return reject_request(error: 'GuestNotFound',
                           message: 'The requested guest invite could not be found',
-                          action: ['Stop']) unless g
+                          action: ['Stop']) unless guest
 
 
     return reject_request(error: 'ValidationFailed',
                           message: 'The requested guest invite is already confirmed',
-                          action: ['Retry']) if g.rsvp
+                          action: ['Retry']) if guest.rsvp
 
-    g.name = name
-    g.email = email
+    guest.name = name
+    guest.email = email
 
-    g.rsvp = true
-    g.qr_code = Digest::SHA1.hexdigest([Time.now, rand].join)
+    guest.rsvp = true
+    guest.qr_code = Digest::SHA1.hexdigest([Time.now, rand].join)
 
-    if g.save
-      render json: { succeeded: true, result: g.to_json }
+    if guest.save
+      CommonMailer.confirm_email(guest).deliver_later
+
+      render json: { succeeded: true, result: guest.to_json }
     else
       reject_request(error: 'ValidationFailed',
-                            message: g.errors,
+                            message: guest.errors,
                             action: ['Retry'])
     end
   end
