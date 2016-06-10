@@ -1,4 +1,4 @@
-angular.module('asics').controller('AdminCtrl', [
+angular.module('asics').controller('GuestsCtrl', [
     '$mdToast',
     '$q',
     '$scope',
