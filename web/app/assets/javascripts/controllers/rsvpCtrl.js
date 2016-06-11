@@ -61,7 +61,6 @@ angular.module('asics').controller('RsvpCtrl', [
             };
             $scope.userForm.$setPristine();
             $scope.userForm.email.$touched = false;
-            $scope.userForm.phone.$touched = false;
             $scope.userForm.name.$touched = false;
             $scope.userForm.birthday.$touched = false;
         }
