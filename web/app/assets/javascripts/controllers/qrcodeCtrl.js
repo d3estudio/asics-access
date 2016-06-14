@@ -6,5 +6,5 @@ angular.module('asics').controller('QrcodeCtrl', [
     'rsvp',
     function ($scope, $state, $mdToast, $stateParams, rsvp) {
         $scope.guest = $state.params.guest;
-
+        
     }]);

@@ -30,6 +30,7 @@ asics.config([
                 controller: 'RsvpCtrl'
             })
             .state('qrcode', {
+                url: '/rsvp/confirmed',
                 params: {guest:null},
                 templateUrl: 'views/qrcode',
                 controller: 'QrcodeCtrl'

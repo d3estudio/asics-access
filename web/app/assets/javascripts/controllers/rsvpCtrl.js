@@ -10,7 +10,7 @@ angular.module('asics').controller('RsvpCtrl', [
 
         $scope.confirmInvitation = function () {
             rsvp.postConfirm($scope.guest)
-                .then(showQrcode($scope.guest))
+                .then(showQrcode)
                 .catch(errorToast);
         };
 
