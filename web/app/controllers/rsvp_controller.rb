@@ -63,10 +63,8 @@ class RsvpController < ApplicationController
     guest.rsvp = true
     guest.qr_code = Digest::SHA1.hexdigest([Time.now, rand].join)
 
-    if guest.save
-      CommonMailer.confirm_email(guest).deliver_later
-
-      render json: { succeeded: true, result: guest }
+    if g.save
+      render json: { succeeded: true, result: g.to_json }
     else
       reject_request(error: 'ValidationFailed',
                             message: guest.errors,
