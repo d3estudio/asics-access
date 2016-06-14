@@ -10,7 +10,7 @@ angular.module('asics').controller('RsvpCtrl', [
 
         $scope.confirmInvitation = function () {
             rsvp.postConfirm($scope.guest)
-                .then(showQrcode)
+                .then(showQrcode($scope.guest))
                 .catch(errorToast);
         };
 
@@ -24,8 +24,8 @@ angular.module('asics').controller('RsvpCtrl', [
             );
         }
         
-        function showQrcode() {
-            $state.go('qrcode');
+        function showQrcode(data) {
+            $state.go('qrcode', {guest:data});
         }
 
         $scope.$on('$viewContentLoaded', function () {
@@ -38,7 +38,6 @@ angular.module('asics').controller('RsvpCtrl', [
                 email: $stateParams.email,
                 name: '',
                 birthday: '',
-                phone: '',
                 isVegan: false,
                 dontDrink: false
             };

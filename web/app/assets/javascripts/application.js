@@ -32,6 +32,7 @@
 //= require services/authFactory.js
 //= require services/adminFactory.js
 //= require controllers/rsvpCtrl.js
+//= require controllers/qrcodeCtrl.js
 //= require controllers/authCtrl.js
 //= require controllers/invitationCtrl.js
 //= require controllers/guestsCtrl.js
