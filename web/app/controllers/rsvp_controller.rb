@@ -24,7 +24,7 @@ class RsvpController < ApplicationController
 
 
     return reject_request(error: 'ValidationFailed',
-                          message: 'The requested guest invite is already confirmed',
+                          message: 'Convite já confirmado',
                           action: ['Retry']) if guest.rsvp
 
     guest.name = name

@@ -29,6 +29,10 @@ asics.config([
                 templateUrl: 'views/rsvp',
                 controller: 'RsvpCtrl'
             })
+            .state('rsvp.confirmed', {
+                templateUrl: 'views/confirmed',
+                controller: 'RsvpCtrl'
+            })
             .state('admin', {
                 url: '/admin',
                 redirectTo: 'admin.invitation',
