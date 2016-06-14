@@ -9,9 +9,10 @@ angular.module('asics').controller('RsvpCtrl', [
         $scope.guest = {};
 
         $scope.confirmInvitation = function () {
-            rsvp.postConfirm($scope.guest)
-                .then(showQrcode)
-                .catch(errorToast);
+            showQrcode($scope.guest)
+            // rsvp.postConfirm($scope.guest)
+            //     .then(showQrcode)
+            //     .catch(errorToast);
         };
 
         function errorToast(error) {
@@ -25,7 +26,8 @@ angular.module('asics').controller('RsvpCtrl', [
         }
         
         function showQrcode(data) {
-            $state.go('qrcode', {guest:data});
+            $state.go('.confirmed');
+            // $state.go("rsvp.confirmed", {location: true, notify: false, reload: false})
         }
 
         $scope.$on('$viewContentLoaded', function () {
@@ -41,10 +43,12 @@ angular.module('asics').controller('RsvpCtrl', [
                 isVegan: false,
                 dontDrink: false
             };
-            $scope.userForm.$setPristine();
-            $scope.userForm.email.$touched = false;
-            $scope.userForm.name.$touched = false;
-            $scope.userForm.birthday.$touched = false;
+            if ($scope.userForm) {
+                $scope.userForm.$setPristine();
+                $scope.userForm.email.$touched = false;
+                $scope.userForm.name.$touched = false;
+                $scope.userForm.birthday.$touched = false;
+            }
         }
     }]);
 
