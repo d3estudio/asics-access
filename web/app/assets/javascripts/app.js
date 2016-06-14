@@ -30,7 +30,7 @@ asics.config([
                 template: '<ui-view/>'
             })
             .state('rsvp.confirm', {
-                url: '/:email/:token',
+                url: '/confirm/:token',
                 templateUrl: 'views/rsvp',
                 controller: 'RsvpCtrl'
             })

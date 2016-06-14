@@ -18,7 +18,6 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
         return $http.post('/api/admin/invite', guest)
             .then(
                 function(response) {
-                    console.log(response.data.result);
                     return response.data.result
                 },
                 function (error) {

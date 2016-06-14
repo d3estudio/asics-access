@@ -28,26 +28,14 @@ angular.module('asics').controller('RsvpCtrl', [
             $state.go("rsvp.confirmed", {guest: $scope.guest})
         }
 
-        $scope.$on('$viewContentLoaded', function () {
-            clearForm();
-        });
-
-        function clearForm() {
-            $scope.guest = {
-                invite_token: $stateParams.token,
-                email: $stateParams.email,
-                name: '',
-                birthday: '',
-                isVegan: false,
-                dontDrink: false
-            };
-            if ($scope.userForm) {
-                $scope.userForm.$setPristine();
-                $scope.userForm.email.$touched = false;
-                $scope.userForm.name.$touched = false;
-                $scope.userForm.birthday.$touched = false;
-            }
-        }
+        rsvp.getGuestByToken($stateParams.token)
+            .then(function(guest) {
+                console.log(guest);
+                angular.copy(guest, $scope.guest)
+            })
+            .catch(function(error) {
+                console.log(error)
+            })
     }]);
 
 
