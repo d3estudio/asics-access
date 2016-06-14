@@ -9,10 +9,9 @@ angular.module('asics').controller('RsvpCtrl', [
         $scope.guest = {};
 
         $scope.confirmInvitation = function () {
-            showQrcode($scope.guest)
-            // rsvp.postConfirm($scope.guest)
-            //     .then(showQrcode)
-            //     .catch(errorToast);
+            rsvp.postConfirm($scope.guest)
+                .then(toStateConfirmed)
+                .catch(errorToast);
         };
 
         function errorToast(error) {
@@ -24,10 +23,9 @@ angular.module('asics').controller('RsvpCtrl', [
                     .theme('error-toast')
             );
         }
-        
-        function showQrcode(data) {
-            $state.go('.confirmed');
-            // $state.go("rsvp.confirmed", {location: true, notify: false, reload: false})
+
+        function toStateConfirmed() {
+            $state.go("rsvp.confirmed", {guest: $scope.guest})
         }
 
         $scope.$on('$viewContentLoaded', function () {

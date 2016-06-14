@@ -25,13 +25,20 @@ asics.config([
                 templateUrl: 'views/index'
             })
             .state('rsvp', {
-                url: '/rsvp/:email/:token',
+                url: '/rsvp',
+                redirectTo: 'home',
+                template: '<ui-view/>'
+            })
+            .state('rsvp.confirm', {
+                url: '/:email/:token',
                 templateUrl: 'views/rsvp',
                 controller: 'RsvpCtrl'
             })
             .state('rsvp.confirmed', {
+                url: '/confirmed',
+                params: {guest: null},
                 templateUrl: 'views/confirmed',
-                controller: 'RsvpCtrl'
+                controller: 'RsvpConfirmedCtrl'
             })
             .state('admin', {
                 url: '/admin',
