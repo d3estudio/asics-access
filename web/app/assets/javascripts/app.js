@@ -29,6 +29,11 @@ asics.config([
                 templateUrl: 'views/rsvp',
                 controller: 'RsvpCtrl'
             })
+            .state('qrcode', {
+                url: '/rsvp/:email/:token/confirmed',
+                templateUrl: 'views/qrcode',
+                controller: 'RsvpCtrl'
+            })
             .state('admin', {
                 url: '/admin',
                 redirectTo: 'admin.invitation',

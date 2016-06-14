@@ -1,20 +1,18 @@
 angular.module('asics').controller('RsvpCtrl', [
     '$scope',
-    '$mdDialog',
+    '$state',
     '$mdToast',
     '$stateParams',
     'rsvp',
-    function ($scope, $mdDialog, $mdToast, $stateParams, rsvp) {
+    function ($scope, $state, $mdToast, $stateParams, rsvp) {
         $scope.result = '';
         $scope.guest = {};
 
         $scope.confirmInvitation = function () {
             rsvp.postConfirm($scope.guest)
-                .then(showDialog)
+                .then(showQrcode)
                 .catch(errorToast);
         };
-
-
 
         function errorToast(error) {
             $mdToast.show(
@@ -25,25 +23,10 @@ angular.module('asics').controller('RsvpCtrl', [
                     .theme('error-toast')
             );
         }
-
-        function showDialog(guest) {
-            $mdDialog.show({
-                controller: DialogController,
-                templateUrl: 'tabDialog.confirm.html',
-                parent: angular.element(document.body),
-                clickOutsideToClose: true,
-                locals: {
-                    data: guest
-                }
-            }).then(function () {
-                //confirm callback
-                // form.subscribeGroup(data, subscribeCallback);
-            }, function () {
-                //cancel callback
-            });
+        
+        function showQrcode() {
+            $state.go('qrcode');
         }
-
-
 
         $scope.$on('$viewContentLoaded', function () {
             clearForm();
@@ -65,19 +48,6 @@ angular.module('asics').controller('RsvpCtrl', [
             $scope.userForm.birthday.$touched = false;
         }
     }]);
-
-
-function DialogController($scope, $mdDialog, data) {
-    $scope.guest = data;
-
-    $scope.confirm = function () {
-        $mdDialog.hide();
-    };
-
-    $scope.cancel = function () {
-        $mdDialog.cancel();
-    };
-}
 
 
 angular.module('asics')

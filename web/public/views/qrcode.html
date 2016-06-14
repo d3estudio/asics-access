@@ -1,0 +1,23 @@
+<md-content id="main-container" class="md-padding">
+    <div id="form-content" layout="row">
+        <md-card flex-offset-gt-sm="15" flex-gt-sm="66" flex="flex">
+            <md-card-content>
+                <div class="container-fluid">
+                    <h2 class="md-padding">Casa Asics</h2>
+                    <h3>{{ guest.name }}, Esse é seu código para entrar no evento</h3>
+                    <div style="margin-bottom: 40px">
+                        <p ng-repeat="info in confInfo.payment.infos track by $index" ng-bind-html="info | to_html" class="item md-padding"></p>
+                    </div>
+                    <div>
+                        <div layout="row" class="qrcode-container">
+                            <qrcode data="string" size="200" download=""></qrcode>
+                        </div>
+                        <div layout="row" layout-align-gt-xs="end" layout-align="center">
+                            <md-button ng-click="confirm()" class="md-raised button-dark">OK</md-button>
+                        </div>
+                    </div>
+                </div>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>
