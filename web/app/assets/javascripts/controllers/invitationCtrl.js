@@ -32,7 +32,6 @@ angular.module('asics').controller('InvitationCtrl', [
         }
 
         function successToast(guest) {
-            console.log(guest);
             $mdToast.show(
                 $mdToast.simple()
                     .textContent("Convite para " + guest.name + " enviado com sucesso!")
