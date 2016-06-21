@@ -520,26 +520,62 @@
 <%= yield %>
 
 
-<table width="100%" bgcolor="#5D5D5D" cellpadding="0" cellspacing="0" border="0" id="backgroundTable" st-sortable="full-text">
-    <tbody>
+<!-- START FOOTER -->
     <tr>
-        <td height="30"
-            style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">
-            &nbsp;</td>
-    </tr>
-    <tr>
-        <td style="font-family: Helvetica, arial, sans-serif; font-size: 12px; text-align: center; color: #848484; line-height: 14px;">
-            E-mail enviado para <%= @user.email %>.<br>
-            Você está recebendo essa mensagem por ter sido convidado para o evento casa Asics.
+        <td id="footer-region-back" align="center"
+            style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;background-color:#5D5D5D;">
+            <center class="wrapper"
+                    style="width:100%;table-layout:fixed;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;">
+                <div class="webkit" style="max-width:600px;">
+
+                    <!--[if (gte mso 9)|(IE)]>
+                    <table width="600" align="center" border="0" cellpadding="0" cellspacing="0"
+                           style="border-spacing:0;font-family:sans-serif, 'Roboto';">
+                        <tr>
+                            <td style="padding-top:0;padding-bottom:0;padding-right:0;padding-left:0;">
+                    <![endif]-->
+
+                    <table class="outer" align="center" border="0" cellpadding="0" cellspacing="0"
+                           style="border-spacing:0;font-family:sans-serif, 'Roboto';Margin:0 auto;width:100%;max-width:600px;">
+                        <tr>
+                            <td id="footer" class="padding-topbottom-10"
+                                style="padding-top:10px;padding-bottom:10px;padding-right:0;padding-left:0;">
+                                <table width="100%" border="0" cellpadding="0" cellspacing="0"
+                                       style="border-spacing:0;font-family:sans-serif, 'Roboto';">
+                                    <tr>
+                                        <td height="30"
+                                            style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">
+                                            &nbsp;</td>
+                                    </tr>
+                                    <tr>
+                                        <td style="font-family: Helvetica, arial, sans-serif; font-size: 12px; text-align: center; color: #848484; line-height: 14px;">
+                                            E-mail enviado para <%= @user.email %>.<br>
+                                            Você está recebendo essa mensagem por ter sido convidado para o evento casa
+                                            Asics.
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td height="50"
+                                            style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">
+                                            &nbsp;</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!--[if (gte mso 9)|(IE)]>
+                    </td>
+                    </tr>
+                    </table>
+                    <![endif]-->
+
+                </div>
+            </center>
         </td>
     </tr>
-    <tr>
-        <td height="50"
-            style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;">
-            &nbsp;</td>
-    </tr>
-    </tbody>
-</table>
+    <!-- END FOOTER -->
 
+</table>
 </body>
 </html>
