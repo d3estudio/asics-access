@@ -3,7 +3,7 @@ class CommonMailer < ApplicationMailer
 
   def confirm_email(user)
     @user = user
-    @qr = RQRCode::QRCode.new( user.qr_code, :size => 5, :level => :h )
+    @qr_code_html = RQRCode::QRCode.new( user.qr_code, :size => 5, :level => :h ).as_html
     mail(to: @user.email, subject: 'Confirmação Asics Hub')
   end
 
