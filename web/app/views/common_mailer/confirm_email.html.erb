@@ -79,11 +79,8 @@
                                                 <!-- qrcode -->
                                                 <tr>
                                                     <td align="center">
-                                                        <div id="qrcode" height="210" width="210"
-                                                             style="margin: 0 auto; background-color:#FFFFFF; padding: 10px; border-radius: 5px; width: 210px; height: 210px;">
-                                                            <img src="http://imagehosting.io/images/2016/06/20/qrcode.png"
-                                                                 height="200" width="200" alt="" border="0"
-                                                                 style="display:block; border:none; outline:none; text-decoration:none;">
+                                                        <div id="qrcode" height="210" width="210" style="margin: 0 auto; background-color:#FFFFFF; padding: 10px; border-radius: 5px; width: 230px; height: 210px;">
+                                                            <%= raw @qr.as_html %>
                                                         </div>
                                                     </td>
                                                 </tr>
