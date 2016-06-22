@@ -24,8 +24,8 @@ angular.module('asics').controller('RsvpCtrl', [
             );
         }
 
-        function toStateConfirmed() {
-            $state.go("rsvp.confirmed", {guest: $scope.guest})
+        function toStateConfirmed(response) {
+            $state.go("rsvp.confirmed", {guest: response})
         }
 
         rsvp.getGuestByToken($stateParams.token)
