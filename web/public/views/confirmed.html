@@ -10,7 +10,7 @@
                     </div>
                     <div>
                         <div layout="row" class="qrcode-container">
-                            <qrcode data="string" size="200" download=""></qrcode>
+                            <qrcode data="{{ guest.qr_code }}" size="200" download=""></qrcode>
                         </div>
                         <div layout="row" layout-align-gt-xs="end" layout-align="center">
                             <md-button ng-click="confirm()" class="md-raised button-dark">OK</md-button>

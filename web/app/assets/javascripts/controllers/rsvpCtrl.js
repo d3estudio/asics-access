@@ -30,7 +30,6 @@ angular.module('asics').controller('RsvpCtrl', [
 
         rsvp.getGuestByToken($stateParams.token)
             .then(function(guest) {
-                console.log(guest);
                 angular.copy(guest, $scope.guest)
             })
             .catch(function(error) {
