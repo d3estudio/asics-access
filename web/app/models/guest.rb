@@ -7,6 +7,7 @@
 #  email        :string
 #  invite_token :string
 #  qr_code      :string
+#  occupation   :string
 #  rsvp         :boolean
 #  presence     :boolean
 #  vegetarian   :boolean
@@ -32,6 +33,7 @@ class Guest < ApplicationRecord
       self.invite_token = Digest::SHA1.hexdigest([Time.now, rand].join) if self.invite_token.nil?
       self.rsvp = false if self.rsvp.nil?
       self.presence = false if self.presence.nil?
+      self.occupation = 'other' if self.occupation.nil?
       # ...
     end
 end

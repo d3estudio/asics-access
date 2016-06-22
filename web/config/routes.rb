@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   post '/api/gateway/guests/since', to: 'gateway#get_guests_updated_since'
   get '/api/gateway/guests/all', to: 'gateway#get_all_guests'
+  post '/api/gateway/logs/log', to: 'gateway#log_logs'
 
   root to: 'welcome#index'
   get '*path', to: 'welcome#index'

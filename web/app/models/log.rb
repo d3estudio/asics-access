@@ -16,5 +16,5 @@ class Log < ApplicationRecord
   validates :action, presence: true
 
   # TODO: Define any other actions here
-  enum action: [ :created ]
+  enum action: [ :checkin, :created, :emailsent, :rsvp ]
 end
