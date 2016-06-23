@@ -38,3 +38,4 @@
 //= require controllers/admin/invitationCtrl.js
 //= require controllers/admin/guestsCtrl.js
 //= require controllers/admin/logsCtrl.js
+//= require directives/guestDirective.js

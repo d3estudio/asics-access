@@ -29,8 +29,9 @@ class AdminController < ApplicationController
     end
   end
 
-  private
-    def guest_create_fields
-      params.require(:guest).permit(:name, :email, :vegetarian, :alcohol)
-    end
+  def get_guests
+    guests = Guest.all
+
+    render json: { succeeded: true, result: { guests: guests } }
+  end
 end
