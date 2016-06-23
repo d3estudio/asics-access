@@ -22,8 +22,11 @@
     </div>
     <div id="admin-form-occupation" layout="row" class="admin-form">
         <md-input-container flex="85">
-            <label>Área de atuação</label>
-            <input ng-model="guest.occupation" name="occupation"/>
+            <label>Área de atuação *</label>
+            <input ng-model="guest.occupation" name="occupation" required="required"/>
+            <div ng-messages="guest.occupation.$error">
+                <div ng-message="required">Por favor, preencha a área de atuação do convidado</div>
+            </div>
         </md-input-container>
         <md-input-container flex="15">
             <label>Idioma</label>
