@@ -13,7 +13,7 @@ h1
   font-family: $roboto
   font-size: 50px
   font-weight: 300
-  color: $light-primary-color
+  color: $primary-text
   @include media(xs)
     font-size: 30px
 
@@ -46,12 +46,15 @@ input
   qrcode
     margin: 0 auto
 
+
+.admin-content
+  padding: 40px 20px
+
 h3.guest-name
   color: $secondary-accent-color
   font-weight: 700
 
-.button-resend-invitation
-  position: absolute
+.button-invitation
   right: 80px
   margin-top: 12px
 
@@ -81,3 +84,4 @@ md-radio-button.md-checked .md-off
 
 md-radio-button .md-on
   background-color: $accent-color
+

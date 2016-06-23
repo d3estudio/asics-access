@@ -1,23 +1,33 @@
-<md-content id="main-container" class="md-padding">
-    <div id="form-content" layout="row">
-        <md-card flex-offset-gt-sm="20" flex-gt-sm="60" flex="flex">
-            <md-card-content>
-                <div class="container-fluid">
-                    <h2 class="md-padding">Casa Asics</h2>
-                    <h3 class="md-padding">Lista de todos os convidados</h3>
-                    <md-list>
-                        <md-list-item ng-repeat="guest in guests" class="md-2-line">
-                            <img class="md-avatar">
-                            <div class="md-list-item-text">
-                                <h3 class="guest-name md-body-2">{{guest.name}}</h3>
-                                <p class="guest-email md-body-2">{{guest.email}}</p>
-                            </div>
+<div class="admin-content" layout="row">
+    <div class="container-fluid" flex="flex">
+        <div layout="row" class="text-center">
+            <md-card flex="30" class="layout-padding">
+                <h1>300</h1>
+                <div>Confirmações totais</div>
+            </md-card>
+            <md-card flex="30" class="layout-padding">
+                <h1>14</h1>
+                <div class="">Atletas confirmados</div>
+            </md-card>
+            <md-card flex="30" class="layout-padding">
+                <h1>286</h1>
+                <div class="">Convidados confirmados</div>
+            </md-card>
+        </div>
 
-                            <md-button class="button-resend-invitation md-raised">Reenviar convite</md-button>
-                        </md-list-item>
-                    </md-list>
+        <md-list>
+            <md-list-item ng-repeat="guest in guests" class="md-3-line" layout="row">
+                <img class="md-avatar">
+                <div class="md-list-item-text">
+                    <h3 class="guest-name md-body-2">{{guest.name}}</h3>
+                    <p class="guest-email md-body-2">{{guest.email}}</p>
+                    <p class="guest-email md-body-2">Atleta</p>
                 </div>
-            </md-card-content>
-        </md-card>
+
+                <md-button class="button-invitation md-raised">Reenviar convite</md-button>
+                <md-button class="button-invitation md-raised">Excluir</md-button>
+                <md-button class="button-invitation" ng-disabled="true">Waiting</md-button>
+            </md-list-item>
+        </md-list>
     </div>
-</md-content>
+</div>
