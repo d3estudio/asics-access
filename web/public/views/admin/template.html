@@ -1,0 +1,14 @@
+<md-content id="main-container" class="md-padding">
+    <div id="admin-content" layout="row">
+        <md-card flex-offset-gt-sm="20" flex-gt-sm="60" flex="flex">
+            <md-card-content>
+                <md-tabs md-selected="selectedTab">
+                    <md-tab label="Editar" ui-sref="admin.guests"></md-tab>
+                    <md-tab label="Convidar" ui-sref="admin.invitation"></md-tab>
+                    <md-tab label="Acessos" ui-sref="admin.logs"></md-tab>
+                </md-tabs>
+                <div ui-view></div>
+            </md-card-content>
+        </md-card>
+    </div>
+</md-content>
