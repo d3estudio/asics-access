@@ -22,7 +22,7 @@ asics.config([
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: 'views/index'
+                templateUrl: '/views/index'
             })
             .state('rsvp', {
                 url: '/rsvp',
@@ -31,19 +31,20 @@ asics.config([
             })
             .state('rsvp.confirm', {
                 url: '/confirm/:token',
-                templateUrl: 'views/rsvp',
+                templateUrl: '/views/rsvp',
                 controller: 'RsvpCtrl'
             })
             .state('rsvp.confirmed', {
                 url: '/confirmed',
                 params: {guest: null},
-                templateUrl: 'views/confirmed',
+                templateUrl: '/views/confirmed',
                 controller: 'RsvpConfirmedCtrl'
             })
             .state('admin', {
                 url: '/admin',
-                redirectTo: 'admin.invitation',
-                template: '<ui-view/>'
+                redirectTo: 'admin.guests',
+                templateUrl: '/views/admin/template',
+                controller: 'AdminCtrl'
 			})
             .state('admin.invitation', {
                 url: '/invitation',
@@ -55,10 +56,10 @@ asics.config([
                 templateUrl: '/views/admin/guests',
                 controller: 'GuestsCtrl'
             })
-            .state('login', {
-                url: '/admin/login',
-                templateUrl: 'views/admin/login',
-                controller: 'AuthCtrl'
+            .state('admin.logs', {
+                url: '/logs',
+                templateUrl: '/views/admin/logs',
+                controller: 'LogsCtrl'
             });
 
         $mdThemingProvider.theme('default')

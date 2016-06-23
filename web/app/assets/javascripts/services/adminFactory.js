@@ -1,11 +1,11 @@
 angular.module('asics').factory('admin', ['$http', function ($http) {
     var o = {};
 
-    o.getAllAthletes = function () {
-        return $http.get('/api/athlete/all')
+    o.getGuests = function () {
+        return $http.get('/api/admin/guests')
             .then(
                 function (response) {
-                    return response.data
+                    return response.data.result
                 },
                 function (error) {
                     return {

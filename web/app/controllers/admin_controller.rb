@@ -3,20 +3,20 @@ class AdminController < ApplicationController
 
 
   def invite_guest
+    require_fields('hi')
     name = params[:name]
     email = params[:email]
+    occupation = params[:occupation]
+    language = params[:language]
 
-    return reject_request(error: 'MissingField',
-                          message: 'Missing name field',
-                          action: ['Retry']) unless name
-    return reject_request(error: 'MissingField',
-                          message: 'Missing email field',
-                          action: ['Retry']) unless email
+    require_fields([ name, email, occupation, language ])
 
     guest = Guest.new
 
     guest.name = name
     guest.email = email
+    guest.occupation = occupation
+    guest.language = language
 
     if guest.save
       CommonMailer.invite_email(guest).deliver_later
@@ -29,8 +29,9 @@ class AdminController < ApplicationController
     end
   end
 
-  private
-    def guest_create_fields
-      params.require(:guest).permit(:name, :email, :vegetarian, :alcohol)
-    end
+  def get_guests
+    guests = Guest.all
+
+    render json: { succeeded: true, result: { guests: guests } }
+  end
 end

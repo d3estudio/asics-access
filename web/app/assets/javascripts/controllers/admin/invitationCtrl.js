@@ -22,6 +22,8 @@ angular.module('asics').controller('InvitationCtrl', [
         });
 
         function errorToast(error) {
+            console.error(error);
+
             $mdToast.show(
                 $mdToast.simple()
                     .textContent("Erro ao enviar convite: " + error)
