@@ -7,4 +7,9 @@ module ApplicationHelper
               action: params[:action]
             }
   end
+
+
+  def require_fields(fields = [])
+
+  end
 end

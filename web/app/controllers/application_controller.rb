@@ -4,4 +4,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   include ApplicationHelper
+
+  def layout
+    render template: "layouts/application"
+  end
 end

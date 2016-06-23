@@ -3,8 +3,11 @@ class AdminController < ApplicationController
 
 
   def invite_guest
+    require_fields('hi')
     name = params[:name]
     email = params[:email]
+    occupation = params[:occupation]
+    language = params[:language]
 
     return reject_request(error: 'MissingField',
                           message: 'Missing name field',

@@ -10,6 +10,6 @@ Rails.application.routes.draw do
   get '/api/gateway/guests/all', to: 'gateway#get_all_guests'
   post '/api/gateway/logs/log', to: 'gateway#log_logs'
 
-  root to: 'welcome#index'
-  get '*path', to: 'welcome#index'
+  get '*path', to: 'application#layout'
+  root to: 'application#layout'
 end
