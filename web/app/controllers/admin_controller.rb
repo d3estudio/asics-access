@@ -9,17 +9,14 @@ class AdminController < ApplicationController
     occupation = params[:occupation]
     language = params[:language]
 
-    return reject_request(error: 'MissingField',
-                          message: 'Missing name field',
-                          action: ['Retry']) unless name
-    return reject_request(error: 'MissingField',
-                          message: 'Missing email field',
-                          action: ['Retry']) unless email
+    require_fields([ name, email, occupation, language ])
 
     guest = Guest.new
 
     guest.name = name
     guest.email = email
+    guest.occupation = occupation
+    guest.language = language
 
     if guest.save
       CommonMailer.invite_email(guest).deliver_later
