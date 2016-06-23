@@ -1,39 +1,36 @@
-<div class="admin-content" layout="row">
-    <div class="container-fluid" flex="flex">
-        <!--<div layout="row" class="text-center">-->
-            <!--<md-card flex="33" class="layout-padding">-->
-                <!--<h1>300</h1>-->
-                <!--<div>Convidados totais na casa</div>-->
-            <!--</md-card>-->
-            <!--<md-card flex="33" class="layout-padding">-->
-                <!--<h1>14</h1>-->
-                <!--<div class="">Atletas na casa</div>-->
-            <!--</md-card>-->
-            <!--<md-card flex="33" class="layout-padding">-->
-                <!--<h1>286</h1>-->
-                <!--<div class="">Convidados na casa</div>-->
-            <!--</md-card>-->
-        <!--</div>-->
+<!--<div layout="row" class="text-center">-->
+<!--<md-card flex="33" class="layout-padding">-->
+<!--<h1>300</h1>-->
+<!--<div>Convidados totais na casa</div>-->
+<!--</md-card>-->
+<!--<md-card flex="33" class="layout-padding">-->
+<!--<h1>14</h1>-->
+<!--<div class="">Atletas na casa</div>-->
+<!--</md-card>-->
+<!--<md-card flex="33" class="layout-padding">-->
+<!--<h1>286</h1>-->
+<!--<div class="">Convidados na casa</div>-->
+<!--</md-card>-->
+<!--</div>-->
 
-        <md-list>
-            <md-list-item ng-repeat="guest in guests" class="md-3-line" layout="row">
-                <div class="md-list-item-text">
-                    <h2>20 min</h2>
-                    <p class="log-time">12/12/16 - 14:20:30</p>
-                </div>
+<md-list>
+    <md-list-item ng-repeat="guest in guests" class="md-3-line" layout="row">
+        <div class="md-list-item-text">
+            <h2>20 min</h2>
+            <p class="log-time">12/12/16 - 14:20:30</p>
+        </div>
 
-                <div class="md-list-item-text">
-                    <h3 class="guest-name md-body-2">{{guest.name}}</h3>
-                    <p class="guest-email md-body-2">{{guest.email}}</p>
-                    <p class="guest-type">Atleta</p>
-                </div>
+        <div class="md-list-item-text">
+            <h3 class="guest-name md-body-2">{{guest.name}}</h3>
+            <p class="guest-email md-body-2">{{guest.email}}</p>
+            <p class="guest-type">Atleta</p>
+        </div>
 
-                <div class="button-invitation-container">
-                    <md-button class="button-invitation" ng-disabled="true">2 códigos gerados</md-button>
-                    <md-button class="button-invitation" ng-disabled="true">1 crachá</md-button>
-                    <md-button class="button-invitation md-raised md-warn">Revogar</md-button>
-                </div>
-            </md-list-item>
-        </md-list>
-    </div>
-</div>
+        <div class="button-invitation-container">
+            <md-button class="button-invitation" ng-disabled="true">2 códigos gerados</md-button>
+            <md-button class="button-invitation" ng-disabled="true">1 crachá</md-button>
+            <md-button class="button-invitation md-raised md-warn">Revogar</md-button>
+        </div>
+    </md-list-item>
+</md-list>
+

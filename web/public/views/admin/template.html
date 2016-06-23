@@ -11,7 +11,11 @@
                     <md-tab label="Convidar" ui-sref="admin.invitation"></md-tab>
                     <md-tab label="Acessos" ui-sref="admin.logs"></md-tab>
                 </md-tabs>
-                <div ui-view></div>
+                <div class="admin-content" layout="row">
+                    <div class="container-fluid" flex="flex">
+                        <div ui-view></div>
+                    </div>
+                </div>
             </md-card-content>
         </md-card>
     </div>
