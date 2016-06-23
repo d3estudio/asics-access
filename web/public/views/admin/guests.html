@@ -14,19 +14,6 @@
 </div>
 
 <md-list>
-    <md-list-item ng-repeat="guest in guests" class="md-3-line" layout="row">
-        <img class="md-avatar">
-        <div class="md-list-item-text">
-            <h3 class="guest-name md-body-2">{{guest.name}}</h3>
-            <p class="guest-email md-body-2">{{guest.email}}</p>
-            <p class="guest-type">Atleta</p>
-        </div>
-
-        <div class="button-invitation-container">
-            <md-button class="button-invitation" ng-disabled="true">Waiting</md-button>
-            <md-button class="button-invitation md-raised">Reenviar convite</md-button>
-            <md-button class="button-invitation md-raised">Excluir</md-button>
-        </div>
+    <md-list-item ng-repeat="guest in guests" my-guest="guest" class="md-3-line" layout="row">
     </md-list-item>
 </md-list>
-

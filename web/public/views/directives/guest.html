@@ -1,7 +1,17 @@
 <img class="md-avatar">
+
 <div class="md-list-item-text">
     <h3 class="guest-name md-body-2">{{guest.name}}</h3>
     <p class="guest-email md-body-2">{{guest.email}}</p>
+    <p class="guest-occupation">{{guest.occupation}}</p>
 </div>
 
-<md-button class="button-resend-invitation md-raised">Reenviar convite</md-button>
+<div class="button-invitation-container">
+    <md-button ng-if="!guest.rsvp" class="button-invitation" ng-disabled="true">Aguardando</md-button>
+    <md-button ng-if="!guest.rsvp" class="button-invitation md-raised">Reenviar convite</md-button>
+
+    <md-button ng-if="guest.rsvp" class="button-invitation" ng-disabled="true">Confirmado</md-button>
+    <md-button ng-if="guest.rsvp" class="button-invitation md-raised">Reenviar QR-Code</md-button>
+
+    <md-button class="button-invitation md-raised">Excluir</md-button>
+</div>

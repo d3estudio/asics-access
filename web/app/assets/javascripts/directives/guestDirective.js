@@ -22,7 +22,7 @@ angular.module('asics').directive('myGuest',  [
         return {
             link: link,
             scope: {
-                guest: '='
+                guest: '=myGuest'
             },
             templateUrl: '/views/directives/guest'
         };
