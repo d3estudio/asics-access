@@ -1,10 +1,9 @@
 <div class="admin-content" layout="row">
-    <div class="container-fluid">
-        <h2 class="md-padding">Casa Asics</h2>
-        <h3 class="md-padding">Preencha os campos abaixo para realizar o convite</h3>
-        <form name="adminForm" class="md-padding">
-            <div id="admin-form-name" layout-gt-xs="row" class="admin-form">
-                <md-input-container flex-gt-xs="100" class="md-block">
+    <div class="container-fluid" flex="flex">
+        <h3>Preencha os campos abaixo para realizar o convite</h3>
+        <form name="adminForm">
+            <div id="admin-form-name" layout="row" class="admin-form">
+                <md-input-container flex="flex" class="md-block">
                     <label>Nome *</label>
                     <input ng-model="guest.name" name="name" ng-required="!isAthlete" names-only="names-only"/>
                     <div ng-messages="guest.name.$error">
@@ -12,8 +11,8 @@
                     </div>
                 </md-input-container>
             </div>
-            <div id="admin-form-email" layout-gt-xs="row" class="admin-form">
-                <md-input-container flex-gt-xs="100" class="md-block">
+            <div id="admin-form-email" layout="row" class="admin-form">
+                <md-input-container flex="flex" class="md-block">
                     <label>Email para envio do convite *</label>
                     <input ng-model="guest.email" name="email" type="email" minlength="5" maxlength="100"
                            ng-pattern="/^.+@.+..+$/" required="required"/>
@@ -23,8 +22,8 @@
                     </div>
                 </md-input-container>
             </div>
-            <div id="admin-form-occupation" layout-gt-xs="row" class="admin-form">
-                <md-input-container flex-gt-xs="100" class="md-block">
+            <div id="admin-form-occupation" layout="row" class="admin-form">
+                <md-input-container flex="flex" class="md-block">
                     <label>Área de atuação</label>
                     <input ng-model="guest.occupation" name="occupation"/>
                 </md-input-container>

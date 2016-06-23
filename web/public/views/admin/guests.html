@@ -1,15 +1,15 @@
 <div class="admin-content" layout="row">
     <div class="container-fluid" flex="flex">
         <div layout="row" class="text-center">
-            <md-card flex="30" class="layout-padding">
+            <md-card flex="33" class="layout-padding">
                 <h1>300</h1>
                 <div>Confirmações totais</div>
             </md-card>
-            <md-card flex="30" class="layout-padding">
+            <md-card flex="33" class="layout-padding">
                 <h1>14</h1>
                 <div class="">Atletas confirmados</div>
             </md-card>
-            <md-card flex="30" class="layout-padding">
+            <md-card flex="33" class="layout-padding">
                 <h1>286</h1>
                 <div class="">Convidados confirmados</div>
             </md-card>
@@ -21,12 +21,14 @@
                 <div class="md-list-item-text">
                     <h3 class="guest-name md-body-2">{{guest.name}}</h3>
                     <p class="guest-email md-body-2">{{guest.email}}</p>
-                    <p class="guest-email md-body-2">Atleta</p>
+                    <p class="guest-type">Atleta</p>
                 </div>
 
-                <md-button class="button-invitation md-raised">Reenviar convite</md-button>
-                <md-button class="button-invitation md-raised">Excluir</md-button>
-                <md-button class="button-invitation" ng-disabled="true">Waiting</md-button>
+                <div class="button-invitation-container">
+                    <md-button class="button-invitation" ng-disabled="true">Waiting</md-button>
+                    <md-button class="button-invitation md-raised">Reenviar convite</md-button>
+                    <md-button class="button-invitation md-raised">Excluir</md-button>
+                </div>
             </md-list-item>
         </md-list>
     </div>

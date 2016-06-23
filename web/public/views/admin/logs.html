@@ -1,27 +1,39 @@
 <div class="admin-content" layout="row">
-    <div class="container-fluid">
-        <h2 class="md-padding">Login</h2>
-    </div>
-    <form name="loginForm" layout="column" class="md-padding">
-        <md-input-container>
-            <label>Email</label>
-            <input name="email" type="email" ng-model="user.email" minlength="5" maxlength="100"
-                   ng-pattern="/^.+@.+..+$/" required="required"/>
-            <div ng-messages="loginForm.email.$error">
-                <div ng-message="pattern">Email inválido</div>
-                <div ng-message="required">Por favor, preencha seu email</div>
-            </div>
-        </md-input-container>
-        <md-input-container>
-            <label>Senha</label>
-            <input name="password" type="password" ng-model="user.password" required="required"/>
-            <div ng-messages="loginForm.password.$error">
-                <div ng-message="required">Por favor, preencha sua senha</div>
-            </div>
-        </md-input-container>
-        <div layout="row" layout-align-gt-xs="end" layout-align="center">
-            <md-button ng-click="logIn()" ng-disabled="loginForm.$invalid" flex-xs="100" class="md-raised">Entrar
-            </md-button>
+    <div class="container-fluid" flex="flex">
+        <div layout="row" class="text-center">
+            <md-card flex="33" class="layout-padding">
+                <h1>300</h1>
+                <div>Convidados totais na casa</div>
+            </md-card>
+            <md-card flex="33" class="layout-padding">
+                <h1>14</h1>
+                <div class="">Atletas na casa</div>
+            </md-card>
+            <md-card flex="33" class="layout-padding">
+                <h1>286</h1>
+                <div class="">Convidados na casa</div>
+            </md-card>
         </div>
-    </form>
+
+        <md-list>
+            <md-list-item ng-repeat="guest in guests" class="md-3-line" layout="row">
+                <div class="md-list-item-text">
+                    <h2>20 min</h2>
+                    <p class="md-body-2">12/12/16 - 14:20:30</p>
+                </div>
+
+                <div class="md-list-item-text">
+                    <h3 class="guest-name md-body-2">{{guest.name}}</h3>
+                    <p class="guest-email md-body-2">1 acesso autorizado</p>
+                    <p class="guest-type">Atleta</p>
+                </div>
+
+                <div class="button-invitation-container">
+                    <md-button class="button-invitation" ng-disabled="true">Status</md-button>
+                    <md-button class="button-invitation" ng-disabled="true">Waiting</md-button>
+                    <md-button class="button-invitation md-raised md-warn">Revogar</md-button>
+                </div>
+            </md-list-item>
+        </md-list>
+    </div>
 </div>

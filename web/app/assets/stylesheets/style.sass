@@ -18,18 +18,19 @@ h1
     font-size: 30px
 
 h2
-  color: $secondary-accent-color
+  color: $secondary-text
   font-family: $roboto
-  font-size: 23px
+  font-size: 36px
   font-weight: 400
   @include media(xs)
     text-align: center
-    font-size: 20px
+    font-size: 28px
     font-weight: 500
 
 h3
   font-size: 18px
   font-weight: 600
+  margin-bottom: 30px
   @include media(xs)
     align-items: flex-start
 
@@ -46,6 +47,13 @@ input
   qrcode
     margin: 0 auto
 
+#admin-header
+  padding: 5px
+  border-bottom: solid 1px $dark-primary-color
+  img
+    height: 120px
+    margin: 0 auto
+
 
 .admin-content
   padding: 40px 20px
@@ -54,9 +62,14 @@ h3.guest-name
   color: $secondary-accent-color
   font-weight: 700
 
+.guest-type
+  font-size: 12px !important
+
+.button-invitation-container
+  margin-left: 40px
+
 .button-invitation
-  right: 80px
-  margin-top: 12px
+  margin-top: 20px
 
 
 
