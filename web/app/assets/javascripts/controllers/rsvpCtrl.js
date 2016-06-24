@@ -7,12 +7,31 @@ angular.module('asics').controller('RsvpCtrl', [
     function ($scope, $state, $mdToast, $stateParams, rsvp) {
         $scope.result = '';
         $scope.guest = {};
+        $scope.strings = {};
+
+
+        rsvp.getGuestByToken($stateParams.token)
+            .then(readGuest)
+            .catch(console.log);
+
+
+        function readGuest(guest) {
+            angular.copy(guest, $scope.guest);
+            console.log($scope.guest);
+            angular.copy(strings[guest.language], $scope.strings);
+            console.log($scope.strings);
+        }
+
 
         $scope.confirmInvitation = function () {
             rsvp.postConfirm($scope.guest)
                 .then(toStateConfirmed)
                 .catch(errorToast);
         };
+
+        function toStateConfirmed(response) {
+            $state.go("rsvp.confirmed", {guest: response})
+        }
 
         function errorToast(error) {
             $mdToast.show(
@@ -23,37 +42,14 @@ angular.module('asics').controller('RsvpCtrl', [
                     .theme('error-toast')
             );
         }
+    }
+]);
 
-        function toStateConfirmed(response) {
-            $state.go("rsvp.confirmed", {guest: response})
-        }
-
-        rsvp.getGuestByToken($stateParams.token)
-            .then(function(guest) {
-                angular.copy(guest, $scope.guest)
-            })
-            .catch(function(error) {
-                console.log(error)
-            })
-    }]);
-
-
-angular.module('asics')
-    .directive('namesOnly', function () {
-        return {
-            require: 'ngModel',
-            link: function (scope, element, attrs, modelCtrl) {
-
-                modelCtrl.$parsers.push(function (inputValue) {
-                    var transformedInput = inputValue ? inputValue.replace(/[^a-zA-ZáéíóúàâêôãõöüçÁÉÍÓÚÀÂÊÖÔÃÕÜÇ'\- ]/g, '') : null;
-
-                    if (transformedInput != inputValue) {
-                        modelCtrl.$setViewValue(transformedInput);
-                        modelCtrl.$render();
-                    }
-
-                    return transformedInput;
-                });
-            }
-        };
-    });
+var strings = {
+    EN: {
+        formLabelName: "Name"
+    },
+    PT: {
+        formLabelName: "Nome"
+    }
+};

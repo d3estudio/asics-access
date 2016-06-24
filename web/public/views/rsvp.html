@@ -10,7 +10,7 @@
                     <form name="userForm" class="md-padding">
                         <div layout-gt-xs="row">
                             <md-input-container flex-gt-xs="100" class="md-block">
-                                <label>Nome *</label>
+                                <label>{{ strings.formLabelName }} *</label>
                                 <input ng-model="guest.name" name="name" required="required" names-only="names-only"/>
                                 <div ng-messages="userForm.name.$error">
                                     <div ng-message="required">Por favor, preencha seu nome</div>

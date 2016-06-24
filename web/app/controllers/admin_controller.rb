@@ -3,7 +3,6 @@ class AdminController < ApplicationController
 
 
   def invite_guest
-    require_fields('hi')
     name = params[:name]
     email = params[:email]
     occupation = params[:occupation]

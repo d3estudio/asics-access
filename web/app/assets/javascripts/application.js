@@ -39,3 +39,4 @@
 //= require controllers/admin/guestsCtrl.js
 //= require controllers/admin/logsCtrl.js
 //= require directives/guestDirective.js
+//= require directives/namesOnlyDirective.js
