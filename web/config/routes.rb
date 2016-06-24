@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get '/api/rsvp/guest', to: 'rsvp#get_guest_by_token'
 
   post '/api/admin/invite', to: 'admin#invite_guest'
-  get '/api/admin/guests', to: 'admin#get_guests_information'
+  get '/api/admin/guests/all', to: 'admin#get_guests_information'
+  post '/api/admin/guests/email', to: 'admin#resend_email_to_guest'
+  post '/api/admin/guests/delete', to: 'admin#delete_guest'
 
   post '/api/gateway/guests/since', to: 'gateway#get_guests_updated_since'
   get '/api/gateway/guests/all', to: 'gateway#get_all_guests'

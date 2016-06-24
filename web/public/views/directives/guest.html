@@ -8,10 +8,10 @@
 
 <div class="button-invitation-container">
     <md-button ng-if="!guest.rsvp" class="button-invitation" ng-disabled="true">Aguardando</md-button>
-    <md-button ng-if="!guest.rsvp" class="button-invitation md-raised">Reenviar convite</md-button>
+    <md-button ng-if="!guest.rsvp" class="button-invitation md-raised" ng-click="resend( { guest_id: guest.id } )">Reenviar convite</md-button>
 
     <md-button ng-if="guest.rsvp" class="button-invitation" ng-disabled="true">Confirmado</md-button>
-    <md-button ng-if="guest.rsvp" class="button-invitation md-raised">Reenviar QR-Code</md-button>
+    <md-button ng-if="guest.rsvp" class="button-invitation md-raised" ng-click="resend( { guest_id: guest.id } )">Reenviar QR-Code</md-button>
 
-    <md-button class="button-invitation md-raised">Excluir</md-button>
+    <md-button class="button-invitation md-raised" ng-click="delete(guest)">Excluir</md-button>
 </div>

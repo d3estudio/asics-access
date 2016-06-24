@@ -14,6 +14,7 @@
 </div>
 
 <md-list>
-    <md-list-item ng-repeat="guest in guests" my-guest="guest" class="md-3-line" layout="row">
+    <md-list-item ng-repeat="guest in guests" class="md-3-line" layout="row"
+                  my-guest="guest" on-resend="resendEmail(guest_id)" on-delete="deleteGuest(guest_id)">
     </md-list-item>
 </md-list>
