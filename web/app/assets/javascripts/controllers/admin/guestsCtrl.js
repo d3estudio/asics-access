@@ -6,13 +6,22 @@ angular.module('asics').controller('GuestsCtrl', [
     function ($mdToast, $q, $scope, admin) {
         $scope.guests = [];
 
+        $scope.count = {
+            total: 0,
+            athletes: 0,
+            guests: 0
+        };
+
         admin.getGuests()
-            .then(readGuests)
+            .then(readGuestsInformation)
             .catch(errorToast);
 
+        function readGuestsInformation(result) {
+            angular.copy(result.guests, $scope.guests);
 
-        function readGuests(result) {
-            angular.copy(result.guests, $scope.guests)
+            $scope.count.athletes = result.confirmed_athletes;
+            $scope.count.guests = result.confirmed_guests;
+            $scope.count.total = result.confirmed_athletes + result.confirmed_guests;
         }
 
         function errorToast(error) {

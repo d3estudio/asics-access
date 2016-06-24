@@ -28,9 +28,19 @@ class AdminController < ApplicationController
     end
   end
 
-  def get_guests
+  def get_guests_information
     guests = Guest.all
+    guests_confirmed = guests.where(rsvp: true)
 
-    render json: { succeeded: true, result: { guests: guests } }
+    count_athletes_confirmed = guests_confirmed.where(occupation: 'athlete').count
+    count_guests_confirmed = guests_confirmed.where.not(occupation: 'athlete').count
+
+    result = {
+      confirmed_guests: count_guests_confirmed,
+      confirmed_athletes: count_athletes_confirmed,
+      guests: guests
+    }
+
+    render json: { succeeded: true, result: result }
   end
 end
