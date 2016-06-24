@@ -2,6 +2,9 @@
     <div id="form-content" layout="row">
         <md-card flex-offset-gt-sm="15" flex-gt-sm="66" flex="flex">
             <md-card-content>
+                <div id="admin-header" layout="row">
+                    <img src="images/asics-logo.png">
+                </div>
                 <div class="container-fluid">
                     <div style="margin-bottom: 40px">
                         <p ng-repeat="info in confInfo.payment.infos track by $index" ng-bind-html="info | to_html" class="item md-padding"></p>

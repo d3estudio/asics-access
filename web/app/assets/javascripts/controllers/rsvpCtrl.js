@@ -17,9 +17,7 @@ angular.module('asics').controller('RsvpCtrl', [
 
         function readGuest(guest) {
             angular.copy(guest, $scope.guest);
-            console.log($scope.guest);
-            angular.copy(strings[guest.language], $scope.strings);
-            console.log($scope.strings);
+            angular.copy(confirmStrings[guest.language], $scope.strings);
         }
 
 
@@ -45,7 +43,7 @@ angular.module('asics').controller('RsvpCtrl', [
     }
 ]);
 
-var strings = {
+var confirmStrings = {
     EN: {
         formLabelName: "Name",
         formErrorRequiredName: "Please, fill your name",
