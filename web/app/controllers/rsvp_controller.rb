@@ -25,21 +25,14 @@ class RsvpController < ApplicationController
     name = params[:name]
     email = params[:email]
 
-    return reject_request(error: 'MissingField',
-                          message: 'Missing token field',
-                          action: ['Retry']) unless token
-    return reject_request(error: 'MissingField',
-                          message: 'Missing name field',
-                          action: ['Retry']) unless name
-    return reject_request(error: 'MissingField',
-                          message: 'Missing email field',
-                          action: ['Retry']) unless email
+
+    require_fields([ token, name, email ])
 
     guest = Guest.find_by(email:email, invite_token: token)
+
     return reject_request(error: 'GuestNotFound',
                           message: 'The requested guest invite could not be found',
                           action: ['Stop']) unless guest
-
 
     # return reject_request(error: 'ValidationFailed',
     #                       message: 'Convite já confirmado',

@@ -10,10 +10,7 @@ class GatewayController < ApplicationController
   def get_guests_updated_since
     updated_since = params[:updated_since]
 
-    return reject_request(error: 'MissingField',
-                          message: 'Missing updated_since field',
-                          action: ['Retry']) unless updated_since
-
+    require_fields([ updated_since ])
 
     guests = get_guests.updated_after(updated_since)
 
@@ -23,12 +20,7 @@ class GatewayController < ApplicationController
   def log_logs
     logs = params[:logs]
 
-    return reject_request(error: 'MissingField',
-                          message: 'Missing logs field',
-                          action: ['Retry']) unless logs
-
-
-
+    require_fields([ logs ])
 
     logs.each do |log|
       guest = Guest.find(log['guest_id'])
@@ -40,13 +32,9 @@ class GatewayController < ApplicationController
 
   private
     def get_guests
-      return Guest
-                 .select("id, name, email, qr_code, occupation, updated_at")
-                 .where(rsvp: true)
-                 .order(:updated_at)
-    end
-
-    def logs_params
-      params.require(:logs).permit(:guest_id, :created_at, :action)
+      Guest
+           .select("id, name, email, qr_code, occupation, updated_at")
+           .where(rsvp: true)
+           .order(:updated_at)
     end
 end
