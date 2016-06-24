@@ -47,9 +47,27 @@ angular.module('asics').controller('RsvpCtrl', [
 
 var strings = {
     EN: {
-        formLabelName: "Name"
+        formLabelName: "Name",
+        formErrorRequiredName: "Please, fill your name",
+        formLabelEmail: "Email",
+        formErrorRequiredEmail: "Please, fill your email address",
+        formErrorPaternEmail: "Invalid email",
+        formLabelBirthdate: "Birthdate",
+        formErrorRequiredBirthdate: "Please, fill your birthdate",
+        formLabelIsVegan: "I am vegan",
+        formLabelDontDrink: "I do not drink alcohol",
+        formButtonConfirmPresence: "Confirm presence"
     },
     PT: {
-        formLabelName: "Nome"
+        formLabelName: "Nome",
+        formErrorRequiredName: "Por favor, preencha seu nome",
+        formLabelEmail: "Email",
+        formErrorRequiredEmail: "Por favor, preencha seu email",
+        formErrorPaternEmail: "Email inválido",
+        formLabelBirthdate: "Data de nascimento",
+        formErrorRequiredBirthdate: "Preencha sua data de nascimento",
+        formLabelIsVegan: "Eu sou vegano",
+        formLabelDontDrink: "Não bebo bebida alcólica",
+        formButtonConfirmPresence: "Confirmar presença"
     }
 };

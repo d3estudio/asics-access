@@ -3,7 +3,6 @@
         <md-card flex-offset-gt-sm="15" flex-gt-sm="66" flex="flex">
             <md-card-content>
                 <div class="container-fluid">
-                    <h2 class="md-padding">Casa Asics</h2>
                     <div style="margin-bottom: 40px">
                         <p ng-repeat="info in confInfo.payment.infos track by $index" ng-bind-html="info | to_html" class="item md-padding"></p>
                     </div>
@@ -13,35 +12,35 @@
                                 <label>{{ strings.formLabelName }} *</label>
                                 <input ng-model="guest.name" name="name" required="required" names-only="names-only"/>
                                 <div ng-messages="userForm.name.$error">
-                                    <div ng-message="required">Por favor, preencha seu nome</div>
+                                    <div ng-message="required">{{ strings.formErrorRequiredName }}</div>
                                 </div>
                             </md-input-container>
                         </div>
                         <div layout-gt-xs="row">
                             <md-input-container flex-gt-xs="100" class="md-block">
-                                <label>Email *</label>
+                                <label>{{ strings.formLabelEmail }} *</label>
                                 <input ng-model="guest.email" name="email" type="email" minlength="5" maxlength="100" ng-pattern="/^.+@.+..+$/" required="required" readonly/>
                                 <div ng-messages="userForm.email.$error" multiple="" md-auto-hide="true">
-                                    <div ng-message="required">Por favor, preencha seu email</div>
-                                    <div ng-message="pattern">Email inválido</div>
+                                    <div ng-message="required">{{ strings.formErrorRequiredEmail }}</div>
+                                    <div ng-message="pattern">{{ strings.formErrorPaternEmail }}</div>
                                 </div>
                             </md-input-container>
                         </div>
                         <div layout-gt-xs="row">
                             <md-input-container flex-gt-xs="100" class="md-block">
-                                <label>Nascimento *</label>
+                                <label>{{ strings.formLabelBirthdate }} *</label>
                                 <input ng-model="guest.birthday" type="text" name="birthday" mask="39/19/9999" restrict="reject" required="required"/>
                                 <div ng-messages="userForm.date.$error">
-                                    <div ng-message="required">Preencha sua data de nascimento</div>
+                                    <div ng-message="required">{{ strings.formErrorRequiredBirthdate }}</div>
                                 </div>
                             </md-input-container>
                         </div>
                         <div layout-gt-xs="row">
-                            <md-checkbox ng-model="guest.isVegan" aria-label="Is vegan?">Sou vegano</md-checkbox>
-                            <md-checkbox ng-model="guest.dontDrink" aria-label="Dont drink?">Não bebo bebida alcólica</md-checkbox>
+                            <md-checkbox ng-model="guest.isVegan" aria-label="Is vegan?">{{ strings.formLabelIsVegan }}</md-checkbox>
+                            <md-checkbox ng-model="guest.dontDrink" aria-label="Dont drink?">{{ strings.formLabelDontDrink }}</md-checkbox>
                         </div>
                         <div layout="row" layout-align-gt-xs="end" layout-align="center">
-                            <md-button id="confirm-button" ng-click="confirmInvitation()" ng-disabled="userForm.$invalid" flex-xs="100" class="md-raised button-dark">Confirmar presença</md-button>
+                            <md-button id="confirm-button" ng-click="confirmInvitation()" ng-disabled="userForm.$invalid" flex-xs="100" class="md-raised button-dark">{{ strings.formButtonConfirmPresence }}</md-button>
                         </div>
                     </form>
                 </div>
