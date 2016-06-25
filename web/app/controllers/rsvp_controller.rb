@@ -21,12 +21,9 @@ class RsvpController < ApplicationController
 
 
   def confirm_invite
-    token = params[:invite_token]
-    name = params[:name]
-    email = params[:email]
-
-
-    require_fields([ token, name, email ])
+    token = require_field(:invite_token)
+    name = require_field(:name)
+    email = require_field(:email)
 
     guest = Guest.find_by(email:email, invite_token: token)
 

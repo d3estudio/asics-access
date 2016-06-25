@@ -9,11 +9,13 @@ module ApplicationHelper
   end
 
 
-  def require_fields(fields = [])
-    fields.each do |field|
-      return reject_request(error: 'MissingField',
-                            message: 'Missing ' + field + ' field',
-                            action: ['Retry']) unless field
-    end
+  def require_field(field = '')
+    value = params[field]
+
+    reject_request( error: 'MissingField',
+                    message: 'Missing ' + field + ' field',
+                    action: ['Retry']) unless value
+
+    value
   end
 end

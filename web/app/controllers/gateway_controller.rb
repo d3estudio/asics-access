@@ -8,9 +8,7 @@ class GatewayController < ApplicationController
   end
 
   def get_guests_updated_since
-    updated_since = params[:updated_since]
-
-    require_fields([ updated_since ])
+    updated_since = require_field( :updated_since )
 
     guests = get_guests.updated_after(updated_since)
 
@@ -18,12 +16,10 @@ class GatewayController < ApplicationController
   end
 
   def log_logs
-    logs = params[:logs]
-
-    require_fields([ logs ])
+    logs = require_field( :logs )
 
     logs.each do |log|
-      guest = Guest.find(log['guest_id'])
+      guest = Guest.unscope(where: :removed_at).find(log['guest_id'])
       guest.logs.create(action: 1, created_at: log['created_at'])
     end
 
