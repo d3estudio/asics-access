@@ -11,6 +11,7 @@ angular.module('asics').controller('GuestsCtrl', [
             guests: 0
         };
 
+        var map = {};
 
         $scope.resendEmail = function(guest_id) {
             admin.postResendEmail(guest_id)
@@ -20,29 +21,37 @@ angular.module('asics').controller('GuestsCtrl', [
 
         $scope.deleteGuest = function(guest_id) {
             admin.postDeleteGuest(guest_id)
-                .then(successToast)
+                .then(onDeleteGuest)
                 .catch(errorToast)
         };
 
+        function onDeleteGuest(result) {
+            $scope.guests.splice(map[result.guest.id], 1);
+            map[result.guest.id] = undefined;
+            successToast(result);
+        }
 
         admin.getGuests()
             .then(readGuestsInformation)
             .catch(errorToast);
 
         function readGuestsInformation(result) {
-            angular.copy(result.guests, $scope.guests);
+            result.guests.forEach(mapObject);
 
             $scope.count.athletes = result.confirmed_athletes;
             $scope.count.guests = result.confirmed_guests;
             $scope.count.total = result.confirmed_athletes + result.confirmed_guests;
         }
 
+        function mapObject(element, index) {
+            map[element.id] = index;
+            $scope.guests.push(element);
+        }
 
-
-        function successToast(result) {
+        function successToast(message) {
             $mdToast.show(
                 $mdToast.simple()
-                    .textContent(result.message)
+                    .textContent(message)
                     .position('top right')
                     .hideDelay(3000)
                     .theme('error-toast')

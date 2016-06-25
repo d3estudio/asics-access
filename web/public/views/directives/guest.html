@@ -13,5 +13,5 @@
     <md-button ng-if="guest.rsvp" class="button-invitation" ng-disabled="true">Confirmado</md-button>
     <md-button ng-if="guest.rsvp" class="button-invitation md-raised" ng-click="resend( { guest_id: guest.id } )">Reenviar QR-Code</md-button>
 
-    <md-button class="button-invitation md-raised" ng-click="delete(guest)">Excluir</md-button>
+    <md-button class="button-invitation md-raised" ng-click="delete( { guest_id: guest.id } )">Excluir</md-button>
 </div>

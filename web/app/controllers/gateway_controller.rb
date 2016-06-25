@@ -33,7 +33,8 @@ class GatewayController < ApplicationController
   private
     def get_guests
       Guest
-           .select("id, name, email, qr_code, occupation, updated_at")
+           .select("id, name, email, qr_code, occupation, updated_at, removed_at")
+           .unscope(where: :removed_at)
            .where(rsvp: true)
            .order(:updated_at)
     end

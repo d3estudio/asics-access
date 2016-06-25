@@ -22,7 +22,7 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     }
 
     function parseError(error) {
-        return { error: error.data.message }
+        throw error.data.message
     }
 
     return o;
