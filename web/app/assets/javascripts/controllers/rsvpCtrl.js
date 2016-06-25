@@ -9,10 +9,9 @@ angular.module('asics').controller('RsvpCtrl', [
         $scope.guest = {};
         $scope.strings = {};
 
-
         rsvp.getGuestByToken($stateParams.token)
             .then(readGuest)
-            .catch(console.log);
+            .catch(onInvalidToken);
 
 
         function readGuest(guest) {
@@ -20,6 +19,9 @@ angular.module('asics').controller('RsvpCtrl', [
             angular.copy(confirmStrings[guest.language], $scope.strings);
         }
 
+        function onInvalidToken() {
+            $state.go('home');
+        }
 
         $scope.confirmInvitation = function () {
             rsvp.postConfirm($scope.guest)
