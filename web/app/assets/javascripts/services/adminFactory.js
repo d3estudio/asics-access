@@ -6,22 +6,27 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     };
 
     o.postResendEmail = function (guest_id) {
-        return $http.post('/api/admin/guests/email', { guest_id: guest_id }).then(parseSuccess, parseError)
+        return $http.post('/api/admin/guests/email', { guest_id: guest_id }).then(parseSuccessMessage, parseError)
     };
 
     o.postDeleteGuest = function (guest_id) {
-        return $http.post('/api/admin/guests/delete', { guest_id: guest_id }).then(parseSuccess, parseError)
+        return $http.post('/api/admin/guests/delete', { guest_id: guest_id }).then(parseSuccessMessage, parseError)
     };
 
     o.postInvite = function(guest) {
         return $http.post('/api/admin/invite', guest).then(parseSuccess, parseError)
     };
 
+    function parseSuccessMessage(response) {
+        return response.data.result.message
+    }
+
     function parseSuccess(response) {
         return response.data.result
     }
 
     function parseError(error) {
+        console.error(error);
         throw error.data.message
     }
 

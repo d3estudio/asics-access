@@ -1,6 +1,8 @@
 class AdminController < ApplicationController
   protect_from_forgery
 
+
+
   def invite_guest
     name = params[:name]
     email = params[:email]
@@ -57,35 +59,30 @@ class AdminController < ApplicationController
 
   def resend_email_to_guest
     guest_id = params[:guest_id]
-
     require_fields([ guest_id ])
 
-    guest = Guest.find_by(id: guest_id)
-
+    guest = Guest.where(id: guest_id).first
     return reject_request(error: 'GuestNotFound',
                           message: 'The requested guest could not be found',
                           action: ['Stop']) unless guest
 
     if !guest.rsvp
-
       CommonMailer.invite_email(guest).deliver_later
       message = "Email de confirmação reenviado para " + guest.name
-
     else
-
       guest.qr_code = Digest::SHA1.hexdigest([Time.now, rand].join)
 
       return reject_request(error: 'ValidationFailed',
                             message: guest.errors,
-                            action: ['Retry']) if guest.save
+                            action: ['Retry']) unless guest.save
 
       CommonMailer.confirm_email(guest).deliver_later
       message = "Email com QRCode reenviado para " + guest.name
-
     end
 
     render json: { succeeded: true, result: { guest: guest, message: message} }
   end
+
 
 
   def delete_guest
