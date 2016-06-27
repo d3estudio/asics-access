@@ -3,22 +3,23 @@
 
 body
   font-family: $open-sans
-  color: $primary-text
+  color: $black
+  background-color: $black
 
 #main-container
-  background-color: $primary-color
+  background-color: $gray
   height: 100%
 
 h1
   font-family: $roboto
   font-size: 50px
   font-weight: 300
-  color: $primary-text
+  color: $gray-dark
   @include media(xs)
     font-size: 30px
 
 h2
-  color: $secondary-text
+  color: $gray-dark
   font-family: $roboto
   font-size: 28px
   font-weight: 400
@@ -33,6 +34,82 @@ h3
   margin-bottom: 30px
   @include media(xs)
     align-items: flex-start
+
+//ADMIN
+#admin-container
+  height: 100%
+
+#admin-header
+  padding: 25px
+  img
+    display: block
+    height: 30px
+    margin: 0 auto
+
+#admin-content
+  background-color: $gray-light
+  border-radius: $border-radius
+  height: 100%
+  min-height: 600px
+
+.nav-tabs
+  float: left
+  border-bottom: 0
+  li:first-child
+    border-top-left-radius: $border-radius
+  li
+    float: none
+    margin: 0
+    padding: 5px
+    border-bottom: 1px solid $gray
+    &:hover
+      background-color: $gray
+    a
+      margin-right: 0
+      border: 0
+      color: $gray-dark
+      text-align: center
+      &:hover, &:active, &:visited, &:link
+        background-color: transparent
+      img
+        margin: 0 auto
+        height: 40px
+
+.default-tab
+  background-color: $gray-light
+.active-tab
+  background-color: $blue-light
+  &:hover
+    background-color: $blue-light !important
+  a div
+    color: $white
+  a img
+    -webkit-filter: brightness(10) grayscale(1)
+    filter: brightness(10) grayscale(1)
+
+
+.tab-content
+  .tab-pane
+    display: none
+    border-bottom-right-radius: $border-radius
+    border-top-right-radius: $border-radius
+    background-color: $gray
+    padding: 30px
+    min-height: 600px
+    overflow-y: auto
+  .active
+    display: block
+
+
+
+
+
+
+
+
+
+
+
 
 input
   @include media(xs)
@@ -54,12 +131,7 @@ input
     height: 140px
     margin: 0 auto
 
-#admin-header
-  padding: 5px
-  border-bottom: solid 1px $light-primary-color
-  img
-    height: 120px
-    margin: 0 auto
+
 
 .admin-content
   padding: 40px 20px
