@@ -13,7 +13,7 @@ module ApplicationHelper
     value = params[field]
 
     reject_request( error: 'MissingField',
-                    message: 'Missing ' + field + ' field',
+                    message: 'Missing ' + field.to_s + ' field',
                     action: ['Retry']) unless value
 
     value
