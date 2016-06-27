@@ -2,38 +2,58 @@ class GatewayController < ApplicationController
   protect_from_forgery
   before_action :require_valid_token
 
+
+
   def get_all_guests
-    guests = get_guests()
+    guests = get_guests
 
     render json: guests
   end
 
   def get_guests_updated_since
-    updated_since = require_field( :updated_since )
+    updated_since = params[:updated_since] or return missing_field(:updated_since)
 
     guests = get_guests.updated_after(updated_since)
 
     render json: guests
   end
 
-  def get_logs_updated_since
-    updated_since = require_field( :updated_since )
 
-    guests = get_guests.updated_after(updated_since)
 
-    render json: guests
-  end
-
-  def log_logs
-    logs = require_field( :logs )
+  def post_logs
+    logs = params[:logs] or return missing_field(:logs)
 
     logs.each do |log|
       guest = Guest.unscope(where: :removed_at).find(log['guest_id'])
-      guest.logs.create(action: 1, created_at: log['created_at'])
+      guest.logs.create(created_at: log['created_at'], access_token: @access_token)
     end
 
     render json: Log.all
   end
+
+  def get_all_logs
+    logs = Log.all.order(:created_at)
+
+    render json: logs
+  end
+
+  def get_logs_created_since
+    created_since = params[:created_since] or return missing_field(:created_since)
+
+    logs = Log.created_after(created_since).order(:created_at)
+
+    render json: logs
+  end
+
+  def get_other_logs_created_since
+    created_since = params[:created_since] or return missing_field(:created_since)
+
+    logs = Log.created_after(created_since).not_created_by(@access_token).order(:created_at)
+
+    render json: logs
+  end
+
+
 
   private
     def get_guests
@@ -45,12 +65,12 @@ class GatewayController < ApplicationController
     end
 
     def require_valid_token
-      access_token = require_field( :access_token )
+      @access_token =  params[:access_token] or return missing_field(:access_token)
 
       valid_tokens = YAML::load(File.open("#{Rails.root}/config/valid_tokens.yml"))
 
       reject_request( error: 'Forbidden',
                       message: 'Access forbidden',
-                      action: ['Stop']) unless valid_tokens.include? access_token
+                      action: ['Stop']) unless valid_tokens.include? @access_token
     end
 end
