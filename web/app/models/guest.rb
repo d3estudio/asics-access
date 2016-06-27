@@ -21,7 +21,6 @@ class Guest < ApplicationRecord
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
-  # ...
 
   default_scope { where(removed_at: nil) }
   scope :updated_after, -> (time) { where("updated_at > ?", time) }
@@ -30,6 +29,5 @@ class Guest < ApplicationRecord
     def fill_fields
       self.invite_token = Digest::SHA1.hexdigest([Time.now, rand].join) if self.invite_token.nil?
       self.rsvp = false if self.rsvp.nil?
-      # ...
     end
 end
