@@ -4,10 +4,10 @@ class AdminController < ApplicationController
 
 
   def invite_guest
-    name = require_field(:name)
-    email = require_field(:email)
-    occupation = require_field(:occupation)
-    language = require_field(:language)
+    name =  params[:name] or return missing_field(:name)
+    email =  params[:email] or return missing_field(:email)
+    occupation =  params[:occupation] or return missing_field(:occupation)
+    language =  params[:language] or return missing_field(:language)
 
     guest = Guest.where(email: email).unscope(where: :removed_at).first;
 
@@ -56,7 +56,7 @@ class AdminController < ApplicationController
 
 
   def resend_email_to_guest
-    guest_id = require_field(:guest_id)
+    guest_id = params[:guest_id] or return missing_field(:guest_id)
 
     guest = Guest.where(id: guest_id).first
     return reject_request(error: 'GuestNotFound',
@@ -83,7 +83,7 @@ class AdminController < ApplicationController
 
 
   def delete_guest
-    guest_id = require_field(:guest_id)
+    guest_id = params[:guest_id] or return missing_field(:guest_id)
 
     require_fields([ guest_id ])
 

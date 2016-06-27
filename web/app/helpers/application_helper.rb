@@ -8,14 +8,9 @@ module ApplicationHelper
             }
   end
 
-
-  def require_field(field = '')
-    value = params[field]
-
+  def missing_field(field = '')
     reject_request( error: 'MissingField',
                     message: 'Missing ' + field.to_s + ' field',
-                    action: ['Retry']) unless value
-
-    value
+                    action: ['Retry'])
   end
 end
