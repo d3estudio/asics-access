@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160624223433) do
+ActiveRecord::Schema.define(version: 20160627193037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,9 +23,6 @@ ActiveRecord::Schema.define(version: 20160624223433) do
     t.string   "qr_code"
     t.string   "occupation"
     t.boolean  "rsvp"
-    t.boolean  "presence"
-    t.boolean  "vegetarian"
-    t.boolean  "alcohol"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.string   "language"
@@ -34,9 +31,8 @@ ActiveRecord::Schema.define(version: 20160624223433) do
 
   create_table "logs", force: :cascade do |t|
     t.integer  "guest_id"
-    t.integer  "action"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.string   "access_token"
     t.index ["guest_id"], name: "index_logs_on_guest_id", using: :btree
   end
 
