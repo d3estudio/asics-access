@@ -1,8 +1,41 @@
 @import "reset"
 @import "var"
 
+.bg-green
+  background-color: $green
+
+.bg-orange
+  background-color: $orange
+
+.bg-white
+  background-color: $white
+
+.bg-blue
+  background-color: $blue-light
+
+.bg-red
+  background-color: $red
+
+.bg-gray
+  background-color: $gray
+
+.txt-green
+  color: $green
+
+.txt-orange
+  color: $orange
+
+.txt-white
+  color: $white
+
+.txt-blue
+  color: $blue-light
+
+.txt-red
+  color: $red
+
 body
-  font-family: $open-sans
+  font-family: $helvetica
   color: $black
   background-color: $black
 
@@ -11,16 +44,12 @@ body
   height: 100%
 
 h1
-  font-family: $roboto
-  font-size: 50px
-  font-weight: 300
-  color: $gray-dark
+  font-size: 54px
+  font-weight: 800
   @include media(xs)
     font-size: 30px
 
 h2
-  color: $gray-dark
-  font-family: $roboto
   font-size: 28px
   font-weight: 400
   @include media(xs)
@@ -51,6 +80,7 @@ h3
   border-radius: $border-radius
   height: 100%
   min-height: 600px
+  max-height: 90vh
 
 .nav-tabs
   float: left
@@ -77,6 +107,7 @@ h3
 
 .default-tab
   background-color: $gray-light
+
 .active-tab
   background-color: $blue-light
   &:hover
@@ -87,29 +118,64 @@ h3
     -webkit-filter: brightness(10) grayscale(1)
     filter: brightness(10) grayscale(1)
 
-
 .tab-content
   .tab-pane
     display: none
     border-bottom-right-radius: $border-radius
     border-top-right-radius: $border-radius
-    background-color: $gray
-    padding: 30px
+    background-color: $white
+    padding: 0
     min-height: 600px
     overflow-y: auto
   .active
     display: block
 
+.counter-card
+  padding: 20px
+  border-radius: $border-radius
+  width: 30%
+  height: 150px
+  margin: 11px
+  @include media(sm)
+    width: 95%
+  @include media(xs)
+    width: 95%
 
+#guests-top
+  padding: 20px
 
+#guests-bottom
+  height: 100%
 
+#guests-search
+  height: 36px
+  border-bottom: 1px solid $gray
+  padding: 5px 25px
+  .input-group
+    position: absolute
+    right: 60px
+    background-color: $gray-light
+    border-radius: 30px
+    width: 258px
+  input
+    height: 25px
+    line-height: 25px
+    border-radius: 30px
+    border: none
+    background-color: $gray-light
+    width: 230px
+    -webkit-box-shadow: none
+    box-shadow: none
+  img
+    position: absolute
+    top: 5px
+    display: inline-block
+    height: 15px
 
-
-
-
-
-
-
+#guests-content
+  padding: 5px 25px
+  max-height: 59vh
+  overflow: scroll
 
 input
   @include media(xs)
@@ -131,8 +197,6 @@ input
     height: 140px
     margin: 0 auto
 
-
-
 .admin-content
   padding: 40px 20px
 
@@ -151,8 +215,6 @@ h3.guest-name
 
 .button-invitation
   margin-top: 20px
-
-
 
 md-input-container
   margin: 15px 0
