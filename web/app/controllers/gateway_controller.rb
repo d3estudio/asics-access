@@ -23,12 +23,30 @@ class GatewayController < ApplicationController
   def post_logs
     logs = params[:logs] or return missing_field(:logs)
 
+    missing_fields = []
+
     logs.each do |log|
-      guest = Guest.unscope(where: :removed_at).find(log['guest_id'])
-      guest.logs.create(created_at: log['created_at'], access_token: @access_token)
+      guest = Guest.unscope(where: :removed_at).find(log[:guest_id])
+      id = log[:id]
+      created_at = log[:created_at]
+
+      if guest && id && created_at
+        guest.logs.create(id: id, created_at: created_at, access_token: @access_token)
+      else
+        missing_fields << log
+      end
     end
 
-    render json: Log.all
+    if missing_fields.size > 0
+      answer = {
+        message: 'Some logs have missing or invalid fields and where not saved',
+        missing_fields: missing_fields
+      }
+
+      render json: answer
+    else
+      render json: { succeeded: true }
+    end
   end
 
   def get_all_logs
