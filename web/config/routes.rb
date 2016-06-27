@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   post '/api/admin/guests/delete', to: 'admin#delete_guest'
 
   post '/api/gateway/guests/since', to: 'gateway#get_guests_updated_since'
-  get '/api/gateway/guests/all', to: 'gateway#get_all_guests'
+  post '/api/gateway/guests/all', to: 'gateway#get_all_guests'
   post '/api/gateway/logs/log', to: 'gateway#log_logs'
 
   get '*path', to: 'application#layout'

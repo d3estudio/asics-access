@@ -1,5 +1,6 @@
 class GatewayController < ApplicationController
   protect_from_forgery
+  before_action :require_valid_token
 
   def get_all_guests
     guests = get_guests()
@@ -8,6 +9,14 @@ class GatewayController < ApplicationController
   end
 
   def get_guests_updated_since
+    updated_since = require_field( :updated_since )
+
+    guests = get_guests.updated_after(updated_since)
+
+    render json: guests
+  end
+
+  def get_logs_updated_since
     updated_since = require_field( :updated_since )
 
     guests = get_guests.updated_after(updated_since)
@@ -33,5 +42,15 @@ class GatewayController < ApplicationController
            .unscope(where: :removed_at)
            .where(rsvp: true)
            .order(:updated_at)
+    end
+
+    def require_valid_token
+      access_token = require_field( :access_token )
+
+      valid_tokens = YAML::load(File.open("#{Rails.root}/config/valid_tokens.yml"))
+
+      reject_request( error: 'Forbidden',
+                      message: 'Access forbidden',
+                      action: ['Stop']) unless valid_tokens.include? access_token
     end
 end
