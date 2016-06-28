@@ -23,16 +23,15 @@
                 </div>
             </div>
             <div class="guest-action col-lg-1 col-md-1">
-                <button ng-if="!guest.rsvp" ng-click="resend( { guest_id: guest.id } )">
-                    <img src="../../images/icon-resend-invitation.svg">
-                </button>
-                <button ng-if="guest.rsvp" ng-click="resend( { guest_id: guest.id } )">
-                    <img src="../../images/icon-resend-qrcode.svg">
+                <button ng-click="resend( { guest_id: guest.id } )">
+                    <img src="../../images/icon-qrcode.svg">
+                    <span>1</span>
                 </button>
             </div>
             <div class="guest-action col-lg-1 col-md-1">
                 <button>
-                    <img src="../../images/icon-badge.svg">
+                    <img id="icon-badge" src="../../images/icon-badge.svg">
+                    <span>2</span>
                 </button>
             </div>
             <div class="guest-action col-lg-1 col-md-1">
