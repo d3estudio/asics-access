@@ -1,36 +1,48 @@
-<!--<div layout="row" class="text-center">-->
-<!--<md-card flex="33" class="layout-padding">-->
-<!--<h1>300</h1>-->
-<!--<div>Convidados totais na casa</div>-->
-<!--</md-card>-->
-<!--<md-card flex="33" class="layout-padding">-->
-<!--<h1>14</h1>-->
-<!--<div class="">Atletas na casa</div>-->
-<!--</md-card>-->
-<!--<md-card flex="33" class="layout-padding">-->
-<!--<h1>286</h1>-->
-<!--<div class="">Convidados na casa</div>-->
-<!--</md-card>-->
-<!--</div>-->
-
-<md-list>
-    <md-list-item ng-repeat="guest in guests" class="md-3-line" layout="row">
-        <div class="md-list-item-text">
-            <h2>20 min</h2>
-            <p class="log-time">12/12/16 - 14:20:30</p>
+<div id="logs" class="bg-white">
+    <div class="search-container">
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <img src="../../images/icon-search.svg">
         </div>
+    </div>
+    <div id="logs-container">
+        <!--<div class="row log-container" ng-repeat="log in logs" my-log="log"></div>-->
+        <div class="row log-container" ng-repeat="guest in guests">
 
-        <div class="md-list-item-text">
-            <h3 class="guest-name md-body-2">{{guest.name}}</h3>
-            <p class="guest-email md-body-2">{{guest.email}}</p>
-            <p class="guest-type">Atleta</p>
+            <div class="log-info col-lg-3 col-md-3">
+                <div ng-class="(guest.occupation == 'Atleta') ? 'picture-border' : ''">
+                    <div class="log-time">20 min</div>
+                    <div class="log-date">12/12/16 - 14:20:30</div>
+                </div>
+            </div>
+            <div class="guest-info col-lg-3 col-md-3">
+                <div class="guest-name md-body-2">{{guest.name}}</div>
+                <div class="guest-email md-body-2">2 acessos autorizados</div>
+                <div class="guest-occupation" ng-class="(guest.occupation == 'Atleta') ? 'txt-green' : 'txt-orange'">
+                    {{guest.occupation}}
+                </div>
+            </div>
+            <div class="guest-action col-lg-1 col-md-1">
+                <button ng-if="!guest.rsvp" ng-click="resend( { guest_id: guest.id } )">
+                    <img src="../../images/icon-resend-invitation.svg">
+                </button>
+                <button ng-if="guest.rsvp" ng-click="resend( { guest_id: guest.id } )">
+                    <img src="../../images/icon-resend-qrcode.svg">
+                </button>
+            </div>
+            <div class="guest-action col-lg-1 col-md-1">
+                <button>
+                    <img src="../../images/icon-badge.svg">
+                </button>
+            </div>
+            <div class="guest-action col-lg-1 col-md-1">
+                <button ng-click="delete( { guest_id: guest.id } )">
+                    <img src="../../images/icon-block.svg">
+                </button>
+            </div>
         </div>
+    </div>
+</div>
 
-        <div class="button-invitation-container">
-            <md-button class="button-invitation" ng-disabled="true">2 códigos gerados</md-button>
-            <md-button class="button-invitation" ng-disabled="true">1 crachá</md-button>
-            <md-button class="button-invitation md-raised md-warn">Revogar</md-button>
-        </div>
-    </md-list-item>
-</md-list>
+
 

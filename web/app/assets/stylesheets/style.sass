@@ -148,13 +148,7 @@ h3
   h1
     font-size: 54px
 
-#guests-top
-  padding: 20px
-
-#guests-bottom
-  height: 100%
-
-#guests-search
+.search-container
   height: 36px
   border-bottom: 1px solid $gray
   padding: 5px 25px
@@ -170,18 +164,25 @@ h3
     border-radius: 30px
     border: none
     background-color: $gray-light
-    width: 230px
-    -webkit-box-shadow: none
-    box-shadow: none
+    width: 230px !important
+    -webkit-box-shadow: none !important
+    box-shadow: none !important
   img
     position: absolute
     top: 5px
     display: inline-block
     height: 15px
 
+//GUESTS
 #guests-container
   max-height: 63vh
   overflow: scroll
+
+#guests-top
+  padding: 20px
+
+#guests-bottom
+  height: 100%
 
 .guest-container
   padding: 15px 20px
@@ -230,70 +231,94 @@ h3
     margin: 0 auto
 
 
+//LOGS
+#logs-container
+  max-height: 80vh
+  overflow: scroll
+  .guest-info
+    margin-left: 15px
+    width: 27%
+    @include media(md)
+      width: 28%
 
-
-
-
-
-
-
-
-
-input
-  @include media(xs)
-    font-size: 12px
-
-#confirm-button
-  margin-top: 40px
-
-.qrcode-container
-  margin-bottom: 15px
-
-  qrcode
-    margin: 0 auto
-
-#rsvp-header
-  padding: 5px
-  border-bottom: solid 1px $light-primary-color
-  img
-    height: 140px
-    margin: 0 auto
-
-.admin-content
-  padding: 40px 20px
+.log-container
+  padding: 15px 20px
+  border-bottom: 1px solid $gray-light
 
 .log-time
-  font-size: 12px !important
+  color: $black-light
+  font-size: 28px
+  font-weight: 800
+
+.log-date
+  color: $gray-dark
+  font-size: 12px
 
 
-.button-invitation-container
-  margin-left: 40px
 
-.button-invitation
-  margin-top: 20px
 
-md-input-container
-  margin: 15px 0
 
-  &:not(.md-input-invalid).md-input-focused
-    .md-input
-      border-color: $primary-text
-    label
-      color: $primary-text
 
-md-toolbar:not(.md-menu-toolbar)
-  background-color: $secondary-accent-color
 
-md-radio-group
-  margin: 0 auto
 
-md-radio-button
-  display: inline-block
-  margin: 0 55px 35px 0
 
-md-radio-button.md-checked .md-off
-  border-color: $secondary-accent-color
 
-md-radio-button .md-on
-  background-color: $accent-color
 
+
+//
+//
+//input
+//  @include media(xs)
+//    font-size: 12px
+//
+//#confirm-button
+//  margin-top: 40px
+//
+//.qrcode-container
+//  margin-bottom: 15px
+//
+//  qrcode
+//    margin: 0 auto
+//
+//#rsvp-header
+//  padding: 5px
+//  border-bottom: solid 1px $light-primary-color
+//  img
+//    height: 140px
+//    margin: 0 auto
+//
+//.admin-content
+//  padding: 40px 20px
+//
+//
+//.button-invitation-container
+//  margin-left: 40px
+//
+//.button-invitation
+//  margin-top: 20px
+//
+//md-input-container
+//  margin: 15px 0
+//
+//  &:not(.md-input-invalid).md-input-focused
+//    .md-input
+//      border-color: $primary-text
+//    label
+//      color: $primary-text
+//
+//md-toolbar:not(.md-menu-toolbar)
+//  background-color: $secondary-accent-color
+//
+//md-radio-group
+//  margin: 0 auto
+//
+//md-radio-button
+//  display: inline-block
+//  margin: 0 55px 35px 0
+//
+//md-radio-button.md-checked .md-off
+//  border-color: $secondary-accent-color
+//
+//md-radio-button .md-on
+//  background-color: $accent-color
+//
