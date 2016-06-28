@@ -28,6 +28,9 @@
 .txt-white
   color: $white
 
+.txt-gray
+  color: $gray-dark
+
 .txt-blue
   color: $blue-light
 
@@ -36,16 +39,21 @@
 
 body
   font-family: $helvetica
-  color: $black
+  color: $black-light
   background-color: $black
 
 #main-container
   background-color: $gray
   height: 100%
 
+p
+  font-size: 14px
+  line-height: 16px
+
 h1
-  font-size: 54px
-  font-weight: 800
+  font-size: 36px
+  font-weight: 400
+  line-height: 48px
   @include media(xs)
     font-size: 30px
 
@@ -268,9 +276,17 @@ h3
   width: 42px
 
 
+//INVITATION
+#invitation-container
+  height: 85vh
+  overflow: hidden
+  padding: 40px 30px
+  border-bottom: 1px solid $gray-light
 
-
-
+#invitation-header
+  margin-bottom: 80px
+  p
+    color: $gray-dark
 
 
 
