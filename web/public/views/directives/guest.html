@@ -1,14 +1,14 @@
-<div class="guest-picture col-lg-1 col-md-1">
+<div class="guest-picture col-lg-1 col-md-1 col-sm-1">
     <div ng-class="(guest.occupation == 'Atleta') ? 'picture-border' : ''">
         <img src="../../images/icon-user.svg">
     </div>
 </div>
-<div class="guest-info col-lg-5 col-md-5">
+<div class="guest-info col-lg-5 col-md-5 col-sm-5">
     <div class="guest-name md-body-2">{{guest.name}}</div>
     <div class="guest-email md-body-2">{{guest.email}}</div>
     <div class="guest-occupation" ng-class="(guest.occupation == 'Atleta') ? 'txt-green' : 'txt-orange'">{{guest.occupation}}</div>
 </div>
-<div class="guest-action col-lg-1 col-md-1">
+<div class="guest-action col-lg-1 col-md-1 col-sm-1">
     <button ng-if="!guest.rsvp" ng-click="resend( { guest_id: guest.id } )">
         <img src="../../images/icon-resend-invitation.svg">
     </button>
@@ -16,12 +16,12 @@
         <img src="../../images/icon-resend-qrcode.svg">
     </button>
 </div>
-<div class="guest-action col-lg-1 col-md-1">
+<div class="guest-action col-lg-1 col-md-1 col-sm-1">
     <button>
         <img src="../../images/icon-confirmation-waiting.svg">
     </button>
 </div>
-<div class="guest-action col-lg-1 col-md-1">
+<div class="guest-action col-lg-1 col-md-1 col-sm-1">
     <button ng-click="delete( { guest_id: guest.id } )">
         <img src="../../images/icon-block.svg">
     </button>
