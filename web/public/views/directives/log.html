@@ -1,0 +1,30 @@
+<div class="log-info col-lg-3 col-md-3">
+    <div ng-class="(guest.occupation == 'Atleta') ? 'picture-border' : ''">
+        <div class="log-time">20 min</div>
+        <div class="log-date">12/12/16 - 14:20:30</div>
+    </div>
+</div>
+<div class="guest-info col-lg-3 col-md-3">
+    <div class="guest-name md-body-2">{{guest.name}}</div>
+    <div class="guest-email md-body-2">2 acessos autorizados</div>
+    <div class="guest-occupation" ng-class="(guest.occupation == 'Atleta') ? 'txt-green' : 'txt-orange'">
+        {{guest.occupation}}
+    </div>
+</div>
+<div class="guest-action col-lg-1 col-md-1">
+    <button ng-click="resend( { guest_id: guest.id } )">
+        <img src="../../images/icon-qrcode.svg">
+        <span>1</span>
+    </button>
+</div>
+<div class="guest-action col-lg-1 col-md-1">
+    <button>
+        <img id="icon-badge" src="../../images/icon-badge.svg">
+        <span>2</span>
+    </button>
+</div>
+<div class="guest-action col-lg-1 col-md-1">
+    <button ng-click="delete( { guest_id: guest.id } )">
+        <img src="../../images/icon-block.svg">
+    </button>
+</div>
