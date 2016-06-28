@@ -134,7 +134,7 @@ h3
   border-radius: $border-radius
   width: 30%
   height: 150px
-  margin: 11px
+  margin: 10px
   @include media(sm)
     width: 95%
   @include media(xs)
@@ -171,13 +171,45 @@ h3
     display: inline-block
     height: 15px
 
-#guests-content
-  padding: 5px 25px
+#guests-container
   max-height: 54vh
   overflow: scroll
 
+.guest-container
+  padding: 15px 20px
+  border-bottom: 1px solid $gray-light
 
+.guest-picture
+  img
+    height: 50px
 
+.guest-info
+  margin-left: 15px
+  width: 42%
+  @include media(md)
+    width: 44%
+  .guest-name
+    color: $black-light
+    font-weight: 800
+
+  .guest-email
+    font-size: 10px
+    line-height: 14px
+
+  .guest-occupation
+    font-size: 10px
+
+.guest-action
+  display: table
+  width: 100px
+  button
+    float: right
+    display: table-cell
+    vertical-align: middle
+    height: 50px
+  img
+    width: 32px
+    margin: 0 auto
 
 
 
@@ -215,12 +247,6 @@ input
 .log-time
   font-size: 12px !important
 
-h3.guest-name
-  color: $secondary-accent-color
-  font-weight: 700
-
-.guest-occupation
-  font-size: 12px !important
 
 .button-invitation-container
   margin-left: 40px

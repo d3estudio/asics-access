@@ -20,12 +20,10 @@
             <img src="../../images/icon-search.svg">
         </div>
     </div>
-    <div id="guests-content">
-        <md-list>
-            <md-list-item ng-repeat="guest in guests" class="md-3-line" layout="row"
-                          my-guest="guest" on-resend="resendEmail(guest_id)" on-delete="deleteGuest(guest_id)">
-            </md-list-item>
-        </md-list>
+    <div id="guests-container">
+        <div class="row guest-container" ng-repeat="guest in guests" class="row" my-guest="guest" on-resend="resendEmail(guest_id)"
+             on-delete="deleteGuest(guest_id)">
+        </div>
     </div>
 </div>
 
