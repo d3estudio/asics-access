@@ -216,7 +216,10 @@ svg
   border-bottom: 1px solid $gray-light
   &:hover
     background-color: $gray-light
-    .guest-action button
+    button.guest-action-container
+      &:hover
+        .tooltip-action
+          display: block
       div
         display: block
       svg
@@ -254,10 +257,24 @@ svg
     margin-top: 11px
     font-weight: 600
 
+
+.tooltip-action
+  position: absolute
+  top: -35px
+  right: -7px
+  border-radius: 4px
+  padding: 10px 0
+  box-shadow: 2px 5px 20px $gray-medium
+  height: 40px
+  width: 100px
+  font-size: 12px
+  font-weight: 400
+  text-align: center
+
 .guest-action
   display: table
   width: 100px
-  button
+  button.guest-action-container
     float: right
     display: table-cell
     vertical-align: middle
@@ -266,15 +283,15 @@ svg
     div
       display: none
       font-size: 11px
-  svg
-    width: 32px
-    margin: 0 auto
-  span
-    position: absolute
-    top: 23px
-    right: 16px
-    font-size: 20px
-    color: $gray-medium
+    svg
+      width: 32px
+      margin: 0 auto
+    span
+      position: absolute
+      top: 23px
+      right: 16px
+      font-size: 20px
+      color: $gray-medium
 
 //LOGS
 #logs-container

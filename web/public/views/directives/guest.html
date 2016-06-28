@@ -1,41 +1,61 @@
 <div class="guest-picture col-lg-1 col-md-1 col-sm-1">
     <div ng-class="(guest.occupation == 'Atleta') ? 'picture-border' : ''">
-        <svg viewBox="0 0 45.67 45.67"><use xlink:href="../../images/icon-user.svg#svg-user"></use></svg>
+        <svg viewBox="0 0 45.67 45.67">
+            <use xlink:href="../../images/icon-user.svg#svg-user"></use>
+        </svg>
     </div>
 </div>
 <div class="guest-info col-lg-5 col-md-5 col-sm-5">
     <div class="guest-name md-body-2">{{guest.name}}</div>
     <div class="guest-email md-body-2">{{guest.email}}</div>
-    <div class="guest-occupation" ng-class="(guest.occupation == 'Atleta') ? 'txt-green' : 'txt-orange'">{{guest.occupation}}</div>
+    <div class="guest-occupation" ng-class="(guest.occupation == 'Atleta') ? 'txt-green' : 'txt-orange'">
+        {{guest.occupation}}
+    </div>
+</div>
+<div class="guest-action col-lg-1 col-md-1 col-sm-1" ng-mouseleave="showResendBtn=false">
+    <button ng-mouseenter="showResendBtn=true" class="guest-action-container" ng-show="!guest.rsvp">
+        <svg viewBox="0 0 31.29 25.55">
+            <use xlink:href="../../images/icon-resend-invitation.svg#svg-resend-invitation"></use>
+        </svg>
+        <div ng-hide="showResendBtn" class="txt-blue">Reenviar</div>
+        <div ng-hide="showResendBtn" class="txt-blue">convite</div>
+    </button>
+    <button ng-mouseenter="showResendBtn=true" class="guest-action-container" ng-show="guest.rsvp">
+        <svg viewBox="0 0 32 31.05">
+            <use xlink:href="../../images/icon-resend-qrcode.svg#svg-resend-qrcode"></use>
+        </svg>
+        <div ng-hide="showResendBtn" class="txt-blue">Reenviar</div>
+        <div ng-hide="showResendBtn" class="txt-blue">código</div>
+    </button>
+    <button ng-mouseenter="showResendBtn=true" ng-if="showResendBtn" class="tooltip-action bg-white txt-blue" ng-click="resend( { guest_id: guest.id } )">
+        {{ guest.rsvp ? 'Reenviar código' : 'Reenviar convite' }}
+    </button>
 </div>
 <div class="guest-action col-lg-1 col-md-1 col-sm-1">
-    <button ng-if="!guest.rsvp" ng-click="resend( { guest_id: guest.id } )">
-        <svg viewBox="0 0 31.29 25.55"><use xlink:href="../../images/icon-resend-invitation.svg#svg-resend-invitation"></use></svg>
-        <div class="txt-blue">Reenviar</div>
-        <div class="txt-blue">convite</div>
-    </button>
-    <button ng-if="guest.rsvp" ng-click="resend( { guest_id: guest.id } )">
-        <svg viewBox="0 0 32 31.05"><use xlink:href="../../images/icon-resend-qrcode.svg#svg-resend-qrcode"></use></svg>
-        <div class="txt-blue">Reenviar</div>
-        <div class="txt-blue">código</div>
-    </button>
-</div>
-<div class="guest-action col-lg-1 col-md-1 col-sm-1">
-    <button ng-if="!guest.rsvp">
-        <svg viewBox="0 0 29.71 29.29"><use xlink:href="../../images/icon-confirmation-waiting.svg#svg-confirmation-waiting"></use></svg>
+    <button class="guest-action-container" ng-if="!guest.rsvp">
+        <svg viewBox="0 0 29.71 29.29">
+            <use xlink:href="../../images/icon-confirmation-waiting.svg#svg-confirmation-waiting"></use>
+        </svg>
         <div class="txt-blue">Aguardando</div>
         <div class="txt-blue">confirmação</div>
     </button>
-    <button ng-if="guest.rsvp">
-        <svg viewBox="0 0 30.84 30.75"><use xlink:href="../../images/icon-confirmation-done.svg#svg-confirmation-done"></use></svg>
+    <button class="guest-action-container" ng-if="guest.rsvp">
+        <svg viewBox="0 0 30.84 30.75">
+            <use xlink:href="../../images/icon-confirmation-done.svg#svg-confirmation-done"></use>
+        </svg>
         <div class="txt-blue">20/07/2016</div>
         <div class="txt-blue">14h20</div>
     </button>
 </div>
-<div class="guest-action col-lg-1 col-md-1 col-sm-1">
-    <button ng-click="delete( { guest_id: guest.id } )">
-        <svg class="svg-block" viewBox="0 0 29 29"><use xlink:href="../../images/icon-block.svg#svg-block"></use></svg>
-        <div class="txt-red">Revogar</div>
-        <div class="txt-red">acesso</div>
+<div class="guest-action col-lg-1 col-md-1 col-sm-1" ng-mouseleave="showBlockBtn=false">
+    <button ng-mouseenter="showBlockBtn=true" class="guest-action-container">
+        <svg class="svg-block" viewBox="0 0 29 29">
+            <use xlink:href="../../images/icon-block.svg#svg-block"></use>
+        </svg>
+        <div ng-hide="showBlockBtn" class="txt-red">Revogar</div>
+        <div ng-hide="showBlockBtn" class="txt-red">acesso</div>
+    </button>
+    <button ng-mouseenter="showBlockBtn=true" ng-if="showBlockBtn" class="tooltip-action bg-white txt-red" ng-click="delete( { guest_id: guest.id } )">
+        Revogar acesso
     </button>
 </div>
