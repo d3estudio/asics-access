@@ -68,6 +68,9 @@ h3
   @include media(xs)
     align-items: flex-start
 
+svg
+  fill: $gray-medium
+
 //RSVP
 #main-container
   background: url("../images/asics-athlete.jpg") $gray no-repeat center
@@ -107,6 +110,8 @@ h3
 .nav-tabs
   float: left
   border-bottom: 0
+  svg
+    fill: $gray-dark
   li:first-child
     border-top-left-radius: $border-radius
   li
@@ -123,7 +128,7 @@ h3
       text-align: center
       &:hover, &:active, &:visited, &:link
         background-color: transparent
-      img
+      svg
         margin: 0 auto
         height: 40px
 
@@ -136,9 +141,8 @@ h3
     background-color: $blue-light !important
   a div
     color: $white
-  a img
-    -webkit-filter: brightness(10) grayscale(1)
-    filter: brightness(10) grayscale(1)
+  a svg
+    fill: $white
 
 .tab-content
   .tab-pane
@@ -190,7 +194,7 @@ h3
     width: 230px !important
     -webkit-box-shadow: none !important
     box-shadow: none !important
-  img
+  svg
     position: absolute
     top: 5px
     display: inline-block
@@ -221,7 +225,7 @@ h3
         fill: $red
 
 .guest-picture
-  img
+  svg
     height: 46px
     margin: 4px
   .picture-border
@@ -265,7 +269,6 @@ h3
   svg
     width: 32px
     margin: 0 auto
-    fill: $gray-medium
   span
     position: absolute
     top: 23px
