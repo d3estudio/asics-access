@@ -41,6 +41,7 @@ body
   font-family: $helvetica
   color: $black-light
   background-color: $black
+
 p
   font-size: 14px
   line-height: 16px
@@ -76,7 +77,6 @@ h3
 
 .qrcode-container
   margin-bottom: 15px
-
   qrcode
     margin: 0 auto
 
@@ -86,7 +86,6 @@ h3
   img
     height: 140px
     margin: 0 auto
-
 
 //ADMIN
 #admin-container
@@ -213,6 +212,13 @@ h3
   border-bottom: 1px solid $gray-light
   &:hover
     background-color: $gray-light
+    .guest-action button
+      div
+        display: block
+      svg
+        fill: $blue-light
+      svg.svg-block
+        fill: $red
 
 .guest-picture
   img
@@ -251,17 +257,21 @@ h3
     float: right
     display: table-cell
     vertical-align: middle
-    height: 50px
-  img
+    height: 56px
+    width: 60px
+    div
+      display: none
+      font-size: 11px
+  svg
     width: 32px
     margin: 0 auto
+    fill: $gray-medium
   span
     position: absolute
     top: 23px
     right: 16px
     font-size: 20px
     color: $gray-medium
-
 
 //LOGS
 #logs-container
@@ -295,7 +305,6 @@ h3
 #icon-badge
   width: 42px
 
-
 //INVITATION
 #invitation-container
   height: 85vh
@@ -307,55 +316,3 @@ h3
   margin-bottom: 80px
   p
     color: $gray-dark
-
-
-
-
-
-
-
-//
-//
-//input
-//  @include media(xs)
-//    font-size: 12px
-//
-//#confirm-button
-//  margin-top: 40px
-//
-//
-//.admin-content
-//  padding: 40px 20px
-//
-//
-//.button-invitation-container
-//  margin-left: 40px
-//
-//.button-invitation
-//  margin-top: 20px
-//
-//md-input-container
-//  margin: 15px 0
-//
-//  &:not(.md-input-invalid).md-input-focused
-//    .md-input
-//      border-color: $primary-text
-//    label
-//      color: $primary-text
-//
-//md-toolbar:not(.md-menu-toolbar)
-//  background-color: $secondary-accent-color
-//
-//md-radio-group
-//  margin: 0 auto
-//
-//md-radio-button
-//  display: inline-block
-//  margin: 0 55px 35px 0
-//
-//md-radio-button.md-checked .md-off
-//  border-color: $secondary-accent-color
-//
-//md-radio-button .md-on
-//  background-color: $accent-color
-//

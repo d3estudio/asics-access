@@ -1,1 +1,10 @@
-<svg id="Layer_6" data-name="Layer 6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21 21"><defs><style>.cls-1{fill:#c1c1c1;}</style></defs><title>icon-search</title><path class="cls-1" d="M8.17 16.34a8 8 0 0 0 5.22-1.9l6.34 6.34a.74.74 0 0 0 1.05 0 .74.74 0 0 0 0-1.05l-6.34-6.34a8.16 8.16 0 1 0-6.27 2.95zm0-14.86a6.69 6.69 0 1 1-6.69 6.69 6.69 6.69 0 0 1 6.69-6.69z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <symbol id="svg-search" viewBox="0 0 21 21">
+    <defs>
+        <style>.cls-1{fill:#c1c1c1;}</style>
+    </defs>
+    <title>icon-search</title>
+    <path class="cls-1"
+          d="M8.17 16.34a8 8 0 0 0 5.22-1.9l6.34 6.34a.74.74 0 0 0 1.05 0 .74.74 0 0 0 0-1.05l-6.34-6.34a8.16 8.16 0 1 0-6.27 2.95zm0-14.86a6.69 6.69 0 1 1-6.69 6.69 6.69 6.69 0 0 1 6.69-6.69z"/>
+    </symbol>
+</svg>

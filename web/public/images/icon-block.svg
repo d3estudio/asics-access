@@ -1,1 +1,11 @@
-<svg id="Layer_6" data-name="Layer 6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 29 29"><defs><style>.cls-1{fill:#c1c1c1;}</style></defs><title>icon-block</title><path class="cls-1" d="M14.49 0a14.5 14.5 0 1 0 14.5 14.5A14.51 14.51 0 0 0 14.49 0zm0 28a13.5 13.5 0 1 1 13.5-13.5 13.51 13.51 0 0 1-13.5 13.49z"/><path class="cls-1" d="M20.75 14.41H8.24a.5.5 0 0 0 0 1h12.51a.5.5 0 1 0 0-1z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <symbol id="svg-block" viewBox="0 0 29 29">
+    <defs>
+        <style>.cls-1{fill:#c1c1c1;}</style>
+    </defs>
+    <title>icon-block</title>
+    <path class="cls-1"
+          d="M14.49 0a14.5 14.5 0 1 0 14.5 14.5A14.51 14.51 0 0 0 14.49 0zm0 28a13.5 13.5 0 1 1 13.5-13.5 13.51 13.51 0 0 1-13.5 13.49z"/>
+    <path class="cls-1" d="M20.75 14.41H8.24a.5.5 0 0 0 0 1h12.51a.5.5 0 1 0 0-1z"/>
+    </symbol>
+</svg>
