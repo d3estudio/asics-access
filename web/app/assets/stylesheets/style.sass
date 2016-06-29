@@ -204,6 +204,7 @@ svg
 #guests-container
   max-height: 63vh
   overflow: scroll
+  padding-top: 21px
 
 #guests-top
   padding: 20px
@@ -211,7 +212,7 @@ svg
 #guests-bottom
   height: 100%
 
-.guest-container
+.guest-container, .log-container
   padding: 15px 20px
   border-bottom: 1px solid $gray-light
   &:hover
@@ -226,6 +227,8 @@ svg
         fill: $blue-light
       svg.svg-block
         fill: $red
+      span.svg-badge, span.svg-qrcode
+        color: $blue-light
 
 .guest-picture
   svg
@@ -303,17 +306,12 @@ svg
 #logs-container
   max-height: 80vh
   overflow: scroll
+  padding-top: 21px
   .guest-info
     margin-left: 15px
     width: 27%
     @include media(md)
       width: 28%
-
-.log-container
-  padding: 15px 20px
-  border-bottom: 1px solid $gray-light
-  &:hover
-    background-color: $gray-light
 
 .log-info
   width: 20%
