@@ -1,7 +1,8 @@
 <div class="guest-picture col-lg-1 col-md-1 col-sm-1">
     <div ng-class="(guest.occupation == 'Atleta') ? 'picture-border' : ''">
         <svg viewBox="0 0 45.67 45.67">
-            <use xlink:href="../../images/icon-user.svg#svg-user"></use>
+            <use ng-if="guest.occupation != 'Atleta'" xlink:href="../../images/icon-user.svg#svg-user"></use>
+            <use ng-if="guest.occupation == 'Atleta'" xlink:href="../../images/icon-user-border.svg#svg-user-border"></use>
         </svg>
     </div>
 </div>
