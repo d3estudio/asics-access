@@ -20,6 +20,8 @@ angular.module('asics').controller('InvitationCtrl', [
         ];
 
         $scope.inviteGuest = function () {
+            if ($scope.isAthlete)
+                $scope.guest.occupation = 'Atleta Asics';
             admin.postInvite($scope.guest)
                 .then(successToast)
                 .catch(errorToast)
@@ -63,7 +65,8 @@ angular.module('asics').controller('InvitationCtrl', [
             $scope.adminForm.$setPristine();
             $scope.adminForm.name.$touched = false;
             $scope.adminForm.email.$touched = false;
-            $scope.adminForm.occupation.$touched = false;
+            if ($scope.adminForm.occupation)
+                $scope.adminForm.occupation.$touched = false;
         }
     }]);
 

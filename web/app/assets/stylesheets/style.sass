@@ -221,6 +221,9 @@ input[type=checkbox]
 .default-tab
   background-color: $gray-light
 
+.arrow
+  display: none
+
 .active-tab
   background-color: $blue-light
   &:hover
@@ -229,6 +232,16 @@ input[type=checkbox]
     color: $white
   a svg
     fill: $white
+  .arrow
+    display: block
+    width: 0
+    height: 0
+    border-top: 9px solid transparent
+    border-bottom: 9px solid transparent
+    border-left: 9px solid $blue-light
+    position: absolute
+    right: -9px
+    top: 14px
 
 .tab-content
   .tab-pane
@@ -323,6 +336,7 @@ input[type=checkbox]
 .help-block p
   font-size: 12px
   color: $red
+
 
 //GUESTS
 #guests-container
