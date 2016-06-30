@@ -26,11 +26,13 @@ class GatewayController < ApplicationController
     missing_fields = []
 
     logs.each do |log|
-      guest = Guest.unscope(where: :removed_at).find(log[:guest_id])
+      guest_id = log[:guest_id]
       id = log[:id]
       created_at = log[:created_at]
 
-      if guest && id && created_at
+      if get_guests.exists?(guest_id) && id && created_at && !Log.exists?(id)
+        guest = get_guests.find(guest_id)
+
         guest.logs.create(id: id, created_at: created_at, access_token: @access_token)
       else
         missing_fields << log
@@ -78,7 +80,7 @@ class GatewayController < ApplicationController
       Guest
            .select("id, name, email, qr_code, occupation, updated_at, removed_at")
            .unscope(where: :removed_at)
-           .where(rsvp: true)
+           .where('rsvp=? OR removed_at IS NOT NULL', true)
            .order(:updated_at)
     end
 
