@@ -6,16 +6,18 @@
     </div>
     <form name="adminForm">
         <div class="row">
-            <div class="checkbox col-lg-2 col-md-2 col-sm-2">
-                <label>
-                    <input type="checkbox"> Atleta Asics
-                </label>
+            <div id="admin-form-checkbox" class="col-lg-3 col-md-3 col-sm-3">
+                <label>Atleta Asics</label>
+                <div id="checkbox">
+                    <input type="checkbox" id="inputIsAthlete">
+                    <label for="inputIsAthlete"></label>
+                </div>
             </div>
-            <div id="admin-form-name" class="form-group col-lg-10 col-md-10 col-sm-10">
+            <div id="admin-form-name" class="form-group col-lg-9 col-md-9 col-sm-9">
                 <label for="inputName">Nome</label>
                 <input ng-model="guest.name" name="name" ng-required="true" names-only="names-only"
                        class="form-control" id="inputName">
-                <div class="help-block" ng-messages="adminForm.name.$error" ng-if='adminForm.name.$touched'>
+                <div class="help-block" ng-messages="adminForm.name.$error" ng-show='adminForm.name.$touched'>
                     <p ng-message="required">Por favor, preencha o nome</p>
                 </div>
             </div>
@@ -26,7 +28,7 @@
                 <input ng-model="guest.email" name="email" type="email" minlength="5" maxlength="100"
                        ng-pattern="/^.+@.+..+$/" required="required" class="form-control" id="inputEmail">
                 <div class="help-block" ng-messages="adminForm.email.$error" multiple="" md-auto-hide="true"
-                     ng-if='adminForm.email.$touched'>
+                     ng-show='adminForm.email.$touched'>
                     <div ng-message="required">Por favor, preencha o email</div>
                     <div ng-message="pattern">Email inválido</div>
                 </div>
@@ -42,17 +44,20 @@
         <div class="row mg-top-15">
             <div id="admin-form-occupation" class="form-group col-lg-12 col-md-12 col-sm-12">
                 <label for="inputName">Função</label>
-                <select name="occupation" ng-model="guest.occupation" class="form-control" ng-options="occupation as occupation for occupation in occupations" required>
+                <select name="occupation" ng-model="guest.occupation" class="form-control"
+                        ng-options="occupation as occupation for occupation in occupations" required>
                     <option value="" disabled selected>Escolha a função do convidado</option>
                 </select>
-                <div class="help-block" ng-messages="adminForm.occupation.$error" ng-if='adminForm.occupation.$touched'>
+                <div class="help-block" ng-messages="adminForm.occupation.$error"
+                     ng-show='adminForm.occupation.$touched'>
                     <div ng-message="required">Por favor, escolha a área de atuação do convidado</div>
                 </div>
             </div>
         </div>
 
-        <div class="row mg-top-40">
-            <button ng-click="inviteGuest()" ng-disabled="adminForm.$invalid" type="submit"
+        <div class="row mg-top-50">
+            <button ng-click="inviteGuest()" ng-class="adminForm.$invalid ? 'btn-disabled' : '' "
+                    ng-disabled="adminForm.$invalid" type="submit"
                     class="btn btn-default col-lg-3 col-md-3 col-sm-3 col-lg-offset-4 col-md-offset-4 col-sm-offset-4">
                 ENVIAR CONVITE
             </button>

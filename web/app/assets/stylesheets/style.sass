@@ -49,7 +49,7 @@
 .mg-top-15
   margin-top: 15px
 
-.mg-top-40
+.mg-top-50
   margin-top: 30px
 
 body
@@ -62,7 +62,7 @@ p
   line-height: 16px
 
 h1
-  font-size: 36px
+  font-size: 32px
   font-weight: 400
   line-height: 48px
   @include media(xs)
@@ -104,6 +104,40 @@ label
 
 input
   padding-left: 8px
+  
+input[type=checkbox]
+  display: none
+  + label
+    position: relative
+    background: url("../images/icon-checkbox.svg") no-repeat
+    height: 50px
+    width: 50px
+    display: block
+    border-radius: 50%
+    transition: box-shadow 0.2s, border 0.2s
+    border: solid 3px $white
+    box-shadow: 0 0 1px $white
+    cursor: pointer
+    &:hover
+      border: solid 1px $blue-light
+      box-shadow: 0 0 1px $blue-light
+  &:checked + label
+    background: url("../images/icon-checkbox-checked.svg") no-repeat
+    border: solid 1px $blue-light
+    box-shadow: 0 0 1px $blue-light
+    &:after
+      content: ''
+      height: 1em
+      position: absolute
+      top: 0
+      left: 0
+      bottom: 0
+      right: 0
+      margin: auto
+      color: $blue-light
+      line-height: 1
+      font-size: 18px
+      text-align: center
 
 .btn
   height: 50px
@@ -112,6 +146,16 @@ input
   color: $white
   font-size: 18px
   font-weight: 800
+  &:hover
+    background-color: $gray
+    color: $blue-light
+
+.btn-disabled, .btn-disabled:hover
+  background-color: $gray !important
+  color: $gray-medium !important
+
+#checkbox
+  margin-left: 28px
 
 //RSVP
 #main-container
@@ -127,7 +171,7 @@ input
 
 #rsvp-header
   padding: 5px
-  border-bottom: solid 1px $light-primary-color
+  border-bottom: solid 1px $gray
   img
     height: 140px
     margin: 0 auto
@@ -268,6 +312,13 @@ input
   width: 82%
   @include media(sm)
     width: 80%
+
+#admin-form-name
+  float: right
+  width: 78%
+
+#admin-form-checkbox
+  width: 22%
 
 //GUESTS
 #guests-container
@@ -414,6 +465,8 @@ input
   overflow: hidden
   padding: 40px 30px
   border-bottom: 1px solid $gray-light
+  h1
+    font-weight: 400
 
 #invitation-header
   margin-bottom: 80px
