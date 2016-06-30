@@ -1,15 +1,14 @@
 class AdminController < ApplicationController
   protect_from_forgery
 
-
-
+  # GUESTS
   def invite_guest
     name =  params[:name] or return missing_field(:name)
     email =  params[:email] or return missing_field(:email)
     occupation =  params[:occupation] or return missing_field(:occupation)
     language =  params[:language] or return missing_field(:language)
 
-    guest = Guest.where(email: email).unscope(where: :removed_at).first;
+    guest = Guest.not_removed.where(email: email).first;
 
     if guest
       return reject_request(error: 'GuestNotFound',
@@ -38,7 +37,7 @@ class AdminController < ApplicationController
 
 
   def get_guests_information
-    guests = Guest.all
+    guests = Guest.not_removed
     guests_confirmed = guests.where(rsvp: true)
 
     count_athletes_confirmed = guests_confirmed.where(occupation: 'athlete').count
@@ -58,7 +57,7 @@ class AdminController < ApplicationController
   def resend_email_to_guest
     guest_id = params[:guest_id] or return missing_field(:guest_id)
 
-    guest = Guest.where(id: guest_id).first
+    guest = Guest.not_removed.where(id: guest_id).first
     return reject_request(error: 'GuestNotFound',
                           message: 'The requested guest could not be found',
                           action: ['Stop']) unless guest
@@ -85,7 +84,7 @@ class AdminController < ApplicationController
   def delete_guest
     guest_id = params[:guest_id] or return missing_field(:guest_id)
 
-    guest = Guest.find_by(id: guest_id)
+    guest = Guest.not_removed.find_by(id: guest_id)
 
     return reject_request(error: 'GuestNotFound',
                           message: 'The requested guest could not be found',
@@ -104,4 +103,5 @@ class AdminController < ApplicationController
                      action: ['Retry'])
     end
   end
+
 end

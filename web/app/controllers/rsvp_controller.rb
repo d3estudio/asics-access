@@ -5,7 +5,7 @@ class RsvpController < ApplicationController
   def get_guest_by_token
     token =  params[:token] or return missing_field(:token)
 
-    guest = Guest.find_by(invite_token: token)
+    guest = Guest.not_removed.find_by(invite_token: token)
 
     return reject_request(error: 'GuestNotFound',
                           message: 'The requested guest invite could not be found',
@@ -21,7 +21,7 @@ class RsvpController < ApplicationController
     name = params[:name] or return missing_field(:name)
     email = params[:email] or return missing_field(:email)
 
-    guest = Guest.find_by(email:email, invite_token: invite_token)
+    guest = Guest.not_removed.find_by(email:email, invite_token: invite_token)
 
     return reject_request(error: 'GuestNotFound',
                           message: 'The requested guest invite could not be found',

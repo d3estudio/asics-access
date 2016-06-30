@@ -22,7 +22,7 @@ class Guest < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
 
-  default_scope { where(removed_at: nil) }
+  scope :not_removed, -> { where(removed_at: nil) }
   scope :updated_after, -> (time) { where("updated_at > ?", time) }
 
   private
