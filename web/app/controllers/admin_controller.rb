@@ -85,8 +85,6 @@ class AdminController < ApplicationController
   def delete_guest
     guest_id = params[:guest_id] or return missing_field(:guest_id)
 
-    require_fields([ guest_id ])
-
     guest = Guest.find_by(id: guest_id)
 
     return reject_request(error: 'GuestNotFound',
