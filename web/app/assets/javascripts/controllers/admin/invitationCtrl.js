@@ -7,6 +7,7 @@ angular.module('asics').controller('InvitationCtrl', [
     'admin',
     function ($mdToast, $q, $scope, $state, $stateParams, admin) {
         $scope.guest = {};
+        $scope.isAthlete = false;
         $scope.occupations = [
             'Atleta',
             'Staff de treinamento',

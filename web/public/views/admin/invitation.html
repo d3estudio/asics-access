@@ -9,7 +9,7 @@
             <div id="admin-form-checkbox" class="col-lg-3 col-md-3 col-sm-3">
                 <label>Atleta Asics</label>
                 <div id="checkbox">
-                    <input type="checkbox" id="inputIsAthlete">
+                    <input ng-model="isAthlete" ng-checked="isAthlete" aria-label="Is athlete Asics?" type="checkbox" id="inputIsAthlete">
                     <label for="inputIsAthlete"></label>
                 </div>
             </div>
@@ -29,8 +29,8 @@
                        ng-pattern="/^.+@.+..+$/" required="required" class="form-control" id="inputEmail">
                 <div class="help-block" ng-messages="adminForm.email.$error" multiple="" md-auto-hide="true"
                      ng-show='adminForm.email.$touched'>
-                    <div ng-message="required">Por favor, preencha o email</div>
-                    <div ng-message="pattern">Email inválido</div>
+                    <p ng-message="required">Por favor, preencha o email</p>
+                    <p ng-message="pattern">Email inválido</p>
                 </div>
             </div>
             <div id="admin-form-language" class="form-group col-lg-2 col-md-2 col-sm-2">
@@ -41,7 +41,7 @@
                 </select>
             </div>
         </div>
-        <div class="row mg-top-15">
+        <div ng-if="!isAthlete" class="row mg-top-15">
             <div id="admin-form-occupation" class="form-group col-lg-12 col-md-12 col-sm-12">
                 <label for="inputName">Função</label>
                 <select name="occupation" ng-model="guest.occupation" class="form-control"
@@ -50,7 +50,7 @@
                 </select>
                 <div class="help-block" ng-messages="adminForm.occupation.$error"
                      ng-show='adminForm.occupation.$touched'>
-                    <div ng-message="required">Por favor, escolha a área de atuação do convidado</div>
+                    <p ng-message="required">Por favor, escolha a área de atuação do convidado</p>
                 </div>
             </div>
         </div>
