@@ -1,16 +1,36 @@
 <div id="guests-top" class="row bg-gray">
-    <div class="counter-card bg-white txt-blue col-lg-3 col-md-4 col-sm-4 col-xs-12">
-        <h1>{{ count.total }}</h1>
-        <div>{{ count.total == 1 ? 'Confirmação total' : 'Confirmações totais' }}</div>
-
+    <div ng-click="openCloseCard()" ng-class="cardIsClosed ? '' : 'card-open'" class="counter-card bg-white txt-blue col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <div class="counter-card-top">
+            <h1>{{ count.total }}</h1>
+            <div>{{ count.total == 1 ? 'Confirmação total' : 'Confirmações totais' }}</div>
+        </div>
+        <div ng-if="!cardIsClosed" class="counter-card-bottom">
+            <div class="txt-black"><strong>601</strong> convites enviados</div>
+            <div class="txt-black"><strong>601</strong> convites abertos</div>
+            <div class="txt-black"><strong>601</strong> convites pendentes</div>
+        </div>
     </div>
-    <div class="counter-card bg-green txt-white col-lg-3 col-md-4 col-sm-4 col-xs-12">
-        <h1>{{ count.athletes }}</h1>
-        <div class="">{{ count.athletes == 1 ? 'Atleta confirmado' : 'Atletas confirmados' }}</div>
+    <div ng-click="openCloseCard()" ng-class="cardIsClosed ? '' : 'card-open'" class="counter-card bg-green txt-white col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <div class="counter-card-top">
+            <h1>{{ count.athletes }}</h1>
+            <div class="">{{ count.athletes == 1 ? 'Atleta confirmado' : 'Atletas confirmados' }}</div>
+        </div>
+        <div ng-if="!cardIsClosed" class="counter-card-bottom counter-card-athlete">
+            <div class="txt-white"><strong>601</strong> convites enviados</div>
+            <div class="txt-white"><strong>601</strong> convites abertos</div>
+            <div class="txt-white"><strong>601</strong> convites pendentes</div>
+        </div>
     </div>
-    <div class="counter-card bg-orange txt-white col-lg-3 col-md-4 col-sm-4 col-xs-12">
-        <h1>{{ count.guests }}</h1>
-        <div>{{ count.guests == 1 ? 'Convidado confirmado' : 'Convidados confirmados' }}</div>
+    <div ng-click="openCloseCard()" ng-class="cardIsClosed ? '' : 'card-open'" class="counter-card bg-orange txt-white col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <div class="counter-card-top">
+            <h1>{{ count.guests }}</h1>
+            <div>{{ count.guests == 1 ? 'Convidado confirmado' : 'Convidados confirmados' }}</div>
+        </div>
+        <div ng-if="!cardIsClosed" class="counter-card-bottom counter-card-guest">
+            <div class="txt-white"><strong>601</strong> convites enviados</div>
+            <div class="txt-white"><strong>601</strong> convites abertos</div>
+            <div class="txt-white"><strong>601</strong> convites pendentes</div>
+        </div>
     </div>
 </div>
 
@@ -18,11 +38,14 @@
     <div class="search-container">
         <div class="input-group">
             <input type="text" class="form-control">
-            <svg viewBox="0 0 21 21"><use xlink:href="../../images/icon-search.svg#svg-search"></use></svg>
+            <svg viewBox="0 0 21 21">
+                <use xlink:href="../../images/icon-search.svg#svg-search"></use>
+            </svg>
         </div>
     </div>
-    <div id="guests-container">
-        <div class="row guest-container" ng-repeat="guest in guests" class="row" my-guest="guest" on-resend="resendEmail(guest_id)"
+    <div ng-class="cardIsClosed ? '' : 'guest-card-open'" id="guests-container">
+        <div class="row guest-container" ng-repeat="guest in guests" class="row" my-guest="guest"
+             on-resend="resendEmail(guest_id)"
              on-delete="deleteGuest(guest_id)">
         </div>
     </div>

@@ -11,31 +11,34 @@
         {{guest.occupation}}
     </div>
 </div>
-<div class="guest-action col-lg-1 col-md-1 col-sm-1">
-    <button ng-click="resend( { guest_id: guest.id } )" class="guest-action-container">
-        <svg class="svg-qrcode" viewBox="0 0 30 30">
-            <use xlink:href="../../images/icon-qrcode.svg#svg-qrcode"></use>
-        </svg>
-        <span class="svg-qrcode">1</span>
-    </button>
-</div>
-<div class="guest-action col-lg-1 col-md-1 col-sm-1">
-    <button class="guest-action-container">
-        <svg class="svg-badge" viewBox="0 0 44.5 27.9">
-            <use xlink:href="../../images/icon-badge.svg#svg-badge"></use>
-        </svg>
-        <span class="svg-badge">2</span>
-    </button>
-</div>
-<div class="guest-action col-lg-1 col-md-1 col-sm-1" ng-mouseleave="showBlockBtn=false">
-    <button ng-mouseenter="showBlockBtn=true" class="guest-action-container">
-        <svg class="svg-block" viewBox="0 0 29 29">
-            <use xlink:href="../../images/icon-block.svg#svg-block"></use>
-        </svg>
-        <div ng-hide="showBlockBtn" class="txt-red">Revogar</div>
-        <div ng-hide="showBlockBtn" class="txt-red">acesso</div>
-    </button>
-    <button ng-mouseenter="showBlockBtn=true" ng-if="showBlockBtn" class="tooltip-action bg-white txt-red" ng-click="delete( { guest_id: guest.id } )">
-        Revogar acesso
-    </button>
+<div class="guest-action-wrapper">
+    <div class="guest-action col-lg-1 col-md-1 col-sm-1">
+        <button ng-click="resend( { guest_id: guest.id } )" class="guest-action-container">
+            <svg class="svg-qrcode" viewBox="0 0 30 30">
+                <use xlink:href="../../images/icon-qrcode.svg#svg-qrcode"></use>
+            </svg>
+            <span class="svg-qrcode">1</span>
+        </button>
+    </div>
+    <div class="guest-action col-lg-1 col-md-1 col-sm-1">
+        <button class="guest-action-container">
+            <svg class="svg-badge" viewBox="0 0 44.5 27.9">
+                <use xlink:href="../../images/icon-badge.svg#svg-badge"></use>
+            </svg>
+            <span class="svg-badge">2</span>
+        </button>
+    </div>
+    <div class="guest-action col-lg-1 col-md-1 col-sm-1" ng-mouseleave="showBlockBtn=false">
+        <button ng-mouseenter="showBlockBtn=true" class="guest-action-container">
+            <svg class="svg-block" viewBox="0 0 29 29">
+                <use xlink:href="../../images/icon-block.svg#svg-block"></use>
+            </svg>
+            <div ng-hide="showBlockBtn" class="txt-red">Revogar</div>
+            <div ng-hide="showBlockBtn" class="txt-red">acesso</div>
+        </button>
+        <button ng-mouseenter="showBlockBtn=true" ng-if="showBlockBtn" class="tooltip-action bg-white txt-red"
+                ng-click="delete( { guest_id: guest.id } )">
+            Revogar acesso
+        </button>
+    </div>
 </div>
