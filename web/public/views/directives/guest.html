@@ -1,4 +1,4 @@
-<div class="guest-picture col-lg-1 col-md-1 col-sm-1">
+<div class="guest-picture col-lg-1 col-md-1 col-sm-1 col-xs-3">
     <div ng-class="(guest.occupation == 'Atleta') ? 'picture-border' : ''">
         <svg viewBox="0 0 45.67 45.67">
             <use ng-if="guest.occupation != 'Atleta'" xlink:href="../../images/icon-user.svg#svg-user"></use>
@@ -7,7 +7,7 @@
         </svg>
     </div>
 </div>
-<div class="guest-info col-lg-5 col-md-5 col-sm-5">
+<div class="guest-info col-lg-5 col-md-5 col-sm-5 col-xs-9">
     <div class="guest-name md-body-2">{{guest.name}}</div>
     <div class="guest-email md-body-2">{{guest.email}}</div>
     <div class="guest-occupation" ng-class="(guest.occupation == 'Atleta') ? 'txt-green' : 'txt-orange'">
@@ -15,7 +15,7 @@
     </div>
 </div>
 <div class="guest-action-wrapper">
-    <div class="guest-action col-lg-1 col-md-1 col-sm-1" ng-mouseleave="showResendBtn=false">
+    <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-4" ng-mouseleave="showResendBtn=false">
         <button ng-mouseenter="showResendBtn=true" class="guest-action-container" ng-show="!guest.rsvp">
             <svg viewBox="0 0 31.29 25.55">
                 <use xlink:href="../../images/icon-resend-invitation.svg#svg-resend-invitation"></use>
@@ -35,7 +35,7 @@
             {{ guest.rsvp ? 'Reenviar código' : 'Reenviar convite' }}
         </button>
     </div>
-    <div class="guest-action col-lg-1 col-md-1 col-sm-1">
+    <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-4">
         <button class="guest-action-container" ng-if="!guest.rsvp">
             <svg viewBox="0 0 29.71 29.29">
                 <use xlink:href="../../images/icon-confirmation-waiting.svg#svg-confirmation-waiting"></use>
@@ -51,7 +51,7 @@
             <div class="txt-blue">14h20</div>
         </button>
     </div>
-    <div class="guest-action col-lg-1 col-md-1 col-sm-1" ng-mouseleave="showBlockBtn=false">
+    <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-4" ng-mouseleave="showBlockBtn=false">
         <button ng-mouseenter="showBlockBtn=true" class="guest-action-container">
             <svg class="svg-block" viewBox="0 0 29 29">
                 <use xlink:href="../../images/icon-block.svg#svg-block"></use>
