@@ -1,25 +1,59 @@
 @import "reset"
 @import "var"
 
-body
-  font-family: $open-sans
-  color: $primary-text
+.bg-green
+  background-color: $green
 
-#main-container
-  background-color: $primary-color
-  height: 100%
+.bg-orange
+  background-color: $orange
+
+.bg-white
+  background-color: $white
+
+.bg-blue
+  background-color: $blue-light
+
+.bg-red
+  background-color: $red
+
+.bg-gray
+  background-color: $gray
+
+.txt-green
+  color: $green
+
+.txt-orange
+  color: $orange
+
+.txt-white
+  color: $white
+
+.txt-gray
+  color: $gray-dark
+
+.txt-blue
+  color: $blue-light
+
+.txt-red
+  color: $red
+
+body
+  font-family: $helvetica
+  color: $black-light
+  background-color: $black
+
+p
+  font-size: 14px
+  line-height: 16px
 
 h1
-  font-family: $roboto
-  font-size: 50px
-  font-weight: 300
-  color: $primary-text
+  font-size: 36px
+  font-weight: 400
+  line-height: 48px
   @include media(xs)
     font-size: 30px
 
 h2
-  color: $secondary-text
-  font-family: $roboto
   font-size: 28px
   font-weight: 400
   @include media(xs)
@@ -34,16 +68,18 @@ h3
   @include media(xs)
     align-items: flex-start
 
-input
-  @include media(xs)
-    font-size: 12px
+svg
+  fill: $gray-medium
 
-#confirm-button
-  margin-top: 40px
+//RSVP
+#main-container
+  background: url("../images/asics-athlete.jpg") $gray no-repeat center
+  background-size: cover
+  height: 100%
+  padding-top: 100px
 
 .qrcode-container
   margin-bottom: 15px
-
   qrcode
     margin: 0 auto
 
@@ -54,56 +90,255 @@ input
     height: 140px
     margin: 0 auto
 
+//ADMIN
+#admin-container
+  height: 100%
+
 #admin-header
-  padding: 5px
-  border-bottom: solid 1px $light-primary-color
+  padding: 25px
   img
-    height: 120px
+    display: block
+    height: 30px
     margin: 0 auto
 
-.admin-content
-  padding: 40px 20px
+#admin-content
+  background-color: $gray-light
+  border-radius: $border-radius
+  height: 85vh
+  max-height: 85vh
+
+.nav-tabs
+  float: left
+  border-bottom: 0
+  svg
+    fill: $gray-dark
+  li:first-child
+    border-top-left-radius: $border-radius
+  li
+    float: none
+    margin: 0
+    padding: 5px
+    border-bottom: 1px solid $gray
+    &:hover
+      background-color: $gray
+    a
+      margin-right: 0
+      border: 0
+      color: $gray-dark
+      text-align: center
+      &:hover, &:active, &:visited, &:link
+        background-color: transparent
+      svg
+        margin: 0 auto
+        height: 40px
+
+.default-tab
+  background-color: $gray-light
+
+.active-tab
+  background-color: $blue-light
+  &:hover
+    background-color: $blue-light !important
+  a div
+    color: $white
+  a svg
+    fill: $white
+
+.tab-content
+  .tab-pane
+    display: none
+    border-bottom-right-radius: $border-radius
+    border-top-right-radius: $border-radius
+    background-color: $white
+    padding: 0
+    min-height: 600px
+    overflow: hidden
+  .active
+    display: block
+
+.counter-card
+  padding: 10px 20px
+  border-radius: $border-radius
+  width: 30%
+  height: 90px
+  margin: 2px 10px
+  @include media(sm)
+    width: 95%
+  @include media(xs)
+    width: 95%
+  h1
+    font-size: 40px
+
+.counter-card .open
+  padding: 20px
+  height: 160px
+  h1
+    font-size: 54px
+
+.search-container
+  height: 36px
+  border-bottom: 1px solid $gray
+  padding: 5px 25px
+  .input-group
+    position: absolute
+    right: 60px
+    background-color: $gray-light
+    border-radius: 30px
+    width: 258px
+  input
+    height: 25px
+    line-height: 25px
+    border-radius: 30px
+    border: none
+    background-color: $gray-light
+    width: 230px !important
+    -webkit-box-shadow: none !important
+    box-shadow: none !important
+  svg
+    position: absolute
+    top: 5px
+    display: inline-block
+    height: 15px
+
+//GUESTS
+#guests-container
+  max-height: 63vh
+  padding-top: 21px
+  overflow-y: scroll
+  overflow-x: hidden
+
+#guests-top
+  padding: 20px
+
+#guests-bottom
+  height: 100%
+
+.guest-container, .log-container
+  padding: 15px 20px
+  border-bottom: 1px solid $gray-light
+  &:hover
+    background-color: $gray-light
+    button.guest-action-container
+      &:hover
+        .tooltip-action
+          display: block
+      div
+        display: block
+      svg
+        fill: $blue-light
+      svg.svg-block
+        fill: $red
+      span.svg-badge, span.svg-qrcode
+        color: $blue-light
+
+.guest-picture
+  svg
+    height: 46px
+    margin: 4px
+  .picture-border
+    background: url("../images/icon-user-border.svg#svg-user-border") no-repeat
+    background-size: cover
+    width: 54px
+    height: 54px
+
+.guest-info
+  margin-left: 15px
+  width: 42%
+  @include media(md)
+    width: 44%
+  .guest-name
+    font-size: 15px
+    font-weight: 800
+    color: $black-light
+
+  .guest-email
+    font-size: 10px
+    line-height: 7px
+    color: $gray-dark
+
+  .guest-occupation
+    font-size: 10px
+    margin-top: 11px
+    font-weight: 600
+
+
+.tooltip-action
+  position: absolute
+  top: -35px
+  right: -7px
+  display: block
+  border-radius: 4px
+  padding: 10px 0
+  box-shadow: 2px 5px 20px $gray-medium
+  height: 40px
+  width: 100px
+  font-size: 12px
+  font-weight: 400
+  text-align: center
+
+.guest-action
+  display: table
+  width: 100px
+  button.guest-action-container
+    float: right
+    display: table-cell
+    vertical-align: middle
+    height: 56px
+    width: 60px
+    div
+      display: none
+      font-size: 11px
+    svg
+      width: 32px
+      margin: 0 auto
+    span
+      position: absolute
+      top: 27px
+      right: 23px
+      font-size: 20px
+      color: $gray-medium
+    svg.svg-badge
+      width: 48px
+    span.svg-qrcode
+      right: 28px
+
+
+//LOGS
+#logs-container
+  max-height: 80vh
+  padding-top: 21px
+  overflow-y: scroll
+  overflow-x: hidden
+  .guest-info
+    margin-left: 15px
+    width: 27%
+    @include media(md)
+      width: 28%
+
+.log-info
+  width: 20%
+  border-right: 1px solid $gray-light
 
 .log-time
-  font-size: 12px !important
+  color: $black-light
+  font-size: 28px
+  font-weight: 800
 
-h3.guest-name
-  color: $secondary-accent-color
-  font-weight: 700
+.log-date
+  color: $gray-medium
+  font-size: 12px
 
-.guest-occupation
-  font-size: 12px !important
+#icon-badge
+  width: 42px
 
-.button-invitation-container
-  margin-left: 40px
+//INVITATION
+#invitation-container
+  height: 85vh
+  overflow: hidden
+  padding: 40px 30px
+  border-bottom: 1px solid $gray-light
 
-.button-invitation
-  margin-top: 20px
-
-
-
-md-input-container
-  margin: 15px 0
-
-  &:not(.md-input-invalid).md-input-focused
-    .md-input
-      border-color: $primary-text
-    label
-      color: $primary-text
-
-md-toolbar:not(.md-menu-toolbar)
-  background-color: $secondary-accent-color
-
-md-radio-group
-  margin: 0 auto
-
-md-radio-button
-  display: inline-block
-  margin: 0 55px 35px 0
-
-md-radio-button.md-checked .md-off
-  border-color: $secondary-accent-color
-
-md-radio-button .md-on
-  background-color: $accent-color
-
+#invitation-header
+  margin-bottom: 80px
+  p
+    color: $gray-dark

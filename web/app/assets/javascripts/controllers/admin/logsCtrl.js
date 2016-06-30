@@ -11,7 +11,7 @@ angular.module('asics').controller('LogsCtrl', [
                 email: 'jose@gmail.com',
                 name: 'José Nunes',
                 birthdate: '',
-                occupation: 'athlete',
+                occupation: 'Atleta',
                 isVegan: false,
                 dontDrink: true
             },
@@ -27,7 +27,7 @@ angular.module('asics').controller('LogsCtrl', [
                 email: 'emilinho@gmail.com',
                 name: 'Emilio Britto da Silva',
                 birthdate: '',
-                occupation: 'athlete',
+                occupation: 'Atleta',
                 isVegan: false,
                 dontDrink: false
             },
@@ -35,7 +35,7 @@ angular.module('asics').controller('LogsCtrl', [
                 email: 'jose@gmail.com',
                 name: 'José Nunes',
                 birthdate: '',
-                occupation: 'athlete',
+                occupation: 'Atleta',
                 isVegan: false,
                 dontDrink: true
             },
@@ -51,7 +51,7 @@ angular.module('asics').controller('LogsCtrl', [
                 email: 'emilinho@gmail.com',
                 name: 'Emilio Britto da Silva',
                 birthdate: '',
-                occupation: 'athlete',
+                occupation: 'Atleta',
                 isVegan: false,
                 dontDrink: false
             },
@@ -59,7 +59,7 @@ angular.module('asics').controller('LogsCtrl', [
                 email: 'jose@gmail.com',
                 name: 'José Nunes',
                 birthdate: '',
-                occupation: 'athlete',
+                occupation: 'Atleta',
                 isVegan: false,
                 dontDrink: true
             },
@@ -75,7 +75,7 @@ angular.module('asics').controller('LogsCtrl', [
                 email: 'emilinho@gmail.com',
                 name: 'Emilio Britto da Silva',
                 birthdate: '',
-                occupation: 'athlete',
+                occupation: 'Atleta',
                 isVegan: false,
                 dontDrink: false
             }

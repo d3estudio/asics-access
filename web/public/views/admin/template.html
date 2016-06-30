@@ -1,22 +1,38 @@
-<md-content id="main-container" class="md-padding">
-    <div id="admin-content" layout="row">
-        <md-card flex-offset-gt-md="10" flex-gt-md="80" flex="flex">
-            <md-card-content>
-                <div id="admin-header" layout="row">
-                    <img src="images/asics-logo.png">
-                </div>
-
-                <md-tabs md-selected="selectedTab">
-                    <md-tab label="Editar" ui-sref="admin.guests"></md-tab>
-                    <md-tab label="Convidar" ui-sref="admin.invitation"></md-tab>
-                    <md-tab label="Acessos" ui-sref="admin.logs"></md-tab>
-                </md-tabs>
-                <div class="admin-content" layout="row">
-                    <div class="container-fluid" flex="flex">
+<div id="admin-container" class="container-fluid">
+    <div class="row">
+        <div id="admin-header" class="col-lg-12">
+            <img src="images/asics-white-logo.png">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-8 col-md-10 col-sm-12 col-xs-12 col-lg-offset-2 col-md-offset-1 col-sm-offset-0 col-xs-offset-0">
+            <div id="admin-content">
+                <ul class="nav nav-tabs">
+                    <li ng-class="(selectedTab == 0) ? 'active-tab' : 'default-tab'" ng-click="updateTab(0)">
+                        <a ui-sref="admin.guests" data-toggle="tab">
+                            <svg viewBox="0 0 37.33 38.18"><use xlink:href="../../images/icon-edit.svg#svg-edit"></use></svg>
+                            <div>Editar</div>
+                        </a>
+                    </li>
+                    <li ng-class="(selectedTab == 1) ? 'active-tab' : 'default-tab'" ng-click="updateTab(1)">
+                        <a ui-sref="admin.invitation" data-toggle="tab">
+                            <svg viewBox="0 0 40 38.67"><use xlink:href="../../images/icon-invite.svg#svg-invite"></use></svg>
+                            <div>Convidar</div>
+                        </a>
+                    </li>
+                    <li ng-class="(selectedTab == 2) ? 'active-tab' : 'default-tab'" ng-click="updateTab(2)">
+                        <a ui-sref="admin.logs" data-toggle="tab">
+                            <svg viewBox="0 0 38.28 36.81"><use xlink:href="../../images/icon-log.svg#svg-log"></use></svg>
+                            <div>Acessos</div>
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content">
+                    <div class="tab-pane active" id="a">
                         <div ui-view></div>
                     </div>
                 </div>
-            </md-card-content>
-        </md-card>
+            </div>
+        </div>
     </div>
-</md-content>
+</div>
