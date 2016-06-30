@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   post '/api/admin/invite', to: 'admin#invite_guest'
   get '/api/admin/guests/all', to: 'admin#get_guests_information'
+  get '/api/admin/logs/all', to: 'admin#get_logs_information'
   post '/api/admin/guests/email', to: 'admin#resend_email_to_guest'
   post '/api/admin/guests/delete', to: 'admin#delete_guest'
 

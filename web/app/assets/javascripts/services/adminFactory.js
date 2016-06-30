@@ -5,6 +5,10 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
         return $http.get('/api/admin/guests/all').then(parseSuccess, parseError)
     };
 
+    o.getLogs = function () {
+        return $http.get('/api/admin/logs/all').then(parseSuccess, parseError)
+    };
+
     o.postResendEmail = function (guest_id) {
         return $http.post('/api/admin/guests/email', { guest_id: guest_id }).then(parseSuccessMessage, parseError)
     };
@@ -26,7 +30,6 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     }
 
     function parseError(error) {
-        console.error(error);
         throw error.data.message
     }
 

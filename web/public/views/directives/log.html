@@ -1,18 +1,18 @@
 <div class="log-info col-lg-3 col-md-3 col-sm-3">
-    <div ng-class="(guest.occupation == 'Atleta') ? 'picture-border' : ''">
-        <div class="log-time">20 min</div>
-        <div class="log-date">12/12/16 - 14:20:30</div>
+    <div ng-class="(log.guest.occupation == 'Atleta') ? 'picture-border' : ''">
+        <div class="log-time">{{ relativeTime }}</div>
+        <div class="log-date">{{ log.created_at | date:'dd-MM-yy HH:mm:ss' }}</div>
     </div>
 </div>
 <div class="guest-info col-lg-3 col-md-3 col-sm-3">
-    <div class="guest-name md-body-2">{{guest.name}}</div>
+    <div class="guest-name md-body-2">{{log.guest.name}}</div>
     <div class="guest-email md-body-2">2 acessos autorizados</div>
-    <div class="guest-occupation" ng-class="(guest.occupation == 'Atleta') ? 'txt-green' : 'txt-orange'">
-        {{guest.occupation}}
+    <div class="guest-occupation" ng-class="(log.guest.occupation == 'Atleta') ? 'txt-green' : 'txt-orange'">
+        {{log.guest.occupation}}
     </div>
 </div>
 <div class="guest-action col-lg-1 col-md-1 col-sm-1">
-    <button ng-click="resend( { guest_id: guest.id } )" class="guest-action-container">
+    <button ng-click="resend( { guest_id: log.guest.id } )" class="guest-action-container">
         <svg class="svg-qrcode" viewBox="0 0 30 30">
             <use xlink:href="../../images/icon-qrcode.svg#svg-qrcode"></use>
         </svg>
@@ -35,7 +35,7 @@
         <div ng-hide="showBlockBtn" class="txt-red">Revogar</div>
         <div ng-hide="showBlockBtn" class="txt-red">acesso</div>
     </button>
-    <button ng-mouseenter="showBlockBtn=true" ng-if="showBlockBtn" class="tooltip-action bg-white txt-red" ng-click="delete( { guest_id: guest.id } )">
+    <button ng-mouseenter="showBlockBtn=true" ng-if="showBlockBtn" class="tooltip-action bg-white txt-red" ng-click="delete( { guest_id: log.guest.id } )">
         Revogar acesso
     </button>
 </div>

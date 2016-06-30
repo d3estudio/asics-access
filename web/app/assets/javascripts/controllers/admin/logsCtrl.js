@@ -1,86 +1,26 @@
 angular.module('asics').controller('LogsCtrl', [
     '$mdToast',
-    '$q',
     '$scope',
-    '$state',
-    '$stateParams',
     'admin',
-    function ($mdToast, $q, $scope, $state, $stateParams, admin) {
-        $scope.guests = [
-            {
-                email: 'jose@gmail.com',
-                name: 'José Nunes',
-                birthdate: '',
-                occupation: 'Atleta',
-                isVegan: false,
-                dontDrink: true
-            },
-            {
-                email: 'maria@gmail.com',
-                name: 'Maria do Carmo',
-                birthdate: '',
-                occupation: 'reporter',
-                isVegan: true,
-                dontDrink: true
-            },
-            {
-                email: 'emilinho@gmail.com',
-                name: 'Emilio Britto da Silva',
-                birthdate: '',
-                occupation: 'Atleta',
-                isVegan: false,
-                dontDrink: false
-            },
-            {
-                email: 'jose@gmail.com',
-                name: 'José Nunes',
-                birthdate: '',
-                occupation: 'Atleta',
-                isVegan: false,
-                dontDrink: true
-            },
-            {
-                email: 'maria@gmail.com',
-                name: 'Maria do Carmo',
-                birthdate: '',
-                occupation: 'reporter',
-                isVegan: true,
-                dontDrink: true
-            },
-            {
-                email: 'emilinho@gmail.com',
-                name: 'Emilio Britto da Silva',
-                birthdate: '',
-                occupation: 'Atleta',
-                isVegan: false,
-                dontDrink: false
-            },
-            {
-                email: 'jose@gmail.com',
-                name: 'José Nunes',
-                birthdate: '',
-                occupation: 'Atleta',
-                isVegan: false,
-                dontDrink: true
-            },
-            {
-                email: 'maria@gmail.com',
-                name: 'Maria do Carmo',
-                birthdate: '',
-                occupation: 'reporter',
-                isVegan: true,
-                dontDrink: true
-            },
-            {
-                email: 'emilinho@gmail.com',
-                name: 'Emilio Britto da Silva',
-                birthdate: '',
-                occupation: 'Atleta',
-                isVegan: false,
-                dontDrink: false
-            }
-        ];
+    function ($mdToast, $scope, admin) {
+        $scope.logs = [];
 
+        admin.getLogs()
+          .then(readLogs)
+          .catch(errorToast);
 
-    }]);
+        function readLogs(result) {
+          angular.copy(JSON.parse(result.logs), $scope.logs);
+        }
 
+        function errorToast(error) {
+            var toast = $mdToast.simple()
+                .textContent(error)
+                .position('top right')
+                .hideDelay(3000)
+                .theme('error-toast');
+
+            $mdToast.show(toast);
+        }
+    }
+]);
