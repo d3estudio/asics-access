@@ -10,16 +10,21 @@ angular.module('asics').controller('GuestsCtrl', [
             athletes: 0,
             guests: 0
         };
+        $scope.cardIsClosed = true;
+
+        $scope.openCloseCard = function () {
+            if ($scope.cardIsClosed ? $scope.cardIsClosed = false : $scope.cardIsClosed = true);
+        };
 
         var map = {};
 
-        $scope.resendEmail = function(guest_id) {
+        $scope.resendEmail = function (guest_id) {
             admin.postResendEmail(guest_id)
                 .then(successToast)
                 .catch(errorToast)
         };
 
-        $scope.deleteGuest = function(guest_id) {
+        $scope.deleteGuest = function (guest_id) {
             admin.postDeleteGuest(guest_id)
                 .then(onDeleteGuest)
                 .catch(errorToast)
