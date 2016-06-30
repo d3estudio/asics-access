@@ -7,14 +7,22 @@ angular.module('asics').controller('InvitationCtrl', [
     'admin',
     function ($mdToast, $q, $scope, $state, $stateParams, admin) {
         $scope.guest = {};
-
+        $scope.occupations = [
+            'Atleta',
+            'Staff de treinamento',
+            'Federação/NOC',
+            'Mídia',
+            'Família/Amigo de atleta',
+            'Diretor de corrida',
+            'Representante do atleta',
+            'Outro'
+        ];
 
         $scope.inviteGuest = function () {
             admin.postInvite($scope.guest)
                 .then(successToast)
                 .catch(errorToast)
         };
-
 
 
         $scope.$on('$viewContentLoaded', function () {
@@ -47,7 +55,8 @@ angular.module('asics').controller('InvitationCtrl', [
             $scope.guest = {
                 email: '',
                 name: '',
-                occupation: ''
+                occupation: '',
+                language: 'PT'
             };
 
             $scope.adminForm.$setPristine();

@@ -46,6 +46,12 @@
 .txt-red
   color: $red
 
+.mg-top-15
+  margin-top: 15px
+
+.mg-top-40
+  margin-top: 30px
+
 body
   font-family: $helvetica
   color: $black-light
@@ -79,6 +85,33 @@ h3
 
 svg
   fill: $gray-medium
+
+label
+  font-size: 18px
+  color: $gray-dark
+  text-indent: 10px
+  line-height: 26px
+
+.form-control
+  height: 50px
+  border: none
+  background-color: $gray-light
+  text-indent: 12px
+  font-size: 18px
+  font-weight: 800
+  color: $blue
+  box-shadow: none
+
+input
+  padding-left: 8px
+
+.btn
+  height: 50px
+  border: none
+  background-color: $blue-light
+  color: $white
+  font-size: 18px
+  font-weight: 800
 
 //RSVP
 #main-container
@@ -226,6 +259,15 @@ svg
     top: 5px
     display: inline-block
     height: 15px
+
+#admin-form-language
+  width: 115px
+  float: right
+
+#admin-form-email
+  width: 82%
+  @include media(sm)
+    width: 80%
 
 //GUESTS
 #guests-container

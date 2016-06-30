@@ -1,52 +1,106 @@
 <div id="invitation-container" class="bg-white">
     <div id="invitation-header">
         <h1 class="txt-blue">Novo convite</h1>
-        <p class="txt-gray">Você está prestes a enviar um convite para a Casa Asics, preencha todas as informações
-            abaixo
-            e clique em enviar. O usuário receberá o convite no em-mail informado.
+        <p class="txt-gray">Olá, preencha os campos abaixo para convidar uma pessoa para o Asics Hub.
         </p>
     </div>
     <form name="adminForm">
-        <div id="admin-form-name" layout="row" class="admin-form">
-            <md-input-container flex="flex" class="md-block">
-                <label>Nome *</label>
-                <input ng-model="guest.name" name="name" ng-required="!isAthlete" names-only="names-only"/>
-                <div ng-messages="guest.name.$error">
-                    <div ng-message="required">Por favor, preencha o nome</div>
+        <div class="row">
+            <div class="checkbox col-lg-2 col-md-2 col-sm-2">
+                <label>
+                    <input type="checkbox"> Atleta Asics
+                </label>
+            </div>
+            <div id="admin-form-name" class="form-group col-lg-10 col-md-10 col-sm-10">
+                <label for="inputName">Nome</label>
+                <input ng-model="guest.name" name="name" ng-required="true" names-only="names-only"
+                       class="form-control" id="inputName">
+                <div class="help-block" ng-messages="adminForm.name.$error" ng-if='adminForm.name.$touched'>
+                    <p ng-message="required">Por favor, preencha o nome</p>
                 </div>
-            </md-input-container>
+            </div>
         </div>
-        <div id="admin-form-email" layout="row" class="admin-form">
-            <md-input-container flex="flex" class="md-block">
-                <label>Email para envio do convite *</label>
+        <div class="row mg-top-15">
+            <div id="admin-form-email" class="form-group col-lg-10 col-md-10 col-sm-10">
+                <label for="inputEmail">Email</label>
                 <input ng-model="guest.email" name="email" type="email" minlength="5" maxlength="100"
-                       ng-pattern="/^.+@.+..+$/" required="required"/>
-                <div ng-messages="guest.email.$error" multiple="" md-auto-hide="true">
+                       ng-pattern="/^.+@.+..+$/" required="required" class="form-control" id="inputEmail">
+                <div class="help-block" ng-messages="adminForm.email.$error" multiple="" md-auto-hide="true"
+                     ng-if='adminForm.email.$touched'>
                     <div ng-message="required">Por favor, preencha o email</div>
                     <div ng-message="pattern">Email inválido</div>
                 </div>
-            </md-input-container>
+            </div>
+            <div id="admin-form-language" class="form-group col-lg-2 col-md-2 col-sm-2">
+                <label for="inputName">Idioma</label>
+                <select ng-model="guest.language" name="language" class="form-control">
+                    <option ng-selected="true">PT</option>
+                    <option>EN</option>
+                </select>
+            </div>
         </div>
-        <div id="admin-form-occupation" layout="row" class="admin-form">
-            <md-input-container flex="85">
-                <label>Área de atuação *</label>
-                <input ng-model="guest.occupation" name="occupation" required="required"/>
-                <div ng-messages="guest.occupation.$error">
-                    <div ng-message="required">Por favor, preencha a área de atuação do convidado</div>
+        <div class="row mg-top-15">
+            <div id="admin-form-occupation" class="form-group col-lg-12 col-md-12 col-sm-12">
+                <label for="inputName">Função</label>
+                <select name="occupation" ng-model="guest.occupation" class="form-control" ng-options="occupation as occupation for occupation in occupations" required>
+                    <option value="" disabled selected>Escolha a função do convidado</option>
+                </select>
+                <div class="help-block" ng-messages="adminForm.occupation.$error" ng-if='adminForm.occupation.$touched'>
+                    <div ng-message="required">Por favor, escolha a área de atuação do convidado</div>
                 </div>
-            </md-input-container>
-            <md-input-container flex="15">
-                <label>Idioma</label>
-                <md-select ng-model="guest.language">
-                    <md-option ng-selected="true">PT</md-option>
-                    <md-option>EN</md-option>
-                </md-select>
-            </md-input-container>
+            </div>
         </div>
-        <div layout="row" layout-align-gt-xs="end" layout-align="center">
-            <md-button ng-click="inviteGuest()" ng-disabled="adminForm.$invalid" flex-xs="100" class="md-raised">
-                Enviar convite
-            </md-button>
+
+        <div class="row mg-top-40">
+            <button ng-click="inviteGuest()" ng-disabled="adminForm.$invalid" type="submit"
+                    class="btn btn-default col-lg-3 col-md-3 col-sm-3 col-lg-offset-4 col-md-offset-4 col-sm-offset-4">
+                ENVIAR CONVITE
+            </button>
         </div>
     </form>
+
+
+    <!--<form name="adminForm">-->
+    <!--<div layout="row" class="admin-form">-->
+    <!--<md-input-container flex="flex" class="md-block">-->
+    <!--<label>Nome *</label>-->
+    <!--<input ng-model="guest.name" name="name" ng-required="!isAthlete" names-only="names-only"/>-->
+    <!--<div ng-messages="guest.name.$error">-->
+    <!--<div ng-message="required">Por favor, preencha o nome</div>-->
+    <!--</div>-->
+    <!--</md-input-container>-->
+    <!--</div>-->
+    <!--<div id="admin-form-email" layout="row" class="admin-form">-->
+    <!--<md-input-container flex="flex" class="md-block">-->
+    <!--<label>Email para envio do convite *</label>-->
+    <!--<input ng-model="guest.email" name="email" type="email" minlength="5" maxlength="100"-->
+    <!--ng-pattern="/^.+@.+..+$/" required="required"/>-->
+    <!--<div ng-messages="guest.email.$error" multiple="" md-auto-hide="true">-->
+    <!--<div ng-message="required">Por favor, preencha o email</div>-->
+    <!--<div ng-message="pattern">Email inválido</div>-->
+    <!--</div>-->
+    <!--</md-input-container>-->
+    <!--</div>-->
+    <!--<div id="admin-form-occupation" layout="row" class="admin-form">-->
+    <!--<md-input-container flex="85">-->
+    <!--<label>Área de atuação *</label>-->
+    <!--<input ng-model="guest.occupation" name="occupation" required="required"/>-->
+    <!--<div ng-messages="guest.occupation.$error">-->
+    <!--<div ng-message="required">Por favor, preencha a área de atuação do convidado</div>-->
+    <!--</div>-->
+    <!--</md-input-container>-->
+    <!--<md-input-container flex="15">-->
+    <!--<label>Idioma</label>-->
+    <!--<md-select ng-model="guest.language">-->
+    <!--<md-option ng-selected="true">PT</md-option>-->
+    <!--<md-option>EN</md-option>-->
+    <!--</md-select>-->
+    <!--</md-input-container>-->
+    <!--</div>-->
+    <!--<div layout="row" layout-align-gt-xs="end" layout-align="center">-->
+    <!--<md-button ng-click="inviteGuest()" ng-disabled="adminForm.$invalid" flex-xs="100" class="md-raised">-->
+    <!--Enviar convite-->
+    <!--</md-button>-->
+    <!--</div>-->
+    <!--</form>-->
 </div>
