@@ -1,6 +1,8 @@
 class CreateLogs < ActiveRecord::Migration[5.0]
   def change
-    create_table :logs do |t|
+    enable_extension 'uuid-ossp'
+
+    create_table :logs, id: :uuid do |t|
       t.references :guest, foreign_key: true
       t.integer :action
 

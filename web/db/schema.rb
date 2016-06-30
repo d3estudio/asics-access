@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 20160627193037) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
 
   create_table "guests", force: :cascade do |t|
     t.string   "name"
@@ -29,7 +30,7 @@ ActiveRecord::Schema.define(version: 20160627193037) do
     t.datetime "removed_at"
   end
 
-  create_table "logs", force: :cascade do |t|
+  create_table "logs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.integer  "guest_id"
     t.datetime "created_at",   null: false
     t.string   "access_token"

@@ -2,7 +2,7 @@
 #
 # Table name: logs
 #
-#  id             :integer          not null, primary key
+#  id             :uuid          not null, primary key
 #  guest_id       :integer
 #  access_token   :string
 #  created_at     :datetime         not null
