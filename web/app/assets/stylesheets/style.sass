@@ -152,7 +152,7 @@ svg
     background-color: $white
     padding: 0
     min-height: 600px
-    overflow-y: auto
+    overflow: hidden
   .active
     display: block
 
@@ -203,8 +203,9 @@ svg
 //GUESTS
 #guests-container
   max-height: 63vh
-  overflow: scroll
   padding-top: 21px
+  overflow-y: scroll
+  overflow-x: hidden
 
 #guests-top
   padding: 20px
@@ -305,8 +306,9 @@ svg
 //LOGS
 #logs-container
   max-height: 80vh
-  overflow: scroll
   padding-top: 21px
+  overflow-y: scroll
+  overflow-x: hidden
   .guest-info
     margin-left: 15px
     width: 27%
