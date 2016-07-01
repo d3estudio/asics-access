@@ -9,7 +9,8 @@
             <div id="admin-form-checkbox" class="col-lg-3 col-md-3 col-sm-3">
                 <label>Atleta Asics</label>
                 <div id="checkbox">
-                    <input ng-model="isAthlete" ng-checked="isAthlete" aria-label="Is athlete Asics?" type="checkbox" id="inputIsAthlete">
+                    <input ng-model="isAthlete" ng-checked="isAthlete" aria-label="Is athlete Asics?" type="checkbox"
+                           id="inputIsAthlete">
                     <label for="inputIsAthlete"></label>
                 </div>
             </div>
@@ -55,12 +56,15 @@
             </div>
         </div>
 
-        <div class="row mg-top-50">
-            <button ng-click="inviteGuest()" ng-class="adminForm.$invalid ? 'btn-disabled' : '' "
-                    ng-disabled="adminForm.$invalid" type="submit"
-                    class="btn btn-default col-lg-3 col-md-3 col-sm-3 col-lg-offset-4 col-md-offset-4 col-sm-offset-4">
-                ENVIAR CONVITE
-            </button>
+        <div class="row">
+            <div id="admin-form-button"
+                 class="col-lg-12 col-md-12 col-sm-12">
+                <button ng-click="inviteGuest()" ng-class="adminForm.$invalid ? 'btn-disabled' : '' "
+                        ng-disabled="adminForm.$invalid" type="submit"
+                        class="btn btn-default">
+                    ENVIAR CONVITE
+                </button>
+            </div>
         </div>
     </form>
 </div>

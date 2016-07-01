@@ -336,10 +336,22 @@ input[type=checkbox]
 
 #admin-form-name
   float: right
-  width: 78%
+  width: 80%
+  @include media(md)
+    width: 83%
+  @include media(sm)
+    width: 82%
 
 #admin-form-checkbox
-  width: 22%
+  position: fixed
+  width: 145px
+
+#admin-form-button
+  position: absolute
+  bottom: 12vh
+  button
+    margin-left: 29%
+    width: 205px
   
 .help-block p
   font-size: 12px
