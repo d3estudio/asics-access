@@ -19,6 +19,12 @@ angular.module('asics').controller('InvitationCtrl', [
             'Outro'
         ];
 
+        $scope.athletes = [
+            'Jorge',
+            'Ampilho Gusmao',
+            'Neymito da Silva'
+        ];
+
         $scope.inviteGuest = function () {
             if ($scope.isAthlete)
                 $scope.guest.occupation = 'Atleta Asics';

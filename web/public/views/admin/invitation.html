@@ -14,12 +14,23 @@
                     <label for="inputIsAthlete"></label>
                 </div>
             </div>
-            <div id="admin-form-name" class="form-group col-lg-9 col-md-9 col-sm-9">
+            <div ng-if="!isAthlete" id="admin-form-name" class="form-group col-lg-9 col-md-9 col-sm-9">
                 <label for="inputName">Nome</label>
                 <input ng-model="guest.name" name="name" ng-required="true" names-only="names-only"
                        class="form-control" id="inputName">
                 <div class="help-block" ng-messages="adminForm.name.$error" ng-show='adminForm.name.$touched'>
                     <p ng-message="required">Por favor, preencha o nome</p>
+                </div>
+            </div>
+            <div ng-if="isAthlete" id="admin-form-athlete-name" class="form-group col-lg-9 col-md-9 col-sm-9">
+                <label for="inputName">Nome</label>
+                <select name="name" ng-model="guest.name" class="form-control"
+                        ng-options="athlete as athlete for athlete in athletes" required>
+                    <option value="" disabled selected>Escolha o atleta</option>
+                </select>
+                <div class="help-block" ng-messages="adminForm.occupation.$error"
+                     ng-if='adminForm.occupation.$touched && adminForm.occupation.$error'>
+                    <p ng-message="required">Por favor, escolha a área de atuação do convidado</p>
                 </div>
             </div>
         </div>
