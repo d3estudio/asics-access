@@ -2,26 +2,26 @@
  * MEDIA QUERIES
  * -------------------------------------
 @mixin media($breakpoint)
-	$mq-xs: "(max-width: 767px)"
-	$mq-sm: "(min-width: 768px) and (max-width: 991px)"
-	$mq-md: "(min-width: 992px) and (max-width: 1199px)"
-	$mq-lg: "(min-width: 1200px)"
+  $mq-xs: "(max-width: 767px)"
+  $mq-sm: "(min-width: 768px) and (max-width: 991px)"
+  $mq-md: "(min-width: 992px) and (max-width: 1199px)"
+  $mq-lg: "(min-width: 1200px)"
 
-	@if $breakpoint == xs
-		@media #{$mq-xs}
-			@content
+  @if $breakpoint == xs
+    @media #{$mq-xs}
+      @content
 
-	@if $breakpoint == sm
-		@media #{$mq-sm}
-			@content
+  @if $breakpoint == sm
+    @media #{$mq-sm}
+      @content
 
-	@if $breakpoint == md
-		@media #{$mq-md}
-			@content
+  @if $breakpoint == md
+    @media #{$mq-md}
+      @content
 
-	@if $breakpoint == lg
-		@media #{$mq-lg}
-			@content
+  @if $breakpoint == lg
+    @media #{$mq-lg}
+      @content
 
 /* -------------------------------------
  * COLORS
@@ -47,12 +47,48 @@ $red: #DC3131
  * VARS
  * -------------------------------------
 $border-radius: 8px
+$anim-duration: 0.15s
 
 /* -------------------------------------
  * FONTS
  * -------------------------------------
 @font-face
-	font-family: 'Helvetica Neue'
-	src: url('../fonts/Helvetica-Normal.eot') format("eot"), url('../fonts/Helvetica-Normal.woff') format("woff"), url('../fonts/Helvetica-Normal.ttf') format("truetype"), url('../fonts/Helvetica-Normal.svg') format("svg")
+  font-family: 'Helvetica Neue'
+  src: url('../fonts/Helvetica-Normal.eot') format("eot"), url('../fonts/Helvetica-Normal.woff') format("woff"), url('../fonts/Helvetica-Normal.ttf') format("truetype"), url('../fonts/Helvetica-Normal.svg') format("svg")
 
 $helvetica: 'Helvetica Neue', Helvetica, Arial, sans-serif
+
+/* -------------------------------------
+ * ANIMATIONS
+ * -------------------------------------
+@keyframes fadeIn
+  0%
+    opacity: 0
+
+  100%
+    opacity: 1
+
+@keyframes fadeInDown
+  0%
+    opacity: 0
+    transform: translate(0px, -25px)
+
+  100%
+    opacity: 1
+    transform: translate(0px, 0px)
+
+@keyframes increase
+  0%
+    opacity: 0
+    transform: scale(1, 0.5)
+
+  100%
+    opacity: 1
+    transform: scale(1, 1)
+
+@keyframes decrease
+  0%
+    transform: scale(1, 1.5)
+
+  100%
+    transform: scale(1, 1)
