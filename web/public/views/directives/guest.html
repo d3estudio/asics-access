@@ -30,10 +30,13 @@
             <div ng-hide="showResendBtn" class="txt-blue">Reenviar</div>
             <div ng-hide="showResendBtn" class="txt-blue">código</div>
         </button>
-        <button ng-mouseenter="showResendBtn=true" ng-if="showResendBtn" class="tooltip-action bg-white txt-blue"
-                ng-click="resend( { guest_id: guest.id } )">
-            {{ guest.rsvp ? 'Reenviar código' : 'Reenviar convite' }}
-        </button>
+        <div ng-if="showResendBtn">
+            <button ng-mouseenter="showResendBtn=true" class="tooltip-action bg-white txt-blue"
+                    ng-click="resend( { guest_id: guest.id } )">
+                {{ guest.rsvp ? 'Reenviar código' : 'Reenviar convite' }}
+            </button>
+            <div class="arrow-down"></div>
+        </div>
     </div>
     <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-4">
         <button class="guest-action-container" ng-if="!guest.rsvp">
@@ -59,9 +62,12 @@
             <div ng-hide="showBlockBtn" class="txt-red">Revogar</div>
             <div ng-hide="showBlockBtn" class="txt-red">acesso</div>
         </button>
-        <button ng-mouseenter="showBlockBtn=true" ng-if="showBlockBtn" class="tooltip-action bg-white txt-red"
-                ng-click="delete( { guest_id: guest.id } )">
-            Revogar acesso
-        </button>
+        <div ng-if="showBlockBtn">
+            <button ng-mouseenter="showBlockBtn=true" class="tooltip-action bg-white txt-red"
+                    ng-click="delete( { guest_id: guest.id } )">
+                Revogar acesso
+            </button>
+            <div class="arrow-down"></div>
+        </div>
     </div>
 </div>
