@@ -13,6 +13,18 @@ angular.module('asics').controller('LogsCtrl', [
           angular.copy(JSON.parse(result.logs), $scope.logs);
         }
 
+        $scope.deleteGuest = function (guest_id) {
+            admin.postDeleteGuest(guest_id)
+                .then(onDeleteGuest)
+                .catch(errorToast)
+        };
+
+        function onDeleteGuest(result) {
+            $scope.guests.splice(map[result.guest.id], 1);
+            map[result.guest.id] = undefined;
+            successToast(result);
+        }
+
         function errorToast(error) {
             var toast = $mdToast.simple()
                 .textContent(error)
