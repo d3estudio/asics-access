@@ -4,9 +4,7 @@ class CreateLogs < ActiveRecord::Migration[5.0]
 
     create_table :logs, id: :uuid do |t|
       t.references :guest, foreign_key: true
-      t.integer :action
-
-      t.timestamps
+      t.datetime :created_at
     end
   end
 end

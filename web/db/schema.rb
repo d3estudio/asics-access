@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 20160627193037) do
 
   create_table "logs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.integer  "guest_id"
-    t.datetime "created_at",   null: false
+    t.datetime "created_at"
     t.string   "access_token"
     t.index ["guest_id"], name: "index_logs_on_guest_id", using: :btree
   end
