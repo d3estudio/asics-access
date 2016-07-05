@@ -105,7 +105,7 @@ class AdminController < ApplicationController
   end
 
   def get_logs_information
-    logs = Log.includes(:guest).order(created_at: :desc)
+    logs = Log.from_today.includes(:guest).order(created_at: :desc)
     logs = logs.to_json(include: :guest)
     render json: { succeeded: true, result: { logs: logs } }
   end
