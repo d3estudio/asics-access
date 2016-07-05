@@ -59,7 +59,7 @@ angular.module('asics').controller('GuestsCtrl', [
                     .textContent(message)
                     .position('top right')
                     .hideDelay(3000)
-                    .theme('error-toast')
+                    .theme('success-toast')
             );
         }
 
