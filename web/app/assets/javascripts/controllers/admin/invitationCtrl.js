@@ -29,9 +29,14 @@ angular.module('asics').controller('InvitationCtrl', [
             if ($scope.isAthlete)
                 $scope.guest.occupation = 'Atleta Asics';
             admin.postInvite($scope.guest)
-                .then(successToast)
+                .then(onInviteSuccess)
                 .catch(errorToast)
         };
+
+        function onInviteSuccess(guest) {
+            successToast(guest);
+            clearForm();
+        }
 
         function errorToast(error) {
             console.error(error);
@@ -65,7 +70,7 @@ angular.module('asics').controller('InvitationCtrl', [
 
             $scope.adminForm.$setPristine();
             $scope.adminForm.email.$setUntouched();
-            
+
             if($scope.adminForm.name)
                 $scope.adminForm.name.$setUntouched();
             if($scope.adminForm.occupation)
