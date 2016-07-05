@@ -27,13 +27,14 @@ class GatewayController < ApplicationController
 
     logs.each do |log|
       guest_id = log[:guest_id]
-      id = log[:id]
+      log_id = log[:id]
       created_at = log[:created_at]
+      log_exists = Log.exists?(log_id)
+      guest_exists = get_guests.exists?(guest_id)
 
-      if get_guests.exists?(guest_id) && id && created_at && !Log.exists?(id)
+      if guest_exists && log_id && created_at && !log_exists
         guest = get_guests.find(guest_id)
-
-        guest.logs.create(id: id, created_at: created_at, access_token: @access_token)
+        guest.logs.create(id: log_id, created_at: created_at, access_token: @access_token)
       else
         missing_fields << log
       end
