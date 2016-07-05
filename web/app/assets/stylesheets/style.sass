@@ -52,10 +52,15 @@
 .mg-top-50
   margin-top: 30px
 
+
+.container
+  width: 970px !important
+
 body
   font-family: $helvetica
   color: $black-light
   background-color: $black
+  min-width: 830px
 
 p
   font-size: 14px
@@ -65,23 +70,15 @@ h1
   font-size: 32px
   font-weight: 400
   line-height: 48px
-  @include media(xs)
-    font-size: 30px
 
 h2
   font-size: 28px
   font-weight: 400
-  @include media(xs)
-    text-align: center
-    font-size: 20px
-    font-weight: 500
 
 h3
   font-size: 18px
   font-weight: 600
   margin-bottom: 30px
-  @include media(xs)
-    align-items: flex-start
 
 svg
   fill: $gray-medium
@@ -264,8 +261,6 @@ input[type=checkbox]
   cursor: pointer
   animation: increase ease 0.2s
   transition: height $anim-duration, padding $anim-duration
-  @include media(xs)
-    width: 95%
   h1
     font-size: 40px
     transition: font-size $anim-duration

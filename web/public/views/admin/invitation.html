@@ -6,7 +6,7 @@
     </div>
     <form name="adminForm">
         <div class="row">
-            <div id="admin-form-checkbox" class="col-lg-3 col-md-3 col-sm-3">
+            <div id="admin-form-checkbox" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
                 <label>Atleta Asics</label>
                 <div id="checkbox">
                     <input ng-model="isAthlete" ng-checked="isAthlete" aria-label="Is athlete Asics?" type="checkbox"
@@ -14,7 +14,7 @@
                     <label for="inputIsAthlete"></label>
                 </div>
             </div>
-            <div ng-if="!isAthlete" id="admin-form-name" class="form-group col-lg-9 col-md-9 col-sm-9">
+            <div ng-if="!isAthlete" id="admin-form-name" class="form-group col-lg-9 col-md-9 col-sm-9 col-xs-9">
                 <label for="inputName">Nome</label>
                 <input ng-model="guest.name" name="name" ng-required="true" names-only="names-only"
                        class="form-control" id="inputName">
@@ -22,7 +22,7 @@
                     <p ng-message="required">Por favor, preencha o nome</p>
                 </div>
             </div>
-            <div ng-if="isAthlete" id="admin-form-athlete-name" class="form-group col-lg-9 col-md-9 col-sm-9">
+            <div ng-if="isAthlete" id="admin-form-athlete-name" class="form-group col-lg-9 col-md-9 col-sm-9 col-xs-9">
                 <label for="inputName">Nome</label>
                 <select name="name" ng-model="guest.name" class="form-control"
                         ng-options="athlete as athlete for athlete in athletes" required>
@@ -35,7 +35,7 @@
             </div>
         </div>
         <div class="row mg-top-15">
-            <div id="admin-form-email" class="form-group col-lg-10 col-md-10 col-sm-10">
+            <div id="admin-form-email" class="form-group col-lg-10 col-md-10 col-sm-10 col-xs-9">
                 <label for="inputEmail">Email</label>
                 <input ng-model="guest.email" name="email" type="email" minlength="5" maxlength="100"
                        ng-pattern="/^.+@.+..+$/" required="required" class="form-control" id="inputEmail">
@@ -45,7 +45,7 @@
                     <p ng-message="pattern">Email inválido</p>
                 </div>
             </div>
-            <div id="admin-form-language" class="form-group col-lg-2 col-md-2 col-sm-2">
+            <div id="admin-form-language" class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
                 <label for="inputName">Idioma</label>
                 <select ng-model="guest.language" name="language" class="form-control">
                     <option ng-selected="true">PT</option>
@@ -54,7 +54,7 @@
             </div>
         </div>
         <div ng-if="!isAthlete" class="row mg-top-15">
-            <div id="admin-form-occupation" class="form-group col-lg-12 col-md-12 col-sm-12">
+            <div id="admin-form-occupation" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <label for="inputName">Função</label>
                 <select name="occupation" ng-model="guest.occupation" class="form-control"
                         ng-options="occupation as occupation for occupation in occupations" required>
@@ -69,7 +69,7 @@
 
         <div class="row">
             <div id="admin-form-button"
-                 class="col-lg-12 col-md-12 col-sm-12">
+                 class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <button ng-click="inviteGuest()" ng-class="adminForm.$invalid ? 'btn-disabled' : '' "
                         ng-disabled="adminForm.$invalid" type="submit"
                         class="btn btn-default">
