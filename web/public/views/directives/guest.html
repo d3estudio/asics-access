@@ -15,6 +15,23 @@
     </div>
 </div>
 <div class="guest-action-wrapper">
+    <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1">
+        <button class="guest-action-container" ng-if="!guest.rsvp">
+            <svg viewBox="0 0 29.71 29.29">
+                <use xlink:href="../../images/icon-confirmation-waiting.svg#svg-confirmation-waiting"></use>
+            </svg>
+            <div class="txt-blue">Aguardando</div>
+            <div class="txt-blue">confirmação</div>
+        </button>
+        <button class="guest-action-container" ng-if="guest.rsvp">
+            <svg viewBox="0 0 30.84 30.75">
+                <use xlink:href="../../images/icon-confirmation-done.svg#svg-confirmation-done"></use>
+            </svg>
+            <div class="txt-blue">20/07/2016</div>
+            <div class="txt-blue">14h20</div>
+        </button>
+    </div>
+
     <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1" ng-mouseleave="showResendBtn=false">
         <button ng-mouseenter="showResendBtn=true" class="guest-action-container" ng-show="!guest.rsvp">
             <svg viewBox="0 0 31.29 25.55">
@@ -38,22 +55,7 @@
             <div class="arrow-down"></div>
         </div>
     </div>
-    <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        <button class="guest-action-container" ng-if="!guest.rsvp">
-            <svg viewBox="0 0 29.71 29.29">
-                <use xlink:href="../../images/icon-confirmation-waiting.svg#svg-confirmation-waiting"></use>
-            </svg>
-            <div class="txt-blue">Aguardando</div>
-            <div class="txt-blue">confirmação</div>
-        </button>
-        <button class="guest-action-container" ng-if="guest.rsvp">
-            <svg viewBox="0 0 30.84 30.75">
-                <use xlink:href="../../images/icon-confirmation-done.svg#svg-confirmation-done"></use>
-            </svg>
-            <div class="txt-blue">20/07/2016</div>
-            <div class="txt-blue">14h20</div>
-        </button>
-    </div>
+
     <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1" ng-mouseleave="showBlockBtn=false">
         <button ng-mouseenter="showBlockBtn=true" class="guest-action-container">
             <svg class="svg-block" viewBox="0 0 29 29">
