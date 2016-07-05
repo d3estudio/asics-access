@@ -52,7 +52,6 @@
 .mg-top-50
   margin-top: 30px
 
-
 .container
   width: 970px !important
 
@@ -101,7 +100,7 @@ label
 
 input
   padding-left: 8px
-  
+
 input[type=checkbox]
   display: none
   + label
@@ -347,11 +346,10 @@ input[type=checkbox]
   button
     margin-left: 29%
     width: 205px
-  
+
 .help-block p
   font-size: 12px
   color: $red
-
 
 //GUESTS
 #guests-container
@@ -453,7 +451,6 @@ input[type=checkbox]
   top: 5px
   animation: fadeInDown ease 0.1s
 
-
 .guest-action-wrapper
   float: right
 
@@ -525,3 +522,24 @@ input[type=checkbox]
   margin-bottom: 80px
   p
     color: $gray-dark
+
+//Md-Material
+md-toast
+  width: 300px
+  left: calc(60vw + 16px)
+  margin-right: 50px
+  margin-top: 78px
+  .md-toast-content
+    height: 65px
+    font-size: 16px
+    line-height: 24px
+    text-align: center
+    font-weight: 800
+    background-color: $gray
+    border-radius: $border-radius
+
+md-toast.md-success-toast-theme .md-toast-content
+  color: $green
+
+md-toast.md-error-toast-theme .md-toast-content
+  color: $red

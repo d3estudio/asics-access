@@ -45,7 +45,7 @@ angular.module('asics').controller('InvitationCtrl', [
                 $mdToast.simple()
                     .textContent("Erro ao enviar convite: " + error)
                     .position('top right')
-                    .hideDelay(3000)
+                    .hideDelay(4000)
                     .theme('error-toast')
             );
         }
@@ -55,9 +55,10 @@ angular.module('asics').controller('InvitationCtrl', [
                 $mdToast.simple()
                     .textContent("Convite para " + guest.name + " enviado com sucesso!")
                     .position('top right')
-                    .hideDelay(3000)
-                    .theme('error-toast')
+                    .hideDelay(4000)
+                    .theme('success-toast')
             );
+            clearForm();
         }
 
         function clearForm() {

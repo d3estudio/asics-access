@@ -12,7 +12,7 @@ class AdminController < ApplicationController
 
     if guest
       return reject_request(error: 'GuestNotFound',
-                            message: 'The requested email is already invited',
+                            message: 'Usuário com esse email já foi convidado',
                             action: ['Retry']) unless guest.removed_at != nil
     else
       guest = Guest.new
