@@ -16,6 +16,16 @@
 </div>
 <div class="guest-action-wrapper">
     <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1">
+        <button class="guest-action-container">
+            <svg class="svg-qrcode" viewBox="0 0 30 30">
+                <use xlink:href="../../images/icon-qrcode.svg#svg-qrcode"></use>
+            </svg>
+            <span class="svg-qrcode">1</span>
+            <div class="txt-blue">códigos<br>gerados</div>
+        </button>
+    </div>
+
+    <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1">
         <button class="guest-action-container" ng-if="!guest.rsvp">
             <svg viewBox="0 0 29.71 29.29">
                 <use xlink:href="../../images/icon-confirmation-waiting.svg#svg-confirmation-waiting"></use>
@@ -27,8 +37,7 @@
             <svg viewBox="0 0 30.84 30.75">
                 <use xlink:href="../../images/icon-confirmation-done.svg#svg-confirmation-done"></use>
             </svg>
-            <div class="txt-blue">20/07/2016</div>
-            <div class="txt-blue">14h20</div>
+            <div class="txt-blue">Presença<br>confirmada</div>
         </button>
     </div>
 

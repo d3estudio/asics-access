@@ -52,8 +52,6 @@
 .mg-top-50
   margin-top: 30px
 
-.container
-  width: 970px !important
 
 body
   font-family: $helvetica
@@ -175,6 +173,8 @@ input[type=checkbox]
 //ADMIN
 #admin-container
   height: 100%
+  .container
+    width: 970px !important
 
 #admin-header
   padding: 25px
@@ -188,6 +188,7 @@ input[type=checkbox]
   border-radius: $border-radius
   height: 85vh
   max-height: 85vh
+  min-width: 900px
 
 .nav-tabs
   float: left
@@ -377,6 +378,8 @@ input[type=checkbox]
   border-bottom: 1px solid $gray-light
   &:hover
     background-color: $gray-light
+    .svg-qrcode
+      top: 17px
     button.guest-action-container
       div
         display: block
@@ -402,9 +405,6 @@ input[type=checkbox]
 
 .guest-info
   margin-left: 15px
-  width: 42%
-  @include media(md)
-    width: 44%
   .guest-name
     font-size: 15px
     font-weight: 800
@@ -456,7 +456,6 @@ input[type=checkbox]
 
 .guest-action
   display: table
-  width: 100px
   button.guest-action-container
     float: right
     display: table-cell
@@ -491,6 +490,9 @@ input[type=checkbox]
     width: 40%
   .guest-name
     font-size: 18px
+  .guest-occupation
+    font-size: 12px
+    margin-top: 9px
 
 .log-info
   width: 185px
@@ -503,8 +505,9 @@ input[type=checkbox]
   font-weight: 800
 
 .log-date
-  color: $gray-medium
+  color: $gray-dark
   font-size: 13px
+  margin-top: 4px
 
 #icon-badge
   width: 42px
