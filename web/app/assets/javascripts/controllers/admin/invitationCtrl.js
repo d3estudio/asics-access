@@ -33,11 +33,6 @@ angular.module('asics').controller('InvitationCtrl', [
                 .catch(errorToast)
         };
 
-
-        $scope.$on('$viewContentLoaded', function () {
-            clearForm();
-        });
-
         function errorToast(error) {
             console.error(error);
 
@@ -69,10 +64,16 @@ angular.module('asics').controller('InvitationCtrl', [
             };
 
             $scope.adminForm.$setPristine();
-            $scope.adminForm.name.$touched = false;
-            $scope.adminForm.email.$touched = false;
-            if ($scope.adminForm.occupation)
-                $scope.adminForm.occupation.$touched = false;
+            $scope.adminForm.email.$setUntouched();
+            
+            if($scope.adminForm.name)
+                $scope.adminForm.name.$setUntouched();
+            if($scope.adminForm.occupation)
+                $scope.adminForm.occupation.$setUntouched();
         }
-    }]);
 
+        $scope.$on('$viewContentLoaded', function () {
+            clearForm();
+        });
+    }
+]);
