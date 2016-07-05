@@ -41,7 +41,7 @@ class GatewayController < ApplicationController
 
     if missing_fields.size > 0
       answer = {
-        message: 'Some logs have missing or invalid fields and where not saved',
+        message: 'Some logs have missing or invalid fields (client rsvp false?) and where not saved',
         missing_fields: missing_fields
       }
 
