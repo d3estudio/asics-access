@@ -18,17 +18,17 @@ class RsvpController < ApplicationController
 
   def confirm_invite
     invite_token = params[:invite_token] or return missing_field(:invite_token)
-    name = params[:name] or return missing_field(:name)
-    email = params[:email] or return missing_field(:email)
 
-    guest = Guest.not_removed.find_by(email:email, invite_token: invite_token)
+    guest = Guest.not_removed.find_by(invite_token: invite_token)
 
     return reject_request(error: 'GuestNotFound',
                           message: 'The requested guest invite could not be found',
                           action: ['Stop']) unless guest
 
-    guest.name = name
-    guest.email = email
+    if guest.occupation == 'Atleta Asics'
+        music = params[:music] or return missing_field(:music)
+        guest.music = music
+    end
 
     guest.rsvp = true
     guest.qr_code = Digest::SHA1.hexdigest([Time.now, rand].join)
