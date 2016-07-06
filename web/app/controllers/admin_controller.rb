@@ -37,7 +37,7 @@ class AdminController < ApplicationController
 
 
   def get_guests_information
-    guests = Guest.not_removed
+    guests = Guest.not_removed.order(created_at: :desc)
     count = get_count_of_guests(guests)
 
     result = {
@@ -53,6 +53,7 @@ class AdminController < ApplicationController
 
         guests = Guest.not_removed
                     .where("name ILIKE :s OR email ILIKE :s OR occupation ILIKE :s", {s: "%#{str}%"})
+                    .order(created_at: :desc)
 
         result = {
             guests: guests
