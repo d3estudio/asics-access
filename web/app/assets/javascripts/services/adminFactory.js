@@ -49,6 +49,7 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     }
 
     function parseSuccessMessage(response) {
+        console.log(response);
         return response.data.result.message;
     }
 

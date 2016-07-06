@@ -24,7 +24,6 @@ angular.module('asics').controller('GuestsCtrl', [
         function readGuestsInformation() {
             updateGuests(admin.guests);
             angular.copy(admin.guestsCount, $scope.count);
-            console.log($scope.count);
         }
 
         function updateGuests(guests) {
@@ -67,12 +66,12 @@ angular.module('asics').controller('GuestsCtrl', [
 
         function successToast(message) {
             var simpleToast = $mdToast.simple()
-                .textContent("Erro ao enviar convite: " + error)
+                .textContent(message)
                 .position('top right')
                 .hideDelay(3000)
-                .theme('error-toast')
+                .theme('success-toast')
 
-            $mdToast.show(simple);
+            $mdToast.show(simpleToast);
         }
 
         function errorToast(error) {

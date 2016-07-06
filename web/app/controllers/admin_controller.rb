@@ -76,7 +76,7 @@ class AdminController < ApplicationController
       CommonMailer.invite_email(guest).deliver_later
       message = "Email de confirmação reenviado para " + guest.name
     else
-      guest.qr_code = Digest::SHA1.hexdigest([Time.now, rand].join)
+      guest.generate_qr_code
 
       return reject_request(error: 'ValidationFailed',
                             message: guest.errors,

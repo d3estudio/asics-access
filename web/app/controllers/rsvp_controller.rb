@@ -31,7 +31,7 @@ class RsvpController < ApplicationController
     end
 
     guest.rsvp = true
-    guest.qr_code = Digest::SHA1.hexdigest([Time.now, rand].join)
+    guest.generate_qr_code
 
     if guest.save
       CommonMailer.confirm_email(guest).deliver_later

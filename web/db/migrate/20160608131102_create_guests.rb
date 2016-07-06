@@ -5,11 +5,9 @@ class CreateGuests < ActiveRecord::Migration[5.0]
       t.string :email
       t.string :invite_token
       t.string :qr_code
+      t.integer :qr_codes_generated
       t.string :occupation
       t.boolean :rsvp
-      t.boolean :presence
-      t.boolean :vegetarian
-      t.boolean :alcohol
 
       t.timestamps
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160627193037) do
+ActiveRecord::Schema.define(version: 20160627185053) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,10 +22,11 @@ ActiveRecord::Schema.define(version: 20160627193037) do
     t.string   "email"
     t.string   "invite_token"
     t.string   "qr_code"
+    t.integer  "qr_codes_generated"
     t.string   "occupation"
     t.boolean  "rsvp"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
     t.string   "language"
     t.datetime "removed_at"
   end
