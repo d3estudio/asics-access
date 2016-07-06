@@ -38,19 +38,28 @@ class AdminController < ApplicationController
 
   def get_guests_information
     guests = Guest.not_removed
-    guests_confirmed = guests.where(rsvp: true)
-
-    count_athletes_confirmed = guests_confirmed.where(occupation: 'athlete').count
-    count_guests_confirmed = guests_confirmed.where.not(occupation: 'athlete').count
+    count = get_count_of_guests(guests)
 
     result = {
-      confirmed_guests: count_guests_confirmed,
-      confirmed_athletes: count_athletes_confirmed,
-      guests: guests
+        count: count,
+        guests: guests
     }
 
     render json: { succeeded: true, result: result }
   end
+
+    def search_guests_information
+        str = params[:search_string] or return missing_field(:search_string)
+
+        guests = Guest.not_removed
+                    .where("name ILIKE :s OR email ILIKE :s OR occupation ILIKE :s", {s: "%#{str}%"})
+
+        result = {
+            guests: guests
+        }
+
+        render json: { succeeded: true, result: result }
+    end
 
 
 
@@ -123,6 +132,40 @@ class AdminController < ApplicationController
 
 
     private
+
+    def get_count_of_guests(guests)
+        athletes = guests.where(occupation: 'Atleta Asics')
+        normal = guests.where.not(occupation: 'Atleta Asics')
+
+        athletes_total = athletes.size
+        normal_total = normal.size
+
+        athletes_confirmed = athletes.where(rsvp: true).size
+        normal_confirmed = normal.where(rsvp: true).size
+
+        all_total = athletes_total + normal_total
+        all_confirmed = athletes_confirmed + normal_confirmed
+
+        count = {
+            athletes: {
+                total: athletes_total,
+                confirmed: athletes_confirmed,
+                remaining: athletes_total - athletes_confirmed
+            },
+            normal: {
+                total: normal_total,
+                confirmed: normal_confirmed,
+                remaining: normal_total - normal_confirmed
+            },
+            all: {
+                total: all_total,
+                confirmed: all_confirmed,
+                remaining: all_total - all_confirmed
+            }
+        }
+
+        return count
+    end
 
     def get_guests_with_count
         guests = Guest

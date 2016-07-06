@@ -1,7 +1,8 @@
 angular.module('asics').factory('admin', ['$http', function ($http) {
     var o = {
         logs: [],
-        guests: []
+        guests: [],
+        guestsCount: {},
     };
 
     o.getGuests = function () {
@@ -27,11 +28,17 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     o.postSearchLogs = function(searchString) {
         var post = { search_string: searchString };
         return $http.post('/api/admin/logs/search', post).then(parseSuccess, parseError);
+    };
+
+    o.postSearchGuests = function(searchString) {
+        var post = { search_string: searchString };
+        return $http.post('/api/admin/guests/search', post).then(parseSuccess, parseError);
     }
 
     function parseGuests(response) {
-        var guests = response.data.result.guests;
-        angular.copy(guests, o.guests);
+        var result = response.data.result;
+        angular.copy(result.guests, o.guests);
+        angular.copy(result.count, o.guestsCount);
         return parseSuccess(response);
     };
 
