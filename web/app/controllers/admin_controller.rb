@@ -96,11 +96,11 @@ class AdminController < ApplicationController
     guest.rsvp = false
 
     if guest.save
-      render json: { succeeded: true, result: { guest: guest } }
+        render json: { succeeded: true, result: { guest: guest, succeeded: true } }
     else
-      reject_request(error: 'ValidationFailed',
-                     message: guest.errors,
-                     action: ['Retry'])
+        reject_request(error: 'ValidationFailed',
+                       message: guest.errors,
+                       action: ['Retry'])
     end
   end
 

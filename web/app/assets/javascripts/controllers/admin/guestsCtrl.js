@@ -4,16 +4,12 @@ angular.module('asics').controller('GuestsCtrl', [
     '$scope',
     'admin',
     function ($mdToast, $q, $scope, admin) {
+        $scope.cardIsClosed = true;
         $scope.guests = [];
         $scope.count = {
             total: 0,
             athletes: 0,
             guests: 0
-        };
-        $scope.cardIsClosed = true;
-
-        $scope.openCloseCard = function () {
-            if ($scope.cardIsClosed ? $scope.cardIsClosed = false : $scope.cardIsClosed = true);
         };
 
         var map = {};
@@ -33,7 +29,7 @@ angular.module('asics').controller('GuestsCtrl', [
         function onDeleteGuest(result) {
             $scope.guests.splice(map[result.guest.id], 1);
             map[result.guest.id] = undefined;
-            successToast(result);
+            successToast('Usuário ' + result.guest.name + " revogado com sucesso.");
         }
 
         admin.getGuests()
@@ -72,5 +68,9 @@ angular.module('asics').controller('GuestsCtrl', [
                     .theme('error-toast')
             );
         }
-    }]);
 
+        $scope.openCloseCard = function () {
+            if ($scope.cardIsClosed ? $scope.cardIsClosed = false : $scope.cardIsClosed = true);
+        };
+    }
+]);

@@ -17,7 +17,7 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     };
 
     o.postDeleteGuest = function (guest_id) {
-        return $http.post('/api/admin/guests/delete', { guest_id: guest_id }).then(parseSuccessMessage, parseError);
+        return $http.post('/api/admin/guests/delete', { guest_id: guest_id }).then(parseSuccess, parseError);
     };
 
     o.postInvite = function(guest) {
