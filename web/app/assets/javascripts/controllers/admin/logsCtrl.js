@@ -3,26 +3,38 @@ angular.module('asics').controller('LogsCtrl', [
     '$scope',
     'admin',
     function ($mdToast, $scope, admin) {
+        $scope.searchText = '';
         $scope.logs = [];
+
+        angular.copy(admin.logs, $scope.logs);
 
         admin.getLogs()
           .then(readLogs)
           .catch(errorToast);
 
-        function readLogs(result) {
-          angular.copy(JSON.parse(result.logs), $scope.logs);
+        function readLogs() {
+            angular.copy(admin.logs, $scope.logs);
         }
 
-        $scope.deleteGuest = function (guest_id) {
-            admin.postDeleteGuest(guest_id)
-                .then(onDeleteGuest)
-                .catch(errorToast)
-        };
+        var searchTimeout;
+        $scope.$watch('searchText', function() {
+            clearTimeout(searchTimeout);
+            if($scope.searchText)
+                searchTimeout = setTimeout(applySearch, 400)
+            else {
+                readLogs();
+            }
+        });
 
-        function onDeleteGuest(result) {
-            $scope.guests.splice(map[result.guest.id], 1);
-            map[result.guest.id] = undefined;
-            successToast(result);
+        function applySearch() {
+            admin.postSearchLogs($scope.searchText)
+                .then(readSearchLogs)
+                .catch(errorToast);
+        }
+
+        function readSearchLogs(result) {
+            var jsonResult = JSON.parse(result.logs);
+            angular.copy(jsonResult, $scope.logs);
         }
 
         function errorToast(error) {

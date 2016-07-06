@@ -109,4 +109,14 @@ class AdminController < ApplicationController
     logs = logs.to_json(include: :guest)
     render json: { succeeded: true, result: { logs: logs } }
   end
+
+  def search_logs_information
+    str = params[:search_string] or return missing_field(:search_string)
+
+    logs = Log.joins(:guest)
+        .where("guests.name ILIKE ? OR guests.email ILIKE ?", "%#{str}%", "%#{str}%")
+        .order("logs.created_at DESC")
+    logs = logs.to_json(include: :guest)
+    render json: { succeeded: true, result: { logs: logs } }
+  end
 end
