@@ -12,7 +12,7 @@
     </div>
     <div ng-click="openCloseCard()" ng-class="cardIsClosed ? '' : 'card-open'" class="counter-card bg-green txt-white col-lg-3 col-md-4 col-sm-4 col-xs-4">
         <div class="counter-card-top">
-            <h1>{{ count.athletes }}<span class="txt-green-light">20%</span></h1>
+            <h1>{{ count.athletes }}<span class="txt-green-light"></span></h1>
             <div class="">{{ count.athletes == 1 ? 'Atleta confirmado' : 'Atletas confirmados' }}</div>
         </div>
         <div ng-if="!cardIsClosed" class="counter-card-bottom counter-card-athlete">
@@ -23,7 +23,7 @@
     </div>
     <div ng-click="openCloseCard()" ng-class="cardIsClosed ? '' : 'card-open'" class="counter-card bg-orange txt-white col-lg-3 col-md-4 col-sm-4 col-xs-4">
         <div class="counter-card-top">
-            <h1>{{ count.guests }}<span class="txt-orange-light">20%</span></h1>
+            <h1>{{ count.guests }}<span class="txt-orange-light"></span></h1>
             <div>{{ count.guests == 1 ? 'Convidado confirmado' : 'Convidados confirmados' }}</div>
         </div>
         <div ng-if="!cardIsClosed" class="counter-card-bottom counter-card-guest">

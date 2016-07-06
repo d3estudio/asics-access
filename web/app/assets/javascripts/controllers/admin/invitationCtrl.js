@@ -20,9 +20,27 @@ angular.module('asics').controller('InvitationCtrl', [
         ];
 
         $scope.athletes = [
-            'Jorge',
-            'Ampilho Gusmao',
-            'Neymito da Silva'
+            'Jordan Ernest BURROUGHS',
+            'Saori YOSHIDA',
+            'Yoshihide Kiryu',
+            'Chirstophe Lemaitre',
+            'Floria Guei',
+            'Yohan Diniz',
+            'Queen Harrison',
+            'Candace Hill',
+            'Lolo Jones',
+            'Veronica Shanti Pereira',
+            'Jieshi Neo',
+            'Jared Tallent',
+            'Bruno Rezende',
+            'Gael Monfils',
+            'CoCo Vandeweghe',
+            'Steve Johnson',
+            'Vasek Pospisil',
+            'Gwen Jorgensen',
+            'Kerri Walsh',
+            'Ramu Tokashiki',
+            'Alexandra Priscila do Nascimento'
         ];
 
         $scope.inviteGuest = function () {
