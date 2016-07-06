@@ -7,7 +7,7 @@
     </div>
     <div id="logs-container">
         <div class="row log-container" ng-repeat="log in logs" my-log="log"></div>
-        <div ng-if="searchText.length <= 0 && logs.length <= 0">Nenhum convidado fez check-in hoje</div>
-        <div ng-if="searchText.length > 0 && logs.length <= 0">Nenhum convidado encontrado</div>
+        <div ng-if="searchText.length <= 0 && logs.length <= 0" class="row log-container log-placeholder">Nenhum convidado fez check-in hoje</div>
+        <div ng-if="searchText.length > 0 && logs.length <= 0" class="row log-container log-placeholder">Nenhum convidado encontrado</div>
     </div>
 </div>
