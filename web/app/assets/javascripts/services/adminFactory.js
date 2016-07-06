@@ -30,13 +30,13 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     }
 
     function parseGuests(response) {
-        var guests = JSON.parse(response.data.result.guests)
+        var guests = response.data.result.guests;
         angular.copy(guests, o.guests);
         return parseSuccess(response);
     };
 
     function parseLogs(response) {
-        var logs = JSON.parse(response.data.result.logs)
+        var logs = JSON.parse(response.data.result.logs);
         angular.copy(logs, o.logs);
         return parseSuccess(response);
     }
