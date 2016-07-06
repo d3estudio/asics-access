@@ -1,13 +1,13 @@
 <div class="log-info col-lg-3 col-md-3 col-sm-3 col-xs-3">
-    <div ng-class="(log.guest.occupation == 'Atleta') ? 'picture-border' : ''">
+    <div>
         <div class="log-time">{{ relativeTime }}</div>
         <div class="log-date">{{ log.created_at | date:'dd-MM-yy HH:mm:ss' }}</div>
     </div>
 </div>
 <div class="guest-info col-lg-4 col-md-4 col-sm-4 col-xs-4">
-    <div class="guest-name md-body-2">{{log.guest.name}}</div>
-    <div class="guest-occupation" ng-class="(log.guest.occupation == 'Atleta') ? 'txt-green' : 'txt-orange'">
-        {{log.guest.occupation}}
+    <div class="guest-name md-body-2">{{log.name}}</div>
+    <div class="guest-occupation" ng-class="(log.occupation == 'Atleta Asics') ? 'txt-green' : 'txt-orange'">
+        {{log.occupation}}
     </div>
 </div>
 <div class="guest-action-wrapper">
@@ -16,7 +16,7 @@
             <svg class="svg-badge" viewBox="0 0 44.5 27.9">
                 <use xlink:href="../../images/icon-badge.svg#svg-badge"></use>
             </svg>
-            <span class="svg-badge">2</span>
+            <span class="svg-badge">{{log.logs_count}}</span>
         </button>
     </div>
 </div>

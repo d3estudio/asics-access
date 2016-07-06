@@ -36,7 +36,7 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     };
 
     function parseLogs(response) {
-        var logs = JSON.parse(response.data.result.logs);
+        var logs = response.data.result.logs;
         angular.copy(logs, o.logs);
         return parseSuccess(response);
     }

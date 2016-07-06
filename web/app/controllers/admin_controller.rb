@@ -104,19 +104,43 @@ class AdminController < ApplicationController
     end
   end
 
-  def get_logs_information
-    logs = Log.from_today.includes(:guest).order(created_at: :desc)
-    logs = logs.to_json(include: :guest)
-    render json: { succeeded: true, result: { logs: logs } }
-  end
+    def get_logs_information
+        guests = get_guests_with_count
+            .where("logs.created_at > ?", DateTime.now.beginning_of_day)
+        logs = get_logs_of_guests(guests).from_today
+        render json: { succeeded: true, result: { logs: logs } }
+    end
 
-  def search_logs_information
-    str = params[:search_string] or return missing_field(:search_string)
+    def search_logs_information
+        str = params[:search_string] or return missing_field(:search_string)
 
-    logs = Log.joins(:guest)
-        .where("guests.name ILIKE ? OR guests.email ILIKE ?", "%#{str}%", "%#{str}%")
-        .order("logs.created_at DESC")
-    logs = logs.to_json(include: :guest)
-    render json: { succeeded: true, result: { logs: logs } }
-  end
+        guests = get_guests_with_count
+        logs = get_logs_of_guests(guests)
+            .where("guests.name ILIKE ? OR guests.email ILIKE ?", "%#{str}%", "%#{str}%")
+
+        render json: { succeeded: true, result: { logs: logs } }
+    end
+
+
+    private
+
+    def get_guests_with_count
+        guests = Guest
+            .select('guests.id, name, email, occupation, count(logs.id) as logs_count')
+            .joins(:logs)
+            .group("guests.id")
+
+        return guests
+    end
+
+    def get_logs_of_guests(guests)
+        guests = guests.to_sql
+
+        logs = Log
+            .select('logs.id, logs.created_at, guests.name, guests.email, guests.occupation, guests.logs_count')
+            .joins("JOIN (#{guests}) guests ON logs.guest_id = guests.id")
+            .order("logs.created_at DESC")
+
+        return logs
+    end
 end

@@ -33,8 +33,7 @@ angular.module('asics').controller('LogsCtrl', [
         }
 
         function readSearchLogs(result) {
-            var jsonResult = JSON.parse(result.logs);
-            angular.copy(jsonResult, $scope.logs);
+            angular.copy(result.logs, $scope.logs);
         }
 
         function errorToast(error) {
