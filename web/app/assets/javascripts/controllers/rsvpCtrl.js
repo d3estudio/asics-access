@@ -14,12 +14,12 @@ angular.module('asics').controller('RsvpCtrl', [
             .then(readGuest)
             .catch(onInvalidToken);
 
-
         function readGuest(guest) {
             angular.copy(guest, $scope.guest);
             angular.copy(confirmStrings[guest.language], $scope.strings);
 
-            if ($scope.guest.occupation === 'Atleta Asics') $scope.isAthlete = true;
+            if (guest.occupation == 'Atleta Asics')
+                $scope.isAthlete = true;
         }
 
         function onInvalidToken() {

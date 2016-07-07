@@ -10,7 +10,7 @@
                 </div>
                 <div layout="row">
                     <form name="userForm">
-                        <div ng-if="guest.isAthlete">
+                        <div ng-if="isAthlete">
                             <div flex="flex" class="md-padding">{{strings.formLabelMusic}}</div>
                             <div flex="flex" class="md-padding">
                                 <input id="form-music" class="form-control" ng-model="guest.music" name="music"
@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div ng-if="!guest.isAthlete">
+                        <div ng-if="!isAthlete">
                             <div flex="flex" class="md-padding">{{strings.formLabelGuest}}</div>
                         </div>
                         <div flex="flex" class="md-padding">
