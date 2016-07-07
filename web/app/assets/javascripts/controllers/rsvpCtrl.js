@@ -9,8 +9,6 @@ angular.module('asics').controller('RsvpCtrl', [
         $scope.guest = {};
         $scope.strings = {};
         $scope.isAthlete = false;
-        
-        
 
         rsvp.getGuestByToken($stateParams.token)
             .then(readGuest)
@@ -54,12 +52,14 @@ angular.module('asics').controller('RsvpCtrl', [
 var confirmStrings = {
     EN: {
         hello: "Hello",
+        formLabelGuest: "Click on the button below to confirm attendance.",
         formLabelMusic: "Which song makes you feel like a champion?",
         formErrorRequiredMusic: "Please, type the song name",
-        formButtonConfirmPresence: "Confirm presence"
+        formButtonConfirmPresence: "Confirm attendance"
     },
     PT: {
         hello: "Olá",
+        formLabelGuest: "Clique no botão abaixo para cofirmar presença.",
         formLabelMusic: "Que música faz você se sentir como um campeão?",
         formErrorRequiredMusic: "Por favor, preencha o nome da música",
         formButtonConfirmPresence: "Confirmar presença"

@@ -10,13 +10,18 @@
                 </div>
                 <div layout="row">
                     <form name="userForm">
-                        <div flex="flex" class="md-padding">{{strings.formLabelMusic}}</div>
-                        <div flex="flex" class="md-padding">
-                            <input id="form-music" class="form-control" ng-model="guest.music" name="music"
-                                   required="required" names-only="names-only"/>
-                            <div ng-messages="userForm.name.$error">
-                                <div ng-message="required">{{strings.formErrorRequiredMusic}}</div>
+                        <div ng-if="guest.isAthlete">
+                            <div flex="flex" class="md-padding">{{strings.formLabelMusic}}</div>
+                            <div flex="flex" class="md-padding">
+                                <input id="form-music" class="form-control" ng-model="guest.music" name="music"
+                                       required="required" names-only="names-only"/>
+                                <div ng-messages="userForm.name.$error">
+                                    <div ng-message="required">{{strings.formErrorRequiredMusic}}</div>
+                                </div>
                             </div>
+                        </div>
+                        <div ng-if="!guest.isAthlete">
+                            <div flex="flex" class="md-padding">{{strings.formLabelGuest}}</div>
                         </div>
                         <div flex="flex" class="md-padding">
                             <button id="rsvp-confirm-button" ng-click="confirmInvitation()"

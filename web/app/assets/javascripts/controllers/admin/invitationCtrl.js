@@ -49,6 +49,7 @@ angular.module('asics').controller('InvitationCtrl', [
             admin.postInvite($scope.guest)
                 .then(onInviteSuccess)
                 .catch(errorToast)
+            console.log($scope.guest);
         };
 
         function onInviteSuccess(guest) {
