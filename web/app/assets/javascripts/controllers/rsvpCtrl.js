@@ -8,6 +8,9 @@ angular.module('asics').controller('RsvpCtrl', [
         $scope.result = '';
         $scope.guest = {};
         $scope.strings = {};
+        $scope.isAthlete = false;
+        
+        
 
         rsvp.getGuestByToken($stateParams.token)
             .then(readGuest)
@@ -17,6 +20,8 @@ angular.module('asics').controller('RsvpCtrl', [
         function readGuest(guest) {
             angular.copy(guest, $scope.guest);
             angular.copy(confirmStrings[guest.language], $scope.strings);
+
+            if ($scope.guest.occupation === 'Atleta Asics') $scope.isAthlete = true;
         }
 
         function onInvalidToken() {
@@ -42,32 +47,21 @@ angular.module('asics').controller('RsvpCtrl', [
                     .theme('error-toast')
             );
         }
+
     }
 ]);
 
 var confirmStrings = {
     EN: {
-        formLabelName: "Name",
-        formErrorRequiredName: "Please, fill your name",
-        formLabelEmail: "Email",
-        formErrorRequiredEmail: "Please, fill your email address",
-        formErrorPaternEmail: "Invalid email",
-        formLabelBirthdate: "Birthdate",
-        formErrorRequiredBirthdate: "Please, fill your birthdate",
-        formLabelIsVegan: "I am vegan",
-        formLabelDontDrink: "I do not drink alcohol",
+        hello: "Hello",
+        formLabelMusic: "Which song makes you feel like a champion?",
+        formErrorRequiredMusic: "Please, type the song name",
         formButtonConfirmPresence: "Confirm presence"
     },
     PT: {
-        formLabelName: "Nome",
-        formErrorRequiredName: "Por favor, preencha seu nome",
-        formLabelEmail: "Email",
-        formErrorRequiredEmail: "Por favor, preencha seu email",
-        formErrorPaternEmail: "Email inválido",
-        formLabelBirthdate: "Data de nascimento",
-        formErrorRequiredBirthdate: "Preencha sua data de nascimento",
-        formLabelIsVegan: "Eu sou vegano",
-        formLabelDontDrink: "Não bebo bebida alcólica",
+        hello: "Olá",
+        formLabelMusic: "Que música faz você se sentir como um campeão?",
+        formErrorRequiredMusic: "Por favor, preencha o nome da música",
         formButtonConfirmPresence: "Confirmar presença"
     }
 };

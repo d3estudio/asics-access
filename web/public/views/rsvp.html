@@ -1,52 +1,33 @@
 <md-content id="main-container" class="md-padding">
     <div id="form-content" layout="row">
-        <md-card flex-offset-gt-sm="45" flex-gt-sm="40" flex="flex">
+        <md-card flex-offset-gt-xs="40" flex-gt-xs="50" flex="flex">
             <md-card-content>
                 <div id="rsvp-header" layout="row">
                     <img src="images/asics-logo.png">
                 </div>
-                <div class="container-fluid">
-                    <div style="margin-bottom: 40px">
-                        <p ng-repeat="info in confInfo.payment.infos track by $index" ng-bind-html="info | to_html" class="item md-padding"></p>
-                    </div>
-                    <form name="userForm" class="md-padding">
-                        <div layout-gt-xs="row">
-                            <md-input-container flex-gt-xs="100" class="md-block">
-                                <label>{{ strings.formLabelName }} *</label>
-                                <input ng-model="guest.name" name="name" required="required" names-only="names-only"/>
-                                <div ng-messages="userForm.name.$error">
-                                    <div ng-message="required">{{ strings.formErrorRequiredName }}</div>
-                                </div>
-                            </md-input-container>
+                <div class="md-padding" layout="row">
+                    <h2>{{strings.hello}}, {{guest.name}}</h2>
+                </div>
+                <div layout="row">
+                    <form name="userForm">
+                        <div flex="flex" class="md-padding">{{strings.formLabelMusic}}</div>
+                        <div flex="flex" class="md-padding">
+                            <input id="form-music" class="form-control" ng-model="guest.music" name="music"
+                                   required="required" names-only="names-only"/>
+                            <div ng-messages="userForm.name.$error">
+                                <div ng-message="required">{{strings.formErrorRequiredMusic}}</div>
+                            </div>
                         </div>
-                        <div layout-gt-xs="row">
-                            <md-input-container flex-gt-xs="100" class="md-block">
-                                <label>{{ strings.formLabelEmail }} *</label>
-                                <input ng-model="guest.email" name="email" type="email" minlength="5" maxlength="100" ng-pattern="/^.+@.+..+$/" required="required" readonly/>
-                                <div ng-messages="userForm.email.$error" multiple="" md-auto-hide="true">
-                                    <div ng-message="required">{{ strings.formErrorRequiredEmail }}</div>
-                                    <div ng-message="pattern">{{ strings.formErrorPaternEmail }}</div>
-                                </div>
-                            </md-input-container>
-                        </div>
-                        <div layout-gt-xs="row">
-                            <md-input-container flex-gt-xs="100" class="md-block">
-                                <label>{{ strings.formLabelBirthdate }} *</label>
-                                <input ng-model="guest.birthday" type="text" name="birthday" mask="39/19/9999" restrict="reject" required="required"/>
-                                <div ng-messages="userForm.date.$error">
-                                    <div ng-message="required">{{ strings.formErrorRequiredBirthdate }}</div>
-                                </div>
-                            </md-input-container>
-                        </div>
-                        <div layout-gt-xs="row">
-                            <md-checkbox ng-model="guest.isVegan" aria-label="Is vegan?">{{ strings.formLabelIsVegan }}</md-checkbox>
-                            <md-checkbox ng-model="guest.dontDrink" aria-label="Dont drink?">{{ strings.formLabelDontDrink }}</md-checkbox>
-                        </div>
-                        <div layout="row" layout-align-gt-xs="end" layout-align="center">
-                            <md-button id="confirm-button" ng-click="confirmInvitation()" ng-disabled="userForm.$invalid" flex-xs="100" class="md-raised button-dark">{{ strings.formButtonConfirmPresence }}</md-button>
+                        <div flex="flex" class="md-padding">
+                            <button id="rsvp-confirm-button" ng-click="confirmInvitation()"
+                                    ng-disabled="userForm.$invalid" flex-xs="100"
+                                    class="md-padding btn btn-default centered">
+                                {{strings.formButtonConfirmPresence}}
+                            </button>
                         </div>
                     </form>
                 </div>
+
             </md-card-content>
         </md-card>
     </div>
