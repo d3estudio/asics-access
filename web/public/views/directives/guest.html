@@ -11,7 +11,8 @@
     <div class="guest-name md-body-2">{{guest.name}}</div>
     <div class="guest-email md-body-2">{{guest.email}}</div>
     <div class="guest-occupation" ng-class="(guest.occupation == 'Atleta Asics') ? 'txt-green' : 'txt-orange'">
-        {{guest.occupation}}<span ng-if="guest.music" class="txt-gray"> | música: {{guest.music}}</span>
+        {{guest.occupation}}
+        <span ng-if="guest.music" class="txt-gray"> | música: {{guest.music}}</span>
     </div>
 </div>
 <div class="guest-action-wrapper">
