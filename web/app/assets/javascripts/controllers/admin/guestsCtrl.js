@@ -1,9 +1,8 @@
 angular.module('asics').controller('GuestsCtrl', [
     '$mdToast',
-    '$q',
     '$scope',
     'admin',
-    function ($mdToast, $q, $scope, admin) {
+    function ($mdToast, $scope, admin) {
         $scope.searchText = '';
         $scope.cardIsClosed = true;
         $scope.guests = [];
@@ -84,9 +83,16 @@ angular.module('asics').controller('GuestsCtrl', [
             $mdToast.show(simpleToast);
         }
 
+        function onResendEmail(result) {
+            var guest = result.guest;
+            var i = map[guest.id];
+            angular.copy(guest, $scope.guests[i]);
+            successToast(result.message);
+        }
+
         $scope.resendEmail = function (guest_id) {
             admin.postResendEmail(guest_id)
-                .then(successToast)
+                .then(onResendEmail)
                 .catch(errorToast)
         };
 

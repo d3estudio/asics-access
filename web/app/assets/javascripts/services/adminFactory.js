@@ -14,7 +14,7 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     };
 
     o.postResendEmail = function (guest_id) {
-        return $http.post('/api/admin/guests/email', { guest_id: guest_id }).then(parseSuccessMessage, parseError);
+        return $http.post('/api/admin/guests/email', { guest_id: guest_id }).then(parseSuccess, parseError);
     };
 
     o.postDeleteGuest = function (guest_id) {
