@@ -2,12 +2,19 @@
     <div class="search-container">
         <div class="input-group">
             <input type="text" name="search" ng-model="searchText" class="form-control">
-            <svg viewBox="0 0 21 21"><use xlink:href="../../images/icon-search.svg#svg-search"></use></svg>
+            <svg viewBox="0 0 21 21">
+                <use xlink:href="../../images/icon-search.svg#svg-search"></use>
+            </svg>
         </div>
     </div>
     <div id="logs-container">
         <div class="row log-container" ng-repeat="log in logs" my-log="log"></div>
-        <div ng-if="searchText.length <= 0 && logs.length <= 0" class="row log-container log-placeholder">Nenhum convidado fez check-in hoje</div>
-        <div ng-if="searchText.length > 0 && logs.length <= 0" class="row log-container log-placeholder">Nenhum convidado encontrado</div>
+
+        <div ng-if="searchText.length <= 0 && logs.length <= 0" class="row log-container log-placeholder">
+            <div>Nenhum convidado fez check-in hoje</div>
+        </div>
+        <div ng-if="searchText.length > 0 && logs.length <= 0" class="row log-container log-placeholder">
+            <div>Nenhum convidado encontrado</div>
+        </div>
     </div>
 </div>
