@@ -8,7 +8,7 @@ class RsvpController < ApplicationController
     guest = Guest.not_removed.find_by(invite_token: token)
 
     return reject_request(error: 'GuestNotFound',
-                          message: 'The requested guest invite could not be found',
+                          message: 'Convidado inexistente',
                           action: ['Stop']) unless guest
 
     render json: { succeeded: true, result: guest }
@@ -22,7 +22,7 @@ class RsvpController < ApplicationController
     guest = Guest.not_removed.find_by(invite_token: invite_token)
 
     return reject_request(error: 'GuestNotFound',
-                          message: 'The requested guest invite could not be found',
+                          message: 'Convidado inexistente',
                           action: ['Stop']) unless guest
 
     if guest.occupation == 'Atleta Asics'

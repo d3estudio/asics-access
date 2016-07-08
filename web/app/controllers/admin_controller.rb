@@ -69,12 +69,12 @@ class AdminController < ApplicationController
 
     guest = Guest.not_removed.where(id: guest_id).first
     return reject_request(error: 'GuestNotFound',
-                          message: 'The requested guest could not be found',
+                          message: 'Convidado inexistente',
                           action: ['Stop']) unless guest
 
     if !guest.rsvp
       CommonMailer.invite_email(guest).deliver_later
-      message = "Email de confirmação reenviado para " + guest.name
+      message = "Novo convite enviado para " + guest.name
     else
       guest.generate_qr_code
 
@@ -83,7 +83,7 @@ class AdminController < ApplicationController
                             action: ['Retry']) unless guest.save
 
       CommonMailer.confirm_email(guest).deliver_later
-      message = "Email com QRCode reenviado para " + guest.name
+      message = "Novo código de acesso enviado para " + guest.name
     end
 
     render json: { succeeded: true, result: { guest: guest, message: message} }
@@ -97,7 +97,7 @@ class AdminController < ApplicationController
     guest = Guest.not_removed.find_by(id: guest_id)
 
     return reject_request(error: 'GuestNotFound',
-                          message: 'The requested guest could not be found',
+                          message: 'Convidado inexistente',
                           action: ['Stop']) unless guest
 
     guest.removed_at = Time.now
