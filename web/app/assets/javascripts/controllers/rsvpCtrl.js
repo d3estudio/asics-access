@@ -15,7 +15,7 @@ angular.module('asics').controller('RsvpCtrl', [
             .catch(onInvalidToken);
 
         function readGuest(guest) {
-            if (guest.rsvp = true)
+            if (guest.rsvp)
                 return $state.go("rsvp.confirmed", {guest: guest})
 
             angular.copy(guest, $scope.guest);
