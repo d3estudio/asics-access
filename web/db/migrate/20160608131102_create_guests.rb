@@ -8,6 +8,9 @@ class CreateGuests < ActiveRecord::Migration[5.0]
       t.integer :qr_codes_generated
       t.string :occupation
       t.boolean :rsvp
+      t.string :language
+      t.datetime :removed_at
+      t.string :music
 
       t.timestamps
     end
