@@ -7,7 +7,7 @@
             </svg>
         </div>
     </div>
-    <div id="logs-container">
+    <div id="logs-container" ng-class="searchText.length <= 0 && logs.length <= 0 ? 'log-empty' : ''">
         <div class="row log-container" ng-repeat="log in logs" my-log="log"></div>
 
         <div ng-if="searchText.length <= 0 && logs.length <= 0" class="row log-container log-placeholder">
