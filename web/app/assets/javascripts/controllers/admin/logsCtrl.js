@@ -1,30 +1,29 @@
 angular.module('asics').controller('LogsCtrl', [
     '$mdToast',
     '$scope',
+    '$interval',
     'admin',
-    function ($mdToast, $scope, admin) {
+    function($mdToast, $scope, $interval, admin) {
         $scope.searchText = '';
+        $scope.listUpdatedAt = new Date();
         $scope.logs = [];
 
-        angular.copy(admin.logs, $scope.logs);
+        var searchTimeout;
+        var searchInterval;
 
-        admin.getLogs()
-          .then(readLogs)
-          .catch(errorToast);
+        angular.copy(admin.logs, $scope.logs);
+        updateLogs();
+
+        function updateLogs() {
+            admin.getLogs()
+                .then(readLogs)
+                .catch(errorToast);
+        }
 
         function readLogs() {
             angular.copy(admin.logs, $scope.logs);
+            $scope.listUpdatedAt = new Date();
         }
-
-        var searchTimeout;
-        $scope.$watch('searchText', function() {
-            clearTimeout(searchTimeout);
-            if($scope.searchText)
-                searchTimeout = setTimeout(applySearch, 400)
-            else {
-                readLogs();
-            }
-        });
 
         function applySearch() {
             admin.postSearchLogs($scope.searchText)
@@ -45,5 +44,27 @@ angular.module('asics').controller('LogsCtrl', [
 
             $mdToast.show(toast);
         }
+
+        function stopInterval() {
+            $interval.cancel(searchInterval);
+        }
+
+        $scope.$watch('searchText', function() {
+            clearTimeout(searchTimeout);
+            if ($scope.searchText)
+                searchTimeout = setTimeout(applySearch, 400)
+            else {
+                readLogs();
+            }
+        });
+
+        $scope.$on('$destroy', function() {
+            stopInterval();
+        });
+
+        stopInterval();
+        searchInterval = $interval(function() {
+            updateLogs();
+        }, 30 * 1000);
     }
 ]);

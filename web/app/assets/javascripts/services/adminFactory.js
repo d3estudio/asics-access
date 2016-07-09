@@ -1,8 +1,10 @@
 angular.module('asics').factory('admin', ['$http', function ($http) {
+    var logsUpdatedAt;
+
     var o = {
         logs: [],
         guests: [],
-        guestsCount: {},
+        guestsCount: {}
     };
 
     o.getGuests = function () {
@@ -10,7 +12,8 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     };
 
     o.getLogs = function () {
-        return $http.get('/api/admin/logs/all').then(parseLogs, parseError);
+        var url = '/api/admin/logs/all' + (logsUpdatedAt ? '?since=' + logsUpdatedAt : '');
+        return $http.get(url).then(parseLogs, parseError);
     };
 
     o.postResendEmail = function (guest_id) {
@@ -36,13 +39,16 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     }
 
     function parseGuests(response) {
-        var result = response.data.result;
+        if(result.guests.length > 0)
+            logsUpdatedAt = result.guests[result.guests.length - 1].created_at;
+            
         angular.copy(result.guests, o.guests);
         angular.copy(result.count, o.guestsCount);
         return parseSuccess(response);
     };
 
     function parseLogs(response) {
+        console.log(response);
         var logs = response.data.result.logs;
         angular.copy(logs, o.logs);
         return parseSuccess(response);
