@@ -65,6 +65,6 @@ angular.module('asics').controller('LogsCtrl', [
         stopInterval();
         searchInterval = $interval(function() {
             updateLogs();
-        }, 30 * 1000);
+        }, 45 * 1000);
     }
 ]);

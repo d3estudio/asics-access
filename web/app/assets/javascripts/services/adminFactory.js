@@ -12,7 +12,8 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     };
 
     o.getLogs = function () {
-        var url = '/api/admin/logs/all' + (logsUpdatedAt ? '?since=' + logsUpdatedAt : '');
+        var url = '/api/admin/logs/all';
+        // var url = '/api/admin/logs/all' + (logsUpdatedAt ? '?since=' + logsUpdatedAt : '');
         return $http.get(url).then(parseLogs, parseError);
     };
 
@@ -41,7 +42,7 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     function parseGuests(response) {
         if(result.guests.length > 0)
             logsUpdatedAt = result.guests[result.guests.length - 1].created_at;
-            
+
         angular.copy(result.guests, o.guests);
         angular.copy(result.count, o.guestsCount);
         return parseSuccess(response);
