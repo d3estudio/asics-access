@@ -40,6 +40,8 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     }
 
     function parseGuests(response) {
+        var result = response.data.result;
+        
         if(result.guests.length > 0)
             logsUpdatedAt = result.guests[result.guests.length - 1].created_at;
 
@@ -49,7 +51,6 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     };
 
     function parseLogs(response) {
-        console.log(response);
         var logs = response.data.result.logs;
         angular.copy(logs, o.logs);
         return parseSuccess(response);
