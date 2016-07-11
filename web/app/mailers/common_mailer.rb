@@ -25,7 +25,7 @@ class CommonMailer < ApplicationMailer
   def get_invite_strings
     invite_strings = {
       EN: {
-        confirm_button: 'CONFIRM PRESENCE'
+        confirm_button: 'CONFIRM ATTENDANCE'
       },
       PT: {
         confirm_button: 'CONFIRMAR PRESENÇA'
