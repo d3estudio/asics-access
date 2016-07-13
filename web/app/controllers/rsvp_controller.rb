@@ -1,50 +1,76 @@
 class RsvpController < ApplicationController
-  protect_from_forgery
+    protect_from_forgery
 
+    def get_guest_by_token
+        token =  params[:token] or return missing_field(:token)
 
-  def get_guest_by_token
-    token =  params[:token] or return missing_field(:token)
+        guest = Guest.not_removed.find_by(invite_token: token)
 
-    guest = Guest.not_removed.find_by(invite_token: token)
+        return reject_request(error: 'GuestNotFound',
+                              message: 'Convidado inexistente',
+                              action: ['Stop']) unless guest
 
-    return reject_request(error: 'GuestNotFound',
-                          message: 'Convidado inexistente',
-                          action: ['Stop']) unless guest
-
-    render json: { succeeded: true, result: guest }
-  end
-
-
-
-  def confirm_invite
-    invite_token = params[:invite_token] or return missing_field(:invite_token)
-
-    guest = Guest.not_removed.find_by(invite_token: invite_token)
-
-    return reject_request(error: 'GuestNotFound',
-                          message: 'Convidado inexistente',
-                          action: ['Stop']) unless guest
-
-    return reject_request(error: 'GuestAlreadyConfirmed',
-                          message: 'Convidado já confirmado',
-                          action: ['Stop']) if guest.rsvp
-
-    if guest.occupation == 'Atleta Asics'
-        music = params[:music] or return missing_field(:music)
-        guest.music = music
+        render json: { succeeded: true, result: guest }
     end
 
-    guest.rsvp = true
-    guest.generate_qr_code
+    def confirm_invite
+        invite_token = params[:invite_token] or return missing_field(:invite_token)
 
-    if guest.save
-      CommonMailer.confirm_email(guest).deliver_later
+        guest = Guest.not_removed.find_by(invite_token: invite_token)
 
-      render json: { succeeded: true, result: guest }
-    else
-      reject_request(error: 'ValidationFailed',
+        return reject_request(error: 'GuestNotFound',
+                              message: 'Convidado inexistente',
+                              action: ['Stop']) unless guest
+
+        return reject_request(error: 'GuestAlreadyConfirmed',
+                              message: 'Convidado já confirmado',
+                              action: ['Stop']) if guest.rsvp
+
+        if guest.occupation == 'Atleta Asics'
+            music = params[:music] or return missing_field(:music)
+            guest.music = music
+        end
+
+        guest.rsvp = true
+        guest.generate_qr_code
+
+        if guest.save
+            CommonMailer.confirm_email(guest).deliver_later
+
+            render json: { succeeded: true, result: guest }
+        else
+            reject_request(error: 'ValidationFailed',
                             message: guest.errors,
                             action: ['Retry'])
+        end
     end
-  end
+
+    def generate_passbook_from_qrcode
+        qr_code = params[:qr_code] or return missing_field(:qr_code)
+
+        guest = Guest.not_removed.find_by(qr_code: qr_code)
+
+        return reject_request(error: 'GuestNotFound',
+                              message: 'Convidado inexistente',
+                              action: ['Stop']) unless guest
+
+        package_path = Rails.root.join("config", "passbook", "package")
+
+        json_content = File.read(File.join(package_path, "pass.json"))
+        pass = Passbook::PKPass.new json_content
+
+
+        icon_path = File.join(package_path, "icon.png")
+        icon2_path = File.join(package_path, "icon@2x.png")
+        pass.addFiles [icon_path, icon2_path]
+
+        pkpass = pass.file
+
+        send_file(
+            pkpass.path,
+            type: 'application/vnd.apple.pkpass',
+            disposition: 'attachment',
+            filename: "pass.pkpass"
+        )
+    end
 end
