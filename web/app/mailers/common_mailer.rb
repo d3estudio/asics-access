@@ -22,13 +22,13 @@ class CommonMailer < ApplicationMailer
   private
 
   def get_qr_code_html_string(qr_code)
-      qr = RQRCode::QRCode.new( qr_code, :size => 1, :level => :l )
+      qr = RQRCode::QRCode.new( qr_code, :size => 2, :level => :q )
       qr_string = ''
 
       qr.modules.each do |row|
           qr_string << '<tr>'
           row.each do |col|
-               qr_string << '<td width="11" height="11" bgcolor="'
+               qr_string << '<td width="9" height="9" bgcolor="'
                qr_string << ( col ? "black" : "white" )
                qr_string << '"></td>'
           end
