@@ -16,7 +16,7 @@ angular.module('asics').controller('RsvpCtrl', [
 
         function readGuest(guest) {
             if (guest.rsvp)
-                return $state.go("rsvp.confirmed", {guest: guest})
+                return toStateConfirmed(guest);
 
             angular.copy(guest, $scope.guest);
             angular.copy(confirmStrings[guest.language], $scope.strings);
@@ -34,6 +34,20 @@ angular.module('asics').controller('RsvpCtrl', [
                 .then(toStateConfirmed)
                 .catch(errorToast);
         };
+
+        function toStateConfirmed(guest) {
+            $state.go("rsvp.confirmed", {guest: guest})
+        }
+
+        function errorToast(error) {
+            $mdToast.show(
+                $mdToast.simple()
+                    .textContent("Erro ao confirmar presença: " + error)
+                    .position('top right')
+                    .hideDelay(3000)
+                    .theme('error-toast')
+            );
+        }
     }
 ]);
 
