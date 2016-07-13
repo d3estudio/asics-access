@@ -13,6 +13,15 @@ services:
       - POSTGRES_HOST=postgres://db/asicsaccess
     env_file: ./web/.env
 
+  mywebsql:
+    image: quantumobject/docker-mywebsql
+    ports:
+      - "3000:3000"
+    links:
+      - db
+    environment:
+      - POSTGRES_HOST=postgres://db/asicsaccess
+
   db:
     image: postgres
 
