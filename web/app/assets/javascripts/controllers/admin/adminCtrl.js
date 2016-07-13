@@ -4,19 +4,22 @@ angular.module('asics').controller('AdminCtrl', [
     function ($scope, $state) {
         $scope.selectedTab = null;
 
-        switch ($state.current.name) {
-            case 'admin.logs':
-                $scope.selectedTab = 2;
-                break;
-            case 'admin.invitation':
-                $scope.selectedTab = 1;
-                break;
-            default:
-                $scope.selectedTab = 0
+        $scope.$on('$stateChangeStart', function(event, toState){
+            updateSelectedTab(toState.name)
+        });
+
+        updateSelectedTab($state.current.name)
+
+        function updateSelectedTab(stateName) {
+            switch (stateName) {
+                case 'admin.logs':
+                    $scope.selectedTab = 2;
+                    break;
+                case 'admin.invitation':
+                    $scope.selectedTab = 1;
+                    break;
+                default:
+                    $scope.selectedTab = 0
+            }
         }
-
-        $scope.updateTab = function (tabNumber) {
-            $scope.selectedTab = tabNumber;
-        };
-
     }]);
