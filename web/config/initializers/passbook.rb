@@ -9,7 +9,7 @@ Passbook.configure do |passbook|
   passbook.p12_certificate = Rails.root.join('config', 'certificates', 'pass_type_certificate.p12')
 
   # Password for your certificate
-  passbook.p12_password = 
+  # passbook.p12_password = 
 
   # Key for signing the file
   # passbook.p12_key = Rails.root.join('key.pem')
