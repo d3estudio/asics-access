@@ -27,7 +27,7 @@
                 <div ng-if="isAthlete" id="admin-form-athlete-name"
                      class="form-group col-lg-9 col-md-9 col-sm-9 col-xs-9">
                     <label for="inputName">Nome</label>
-                    <select name="athleteName" ng-model="athleteName" class="form-control"
+                    <select name="athleteName" ng-model="athleteGuest.name" class="form-control"
                             ng-options="athlete as athlete for athlete in athletes" required>
                         <option value="" disabled selected>Escolha o atleta</option>
                     </select>

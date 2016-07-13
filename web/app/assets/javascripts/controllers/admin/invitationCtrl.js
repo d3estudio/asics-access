@@ -8,7 +8,7 @@ angular.module('asics').controller('InvitationCtrl', [
     function ($mdToast, $q, $scope, $state, $stateParams, admin) {
         $scope.guest = {};
         $scope.isAthlete = false;
-        $scope.athleteName = '';
+        $scope.athleteGuest = {};
 
         $scope.occupations = [
             'Atleta',
@@ -48,7 +48,7 @@ angular.module('asics').controller('InvitationCtrl', [
         $scope.inviteGuest = function () {
             if ($scope.isAthlete) {
                 $scope.guest.occupation = 'Atleta Asics';
-                $scope.guest.name = $scope.athleteName;
+                $scope.guest.name = $scope.athleteGuest.name;
             }
 
             admin.postInvite($scope.guest)
@@ -96,6 +96,12 @@ angular.module('asics').controller('InvitationCtrl', [
                 occupation: '',
                 language: 'PT'
             };
+
+            $scope.athleteGuest = {
+                name: ''
+            };
+
+            $scope.isAthlete = false;
 
             $scope.adminForm.$setPristine();
             $scope.adminForm.email.$setUntouched();
