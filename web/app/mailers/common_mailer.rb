@@ -28,7 +28,7 @@ class CommonMailer < ApplicationMailer
       qr.modules.each do |row|
           qr_string << '<tr>'
           row.each do |col|
-               qr_string << '<td bgcolor="'
+               qr_string << '<td width="11" height="11" bgcolor="'
                qr_string << ( col ? "black" : "white" )
                qr_string << '"></td>'
           end
