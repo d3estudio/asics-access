@@ -57,11 +57,16 @@ angular.module('asics').controller('InvitationCtrl', [
         }
 
         function errorToast(error) {
-            console.error(error);
+            var errorString;
+
+            if(error.error == "ValidationFailed")
+                errorString = "Erro ao validar campo " + Object.keys(error.message)[0];
+            else
+                errorString = error.message;
 
             $mdToast.show(
                 $mdToast.simple()
-                    .textContent("Erro ao enviar convite: " + error)
+                    .textContent(errorString)
                     .position('top right')
                     .hideDelay(4000)
                     .theme('error-toast')

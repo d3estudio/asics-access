@@ -4,7 +4,7 @@ class AdminController < ApplicationController
   # GUESTS
   def invite_guest
     name =  params[:name] or return missing_field(:name)
-    email =  params[:email] or return missing_field(:email)
+    email =  params[:email].downcase! or return missing_field(:email)
     occupation =  params[:occupation] or return missing_field(:occupation)
     language =  params[:language] or return missing_field(:language)
 
@@ -13,7 +13,7 @@ class AdminController < ApplicationController
     if guest
       return reject_request(error: 'GuestNotFound',
                             message: 'Usuário com esse email já foi convidado',
-                            action: ['Retry']) unless guest.removed_at != nil
+                            action: ['Retry'])
     else
       guest = Guest.new
       guest.email = email

@@ -26,7 +26,7 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     };
 
     o.postInvite = function(guest) {
-        return $http.post('/api/admin/invite', guest).then(parseSuccess, parseError);
+        return $http.post('/api/admin/invite', guest).then(parseSuccess, parseErrorObject);
     };
 
     o.postSearchLogs = function(searchString) {
@@ -41,7 +41,7 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
 
     function parseGuests(response) {
         var result = response.data.result;
-        
+
         if(result.guests.length > 0)
             logsUpdatedAt = result.guests[result.guests.length - 1].created_at;
 
@@ -66,8 +66,11 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     }
 
     function parseError(error) {
-        console.error(error);
         throw error.data.message;
+    }
+
+    function parseErrorObject(error) {
+        throw error.data;
     }
 
     return o;
