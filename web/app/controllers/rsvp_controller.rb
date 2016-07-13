@@ -25,6 +25,10 @@ class RsvpController < ApplicationController
                           message: 'Convidado inexistente',
                           action: ['Stop']) unless guest
 
+    return reject_request(error: 'GuestAlreadyConfirmed',
+                          message: 'Convidado já confirmado',
+                          action: ['Stop']) if guest.rsvp
+
     if guest.occupation == 'Atleta Asics'
         music = params[:music] or return missing_field(:music)
         guest.music = music
