@@ -15,8 +15,6 @@ services:
 
   mywebsql:
     image: quantumobject/docker-mywebsql
-    ports:
-      - "3000:3000"
     links:
       - db
     environment:
@@ -29,6 +27,7 @@ services:
     build: nginx
     links:
       - web
+      - mywebsql
     ports:
       - "8080:80"
       - "80:80"
