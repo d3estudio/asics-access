@@ -8,12 +8,12 @@ class AdminController < ApplicationController
     occupation = params[:occupation] or return missing_field(:occupation)
     language = params[:language] or return missing_field(:language)
 
-    guest = Guest.not_removed.where(email: email).first;
+    guest = Guest.where(email: email).first;
 
     if guest
       return reject_request(error: 'GuestNotFound',
                             message: 'Usuário com esse email já foi convidado',
-                            action: ['Retry'])
+                            action: ['Retry']) unless guest.removed_at
     else
       guest = Guest.new
       guest.email = email
@@ -103,6 +103,7 @@ class AdminController < ApplicationController
     guest.removed_at = Time.now
     guest.qr_code = nil
     guest.invite_token = nil
+    guest.music = nil
     guest.rsvp = false
 
     if guest.save
