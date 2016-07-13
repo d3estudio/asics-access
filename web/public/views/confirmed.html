@@ -1,32 +1,69 @@
 <md-content id="main-container" class="md-padding">
-    <div id="form-content" layout="row">
-        <md-card flex-offset-gt-sm="45" flex-gt-sm="40" flex="flex">
-            <md-card-content>
-                <div id="rsvp-header" layout="row">
-                    <img src="images/asics-logo.png">
-                </div>
-                <div class="container-fluid">
-                    <h2 class="layout-padding text-center">{{ guest.name }}, {{ strings.confirmedCodeMessage }}</h2>
-                    <div style="margin-bottom: 40px">
-                        <p ng-repeat="info in confInfo.payment.infos track by $index" ng-bind-html="info | to_html"
-                           class="item md-padding"></p>
-                    </div>
-                    <div>
-                        <div layout="row" class="qrcode-container">
-                            <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q" download=""></qrcode>
-                        </div>
+  <div print-section>
+    <div print-only>
+      <md-card flex-offset-gt-sm="45" flex-gt-sm="40" flex="flex">
+        <md-card-content>
+          <div id="rsvp-header" layout="row">
+            <img src="images/asics-logo.png">
+          </div>
+          <div class="container-fluid">
+            <h2 class="layout-padding text-center">{{ guest.name }}, {{ strings.confirmedCodeMessage }}</h2>
+            <div style="margin-bottom: 40px">
+              <p ng-repeat="info in confInfo.payment.infos track by $index" ng-bind-html="info | to_html"
+                 class="item md-padding"></p>
+            </div>
+            <div>
+              <div layout="row" class="qrcode-container">
+                <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q"
+                        download=""></qrcode>
+              </div>
 
-                        <div layout="row" layout-align-gt-xs="end" layout-align="center">
-                            <a target="_blank" href="#">
-                                <img src="http://asicshub.com.br/images/add-to-apple-wallet-logo.png"
-                                     alt="apple wallet" border="0" width="100"
-                                     height="31"
-                                     style="display:block; border:none; outline:none; text-decoration:none; width:100px; height: 31px">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </md-card-content>
-        </md-card>
+              <div layout="row" layout-align-gt-xs="end" layout-align="center">
+                <button print-btn print-landscape>PRINT</button>
+                <a target="_blank" href="#">
+                  <img src="http://asicshub.com.br/images/add-to-apple-wallet-logo.png"
+                       alt="apple wallet" border="0" width="100"
+                       height="31"
+                       style="display:block; border:none; outline:none; text-decoration:none; width:100px; height: 31px">
+                </a>
+              </div>
+            </div>
+          </div>
+        </md-card-content>
+      </md-card>
     </div>
+  </div>
+
+
+  <div id="form-content" layout="row">
+    <md-card flex-offset-gt-sm="45" flex-gt-sm="40" flex="flex">
+      <md-card-content>
+        <div id="rsvp-header" layout="row">
+          <img src="images/asics-logo.png">
+        </div>
+        <div class="container-fluid">
+          <h2 class="layout-padding text-center">{{ guest.name }}, {{ strings.confirmedCodeMessage }}</h2>
+          <div style="margin-bottom: 40px">
+            <p ng-repeat="info in confInfo.payment.infos track by $index" ng-bind-html="info | to_html"
+               class="item md-padding"></p>
+          </div>
+          <div>
+            <div layout="row" class="qrcode-container">
+              <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q" download=""></qrcode>
+            </div>
+
+            <div layout="row" layout-align-gt-xs="end" layout-align="center">
+              <button print-btn print-landscape>PRINT</button>
+              <a target="_blank" href="#">
+                <img src="http://asicshub.com.br/images/add-to-apple-wallet-logo.png"
+                     alt="apple wallet" border="0" width="100"
+                     height="31"
+                     style="display:block; border:none; outline:none; text-decoration:none; width:100px; height: 31px">
+              </a>
+            </div>
+          </div>
+        </div>
+      </md-card-content>
+    </md-card>
+  </div>
 </md-content>
