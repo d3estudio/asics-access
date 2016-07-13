@@ -34,21 +34,6 @@ angular.module('asics').controller('RsvpCtrl', [
                 .then(toStateConfirmed)
                 .catch(errorToast);
         };
-
-        function toStateConfirmed(response) {
-            $state.go("rsvp.confirmed", {guest: response})
-        }
-
-        function errorToast(error) {
-            $mdToast.show(
-                $mdToast.simple()
-                    .textContent("Erro ao confirmar presença: " + error)
-                    .position('top right')
-                    .hideDelay(3000)
-                    .theme('error-toast')
-            );
-        }
-
     }
 ]);
 
