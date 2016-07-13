@@ -26,7 +26,7 @@ class Guest < ApplicationRecord
   scope :updated_after, -> (time) { where("updated_at > ?", time) }
 
   def generate_qr_code
-      self.qr_code = Digest::SHA1.hexdigest([Time.now, rand].join)
+      self.qr_code = Digest::SHA1.hexdigest([Time.now, rand].join).last(17)
       self.qr_codes_generated += 1
   end
 
