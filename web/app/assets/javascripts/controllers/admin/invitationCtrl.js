@@ -8,6 +8,8 @@ angular.module('asics').controller('InvitationCtrl', [
     function ($mdToast, $q, $scope, $state, $stateParams, admin) {
         $scope.guest = {};
         $scope.isAthlete = false;
+        $scope.athleteName = '';
+
         $scope.occupations = [
             'Atleta',
             'Staff de treinamento',
@@ -44,8 +46,11 @@ angular.module('asics').controller('InvitationCtrl', [
         ];
 
         $scope.inviteGuest = function () {
-            if ($scope.isAthlete)
+            if ($scope.isAthlete) {
                 $scope.guest.occupation = 'Atleta Asics';
+                $scope.guest.name = $scope.athleteName;
+            }
+
             admin.postInvite($scope.guest)
                 .then(onInviteSuccess)
                 .catch(errorToast)
