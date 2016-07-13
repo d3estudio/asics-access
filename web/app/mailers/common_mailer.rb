@@ -12,16 +12,31 @@ class CommonMailer < ApplicationMailer
 
   def confirm_email(user)
     @user = user
-
+    get_qr_code_html_string user.qr_code
     @strings = get_confirm_strings
-    @qr_code = RQRCode::QRCode.new( user.qr_code, :size => 1, :level => :l )
-    @qr_code_html = @qr_code.as_html
     mail(to: @user.email, subject: 'Confirmação Asics Hub')
   end
 
 
 
   private
+
+  def get_qr_code_html_string(qr_code)
+      qr = RQRCode::QRCode.new( qr_code, :size => 1, :level => :l )
+      qr_string = ''
+
+      qr.modules.each do |row|
+          qr_string << '<tr>'
+          row.each do |col|
+               qr_string << '<td bgcolor="'
+               qr_string << ( col ? "black" : "white" )
+               qr_string << '"></td>'
+          end
+          qr_string << '</tr>'
+      end
+
+      @qr_code_html = qr_string
+  end
 
   def get_invite_strings
     invite_strings = {

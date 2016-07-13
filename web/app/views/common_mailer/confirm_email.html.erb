@@ -80,7 +80,9 @@
                                                 <tr>
                                                     <td align="center">
                                                         <div id="qrcode" height="232" width="232" style="margin: 0 auto; background-color:#FFFFFF; padding: 10px; border-radius: 5px; width: 232px; height: 232px;">
-                                                            <%= raw @qr_code_html.html_safe %>
+                                                            <table>
+                                                                <%= raw @qr_code_html.html_safe %>
+                                                            </table>
                                                         </div>
                                                     </td>
                                                 </tr>
