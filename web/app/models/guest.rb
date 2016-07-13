@@ -35,6 +35,6 @@ class Guest < ApplicationRecord
       self.invite_token = Digest::SHA1.hexdigest([Time.now, rand].join) if self.invite_token.nil?
       self.rsvp = false if self.rsvp.nil?
       self.qr_codes_generated = 0 if self.qr_codes_generated.nil?
-      self.email = self.email.downcase! if self.email
+      self.email = self.email.downcase if self.email
     end
 end

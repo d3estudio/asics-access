@@ -3,10 +3,10 @@ class AdminController < ApplicationController
 
   # GUESTS
   def invite_guest
-    name =  params[:name] or return missing_field(:name)
-    email =  params[:email].downcase! or return missing_field(:email)
-    occupation =  params[:occupation] or return missing_field(:occupation)
-    language =  params[:language] or return missing_field(:language)
+    name = params[:name] or return missing_field(:name)
+    email = params[:email].downcase or return missing_field(:email)
+    occupation = params[:occupation] or return missing_field(:occupation)
+    language = params[:language] or return missing_field(:language)
 
     guest = Guest.not_removed.where(email: email).first;
 
