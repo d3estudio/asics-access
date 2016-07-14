@@ -3,12 +3,40 @@
 
     <div print-section>
       <div print-only>
-        <div class="centered" style="width: 300px">
-          <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q"></qrcode>
-        </div>
-        <div style="width: 300px;">
-          <img src="images/map-lajeado.jpg">
-        </div>
+        <table>
+          <tr>
+            <td>
+              <table>
+                <tr>
+                  <td>
+                    <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q"></qrcode>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div class="txt-bolder">{{strings.confirmedCodeMessage}}</div>
+                    <div>{{strings.reminderMessage}}</div>
+                  </td>
+                  <td>
+                    <div class="txt-bolder">{{strings.when}}</div>
+                    <div class="txt-bolder">{{strings.confirmedCodeMessage}}</div>
+                    <div>{{strings.reminderMessage}}</div>
+                  </td>
+                  <td>
+                    <div class="txt-bolder">{{strings.where}}</div>
+                    <div>EST. BOCA DO MATO, 803</div>
+                    <div>VARGEM PEQUENA - RIO DE JANEIRO</div>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td align="center">
+              <img src="images/map-lajeado.jpg">
+            </td>
+          </tr>
+        </table>
       </div>
     </div>
 

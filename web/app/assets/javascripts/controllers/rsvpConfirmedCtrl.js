@@ -25,12 +25,20 @@ var confirmedStrings = {
     expression: "GREAT!",
     confirmedCodeMessage: "This code is your entry to the ASICS Hub.",
     reminderMessage: "Make sure you bring it with you.",
-    emailMessage: "We just sent this code to your e-mail"
+    emailMessage: "We just sent this code to your e-mail",
+    when: "WHEN",
+    where: "WHERE",
+    date: "AUGUST <strong>03RD</strong> UNTIL AUGUST <strong>21ST</strong>",
+    time: "FROM <strong>12PM</strong> TO <strong>10PM</strong>"
   },
   PT: {
     expression: "TUDO CERTO!",
     confirmedCodeMessage: "Esse é seu código para entrar no ASICS Hub",
     reminderMessage: "Certifique-se de trazê-lo com você.",
-    emailMessage: "Já enviamos o código para seu email"
+    emailMessage: "Já enviamos o código para seu email",
+    when: "QUANDO",
+    where: "ONDE",
+    date: "<strong>03</strong> DE AGOSTO ATÉ <strong>21</strong> DE AGOSTO",
+    time: "DAS <strong>12H</strong> ÀS <strong>22H</strong>"
   }
 };
