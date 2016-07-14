@@ -3,11 +3,11 @@
 
     <div print-section>
       <div print-only>
-        <div class="rsvp-header row">
-          <img src="images/asics-logo.png">
+        <div class="centered" style="width: 300px">
+          <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q"></qrcode>
         </div>
-        <div>
-          <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q" download=""></qrcode>
+        <div style="width: 300px;">
+          <img src="images/map-lajeado.jpg">
         </div>
       </div>
     </div>
@@ -38,9 +38,9 @@
                 {{strings.emailMessage}}
               </div>
 
-              <a class="col-lg-4 col-md-4 col-sm-4 col-xs-12" print-btn print-landscape>
+              <button class="col-lg-4 col-md-4 col-sm-4 col-xs-12" print-btn print-landscape>
                 <img src="images/button-print.png" alt="apple wallet">
-              </a>
+              </button>
 
               <a class="col-lg-4 col-md-4 col-sm-4 col-xs-12" target="_self"
                  href="/files/passbook?qr_code={{ guest.qr_code }}">
