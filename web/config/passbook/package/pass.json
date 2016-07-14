@@ -1,32 +1,49 @@
 {
     "formatVersion" : 1,
-    "passTypeIdentifier" : "pass.com.example.event-ticket",
-    "description" : "Example Event Ticket",
-    "teamIdentifier": "Example",
-    "organizationName": "Example",
-    "serialNumber" : "123456",
-    "foregroundColor": "#FFFFFF",
-    "backgroundColor": "#FF5453",
-    "generic" : {
-        "primaryFields" : [
-
-        ],
-        "secondaryFields" : [
-            
-        ],
-        "auxiliaryFields" : [
-            
-        ],
-        "barcode" : {
-            "message" : "ABCD 123 EFGH 456 IJKL 789 MNOP",
-            "format" : "PKBarcodeFormatPDF417",
+    "passTypeIdentifier" : "pass.do.d3.asicshubaccess",
+    "description" : "Rio 2016 Olympics Asics hub access pass",
+    "teamIdentifier": "T5275267CU",
+    "organizationName": "ASICS BRASIL Distribuição e Comércio de Artigos Esportivos LTDA.",
+    "serialNumber" : "00001",
+    "logoText" : "ASICS Hub",
+    "labelColor" : "rgb(118, 199, 230)",
+    "barcode": {
+        "message" : "12345678901234567890",
+        "format" : "PKBarcodeFormatQR",
+        "messageEncoding" : "iso-8859-1"
+    },
+    "barcodes" : [
+        {
+            "message" : "12345678901234567890",
+            "format" : "PKBarcodeFormatQR",
             "messageEncoding" : "iso-8859-1"
-        },
+        }
+    ],
+    "eventTicket" : {
+        "primaryFields" : [
+            {
+                "key" : "datetime",
+                "label" : "WHEN",
+                "value" : "AUGUST 03RD UNTIL AUGUST 21ST\r\nFROM 12PM TO 10PM",
+                "dataDetectorTypes": ["PKDataDetectorTypeCalendarEvent"]
+            }
+        ],
         "backFields" : [
             {
-                "key" : "terms",
-                "label" : "Terms and Conditions",
-                "value" : "T's and C's apply"
+                "key" : "date",
+                "label" : "WHEN",
+                "value" : "August 3rd until August 21st"
+            },
+            {
+                "key" : "time",
+                "label" : "TIME",
+                "value" : "From 12pm to 10pm"
+            },
+            {
+                "key" : "location",
+                "label" : "LOCATION",
+                "value" : "Lajedo\nEst. Boca do Mato, 803\nRio de Janeiro, RJ",
+                "dataDetectorTypes": ["PKDataDetectorTypeAddress"]
             }
         ]
     }

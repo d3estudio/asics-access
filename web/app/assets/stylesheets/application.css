@@ -12,6 +12,7 @@
  *
  *= require bootstrap.min.css
  *= require angular-material.css
+ *= require angular-print.css
 
  *= require style.sass
  */

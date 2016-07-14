@@ -4,6 +4,7 @@ var asics = angular.module('asics', [
     'ngMaterial',
     'ngMessages',
     'ngMask',
+    'AngularPrint',
 	'monospaced.qrcode'
 ]);
 

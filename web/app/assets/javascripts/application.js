@@ -18,6 +18,7 @@
 //= require angular-aria.min.js
 //= require angular-animate.min.js
 //= require angular-messages.min.js
+//= require angular-print.js
 //= require angular-cookies.min.js
 //= require angular-ui-router.min.js
 //= require angular-material.min.js
