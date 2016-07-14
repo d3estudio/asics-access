@@ -28,7 +28,7 @@ var confirmedStrings = {
     emailMessage: "We just sent this code to your e-mail"
   },
   PT: {
-    expression: "ÓTIMO!",
+    expression: "TUDO CERTO!",
     confirmedCodeMessage: "Esse é seu código para entrar no ASICS Hub",
     reminderMessage: "Certifique-se de trazê-lo com você.",
     emailMessage: "Já enviamos o código para seu email"
