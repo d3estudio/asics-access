@@ -1,40 +1,42 @@
 <div id="rsvp-container" style="background-image: url('images/asics-{{bgImage}}-bg.jpg')">
-  <div class="main-container container-fluid">
-    <div class="row">
-      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-lg-offset-5">
-        <div class="rsvp-card">
-          <div class="rsvp-header row">
-            <img src="images/asics-logo.png">
-          </div>
-          <div class="rsvp-content row">
-            <h1 class="txt-blue col-lg-12"><span>{{strings.hello}},</span><br>{{guest.name}}</h1>
-            <div class="col-lg-12">
-              <div class="txt-bolder">{{strings.welcomeMessage}}</div>
-              <br>
-              <div ng-if="isAthlete" class="txt-bold margin-v">{{strings.formLabelAthlete}}</div>
-              <div ng-if="!isAthlete" class="txt-bold margin-v">{{strings.formLabelGuest}}</div>
-              <br><br>
+  <div>
+    <div class="main-container container-fluid">
+      <div class="row">
+        <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 col-lg-offset-5 col-md-offset-4">
+          <div class="rsvp-card">
+            <div class="rsvp-header row">
+              <img src="images/asics-logo.png">
             </div>
-            <form class="col-lg-12" name="userForm">
-              <div ng-show="isAthlete">
-                <div class="margin-v txt-blue txt-bolder">{{strings.formLabelMusic}}</div>
+            <div class="rsvp-content row">
+              <h1 class="txt-blue col-lg-12"><span>{{strings.hello}},</span><br>{{guest.name}}</h1>
+              <div class="col-lg-12">
+                <div class="txt-bolder">{{strings.welcomeMessage}}</div>
+                <br>
+                <div ng-if="isAthlete" class="txt-bold margin-v">{{strings.formLabelAthlete}}</div>
+                <div ng-if="!isAthlete" class="txt-bold margin-v">{{strings.formLabelGuest}}</div>
+                <br><br>
+              </div>
+              <form ng-if="isAthlete" class="col-lg-12" name="userForm">
                 <div>
-                  <input id="form-music" class="form-control" ng-model="guest.music" name="music"
-                         required="required" names-only="names-only"/>
-                  <div ng-messages="userForm.name.$error">
-                    <div ng-message="required">{{strings.formErrorRequiredMusic}}</div>
+                  <div class="margin-v txt-blue txt-bolder">{{strings.formLabelMusic}}</div>
+                  <div>
+                    <input id="form-music" class="form-control" ng-model="guest.music" name="music"
+                           required="required" names-only="names-only"/>
+                    <div ng-messages="userForm.name.$error">
+                      <div ng-message="required">{{strings.formErrorRequiredMusic}}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </form>
-          </div>
-          <div class="rsvp-bottom row">
-            <button id="rsvp-confirm-button" ng-click="confirmInvitation()"
-                    ng-disabled="userForm.$invalid"
-                    ng-class="userForm.$invalid ? 'btn-disabled' : 'btn-default'"
-                    class="btn centered">
-              {{strings.formButtonConfirmPresence}}
-            </button>
+              </form>
+            </div>
+            <div class="rsvp-bottom row">
+              <button id="rsvp-confirm-button" ng-click="confirmInvitation()"
+                      ng-disabled="userForm.$invalid"
+                      ng-class="userForm.$invalid ? 'btn-disabled' : 'btn-default'"
+                      class="btn centered">
+                {{strings.formButtonConfirmPresence}}
+              </button>
+            </div>
           </div>
         </div>
       </div>
