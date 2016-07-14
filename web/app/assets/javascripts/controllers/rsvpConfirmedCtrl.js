@@ -6,9 +6,16 @@ angular.module('asics').controller('RsvpConfirmedCtrl', [
     $scope.result = '';
     $scope.strings = {};
     $scope.guest = $stateParams.guest;
+    $scope.isAthlete = false;
+    $scope.bgImage = 'default';
 
     if ($scope.guest == null) $state.go('home');
     else angular.copy(confirmedStrings[$scope.guest.language], $scope.strings);
+
+    if ($scope.guest.occupation == 'Atleta Asics') {
+      $scope.isAthlete = true;
+      $scope.bgImage = 'athlete'
+    }
 
   }
 ]);

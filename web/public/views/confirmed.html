@@ -1,4 +1,5 @@
 <div id="rsvp-container" style="background-image: url('images/asics-{{bgImage}}-bg.jpg')">
+
   <div print-section>
     <div print-only>
       <div class="container-fluid">
@@ -9,7 +10,9 @@
         </div>
         <div>
           <div layout="row" class="qrcode-container">
-            <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q" download=""></qrcode>
+            <div>
+              <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q" download=""></qrcode>
+            </div>
           </div>
         </div>
       </div>
@@ -31,7 +34,10 @@
               <br><br>
             </div>
             <div class="qrcode-container col-lg-12">
-              <qrcode class="centered" data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q" download=""></qrcode>
+              <div class="centered">
+                <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q"
+                        download=""></qrcode>
+              </div>
             </div>
           </div>
           <div class="rsvp-bottom row">
@@ -39,11 +45,11 @@
               {{strings.emailMessage}}
             </div>
 
-            <a class="col-lg-4" print-btn print-landscape href="/files/passbook?qr_code={{ guest.qr_code }}" >
+            <a class="col-lg-4" print-btn print-landscape href="/files/passbook?qr_code={{ guest.qr_code }}">
               <img src="images/button-print.png" alt="apple wallet">
             </a>
 
-            <a class="col-lg-4" target="_self" href="/files/passbook?qr_code={{ guest.qr_code }}" >
+            <a class="col-lg-4" target="_self" href="/files/passbook?qr_code={{ guest.qr_code }}">
               <img src="images/add-to-apple-wallet-logo.png" alt="apple wallet"
             </a>
           </div>
