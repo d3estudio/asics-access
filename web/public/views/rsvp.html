@@ -1,39 +1,45 @@
-<md-content id="main-container" class="md-padding">
-    <div id="form-content" layout="row">
-        <md-card flex-offset-gt-xs="40" flex-gt-xs="50" flex="flex">
-            <md-card-content>
-                <div id="rsvp-header" layout="row">
-                    <img src="images/asics-logo.png">
+<div id="rsvp-container" style="background-image: url('images/asics-{{bgImage}}-bg.jpg')">
+  <div class="main-container container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 col-lg-offset-5">
+        <div class="rsvp-card">
+          <div class="rsvp-header row">
+            <img src="images/asics-logo.png">
+          </div>
+          <div class="rsvp-content row">
+            <h1 class="txt-blue col-lg-12"><span>{{strings.hello}},</span><br>{{guest.name}}</h1>
+            <div class="col-lg-12">
+              <div class="txt-bolder md-padding">We look forward to welcoming you at the ASICS Hub.</div>
+              <br>
+              <div class="txt-bold md-padding">We want you to feel at home, so please answer this question before confirm your attendance.</div>
+              <br>
+            </div>
+            <form class="col-lg-12" name="userForm">
+              <div ng-if="isAthlete">
+                <div class="txt-blue txt-bolder md-padding">{{strings.formLabelMusic}}</div>
+                <div class="md-padding">
+                  <input id="form-music" class="form-control" ng-model="guest.music" name="music"
+                         required="required" names-only="names-only"/>
+                  <div ng-messages="userForm.name.$error">
+                    <div ng-message="required">{{strings.formErrorRequiredMusic}}</div>
+                  </div>
                 </div>
-                <div class="md-padding" layout="row">
-                    <h2>{{strings.hello}}, {{guest.name}}</h2>
-                </div>
-                <div layout="row">
-                    <form name="userForm">
-                        <div ng-if="isAthlete">
-                            <div flex="flex" class="md-padding">{{strings.formLabelMusic}}</div>
-                            <div flex="flex" class="md-padding">
-                                <input id="form-music" class="form-control" ng-model="guest.music" name="music"
-                                       required="required" names-only="names-only"/>
-                                <div ng-messages="userForm.name.$error">
-                                    <div ng-message="required">{{strings.formErrorRequiredMusic}}</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div ng-if="!isAthlete">
-                            <div flex="flex" class="md-padding">{{strings.formLabelGuest}}</div>
-                        </div>
-                        <div flex="flex" class="md-padding">
-                            <button id="rsvp-confirm-button" ng-click="confirmInvitation()"
-                                    ng-disabled="userForm.$invalid" flex-xs="100"
-                                    class="md-padding btn btn-default centered">
-                                {{strings.formButtonConfirmPresence}}
-                            </button>
-                        </div>
-                    </form>
-                </div>
-
-            </md-card-content>
-        </md-card>
+              </div>
+              <div ng-if="!isAthlete">
+                <div class="md-padding">{{strings.formLabelGuest}}</div>
+              </div>
+            </form>
+          </div>
+          <div class="rsvp-bottom row">
+            <button id="rsvp-confirm-button" ng-click="confirmInvitation()"
+                    ng-disabled="userForm.$invalid"
+                    ng-class="userForm.$invalid ? 'btn-disabled' : 'btn-default'"
+                    class="md-padding btn centered">
+              {{strings.formButtonConfirmPresence}}
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-</md-content>
+  </div>
+</div>
