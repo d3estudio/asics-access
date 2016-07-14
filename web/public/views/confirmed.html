@@ -1,4 +1,4 @@
-<md-content id="main-container" class="md-padding">
+<div id="rsvp-container" style="background-image: url('images/asics-{{bgImage}}-bg.jpg')">
   <div print-section>
     <div print-only>
       <div class="container-fluid">
@@ -16,35 +16,39 @@
     </div>
   </div>
 
-  <div id="form-content" layout="row">
-    <md-card flex-offset-gt-sm="45" flex-gt-sm="40" flex="flex">
-      <md-card-content>
-        <div id="rsvp-header" layout="row">
-          <img src="images/asics-logo.png">
-        </div>
-        <div class="container-fluid">
-          <h2 class="layout-padding text-center">{{ guest.name }}, {{ strings.confirmedCodeMessage }}</h2>
-          <div style="margin-bottom: 40px">
-            <p ng-repeat="info in confInfo.payment.infos track by $index" ng-bind-html="info | to_html"
-               class="item md-padding"></p>
+  <div class="main-container container-fluid">
+    <div class="row">
+      <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 col-lg-offset-5 col-md-offset-4">
+        <div class="rsvp-card">
+          <div class="rsvp-header row">
+            <img src="images/asics-logo.png">
           </div>
-          <div>
-            <div layout="row" class="qrcode-container">
-              <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q" download=""></qrcode>
+          <div class="rsvp-content row">
+            <h1 class="txt-blue txt-bolder col-lg-12">{{strings.expression}}</h1>
+            <div class="col-lg-12">
+              <div class="txt-bolder">{{strings.confirmedCodeMessage}}</div>
+              <div>{{strings.reminderMessage}}</div>
+              <br><br>
+            </div>
+            <div class="qrcode-container col-lg-12">
+              <qrcode class="centered" data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q" download=""></qrcode>
+            </div>
+          </div>
+          <div class="rsvp-bottom row">
+            <div class="txt-gray col-lg-4">
+              {{strings.emailMessage}}
             </div>
 
-            <div layout="row" layout-align-gt-xs="end" layout-align="center">
-              <button print-btn print-landscape>PRINT</button>
-              <a target="_self" href="/files/passbook?qr_code={{ guest.qr_code }}" >
-                <img src="http://asicshub.com.br/images/add-to-apple-wallet-logo.png"
-                     alt="apple wallet" border="0" width="100"
-                     height="31"
-                     style="display:block; border:none; outline:none; text-decoration:none; width:100px; height: 31px">
-              </a>
-            </div>
+            <a class="col-lg-4" print-btn print-landscape href="/files/passbook?qr_code={{ guest.qr_code }}" >
+              <img src="images/button-print.png" alt="apple wallet">
+            </a>
+
+            <a class="col-lg-4" target="_self" href="/files/passbook?qr_code={{ guest.qr_code }}" >
+              <img src="images/add-to-apple-wallet-logo.png" alt="apple wallet"
+            </a>
           </div>
         </div>
-      </md-card-content>
-    </md-card>
+      </div>
+    </div>
   </div>
-</md-content>
+</div>
