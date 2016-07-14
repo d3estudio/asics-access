@@ -1,57 +1,50 @@
 <div id="rsvp-container" style="background-image: url('images/asics-{{bgImage}}-bg.jpg')">
+  <div>
 
-  <div print-section>
-    <div print-only>
-      <div class="container-fluid">
-        <h2 class="layout-padding text-center">{{ guest.name }}, {{ strings.confirmedCodeMessage }}</h2>
-        <div style="margin-bottom: 40px">
-          <p ng-repeat="info in confInfo.payment.infos track by $index" ng-bind-html="info | to_html"
-             class="item md-padding"></p>
-        </div>
+    <div print-section>
+      <div print-only>
         <div>
-          <div layout="row" class="qrcode-container">
-            <div>
-              <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q" download=""></qrcode>
-            </div>
-          </div>
+          <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q" download=""></qrcode>
         </div>
       </div>
     </div>
-  </div>
 
-  <div class="main-container container-fluid">
-    <div class="row">
-      <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 col-lg-offset-5 col-md-offset-4">
-        <div class="rsvp-card">
-          <div class="rsvp-header row">
-            <img src="images/asics-logo.png">
-          </div>
-          <div class="rsvp-content row">
-            <h1 class="txt-blue txt-bolder col-lg-12">{{strings.expression}}</h1>
-            <div class="col-lg-12">
-              <div class="txt-bolder">{{strings.confirmedCodeMessage}}</div>
-              <div>{{strings.reminderMessage}}</div>
-              <br><br>
+    <div class="main-container container-fluid">
+      <div class="row">
+        <div class="col-lg-6 col-md-7 col-sm-12 col-xs-12 col-lg-offset-5 col-md-offset-4">
+          <div class="rsvp-card">
+            <div class="rsvp-header row">
+              <img src="images/asics-logo.png">
             </div>
-            <div class="qrcode-container col-lg-12">
-              <div class="centered">
-                <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q"
-                        download=""></qrcode>
+            <div class="rsvp-content row">
+              <h1 class="txt-blue txt-bolder col-lg-12">{{strings.expression}}</h1>
+              <div class="col-lg-12">
+                <div class="txt-bolder">{{strings.confirmedCodeMessage}}</div>
+                <div>{{strings.reminderMessage}}</div>
+                <br><br>
+              </div>
+              <div class="qrcode-container col-lg-12">
+                <div class="centered">
+                  <qrcode data="{{ guest.qr_code }}" size="200" version="2" error-correction-level="Q"
+                          download=""></qrcode>
+                </div>
               </div>
             </div>
-          </div>
-          <div class="rsvp-bottom row">
-            <div class="txt-gray col-lg-4">
-              {{strings.emailMessage}}
+            <div class="rsvp-bottom row">
+              <div class="txt-gray col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                {{strings.emailMessage}}
+              </div>
+
+              <a class="col-lg-4 col-md-4 col-sm-4 col-xs-12" print-btn print-landscape
+                 href="/files/passbook?qr_code={{ guest.qr_code }}">
+                <img src="images/button-print.png" alt="apple wallet">
+              </a>
+
+              <a class="col-lg-4 col-md-4 col-sm-4 col-xs-12" target="_self"
+                 href="/files/passbook?qr_code={{ guest.qr_code }}">
+                <img src="images/add-to-apple-wallet-logo.png" alt="apple wallet"
+              </a>
             </div>
-
-            <a class="col-lg-4" print-btn print-landscape href="/files/passbook?qr_code={{ guest.qr_code }}">
-              <img src="images/button-print.png" alt="apple wallet">
-            </a>
-
-            <a class="col-lg-4" target="_self" href="/files/passbook?qr_code={{ guest.qr_code }}">
-              <img src="images/add-to-apple-wallet-logo.png" alt="apple wallet"
-            </a>
           </div>
         </div>
       </div>
