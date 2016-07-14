@@ -59,10 +59,10 @@ class RsvpController < ApplicationController
         json_content = File.read(File.join(package_path, "pass.json"))
         pass = Passbook::PKPass.new json_content
 
-
-        icon_path = File.join(package_path, "icon.png")
-        icon2_path = File.join(package_path, "icon@2x.png")
-        pass.addFiles [icon_path, icon2_path]
+        Dir.foreach(package_path) do |item|
+            next if item == '.' or item == '..' or item == 'pass.json'
+            pass.addFile File.join(package_path, item)
+        end
 
         pkpass = pass.file
 

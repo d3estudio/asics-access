@@ -2,8 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   post '/api/rsvp/confirm', to: 'rsvp#confirm_invite'
   get '/api/rsvp/guest', to: 'rsvp#get_guest_by_token'
-  get '/api/rsvp/passbook', to: 'rsvp#generate_passbook_from_qrcode'
-
 
   post '/api/admin/invite', to: 'admin#invite_guest'
   post '/api/admin/guests/search', to: 'admin#search_guests_information'
@@ -21,6 +19,9 @@ Rails.application.routes.draw do
   post '/api/gateway/logs/all', to: 'gateway#get_all_logs'
   post '/api/gateway/logs/since', to: 'gateway#get_logs_created_since'
   post '/api/gateway/logs/other', to: 'gateway#get_other_logs_created_since'
+
+
+  get '/files/passbook', to: 'rsvp#generate_passbook_from_qrcode'
 
   get '*path', to: 'application#layout'
   root to: 'application#layout'
