@@ -16,5 +16,6 @@ If server is not configured yet:
 - ~~change username and password~~
 
 After configuring server:
+- `http://asicshub.com.br:2052/`
 - in the left panel: `Server > Asics > Databases > production > Schemas > public > tables > guests|logs`
 - right click on table and: `View Data > View All Rows`
