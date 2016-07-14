@@ -13,12 +13,12 @@ services:
       - POSTGRES_HOST=postgres://db/asicsaccess
     env_file: ./web/.env
 
-  mywebsql:
-    image: quantumobject/docker-mywebsql
+  pgadmin:
+    image: fenglc/pgadmin4
     ports:
-      - "2052:80"
+      - "2052:5050"
     links:
-      - db
+      - db:postgres
     environment:
       - POSTGRES_HOST=postgres://db/asicsaccess
 
