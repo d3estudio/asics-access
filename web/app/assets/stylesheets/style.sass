@@ -12,6 +12,7 @@ body
 
 //RSVP
 #rsvp-container
+  min-height: 100%
   background: $gray no-repeat center
   background-size: cover
   padding-top: 100px
@@ -34,6 +35,9 @@ body
   max-width: 650px
   border-radius: 8px
   margin-bottom: 30px
+  @include media(sm)
+    margin: 0 auto
+    display: block
   @include media(xs)
     padding: 0 15px
   h1
