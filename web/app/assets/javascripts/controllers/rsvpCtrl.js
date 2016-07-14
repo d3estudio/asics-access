@@ -67,7 +67,7 @@ var confirmStrings = {
   PT: {
     hello: "Olá",
     welcomeMessage: "Estamos ansiosos para recebê-lo no ASICS Hub.",
-    formLabelGuest: "Clique no botão abaixo para cofirmar presença.",
+    formLabelGuest: "Clique no botão abaixo para confirmar presença.",
     formLabelAthlete: "Nós queremos que você se sinta em casa, então por favor responda a esta pergunta antes de confirmar a sua presença.",
     formLabelMusic: "Que música faz você se sentir como um campeão?",
     formErrorRequiredMusic: "Por favor, preencha o nome da música",
