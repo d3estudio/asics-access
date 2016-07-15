@@ -62,6 +62,10 @@ asics.config([
           url: '/logs',
           templateUrl: '/views/admin/logs',
           controller: 'LogsCtrl'
+        })
+        .state('dashboard', {
+          url: '/dashboard',
+          templateUrl: '/views/dashboard'
         });
 
     $mdThemingProvider.theme('default')
