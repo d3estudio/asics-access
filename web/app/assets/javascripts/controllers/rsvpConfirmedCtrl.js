@@ -28,8 +28,8 @@ var confirmedStrings = {
     emailMessage: "We just sent this code to your e-mail",
     when: "WHEN",
     where: "WHERE",
-    date: "AUGUST <b>03RD</b> UNTIL AUGUST <b>21ST</b>",
-    time: "FROM <b>12PM</b> TO <b>10PM</b>"
+    date: "AUGUST <strong>03RD</strong> UNTIL AUGUST <strong>21ST</strong>",
+    time: "FROM <span class='txt-bolder'>12PM</span> TO <span class='txt-bolder'>10PM</span>"
   },
   PT: {
     expression: "TUDO CERTO!",
@@ -38,7 +38,7 @@ var confirmedStrings = {
     emailMessage: "Já enviamos o código para seu email",
     when: "QUANDO",
     where: "ONDE",
-    date: "<b>03</b> DE AGOSTO ATÉ <b>21</b> DE AGOSTO",
-    time: "DAS <b>12H</b> ÀS <b>22H</b>"
+    date: "AUGUST <strong>03RD</strong> UNTIL AUGUST <strong>21ST</strong>",
+    time: "DAS <span class='txt-bolder'>12H</span> ÀS <span class='txt-bolder'>22H</span>"
   }
 };

@@ -2,38 +2,40 @@
   <div>
 
     <div print-section>
-      <div class="print-content-top container">
-        <div class="row">
-          <div class="col-lg-12 col-md-12 rsvp-header">
-            <img src="images/asics-logo.png">
-          </div>
-        </div>
-        <div class="print-main-content row">
-          <div class="print-qrcode col-lg-4 col-md-4">
-            <div class="print-qrcode-container">
-              <qrcode data="{{ guest.qr_code }}" size="310" version="2" error-correction-level="Q"></qrcode>
+      <div>
+        <div class="print-content-top container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 rsvp-header">
+              <img src="images/asics-logo.png">
             </div>
           </div>
-          <div class="print-info col-lg-8 col-md-8">
-            <div class="print-info-row">
-              <div class="txt-bolder">{{strings.confirmedCodeMessage}}</div>
-              <div>{{strings.reminderMessage}}</div>
+          <div class="print-main-content row">
+            <div class="print-qrcode col-lg-4 col-md-4 col-sm-12 col-xs-12">
+              <div class="print-qrcode-container">
+                <qrcode data="{{ guest.qr_code }}" size="310" version="2" error-correction-level="Q"></qrcode>
+              </div>
             </div>
-            <div class="print-info-row">
-              <div class="txt-bolder">{{strings.when}}</div>
-              <div>{{strings.date}}</div>
-              <div>{{strings.time}}</div>
-            </div>
-            <div class="print-info-row">
-              <div class="txt-bolder">{{strings.where}}</div>
-              <div>EST. BOCA DO MATO, 803</div>
-              <div>VARGEM PEQUENA - RIO DE JANEIRO</div>
+            <div class="print-info col-lg-8 col-md-8 col-sm-12 col-xs-12">
+              <div class="print-info-row">
+                <div class="txt-bolder">{{strings.confirmedCodeMessage}}</div>
+                <div>{{strings.reminderMessage}}</div>
+              </div>
+              <div class="print-info-row">
+                <div class="txt-bolder">{{strings.when}}</div>
+                <div ng-bind-html="{{strings.date}}"></div>
+                <div>{{strings.time}}</div>
+              </div>
+              <div class="print-info-row">
+                <div class="txt-bolder">{{strings.where}}</div>
+                <div>EST. BOCA DO MATO, 803</div>
+                <div>VARGEM PEQUENA - RIO DE JANEIRO</div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="print-map col-lg-12 col-md-12">
-            <img src="images/map-lajeado.jpg">
+          <div class="row">
+            <div class="print-map col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <img src="images/map-lajeado.jpg">
+            </div>
           </div>
         </div>
       </div>
@@ -65,7 +67,7 @@
                 {{strings.emailMessage}}
               </div>
 
-              <button class="col-lg-4 col-md-4 col-sm-4 col-xs-12" print-btn>
+              <button class="col-lg-4 col-md-4 col-sm-4 col-xs-12" print-btn print-landscape>
                 <img src="images/button-print.png" alt="apple wallet">
               </button>
 
