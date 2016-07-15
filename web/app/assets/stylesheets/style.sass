@@ -96,6 +96,10 @@ body
 .print-main-content
   margin-top: 30px
 
+.print-qrcode
+  @include media(xs)
+    margin-bottom: 20px
+
 .print-qrcode-container
   width: 300px
   height: 300px
@@ -107,7 +111,8 @@ body
   @include media(sm)
     margin-left: 0
   @include media(xs)
-    margin-left: 0
+    margin: 0 auto
+    display: block
 
 .print-info
   height: 300px
@@ -118,7 +123,10 @@ body
     @include media(sm)
       margin-left: 0
     @include media(xs)
-      margin-left: 0
+      width: 100%
+      margin: 10px auto
+      display: block
+      text-align: center
 
 .print-info-row
   margin-top: 18px
