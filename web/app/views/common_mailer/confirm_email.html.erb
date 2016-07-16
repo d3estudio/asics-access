@@ -1,4 +1,4 @@
-<body onload="window.print()">
+<body>
 <table width="100%" bgcolor="#5D5D5D" cellpadding="0" cellspacing="0" border="0" class="backgroundTable"
        st-sortable="full-text">
   <tbody>
@@ -58,25 +58,28 @@
                          class="devicewidthinner">
                     <tbody>
                     <tr>
-                      <td>
+                      <td height="174" width="203" class="qrcode-lateral">
                         <img src="http://asicshub.com.br/images/email/asics-qrcode_left_hand.jpg"
                              alt="WANT IT MORE"
                              class="hand"
-                             style="display:block; width:100%;  margin:0 auto; height: 174px;"/>
+                             height="174"
+                             width="203"
+                        />
                       </td>
                       <td align="center" width="174" class="qrcode-container">
-                        <div id="qrcode" height="174" width="174"
-                             style="background-color:#FFFFFF; width: 174px; height: 174px;">
+                        <div id="qrcode" height="174" width="174">
                           <table>
                             <%= raw @qr_code_html.html_safe %>
                           </table>
                         </div>
                       </td>
-                      <td>
+                      <td height="174" width="203" class="qrcode-lateral">
                         <img src="http://asicshub.com.br/images/email/asics-qrcode_right_hand.jpg"
                              class="hand"
+                             height="174"
+                             width="203"
                              alt="WANT IT MORE"
-                             style="display:block; width:100%; margin:0 auto; height: 174px;"/>
+                        />
                       </td>
                     </tr>
                     </tbody>
@@ -93,8 +96,7 @@
   </tr>
   </tbody>
 </table>
-<table width="100%" bgcolor="#5D5D5D" cellpadding="0" cellspacing="0" border="0" class="backgroundTable"
-       st-sortable="full-text">
+<table width="100%" bgcolor="#5D5D5D" cellpadding="0" cellspacing="0" border="0" class="backgroundTable" st-sortable="full-text">
   <tbody>
   <tr>
     <td>
@@ -113,8 +115,7 @@
                     <tr>
                       <td align="center">
                         <img src="http://asicshub.com.br/images/email/asics-qrcode_bottom_code.jpg"
-                             alt="WANT IT MORE" width="580"
-                             style="display:block; width:100%; margin:0 auto"/>
+                             alt="WANT IT MORE" width="580" class="qrcode-bottom-code"/>
                       </td>
                     </tr>
                     </tbody>
@@ -149,39 +150,35 @@
                          class="devicewidthinner">
                     <tbody>
                     <tr>
-                      <td height="33" class="qrcode-bottom">
+                      <td height="33" class="qrcode-bottom qrcode-bottom-lateral">
                         <img src="http://asicshub.com.br/images/email/asics-qrcode_left.jpg"
-                             alt="WANT IT MORE" width="580"
-                             class="qrcode-bottom"
-                             style="display:block; width:100%; height: 35px; margin:0 auto"/>
+                             alt="WANT IT MORE"
+                             class="qrcode-bottom qrcode-bottom-lateral"
+                             height="35" width="165"/>
                       </td>
-                      <td height="33" class="qrcode-bottom">
-                         <a href="http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %>">
-                            <img src="http://asicshub.com.br/images/email/asics-qrcode_print.jpg"
-                                 alt="WANT IT MORE" width="580"
-                                 class="qrcode-bottom"
-                                 style="display:block; width:100%; height: 35px;  margin:0 auto"/>
-                         </a>
+                      <td height="33" class="qrcode-bottom qrcode-bottom-button">
+                        <img src="http://asicshub.com.br/images/email/asics-qrcode_print.jpg"
+                             alt="WANT IT MORE"
+                             class="qrcode-bottom qrcode-bottom-button"
+                             height="35" width="100"/>
                       </td>
-                      <td height="33" class="qrcode-bottom">
+                      <td height="33" class="qrcode-bottom qrcode-bottom-middle">
                         <img src="http://asicshub.com.br/images/email/asics-qrcode_middle.jpg"
-                             alt="WANT IT MORE" width="580"
-                             class="qrcode-bottom"
-                             style="display:block; width:100%; height: 35px;  margin:0 auto"/>
+                             alt="WANT IT MORE"
+                             class="qrcode-bottom qrcode-bottom-middle"
+                             height="35" width="50"/>
                       </td>
-                      <td height="33" class="qrcode-bottom">
-                          <a href="http://asicshub.com.br/files/passbook?qr_code=<%= @user.qr_code %>">
-                            <img src="http://asicshub.com.br/images/email/asics-qrcode_wallet.jpg"
-                                 alt="WANT IT MORE" width="580"
-                                 class="qrcode-bottom"
-                                 style="display:block; width:100%; height: 35px;  margin:0 auto"/>
-                          </a>
+                      <td height="33" class="qrcode-bottom qrcode-bottom-button">
+                        <img src="http://asicshub.com.br/images/email/asics-qrcode_wallet.jpg"
+                             alt="WANT IT MORE"
+                             class="qrcode-bottom qrcode-bottom-button"
+                             height="35" width="100"/>
                       </td>
-                      <td height="33" class="qrcode-bottom">
+                      <td height="33" class="qrcode-bottom qrcode-bottom-lateral">
                         <img src="http://asicshub.com.br/images/email/asics-qrcode_right.jpg"
-                             alt="WANT IT MORE" width="580"
-                             class="qrcode-bottom"
-                             style="display:block; width:100%; height: 35px; margin:0 auto"/>
+                             alt="WANT IT MORE"
+                             class="qrcode-bottom qrcode-bottom-lateral"
+                             height="35" width="165"/>
                       </td>
                     </tr>
                     </tbody>
@@ -224,7 +221,7 @@
                     </tr>
                     <tr>
                       <td align="center">
-                        <img src="http://asicshub.com.br/images/emailasics_09.jpg"
+                        <img src="http://asicshub.com.br/images/email/asics_09.jpg"
                              alt="WANT IT MORE" width="580"
                              style="display:block; width:100%; margin:0 auto"/>
                       </td>
