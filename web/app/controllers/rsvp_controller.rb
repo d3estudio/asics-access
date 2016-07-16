@@ -57,6 +57,8 @@ class RsvpController < ApplicationController
         package_path = Rails.root.join("config", "passbook", "package")
 
         json_content = File.read(File.join(package_path, "pass.json"))
+        json_content.gsub! '#QRCODE#', guest.qr_code
+
         pass = Passbook::PKPass.new json_content
 
         Dir.foreach(package_path) do |item|

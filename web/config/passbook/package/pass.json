@@ -9,13 +9,13 @@
     "suppressStripShine" : true,
     "labelColor" : "rgb(118, 199, 230)",
     "barcode": {
-        "message" : "12345678901234567890",
+        "message" : "#QRCODE#",
         "format" : "PKBarcodeFormatQR",
         "messageEncoding" : "iso-8859-1"
     },
     "barcodes" : [
         {
-            "message" : "12345678901234567890",
+            "message" : "#QRCODE#",
             "format" : "PKBarcodeFormatQR",
             "messageEncoding" : "iso-8859-1"
         }
