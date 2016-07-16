@@ -68,8 +68,11 @@
                       </td>
                       <td align="center" width="174" class="qrcode-container">
                         <div id="qrcode" height="174" width="174">
-                          <table>
-                            <%= raw @qr_code_html.html_safe %>
+                          <table style="
+                              border-width: 0;
+                              border-style: none;
+                              border-collapse: collapse;">
+                              <%= raw @qr_code_html.html_safe %>
                           </table>
                         </div>
                       </td>
