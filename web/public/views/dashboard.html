@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Dashboard</title>
+<meta charset="UTF-8">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+</head>
+<body onload="javascript:dash_load();">
+
+<h1>DASHBOARD</h1>
+
+<script type="text/javascript">
+
+	// GLOBAL
+	var _photos_url = 'http://curations-api.nexus.bazaarvoice.com/content/get/?client=asics-curations&passkey=kuuqd395w5u7gv43987gxshh&withProductData=false&groups=meta-poweroffans&callback=photos_callback&limit=#limit&before=#before';
+	var _photos_limit = 5;
+	var _photos_results = 0;
+	var _photos_last_timestamp = '';
+	var _photos_atributes = ''; // &width=900&height=900&exact=true
+
+
+	function dash_load() {
+		$.ajax({ 
+		    type: 'GET', 
+		    url: _photos_url.replace('#limit', _photos_limit).replace('#before', _photos_last_timestamp), 
+		    success: function ( _data ) {
+				var tmpFunc = new Function( _data );
+				tmpFunc();
+
+				if ( _photos_results == _photos_limit)
+					setTimeout( dash_load, 3000 );
+		    },
+		    error: function ( _data ) {
+		    	//console.log("error");
+		    }
+		});
+	}
+
+	function photos_callback( _data ){
+		var _photo = {type:null, src:null, channel:null};
+		var _tmp_content;
+		
+
+		try {
+			_photos_results = _data.results;
+
+			$( _data.updates ).each( function( _index, _obj ) {
+				try {
+					_photos_last_timestamp = _obj.data.timestamp;
+
+					switch ( _obj.data.classification ) {
+						case 'photo':
+						case 'photoblurb':
+							_tmp_content = _obj.data.photos.shift();
+							break;
+						case 'video':
+							_tmp_content = _obj.data.videos.shift();
+							break;
+						default:
+							_tmp_content = null;
+					}
+
+					if ( _tmp_content ) {
+						_photo.src = _tmp_content.image_service_url;
+						_photo.type = _tmp_content.classification;
+						_photo.channel = _tmp_content.channel;
+
+						$( '#photos' ).append('<img src="' + _photo.src + _photos_atributes + '" width=200 height=200>');
+					}
+				} catch ( _error ) {
+					//console.log( _error );
+				}
+			} );
+		} catch ( _error ) {
+			//console.log( _error );
+		}
+	}
+
+</script>
+
+
+<div id="photos"></div>
+
+
+</body>
+</html>

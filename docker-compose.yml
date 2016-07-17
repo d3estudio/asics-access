@@ -13,6 +13,15 @@ services:
       - POSTGRES_HOST=postgres://db/asicsaccess
     env_file: ./web/.env
 
+  pgadmin:
+    image: fenglc/pgadmin4
+    ports:
+      - "2052:5050"
+    links:
+      - db:postgres
+    environment:
+      - POSTGRES_HOST=postgres://db/asicsaccess
+
   db:
     image: postgres
 

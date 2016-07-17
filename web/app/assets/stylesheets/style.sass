@@ -1,5 +1,5 @@
 @import "reset"
-@import "var"
+@import "variables"
 @import "text"
 @import "components"
 
@@ -7,31 +7,138 @@ body
   font-family: $helvetica
   color: $black-light
   background-color: $black
-  min-width: 830px
-
 
 //RSVP
-#main-container
-  background: url("../images/asics-athlete.jpg") $gray no-repeat center
+#rsvp-container
+  line-height: 20px
+  display: table
+  width: 100%
+  min-height: 99.5%
+  height: 99.5%
+  background: $gray no-repeat center
   background-size: cover
-  height: 100%
-  padding-top: 100px
+  @include media(xs)
+    padding-top: 30px
+  &>div
+    display: table-cell
+    vertical-align: middle
+  .btn
+    width: 300px
+    height: 60px
+    @include media(xs)
+      width: 100%
 
 .qrcode-container
   margin-bottom: 15px
+  &>div
+    background-color: $white
+    width: 220px
+    height: 220px
+    padding: 10px
+    border-radius: 5px
   qrcode
+    width: 100%
+
+.rsvp-card
+  padding: 0 45px
+  background-color: rgba(255, 255, 255, 0.85)
+  max-width: 650px
+  border-radius: 8px
+  @include media(sm)
+    margin: 0 auto
+    display: block
+  @include media(xs)
+    padding: 0 15px
+    margin-bottom: 30px
+  h1
+    font-style: italic
+    text-transform: uppercase
+  span
+    font-weight: 900
+
+.rsvp-header
+  padding: 30px 0
+  border-bottom: solid 1px #D3D3D4
+  img
+    display: block
+    height: 50px
     margin: 0 auto
 
-#rsvp-header
-  padding: 5px
-  border-bottom: solid 1px $gray
+.rsvp-content
+  min-height: 350px
+  padding: 30px 0
+  border-bottom: solid 1px #D3D3D4
+  input
+    color: $black-light
+    margin-top: 15px
+
+.rsvp-bottom
+  padding: 30px 0
+  font-size: 14px
+  @include media(xs)
+    padding: 30px 15px
+    text-align: center
   img
-    height: 140px
+    height: 40px
+    display: block
     margin: 0 auto
+    @include media(xs)
+      margin-top: 20px
+  div
+    @include media(xs)
+      font-size: 14px
+
+//Print page
+.print-content-top
+  height: 250px
+  margin-top: 30px
+
+.print-main-content
+  margin-top: 30px
+
+.print-qrcode-container
+  width: 300px
+  height: 300px
+  background-color: $white
+  border: 1px solid $gray-medium
+  border-radius: 8px
+  padding: 15px
+  margin-left: 70px
+  @include media(sm)
+    margin-left: 0
+  @include media(xs)
+    margin-left: 0
+
+.print-info
+  height: 300px
+  font-size: 16pt
+  line-height: 22pt
+  div
+    margin-left: 40px
+  @include media(sm)
+    font-size: 15pt
+  @include media(xs)
+    font-size: 15pt
+
+.print-info-row
+  margin-top: 18px
+
+.print-map
+  img
+    width: 100%
+    margin-top: 30px
+
+#confirmed-print-page
+  background-color: $white
+  height: 840px
 
 //ADMIN
 #admin-container
   height: 100%
+  display: table
+  &>div
+    display: table-cell
+    vertical-align: middle
   .container
     width: 970px !important
 
@@ -45,12 +152,12 @@ body
 #admin-content
   background-color: $gray-light
   border-radius: $border-radius
-  height: 85vh
+  height: 595px
   max-width: 1000px
   max-height: 85vh
   min-width: 900px
-  min-height: 645px
-  margin-bottom: 35px
+  min-height: 595px
+  margin-bottom: 25px
 
 .nav-tabs
   float: left
@@ -109,7 +216,7 @@ body
     border-top-right-radius: $border-radius
     background-color: $white
     padding: 0
-    min-height: 85vh
+    min-height: 595px
     overflow: hidden
   .active
     display: block
@@ -214,28 +321,20 @@ body
   color: $red
 
 #form-fields-container
-  height: 395px
+  height: 360px
 
 //GUESTS
 #guests-container
-  max-height: 67vh
+  max-height: 420px
   padding-top: 21px
   overflow-y: scroll
   overflow-x: hidden
   transition: max-height $anim-duration
-  @media (max-height: 940px)
-    max-height: 66vh
-  @media (max-height: 890px)
-    max-height: 64vh
-  @media (max-height: 815px)
-    max-height: 63vh
-  @media (max-height: 750px)
-    max-height: 470px
 
 
 
 .guest-card-open
-  max-height: 54vh !important
+  max-height: 367px !important
 
 #guests-top
   padding: 20px
@@ -268,7 +367,7 @@ body
   font-size: 24px
   font-weight: 800
   text-align: center
-  height: 73vh
+  height: 560px
   width: 100%
   color: $gray-medium
   &:hover
@@ -277,7 +376,7 @@ body
     display: table-cell
     vertical-align: middle
   @media (max-height: 750px)
-    height: 605px
+    height: 560px
 
 .guest-picture
   svg
@@ -373,7 +472,7 @@ body
   line-height: 26px
 
 #logs-container
-  max-height: 79vh
+  max-height: 555px
   padding-top: 21px
   overflow-y: scroll
   overflow-x: hidden
@@ -409,17 +508,15 @@ body
 
 //INVITATION
 #invitation-container
-  height: 85vh
+  height: 595px
   overflow: hidden
   padding: 40px 30px
   border-bottom: 1px solid $gray-light
   h1
     font-weight: 400
-  @media (max-height: 750px)
-    height: 640px
 
 #invitation-header
-  margin-bottom: 80px
+  margin-bottom: 60px
   p
     color: $gray-dark
 

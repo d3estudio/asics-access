@@ -1,5 +1,5 @@
 class CommonMailer < ApplicationMailer
-  default from: "rsvp@asicshub.com.br"
+  default from: "\"ASICS Hub\" <rsvp@asicshub.com.br>"
 
 
 
@@ -7,14 +7,14 @@ class CommonMailer < ApplicationMailer
     @user = user
 
     @strings = get_invite_strings
-    mail(to: @user.email, subject: 'Convite Asics Hub')
+    mail(to: @user.email, subject: 'Invitation Asics Hub')
   end
 
   def confirm_email(user)
     @user = user
     get_qr_code_html_string user.qr_code
     @strings = get_confirm_strings
-    mail(to: @user.email, subject: 'Confirmação Asics Hub')
+    mail(to: @user.email, subject: 'Here\'s your entry code')
   end
 
 
@@ -28,7 +28,7 @@ class CommonMailer < ApplicationMailer
       qr.modules.each do |row|
           qr_string << '<tr>'
           row.each do |col|
-               qr_string << '<td width="9" height="9" bgcolor="'
+               qr_string << '<td width="4" height="4" bgcolor="'
                qr_string << ( col ? "black" : "white" )
                qr_string << '"></td>'
           end

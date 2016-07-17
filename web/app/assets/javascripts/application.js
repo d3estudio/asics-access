@@ -15,9 +15,11 @@
 //= require turbolinks
 
 //= require angular.min.js
+//= require angular-sanitize.js
 //= require angular-aria.min.js
 //= require angular-animate.min.js
 //= require angular-messages.min.js
+//= require angular-print.js
 //= require angular-cookies.min.js
 //= require angular-ui-router.min.js
 //= require angular-material.min.js
@@ -33,6 +35,7 @@
 //= require services/adminFactory.js
 //= require controllers/rsvpCtrl.js
 //= require controllers/rsvpConfirmedCtrl.js
+//= require controllers/rsvpConfirmedPrintCtrl.js
 //= require controllers/admin/adminCtrl.js
 //= require controllers/admin/authCtrl.js
 //= require controllers/admin/invitationCtrl.js
@@ -40,4 +43,5 @@
 //= require controllers/admin/logsCtrl.js
 //= require directives/guestDirective.js
 //= require directives/logDirective.js
+//= require directives/printDirective.js
 //= require directives/namesOnlyDirective.js
