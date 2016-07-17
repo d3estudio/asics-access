@@ -36,6 +36,11 @@ asics.config([
           templateUrl: '/views/rsvp',
           controller: 'RsvpCtrl'
         })
+        .state('rsvp.confirm.print', {
+          url: '/confirm/print/:token',
+          templateUrl: '/views/rsvp',
+          controller: 'RsvpCtrl'
+        })
         .state('rsvp.confirmed', {
           url: '/confirmed',
           params: {guest: null},

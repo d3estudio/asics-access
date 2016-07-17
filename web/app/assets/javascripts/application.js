@@ -42,4 +42,5 @@
 //= require controllers/admin/logsCtrl.js
 //= require directives/guestDirective.js
 //= require directives/logDirective.js
+//= require directives/printDirective.js
 //= require directives/namesOnlyDirective.js
