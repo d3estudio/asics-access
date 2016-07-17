@@ -33,3 +33,5 @@ bower.json
 
 .env
 valid_tokens.yml
+
+public/assets
