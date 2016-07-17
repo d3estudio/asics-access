@@ -35,6 +35,7 @@
 //= require services/adminFactory.js
 //= require controllers/rsvpCtrl.js
 //= require controllers/rsvpConfirmedCtrl.js
+//= require controllers/rsvpConfirmedPrintCtrl.js
 //= require controllers/admin/adminCtrl.js
 //= require controllers/admin/authCtrl.js
 //= require controllers/admin/invitationCtrl.js
