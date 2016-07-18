@@ -9,13 +9,19 @@ angular.module('asics').controller('RsvpConfirmedPrintCtrl', [
     $scope.guest = {};
     $scope.strings = {};
 
-    $timeout(function() {
-      $window.print();
-    }, 400);
+    $scope.$on('$viewContentLoaded', function () {
+      popupPrintDialog();
+    });
+
+    function popupPrintDialog() {
+      $timeout(function () {
+        $window.print();
+      }, 400);
+    }
 
     rsvp.getGuestByToken($stateParams.token)
-        .then(readGuest)
-        .catch(onInvalidToken);
+      .then(readGuest)
+      .catch(onInvalidToken);
 
     function readGuest(guest) {
       angular.copy(guest, $scope.guest);
