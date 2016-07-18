@@ -65,34 +65,34 @@ class CommonMailer < ApplicationMailer
   def get_confirm_strings
     confirm_strings = {
       EN: {
-        img_01: 'http://asicshub.com.br/images/email/invitation/en/asics_01.jpg',
-        img_02_lefthand: 'http://asicshub.com.br/images/email/invitation/en/asics_02_lefthand.jpg',
-        img_02_righthand: 'http://asicshub.com.br/images/email/invitation/en/asics_02_righthand.jpg',
-        img_03: 'http://asicshub.com.br/images/email/invitation/en/asics_03.jpg',
-        img_04_btprint: 'http://asicshub.com.br/images/email/invitation/en/asics_04_btprint.jpg',
-        img_04_btwallet: 'http://asicshub.com.br/images/email/invitation/en/asics_04_btwallet.jpg',
-        img_04_center: 'http://asicshub.com.br/images/email/invitation/en/asics_04_center.jpg',
-        img_04_left: 'http://asicshub.com.br/images/email/invitation/en/asics_04_left.jpg',
-        img_04_right: 'http://asicshub.com.br/images/email/invitation/en/asics_04_right.jpg',
-        img_05: 'http://asicshub.com.br/images/email/invitation/en/asics_05.jpg',
-        img_06: 'http://asicshub.com.br/images/email/invitation/en/asics_06.jpg',
-        img_07: 'http://asicshub.com.br/images/email/invitation/en/asics_07.jpg',
-        img_08: 'http://asicshub.com.br/images/email/invitation/en/asics_08.jpg'
+        img_01: 'http://asicshub.com.br/images/email/confirmation/en/asics_01.jpg',
+        img_02_lefthand: 'http://asicshub.com.br/images/email/confirmation/en/asics_02_lefthand.jpg',
+        img_02_righthand: 'http://asicshub.com.br/images/email/confirmation/en/asics_02_righthand.jpg',
+        img_03: 'http://asicshub.com.br/images/email/confirmation/en/asics_03.jpg',
+        img_04_btprint: 'http://asicshub.com.br/images/email/confirmation/en/asics_04_btprint.jpg',
+        img_04_btwallet: 'http://asicshub.com.br/images/email/confirmation/en/asics_04_btwallet.jpg',
+        img_04_center: 'http://asicshub.com.br/images/email/confirmation/en/asics_04_center.jpg',
+        img_04_left: 'http://asicshub.com.br/images/email/confirmation/en/asics_04_left.jpg',
+        img_04_right: 'http://asicshub.com.br/images/email/confirmation/en/asics_04_right.jpg',
+        img_05: 'http://asicshub.com.br/images/email/confirmation/en/asics_05.jpg',
+        img_06: 'http://asicshub.com.br/images/email/confirmation/en/asics_06.jpg',
+        img_07: 'http://asicshub.com.br/images/email/confirmation/en/asics_07.jpg',
+        img_08: 'http://asicshub.com.br/images/email/confirmation/en/asics_08.jpg'
       },
       PT: {
-        img_01: 'http://asicshub.com.br/images/email/invitation/pt/asics_01.jpg',
-        img_02_lefthand: 'http://asicshub.com.br/images/email/invitation/pt/asics_02_lefthand.jpg',
-        img_02_righthand: 'http://asicshub.com.br/images/email/invitation/pt/asics_02_righthand.jpg',
-        img_03: 'http://asicshub.com.br/images/email/invitation/pt/asics_03.jpg',
-        img_04_btprint: 'http://asicshub.com.br/images/email/invitation/pt/asics_04_btprint.jpg',
-        img_04_btwallet: 'http://asicshub.com.br/images/email/invitation/pt/asics_04_btwallet.jpg',
-        img_04_center: 'http://asicshub.com.br/images/email/invitation/pt/asics_04_center.jpg',
-        img_04_left: 'http://asicshub.com.br/images/email/invitation/pt/asics_04_left.jpg',
-        img_04_right: 'http://asicshub.com.br/images/email/invitation/pt/asics_04_right.jpg',
-        img_05: 'http://asicshub.com.br/images/email/invitation/pt/asics_05.jpg',
-        img_06: 'http://asicshub.com.br/images/email/invitation/pt/asics_06.jpg',
-        img_07: 'http://asicshub.com.br/images/email/invitation/pt/asics_07.jpg',
-        img_08: 'http://asicshub.com.br/images/email/invitation/pt/asics_08.jpg'
+        img_01: 'http://asicshub.com.br/images/email/confirmation/pt/asics_01.jpg',
+        img_02_lefthand: 'http://asicshub.com.br/images/email/confirmation/pt/asics_02_lefthand.jpg',
+        img_02_righthand: 'http://asicshub.com.br/images/email/confirmation/pt/asics_02_righthand.jpg',
+        img_03: 'http://asicshub.com.br/images/email/confirmation/pt/asics_03.jpg',
+        img_04_btprint: 'http://asicshub.com.br/images/email/confirmation/pt/asics_04_btprint.jpg',
+        img_04_btwallet: 'http://asicshub.com.br/images/email/confirmation/pt/asics_04_btwallet.jpg',
+        img_04_center: 'http://asicshub.com.br/images/email/confirmation/pt/asics_04_center.jpg',
+        img_04_left: 'http://asicshub.com.br/images/email/confirmation/pt/asics_04_left.jpg',
+        img_04_right: 'http://asicshub.com.br/images/email/confirmation/pt/asics_04_right.jpg',
+        img_05: 'http://asicshub.com.br/images/email/confirmation/pt/asics_05.jpg',
+        img_06: 'http://asicshub.com.br/images/email/confirmation/pt/asics_06.jpg',
+        img_07: 'http://asicshub.com.br/images/email/confirmation/pt/asics_07.jpg',
+        img_08: 'http://asicshub.com.br/images/email/confirmation/pt/asics_08.jpg'
       }
     }
 
