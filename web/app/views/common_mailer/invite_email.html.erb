@@ -103,26 +103,61 @@
             <table width="600" cellpadding="0" cellspacing="0" border="0" align="center"
                    class="devicewidth">
               <tbody>
-              <tr align="left">
-                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; text-align: center; color: #D4D4D4;">
+              <tr>
+                <td height="20" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;"></td>
+              </tr>
+              <tr>
+                <td align="left" width="100" style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; text-align: left; color: #D4D4D4;">
                   <%= @strings[:salutation] %>
                 </td>
               </tr>
               <tr align="left">
-                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; text-align: center; color: #D4D4D4;">
+                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; text-align: left; color: #D4D4D4;">
                   <%= @strings[:intro] %>
                 </td>
               </tr>
               <tr>
                 <td height="20" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;"></td>
               </tr>
-
+              <tr align="center">
+                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; text-align: left; color: #D4D4D4;">
+                  <%= @strings[:link] %> <br>
+                  <a href="http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %>" style="color:#D4D4D4">
+                    <span style="text-decoration: underline;">http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %></span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td height="20" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;"></td>
+              </tr>
+              <tr align="center">
+                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; text-align: left; color: #D4D4D4;">
+                  <%= @strings[:when] %>
+                </td>
+              </tr>
+              <tr align="center">
+                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; text-align: left; color: #D4D4D4;">
+                  <%= @strings[:schedule] %> <a href="http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %>" style="color:#D4D4D4">
+                    <span> www.asicshub.com.br</span>
+                  </a>
+                </td>
+              </tr>
+              <tr>
+                <td height="5" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;"></td>
+              </tr>
+              <tr align="center">
+                <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; text-align: left; color: #D4D4D4;">
+                  <%= @strings[:where] %>
+                </td>
+              </tr>
+              <tr>
+                <td height="20" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;"></td>
+              </tr>
               <tr align="center">
                 <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; text-align: center; color: #7E7E7E;">
                   <%= @strings[:explanation] %>
                 </td>
               </tr>
-
               <tr>
                 <td height="20" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;"></td>
               </tr>
