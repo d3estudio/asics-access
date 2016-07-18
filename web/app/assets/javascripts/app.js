@@ -15,11 +15,13 @@ asics.config([
   '$httpProvider',
   '$locationProvider',
   '$mdThemingProvider',
-  function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $mdThemingProvider) {
+  '$urlMatcherFactoryProvider',
+  function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider, $mdThemingProvider, $urlMatcherFactoryProvider) {
     $locationProvider.html5Mode(true);
 
     $httpProvider.interceptors.push('authInterceptor');
     $urlRouterProvider.otherwise('/');
+    $urlMatcherFactoryProvider.strictMode(false);
 
     $stateProvider
         .state('home', {
