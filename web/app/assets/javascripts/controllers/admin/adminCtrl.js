@@ -1,25 +1,42 @@
 angular.module('asics').controller('AdminCtrl', [
-    '$scope',
-    '$state',
-    function ($scope, $state) {
-        $scope.selectedTab = null;
+  '$scope',
+  '$state',
+  function ($scope, $state) {
+    $scope.strings = {};
+    $scope.language = 'EN';
+    $scope.selectedTab = null;
 
-        $scope.$on('$stateChangeStart', function(event, toState){
-            updateSelectedTab(toState.name)
-        });
+    angular.copy(adminStrings[$scope.language], $scope.strings);
 
-        updateSelectedTab($state.current.name)
+    $scope.$on('$stateChangeStart', function (event, toState) {
+      updateSelectedTab(toState.name)
+    });
 
-        function updateSelectedTab(stateName) {
-            switch (stateName) {
-                case 'admin.logs':
-                    $scope.selectedTab = 2;
-                    break;
-                case 'admin.invitation':
-                    $scope.selectedTab = 1;
-                    break;
-                default:
-                    $scope.selectedTab = 0
-            }
-        }
-    }]);
+    updateSelectedTab($state.current.name);
+
+    function updateSelectedTab(stateName) {
+      switch (stateName) {
+        case 'admin.logs':
+          $scope.selectedTab = 2;
+          break;
+        case 'admin.invitation':
+          $scope.selectedTab = 1;
+          break;
+        default:
+          $scope.selectedTab = 0
+      }
+    }
+  }]);
+
+var adminStrings = {
+  EN: {
+    guests: "Guests",
+    invite: "Invite",
+    logs: "Logs"
+  },
+  PT: {
+    guests: "Convidados",
+    invite: "Convidar",
+    logs: "Acessos"
+  }
+};
