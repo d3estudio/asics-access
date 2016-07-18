@@ -1,5 +1,5 @@
 class CommonMailer < ApplicationMailer
-  default from: "\"ASICS Hub\" <rsvp@asicshub.com.br>"
+  default from: "\"Asics Hub\" <rsvp@asicshub.com.br>"
 
 
 
@@ -7,14 +7,14 @@ class CommonMailer < ApplicationMailer
     @user = user
 
     @strings = get_invite_strings
-    mail(to: @user.email, subject: 'Invitation Asics Hub')
+    mail(to: @user.email, subject: 'Asics Hub: Convite')
   end
 
   def confirm_email(user)
     @user = user
     get_qr_code_html_string user.qr_code
     @strings = get_confirm_strings
-    mail(to: @user.email, subject: 'Here\'s your entry code')
+    mail(to: @user.email, subject: 'Asics Hub: Confirmação')
   end
 
 
