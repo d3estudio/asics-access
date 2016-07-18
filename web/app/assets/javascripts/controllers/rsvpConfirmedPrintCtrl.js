@@ -16,7 +16,7 @@ angular.module('asics').controller('RsvpConfirmedPrintCtrl', [
     function popupPrintDialog() {
       $timeout(function () {
         $window.print();
-      }, 400);
+      }, 1000);
     }
 
     rsvp.getGuestByToken($stateParams.token)
