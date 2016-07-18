@@ -13,7 +13,7 @@ angular.module('asics').controller('InvitationCtrl', [
         $scope.occupations = [
             'Atleta',
             'Staff de treinamento',
-            'Federação/NOC',
+            'Federação / NOC oficial',
             'Mídia',
             'Família/Amigo de atleta',
             'Diretor de corrida',
