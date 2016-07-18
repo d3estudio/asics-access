@@ -99,7 +99,14 @@ class CommonMailer < ApplicationMailer
         img_05: 'http://asicshub.com.br/images/email/confirmation/en/asics_05.jpg',
         img_06: 'http://asicshub.com.br/images/email/confirmation/en/asics_06.jpg',
         img_07: 'http://asicshub.com.br/images/email/confirmation/en/asics_07.jpg',
-        img_08: 'http://asicshub.com.br/images/email/confirmation/en/asics_08.jpg'
+        img_08: 'http://asicshub.com.br/images/email/confirmation/en/asics_08.jpg',
+        salutation: 'Dear GUEST',
+        intro: 'This code is your entry to the ASICS Hub. Make sure you bring it with you.',
+        when: 'WHEN: AUGUST 03RD UNTIL AUGUST 21ST, FROM 12PM TO 10PM',
+        where: 'WHERE: EST. BOCA DO MATO, 803, VARGEM PEQUENA - RIO DE JANEIRO',
+        schedule: 'Learn more about our schedule here:',
+        explanation: 'You are receiving this message because you were invited to enjoy the ASICS Hub on Rio 2016 Olympics.'
+
       },
       PT: {
         img_01: 'http://asicshub.com.br/images/email/confirmation/pt/asics_01.jpg',
@@ -114,7 +121,13 @@ class CommonMailer < ApplicationMailer
         img_05: 'http://asicshub.com.br/images/email/confirmation/pt/asics_05.jpg',
         img_06: 'http://asicshub.com.br/images/email/confirmation/pt/asics_06.jpg',
         img_07: 'http://asicshub.com.br/images/email/confirmation/pt/asics_07.jpg',
-        img_08: 'http://asicshub.com.br/images/email/confirmation/pt/asics_08.jpg'
+        img_08: 'http://asicshub.com.br/images/email/confirmation/pt/asics_08.jpg',
+        salutation: 'Caro CONVIDADO',
+        intro: 'Este código garante seu acesso para o Asics Hub. Não se esqueça de levá-lo.',
+        when: 'QUANDO: 03 DE AGOSTO A 21 DE AGOSTO, DAS 12hs ÀS 22hs',
+        where: 'ONDE: EST. BOCA DO MATO, 803, VARGEM PEQUENA - RIO DE JANEIRO',
+        schedule: 'Conheça mais sobre nossa programação:',
+        explanation: 'Você está recebendo esta mensagem por ter sido convidado(a) para desfrutar do ASICS Hub nos Jogos Olímpicos Rio 2016.'
       }
     }
 
