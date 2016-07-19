@@ -31,7 +31,6 @@ bower.json
 # Ignore pow environment settings
 .powenv
 
-.env
 valid_tokens.yml
 
 public/assets

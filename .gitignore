@@ -3,3 +3,4 @@
 .htpasswd
 db/data/*
 pgbkp/*.log
+.env
