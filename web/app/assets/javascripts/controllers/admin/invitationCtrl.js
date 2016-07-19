@@ -190,4 +190,3 @@ var occupationStrings = {
     'Other'
   ]
 };
-
