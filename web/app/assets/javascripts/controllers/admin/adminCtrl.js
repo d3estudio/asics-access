@@ -1,9 +1,10 @@
 angular.module('asics').controller('AdminCtrl', [
   '$scope',
   '$state',
-  function ($scope, $state) {
+  '$stateParams',
+  function ($scope, $state, $stateParams) {
     $scope.strings = {};
-    $scope.language = 'EN';
+    $scope.language = $stateParams.language ? $stateParams.language : 'PT';
     $scope.selectedTab = null;
 
     updateStrings();
@@ -19,6 +20,9 @@ angular.module('asics').controller('AdminCtrl', [
         $scope.language = 'EN';
 
       updateStrings();
+      $state.transitionTo($state.current, {language: $scope.language}, {
+        reload: true, notify: true
+      });
     };
 
     $scope.$on('$stateChangeStart', function (event, toState, toParams) {
