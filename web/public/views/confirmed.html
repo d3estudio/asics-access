@@ -1,7 +1,7 @@
 <div id="rsvp-container" style="background-image: url('images/asics-{{bgImage}}-bg.jpg')">
   <div>
 
-    <div print-page print-only></div>
+    <!--<div print-page print-only></div>-->
 
     <div class="main-container container-fluid">
       <div class="row">
@@ -29,9 +29,9 @@
                 {{strings.emailNotificationMessage}}
               </div>
 
-              <button class="col-lg-4 col-md-4 col-sm-4 col-xs-12" print-btn>
+              <a class="col-lg-4 col-md-4 col-sm-4 col-xs-12" href="/rsvp/print/{{guest.invite_token}}" target="_blank">
                 <img src="images/button-print.png" alt="print code">
-              </button>
+              </a>
 
               <a class="col-lg-4 col-md-4 col-sm-4 col-xs-12" target="_self"
                  href="/files/passbook?qr_code={{ guest.qr_code }}">
