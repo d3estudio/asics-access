@@ -14,7 +14,7 @@ angular.module('asics').controller('RsvpConfirmedCtrl', [
 
     if ($scope.guest.occupation == 'Atleta Asics') {
       $scope.isAthlete = true;
-      $scope.bgImage = 'athlete'
+      // $scope.bgImage = 'athlete'
     }
 
   }
