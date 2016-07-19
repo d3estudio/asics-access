@@ -6,7 +6,20 @@ angular.module('asics').controller('AdminCtrl', [
     $scope.language = 'EN';
     $scope.selectedTab = null;
 
-    angular.copy(adminStrings[$scope.language], $scope.strings);
+    updateStrings();
+
+    function updateStrings() {
+      angular.copy(adminStrings[$scope.language], $scope.strings);
+    }
+
+    $scope.changeLanguage = function () {
+      if ($scope.language == 'EN')
+        $scope.language = 'PT';
+      else
+        $scope.language = 'EN';
+
+      updateStrings();
+    };
 
     $scope.$on('$stateChangeStart', function (event, toState, toParams) {
       toParams.language = $scope.language;
@@ -33,11 +46,13 @@ var adminStrings = {
   EN: {
     guests: "Guests",
     invite: "Invite",
-    logs: "Logs"
+    logs: "Logs",
+    language: "Language"
   },
   PT: {
     guests: "Convidados",
     invite: "Convidar",
-    logs: "Acessos"
+    logs: "Acessos",
+    language: "Idioma"
   }
 };
