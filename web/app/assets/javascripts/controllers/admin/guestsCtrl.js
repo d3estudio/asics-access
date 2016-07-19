@@ -17,15 +17,7 @@ angular.module('asics').controller('GuestsCtrl', [
 
     var map = {};
 
-    updateStrings();
-
-    function updateStrings() {
-      angular.copy(adminGuestsStrings[$scope.language], $scope.strings);
-    }
-
-    $scope.$watch('language', function () {
-      updateStrings();
-    });
+    angular.copy(adminGuestsStrings[$scope.language], $scope.strings);
 
     readGuestsInformation();
 
