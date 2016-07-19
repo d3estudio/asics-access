@@ -7,6 +7,7 @@ class AdminController < ApplicationController
     email = params[:email].downcase or return missing_field(:email)
     occupation = params[:occupation] or return missing_field(:occupation)
     language = params[:language] or return missing_field(:language)
+    country = params[:country] or return missing_field(:country)
 
     guest = Guest.where(email: email).first;
 
@@ -23,6 +24,7 @@ class AdminController < ApplicationController
     guest.removed_at = nil
     guest.occupation = occupation
     guest.language = language
+    guest.country = country
 
     if guest.save
       CommonMailer.invite_email(guest).deliver_later

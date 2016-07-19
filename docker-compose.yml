@@ -1,34 +1,50 @@
 version: '2'
 services:
-  web:
-    build: web
-    command: bundle exec rails s -p 3000 -b '0.0.0.0'
-    volumes:
-      - ./web:/app
-    ports:
-      - "3000:3000"
-    links:
-      - db
-    environment:
-      - POSTGRES_HOST=postgres://db/asicsaccess
-    env_file: ./web/.env
+    web:
+        build: web
+        command: bundle exec rails s -p 3000 -b '0.0.0.0'
+        volumes:
+            - ./web:/app
+        ports:
+            - "3000:3000"
+        links:
+            - db
+        environment:
+            - POSTGRES_HOST=postgres://db/asicsaccess
+        env_file: ./web/.env
 
-  pgadmin:
-    image: fenglc/pgadmin4
-    ports:
-      - "2052:5050"
-    links:
-      - db:postgres
-    environment:
-      - POSTGRES_HOST=postgres://db/asicsaccess
+    db:
+        image: postgres
+        volumes:
+            - ./db/data:/var/lib/postgresql/data
+        environment:
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=
 
-  db:
-    image: postgres
+    nginx:
+        build: nginx
+        links:
+            - web
+        ports:
+            - "8080:80"
+            - "80:80"
 
-  nginx:
-    build: nginx
-    links:
-      - web
-    ports:
-      - "8080:80"
-      - "80:80"
+    pgadmin:
+        image: fenglc/pgadmin4
+        ports:
+            - "2052:5050"
+        links:
+            - db:postgres
+        environment:
+            - POSTGRES_HOST=postgres://db/asicsaccess
+
+    pgbkp:
+        build: pgbkp
+        environment:
+            - S3_BUCKET_NAME=asicshub-postgres-backup
+            - POSTGRES_HOST=db
+            - POSTGRES_USER=postgres
+            - POSTGRES_PASSWORD=
+            - PREFIX=postgres-backup # S3 key prefix to save with
+        links:
+          - db:postgres
