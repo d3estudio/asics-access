@@ -125,7 +125,7 @@ angular.module('asics').controller('InvitationCtrl', [
 var adminInvitationStrings = {
   EN: {
     newInvitation: "New invitation",
-    title: "Hi, fill the fields below to invite someone for the Asics Hub.",
+    title: "Hello! Fill the fields below to invite someone for the Asics Hub.",
     asicsAthlete: "Asics Athlete",
     formName: "Name",
     formNameRequireError: "Please, fill the name",

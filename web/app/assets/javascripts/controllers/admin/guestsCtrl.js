@@ -119,13 +119,37 @@ var adminGuestsStrings = {
     totalAthletesConfirmations: "Athletes confirmed",
     totalGuestsConfirmations: "Guests confirmed",
     sentInvitations: "sent invitations",
-    pendingInvitations: "pending invitations"
+    pendingInvitations: "pending invitations",
+    music: "music",
+    codes: "codes",
+    code: "code",
+    generated: "generated",
+    waiting: "Waiting",
+    confirmation: "confirmation",
+    attendance: "Attendance",
+    confirmed: "confirmed",
+    resend: "Resend",
+    invitation: "invitation",
+    revoke: "Revoke",
+    access: "access"
   },
   PT: {
     totalConfirmations: "Confirmações totais",
     totalAthletesConfirmations: "Atletas confirmados",
     totalGuestsConfirmations: "Convidados confirmados",
     sentInvitations: "convites enviados",
-    pendingInvitations: "convites pendentes"
+    pendingInvitations: "convites pendentes",
+    music: "música",
+    codes: "códigos",
+    code: "código",
+    generated: "gerados",
+    waiting: "Aguardando",
+    confirmation: "confirmação",
+    attendance: "Presença",
+    confirmed: "confirmada",
+    resend: "Reenviar",
+    invitation: "convite",
+    revoke: "Revogar",
+    access: "acesso"
   }
 };
