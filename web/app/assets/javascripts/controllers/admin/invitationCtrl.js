@@ -9,7 +9,7 @@ angular.module('asics').controller('InvitationCtrl', [
   function ($mdToast, $q, $scope, $state, $stateParams, admin, countries) {
     $scope.strings = {};
     $scope.occupations = [];
-    $scope.countries = [];
+    $scope.countries = countries;
     $scope.language = $stateParams.language;
     $scope.guest = {};
     $scope.isAthlete = false;
@@ -19,8 +19,6 @@ angular.module('asics').controller('InvitationCtrl', [
     angular.copy(adminInvitationStrings[$scope.language], $scope.strings);
     // Get all guest occupations
     angular.copy(occupationStrings[$scope.language], $scope.occupations);
-    // Get all countries
-    angular.copy(countries, $scope.countries);
 
     $scope.athletes = [
       'Jordan Ernest BURROUGHS',
@@ -47,12 +45,21 @@ angular.module('asics').controller('InvitationCtrl', [
     ];
 
     $scope.inviteGuest = function () {
+      var postGuest = {};
+
       if ($scope.isAthlete) {
-        $scope.guest.occupation = 'Atleta Asics';
-        $scope.guest.name = $scope.athleteGuest.name;
+        postGuest.occupation = 'Atleta Asics';
+        postGuest.name = $scope.athleteGuest.name;
+      } else {
+        postGuest.occupation = $scope.guest.occupation;
+        postGuest.name = $scope.guest.name;
       }
 
-      admin.postInvite($scope.guest)
+      postGuest.language = $scope.guest.language;
+      postGuest.email = $scope.guest.email;
+      postGuest.country = countries.PT[$scope.guest.country_key];
+
+      admin.postInvite(postGuest)
         .then(onInviteSuccess)
         .catch(errorToast)
     };
@@ -95,7 +102,8 @@ angular.module('asics').controller('InvitationCtrl', [
         email: '',
         name: '',
         occupation: '',
-        language: 'PT'
+        language: 'PT',
+        country_key: 'BR'
       };
 
       $scope.athleteGuest = {

@@ -50,9 +50,9 @@
         </div>
         <div id="admin-form-country" class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-3">
           <label for="inputName">{{strings.formCountry}}</label>
-          <select name="occupation" ng-model="guest.country" class="form-control"
-                  ng-options="country as country for country in countries" required>
-            <option value="" disabled selected>{{strings.formCountryOption}}</option>
+          <select name="occupation" ng-model="guest.country_key" class="form-control" required
+            ng-options="key as value for (key, value) in countries[language]">
+
           </select>
           <div class="help-block" ng-messages="adminForm.occupation.$error"
                ng-if='adminForm.occupation.$touched && adminForm.occupation.$error'>
