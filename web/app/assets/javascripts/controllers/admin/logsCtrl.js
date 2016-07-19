@@ -76,7 +76,7 @@ angular.module('asics').controller('LogsCtrl', [
 
 var adminLogsStrings = {
   EN: {
-    updatedAt: "Last update at",
+    updatedAt: "Updated at",
     noCheckin: "No one has done checkin today",
     noneFound: "No guest found"
   },
