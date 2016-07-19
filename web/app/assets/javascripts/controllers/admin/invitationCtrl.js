@@ -168,6 +168,6 @@ var occupationStrings = {
     'Athlete Family / Friends',
     'Race Director',
     'Athlete Representatives',
-    'Others'
+    'Other'
   ]
 };
