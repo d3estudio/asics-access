@@ -8,13 +8,14 @@ angular.module('asics').controller('AdminCtrl', [
 
     angular.copy(adminStrings[$scope.language], $scope.strings);
 
-    $scope.$on('$stateChangeStart', function (event, toState) {
-      updateSelectedTab(toState.name)
+    $scope.$on('$stateChangeStart', function (event, toState, toParams) {
+      toParams.language = $scope.language;
+      updateSelectedTab(toState.name, toParams.language)
     });
 
-    updateSelectedTab($state.current.name);
+    updateSelectedTab($state.current.name, $scope.language);
 
-    function updateSelectedTab(stateName) {
+    function updateSelectedTab(stateName, language) {
       switch (stateName) {
         case 'admin.logs':
           $scope.selectedTab = 2;
