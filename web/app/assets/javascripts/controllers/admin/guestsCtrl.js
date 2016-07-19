@@ -73,7 +73,7 @@ angular.module('asics').controller('GuestsCtrl', [
         .textContent(message)
         .position('top right')
         .hideDelay(3000)
-        .theme('success-toast')
+        .theme('success-toast');
 
       $mdToast.show(simpleToast);
     }
@@ -83,7 +83,7 @@ angular.module('asics').controller('GuestsCtrl', [
         .textContent(error)
         .position('top right')
         .hideDelay(3000)
-        .theme('error-toast')
+        .theme('error-toast');
 
       $mdToast.show(simpleToast);
     }

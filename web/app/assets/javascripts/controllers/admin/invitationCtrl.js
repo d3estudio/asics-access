@@ -73,7 +73,7 @@ angular.module('asics').controller('InvitationCtrl', [
       var errorString;
 
       if (error.error == "ValidationFailed")
-        errorString = "Erro ao validar campo " + Object.keys(error.message)[0];
+        errorString = "Error validating " + Object.keys(error.message)[0];
       else
         errorString = error.message;
 
