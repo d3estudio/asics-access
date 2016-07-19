@@ -1,4 +1,4 @@
-angular.module('asics').factory('contries', [function () {
+angular.module('asics').factory('countries', [function () {
 
   var o = [
     "Afeganist\u00e3o",
