@@ -51,6 +51,7 @@ asics.config([
         })
         .state('admin', {
           url: '/admin',
+          params: {language: 'PT'},
           redirectTo: 'admin.guests',
           templateUrl: '/views/admin/template',
           controller: 'AdminCtrl'
