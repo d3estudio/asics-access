@@ -1,85 +1,85 @@
 <div class="guest-picture col-lg-1 col-md-1 col-sm-1 col-xs-1">
-    <div ng-class="(guest.occupation == 'Atleta Asics') ? 'picture-border' : ''">
-        <svg viewBox="0 0 45.67 45.67">
-            <use ng-if="guest.occupation != 'Atleta Asics'" xlink:href="../../images/icon-user.svg#svg-user"></use>
-            <use ng-if="guest.occupation == 'Atleta Asics'"
-                 xlink:href="../../images/icon-user-border.svg#svg-user-border"></use>
-        </svg>
-    </div>
+  <div ng-class="(guest.occupation == 'Atleta Asics') ? 'picture-border' : ''">
+    <svg viewBox="0 0 45.67 45.67">
+      <use ng-if="guest.occupation != 'Atleta Asics'" xlink:href="../../images/icon-user.svg#svg-user"></use>
+      <use ng-if="guest.occupation == 'Atleta Asics'"
+           xlink:href="../../images/icon-user-border.svg#svg-user-border"></use>
+    </svg>
+  </div>
 </div>
 <div class="guest-info col-lg-5 col-md-5 col-sm-5 col-xs-5">
-    <div class="guest-name md-body-2">{{guest.name}}</div>
-    <div class="guest-email md-body-2">{{guest.email}}</div>
-    <div class="guest-occupation" ng-class="(guest.occupation == 'Atleta Asics') ? 'txt-green' : 'txt-orange'">
-        {{guest.occupation}}
-        <span ng-if="guest.music" class="txt-gray"> | música: {{guest.music}}</span>
-    </div>
+  <div class="guest-name md-body-2">{{guest.name}}</div>
+  <div class="guest-email md-body-2">{{guest.email}}</div>
+  <div class="guest-occupation" ng-class="(guest.occupation == 'Atleta Asics') ? 'txt-green' : 'txt-orange'">
+    {{guest.occupation}}
+    <span ng-if="guest.music" class="txt-gray"> | {{strings.music}}: {{guest.music}}</span>
+  </div>
 </div>
 <div class="guest-action-wrapper">
-    <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        <button class="guest-action-container">
-            <svg class="svg-qrcode" viewBox="0 0 30 30">
-                <use xlink:href="../../images/icon-qrcode.svg#svg-qrcode"></use>
-            </svg>
-            <span class="svg-qrcode">{{guest.qr_codes_generated}}</span>
-            <div class="txt-blue">códigos<br>gerados</div>
-        </button>
-    </div>
+  <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1">
+    <button class="guest-action-container">
+      <svg class="svg-qrcode" viewBox="0 0 30 30">
+        <use xlink:href="../../images/icon-qrcode.svg#svg-qrcode"></use>
+      </svg>
+      <span class="svg-qrcode">{{guest.qr_codes_generated}}</span>
+      <div class="txt-blue">{{strings.codes}}<br>{{strings.generated}}</div>
+    </button>
+  </div>
 
-    <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1">
-        <button class="guest-action-container" ng-if="!guest.rsvp">
-            <svg viewBox="0 0 29.71 29.29">
-                <use xlink:href="../../images/icon-confirmation-waiting.svg#svg-confirmation-waiting"></use>
-            </svg>
-            <div class="txt-blue">Aguardando</div>
-            <div class="txt-blue">confirmação</div>
-        </button>
-        <button class="guest-action-container" ng-if="guest.rsvp">
-            <svg viewBox="0 0 30.84 30.75">
-                <use xlink:href="../../images/icon-confirmation-done.svg#svg-confirmation-done"></use>
-            </svg>
-            <div class="txt-blue">Presença<br>confirmada</div>
-        </button>
-    </div>
+  <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1">
+    <button class="guest-action-container" ng-if="!guest.rsvp">
+      <svg viewBox="0 0 29.71 29.29">
+        <use xlink:href="../../images/icon-confirmation-waiting.svg#svg-confirmation-waiting"></use>
+      </svg>
+      <div class="txt-blue">{{strings.waiting}}</div>
+      <div class="txt-blue">{{strings.confirmation}}</div>
+    </button>
+    <button class="guest-action-container" ng-if="guest.rsvp">
+      <svg viewBox="0 0 30.84 30.75">
+        <use xlink:href="../../images/icon-confirmation-done.svg#svg-confirmation-done"></use>
+      </svg>
+      <div class="txt-blue">{{strings.attendance}}<br>{{strings.confirmed}}</div>
+    </button>
+  </div>
 
-    <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1" ng-mouseleave="showResendBtn=false">
-        <button ng-mouseenter="showResendBtn=true" class="guest-action-container" ng-show="!guest.rsvp">
-            <svg viewBox="0 0 31.29 25.55">
-                <use xlink:href="../../images/icon-resend-invitation.svg#svg-resend-invitation"></use>
-            </svg>
-            <div ng-hide="showResendBtn" class="txt-blue">Reenviar</div>
-            <div ng-hide="showResendBtn" class="txt-blue">convite</div>
-        </button>
-        <button ng-mouseenter="showResendBtn=true" class="guest-action-container" ng-show="guest.rsvp">
-            <svg viewBox="0 0 32 31.05">
-                <use xlink:href="../../images/icon-resend-qrcode.svg#svg-resend-qrcode"></use>
-            </svg>
-            <div ng-hide="showResendBtn" class="txt-blue">Reenviar</div>
-            <div ng-hide="showResendBtn" class="txt-blue">código</div>
-        </button>
-        <div ng-if="showResendBtn">
-            <button ng-mouseenter="showResendBtn=true" class="tooltip-action bg-white txt-blue"
-                    ng-click="resend( { guest_id: guest.id } )">
-                {{ guest.rsvp ? 'Reenviar código' : 'Reenviar convite' }}
-            </button>
-            <div class="arrow-down"></div>
-        </div>
+  <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1" ng-mouseleave="showResendBtn=false">
+    <button ng-mouseenter="showResendBtn=true" class="guest-action-container" ng-show="!guest.rsvp">
+      <svg viewBox="0 0 31.29 25.55">
+        <use xlink:href="../../images/icon-resend-invitation.svg#svg-resend-invitation"></use>
+      </svg>
+      <div ng-hide="showResendBtn" class="txt-blue">{{strings.resend}}</div>
+      <div ng-hide="showResendBtn" class="txt-blue">{{strings.invitation}}</div>
+    </button>
+    <button ng-mouseenter="showResendBtn=true" class="guest-action-container" ng-show="guest.rsvp">
+      <svg viewBox="0 0 32 31.05">
+        <use xlink:href="../../images/icon-resend-qrcode.svg#svg-resend-qrcode"></use>
+      </svg>
+      <div ng-hide="showResendBtn" class="txt-blue">{{strings.resend}}</div>
+      <div ng-hide="showResendBtn" class="txt-blue">{{strings.code}}</div>
+    </button>
+    <div ng-if="showResendBtn">
+      <button ng-mouseenter="showResendBtn=true" class="tooltip-action bg-white txt-blue"
+              ng-click="resend( { guest_id: guest.id } )">
+        {{ guest.rsvp ? strings.resend +' '+ strings.code : strings.resend +' '+ strings.invitation }}
+      </button>
+      <div class="arrow-down"></div>
     </div>
+  </div>
 
-    <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1" ng-mouseleave="showBlockBtn=false">
-        <button ng-mouseenter="showBlockBtn=true" class="guest-action-container">
-            <svg class="svg-block" viewBox="0 0 29 29">
-                <use xlink:href="../../images/icon-block.svg#svg-block"></use>
-            </svg>
-            <div ng-hide="showBlockBtn" class="txt-red">Revogar</div>
-            <div ng-hide="showBlockBtn" class="txt-red">acesso</div>
-        </button>
-        <div ng-if="showBlockBtn">
-            <button ng-mouseenter="showBlockBtn=true" class="tooltip-action bg-white txt-red"
-                    ng-click="delete( { guest_id: guest.id } )">
-                Revogar acesso
-            </button>
-            <div class="arrow-down"></div>
-        </div>
+  <div class="guest-action col-lg-1 col-md-1 col-sm-1 col-xs-1" ng-mouseleave="showBlockBtn=false">
+    <button ng-mouseenter="showBlockBtn=true" class="guest-action-container">
+      <svg class="svg-block" viewBox="0 0 29 29">
+        <use xlink:href="../../images/icon-block.svg#svg-block"></use>
+      </svg>
+      <div ng-hide="showBlockBtn" class="txt-red">{{strings.revoke}}</div>
+      <div ng-hide="showBlockBtn" class="txt-red">{{strings.access}}</div>
+    </button>
+    <div ng-if="showBlockBtn">
+      <button ng-mouseenter="showBlockBtn=true" class="tooltip-action bg-white txt-red"
+              ng-click="delete( { guest_id: guest.id } )">
+        {{strings.revoke}} {{strings.access}}
+      </button>
+      <div class="arrow-down"></div>
     </div>
+  </div>
 </div>

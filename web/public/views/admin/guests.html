@@ -41,7 +41,7 @@
         </div>
     </div>
     <div ng-class="cardIsClosed ? '' : 'guest-card-open'" id="guests-container">
-        <div class="row guest-container" ng-repeat="guest in guests" class="row" my-guest="guest"
+        <div class="row guest-container" ng-repeat="guest in guests" class="row" my-guest="guest" strings="strings"
              on-resend="resendEmail(guest_id)"
              on-delete="deleteGuest(guest_id)">
         </div>
