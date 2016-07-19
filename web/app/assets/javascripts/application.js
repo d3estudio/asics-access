@@ -33,6 +33,7 @@
 //= require services/rsvpFactory.js
 //= require services/authFactory.js
 //= require services/adminFactory.js
+//= require services/countriesFactory.js
 //= require controllers/rsvpCtrl.js
 //= require controllers/rsvpConfirmedCtrl.js
 //= require controllers/rsvpConfirmedPrintCtrl.js
