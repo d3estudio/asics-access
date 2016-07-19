@@ -68,9 +68,9 @@ class CommonMailer < ApplicationMailer
         img_06: 'http://asicshub.com.br/images/email/invitation/pt/asics_06.jpg',
         salutation: 'Caro CONVIDADO',
         intro: 'Temos o grande prazer de convidá-lo para o ASICS Hub durante as Olimpíadas Rio 2016.
-                O nome descreve exatamente vamos oferecer: um hub que vai unir todos os pilares que fazem a ASICS
+                O nome descreve exatamente o que vamos oferecer: um hub que vai unir todos os pilares que fazem a ASICS
                 a escolha preferida entre atletas dedicados: nossa história, esportes, atletas, novos produtos,
-                design e performance. Sem contar uma experiéncia de hospitalidade completa com comidas e bebidas
+                design e performance. Sem contar uma experiência de hospitalidade completa com comidas e bebidas
                 incríveis, entretenimento e outras interações.',
         link: 'Clique no link abaixo para confirmar sua presença e receba o código de acesso.',
         when: 'QUANDO: 03 DE AGOSTO A 21 DE AGOSTO, DAS 12hs ÀS 22hs',
