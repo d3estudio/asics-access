@@ -22,10 +22,10 @@ angular.module('asics').controller('RsvpCtrl', [
       angular.copy(guest, $scope.guest);
       angular.copy(confirmStrings[guest.language], $scope.strings);
 
-      if (guest.occupation == 'Atleta Asics') {
-        $scope.isAthlete = true;
-        $scope.bgImage = 'athlete'        
-      }
+      // if (guest.occupation == 'Atleta Asics') {
+      //   $scope.isAthlete = true;
+      //   $scope.bgImage = 'athlete'
+      // }
     }
 
     function onInvalidToken() {
