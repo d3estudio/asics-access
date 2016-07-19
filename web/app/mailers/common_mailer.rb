@@ -1,5 +1,5 @@
 class CommonMailer < ApplicationMailer
-  default from: "\"Asics Hub\" <rsvp@asicshub.com.br>"
+  default from: "\"Asics Hub\" <no-reply@asicshub.com.br>"
 
 
 
