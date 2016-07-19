@@ -6,7 +6,8 @@ cd asics-access
 echo STOPPING INSTANCES
 docker-compose stop
 echo PULLING UPDATES FROM GIT MASTER
-git pull -f
+git fetch --all
+git reset --hard origin/master
 echo BUILDING DOCKER INSTANCES
 docker-compose build
 echo STARTING DOCKER INSTANCES

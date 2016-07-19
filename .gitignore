@@ -2,3 +2,4 @@
 .DS_Store
 .htpasswd
 db/data/*
+pgbkp/*.log

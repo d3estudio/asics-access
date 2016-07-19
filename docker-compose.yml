@@ -48,3 +48,5 @@ services:
             - PREFIX=postgres-backup # S3 key prefix to save with
         links:
           - db:postgres
+        volumes:
+          - ./pgbkp:/code
