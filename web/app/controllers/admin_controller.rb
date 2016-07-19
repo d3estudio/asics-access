@@ -13,7 +13,7 @@ class AdminController < ApplicationController
 
     if guest
       return reject_request(error: 'GuestNotFound',
-                            message: 'Usuário com esse email já foi convidado',
+                            message: 'Guest not found',
                             action: ['Retry']) unless guest.removed_at
     else
       guest = Guest.new
@@ -71,7 +71,7 @@ class AdminController < ApplicationController
 
     guest = Guest.not_removed.where(id: guest_id).first
     return reject_request(error: 'GuestNotFound',
-                          message: 'Convidado inexistente',
+                          message: 'Guest not found',
                           action: ['Stop']) unless guest
 
     if !guest.rsvp
@@ -99,7 +99,7 @@ class AdminController < ApplicationController
     guest = Guest.not_removed.find_by(id: guest_id)
 
     return reject_request(error: 'GuestNotFound',
-                          message: 'Convidado inexistente',
+                          message: 'Guest not found',
                           action: ['Stop']) unless guest
 
     guest.removed_at = Time.now
@@ -138,8 +138,8 @@ class AdminController < ApplicationController
     private
 
     def get_count_of_guests(guests)
-        athletes = guests.where(occupation: 'Atleta Asics')
-        normal = guests.where.not(occupation: 'Atleta Asics')
+        athletes = guests.where('occupation=? OR occupation=?', 'Atleta Asics', 'Asics Athlete')
+        normal = guests.where.not('occupation=? OR occupation=?', 'Atleta Asics', 'Asics Athlete')
 
         athletes_total = athletes.size
         normal_total = normal.size
