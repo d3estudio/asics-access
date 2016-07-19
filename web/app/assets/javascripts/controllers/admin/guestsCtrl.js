@@ -118,14 +118,14 @@ var adminGuestsStrings = {
     totalConfirmations: "Total Confirmations",
     totalAthletesConfirmations: "Athletes confirmed",
     totalGuestsConfirmations: "Guests confirmed",
-    sentInvitations: "Sent invitations",
-    pendingInvitations: "Pending invitations"
+    sentInvitations: "sent invitations",
+    pendingInvitations: "pending invitations"
   },
   PT: {
     totalConfirmations: "Confirmações totais",
     totalAthletesConfirmations: "Atletas confirmados",
     totalGuestsConfirmations: "Convidados confirmados",
-    sentInvitations: "Convites enviados",
-    pendingInvitations: "Convites pendentes"
+    sentInvitations: "convites enviados",
+    pendingInvitations: "convites pendentes"
   }
 };

@@ -15,7 +15,7 @@ angular.module('asics').controller('AdminCtrl', [
 
     updateSelectedTab($state.current.name, $scope.language);
 
-    function updateSelectedTab(stateName, language) {
+    function updateSelectedTab(stateName) {
       switch (stateName) {
         case 'admin.logs':
           $scope.selectedTab = 2;
