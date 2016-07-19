@@ -7,6 +7,7 @@ angular.module('asics').controller('InvitationCtrl', [
   'admin',
   function ($mdToast, $q, $scope, $state, $stateParams, admin) {
     $scope.strings = {};
+    $scope.occupations = [];
     $scope.language = $stateParams.language;
     $scope.guest = {};
     $scope.isAthlete = false;
@@ -14,16 +15,7 @@ angular.module('asics').controller('InvitationCtrl', [
 
     angular.copy(adminInvitationStrings[$scope.language], $scope.strings);
 
-    $scope.occupations = [
-      'Atleta',
-      'Staff de treinamento',
-      'Federação / NOC oficial',
-      'Mídia',
-      'Família/Amigo de atleta',
-      'Diretor de corrida',
-      'Representante do atleta',
-      'Outro'
-    ];
+    angular.copy(occupationStrings[$scope.language], $scope.occupations);
 
     $scope.athletes = [
       'Jordan Ernest BURROUGHS',
@@ -155,4 +147,27 @@ var adminInvitationStrings = {
     formOccupationOption: "Escolha a função do convidado",
     sendInvitation: "ENVIAR CONVITE"
   }
+};
+
+var occupationStrings = {
+  PT: [
+    'Atleta',
+    'Staff de treinamento',
+    'Federação / NOC oficial',
+    'Mídia',
+    'Família/Amigo de atleta',
+    'Diretor de corrida',
+    'Representante do atleta',
+    'Outro'
+  ],
+  EN: [
+    'Athlete',
+    'Coaching staff',
+    'Federation / NOC official',
+    'Media',
+    'Athlete Family / Friends',
+    'Race Director',
+    'Athlete Representatives',
+    'Others'
+  ]
 };
