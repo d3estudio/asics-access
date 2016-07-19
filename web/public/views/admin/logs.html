@@ -1,6 +1,6 @@
 <div id="logs" class="bg-white">
     <div class="search-container">
-        <div id="admin-logs-timestamp">Atualizado às {{ listUpdatedAt | date:'HH:mm:ss' }}</div>
+        <div id="admin-logs-timestamp">{{strings.updatedAt}} {{ listUpdatedAt | date:'HH:mm:ss' }}</div>
         <div class="input-group">
             <input type="text" name="search" ng-model="searchText" class="form-control">
             <svg viewBox="0 0 21 21">
@@ -12,10 +12,10 @@
         <div class="row log-container" ng-repeat="log in logs" my-log="log"></div>
 
         <div ng-if="searchText.length <= 0 && logs.length <= 0" class="row log-container log-placeholder">
-            <div>Nenhum convidado fez check-in hoje</div>
+            <div>{{strings.noCheckin}}</div>
         </div>
         <div ng-if="searchText.length > 0 && logs.length <= 0" class="row log-container log-placeholder">
-            <div>Nenhum convidado encontrado</div>
+            <div>{{strings.noneFound}}</div>
         </div>
     </div>
 </div>
