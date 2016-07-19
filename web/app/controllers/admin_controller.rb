@@ -76,7 +76,7 @@ class AdminController < ApplicationController
 
     if !guest.rsvp
       CommonMailer.invite_email(guest).deliver_later
-      message = "Novo convite enviado para " + guest.name
+      message = "Invitation sent to " + guest.name
     else
       guest.generate_qr_code
 
@@ -85,7 +85,7 @@ class AdminController < ApplicationController
                             action: ['Retry']) unless guest.save
 
       CommonMailer.confirm_email(guest).deliver_later
-      message = "Novo código de acesso enviado para " + guest.name
+      message = "New access code sent to " + guest.name
     end
 
     render json: { succeeded: true, result: { guest: guest, message: message} }
