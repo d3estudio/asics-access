@@ -65,7 +65,7 @@ angular.module('asics').controller('GuestsCtrl', [
     function onDeleteGuest(result) {
       $scope.guests.splice(map[result.guest.id], 1);
       map[result.guest.id] = undefined;
-      successToast('Usuário ' + result.guest.name + " revogado com sucesso.");
+      successToast('User ' + result.guest.name + " removed successfully.");
     }
 
     function successToast(message) {
@@ -80,7 +80,7 @@ angular.module('asics').controller('GuestsCtrl', [
 
     function errorToast(error) {
       var simpleToast = $mdToast.simple()
-        .textContent("Erro ao enviar convite: " + error)
+        .textContent(error)
         .position('top right')
         .hideDelay(3000)
         .theme('error-toast')

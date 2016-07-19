@@ -89,7 +89,7 @@ angular.module('asics').controller('InvitationCtrl', [
     function successToast(guest) {
       $mdToast.show(
         $mdToast.simple()
-          .textContent("Convite para " + guest.name + " enviado com sucesso!")
+          .textContent("Invitation sent to " + guest.name)
           .position('top right')
           .hideDelay(4000)
           .theme('success-toast')

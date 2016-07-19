@@ -45,7 +45,7 @@ angular.module('asics').controller('RsvpCtrl', [
     function errorToast(error) {
       $mdToast.show(
           $mdToast.simple()
-              .textContent("Erro ao confirmar presença: " + error)
+              .textContent(error)
               .position('top right')
               .hideDelay(3000)
               .theme('error-toast')
