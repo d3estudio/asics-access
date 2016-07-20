@@ -3,6 +3,7 @@ MAINTAINER Matheus Portillo
 
 USER root
 
+
 RUN apt-get update
 RUN apt-get install -q -y --force-yes cron python-pip wget
 
@@ -13,6 +14,15 @@ RUN apt-get update
 
 RUN apt-get install -q -y --force-yes postgresql-9.5
 RUN pip install awscli==1.9.15
+
+
+RUN cp /usr/share/zoneinfo/Brazil/East /etc/localtime
+
+RUN locale-gen en en_US en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
+
 
 RUN mkdir -p /code
 WORKDIR /code

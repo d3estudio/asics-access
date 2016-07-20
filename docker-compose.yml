@@ -11,15 +11,15 @@ services:
             - db
         environment:
             - POSTGRES_HOST=postgres://db/asicsaccess
-        env_file: ./web/.env
+        env_file:
+            - ./web/.env
 
     db:
         image: postgres
         volumes:
             - ./db/data:/var/lib/postgresql/data
-        environment:
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=
+        env_file:
+            - ./db/.env
 
     nginx:
         build: nginx
@@ -37,6 +37,8 @@ services:
             - db:postgres
         environment:
             - POSTGRES_HOST=postgres://db/asicsaccess
+        env_file:
+            - ./db/.env
 
     pgbkp:
         build: pgbkp
@@ -46,7 +48,10 @@ services:
             - POSTGRES_USER=postgres
             - POSTGRES_PASSWORD=
             - PREFIX=postgres-backup # S3 key prefix to save with
+        env_file:
+            - ./pgbkp/.env
+            - ./db/.env
         links:
-          - db:postgres
+            - db:postgres
         volumes:
-          - ./pgbkp:/code
+            - ./pgbkp:/code
