@@ -131,7 +131,8 @@ var adminGuestsStrings = {
     resend: "Resend",
     invitation: "invitation",
     revoke: "Revoke",
-    access: "access"
+    access: "access",
+    exportGuests: "EXPORTS GUESTS"
   },
   PT: {
     totalConfirmations: "Confirmações totais",
@@ -150,6 +151,7 @@ var adminGuestsStrings = {
     resend: "Reenviar",
     invitation: "convite",
     revoke: "Revogar",
-    access: "acesso"
+    access: "acesso",
+    exportGuests: "EXPORTAR CONVIDADOS"
   }
 };
