@@ -16,6 +16,8 @@ echo ENTERING WEB
 docker-compose run web bash
 echo MIGRATING DATABASE
 rake db:migrate
+echo CLEANING ASSETS...
+rm -r ./public/assets/*
 echo PRECOMPILING ASSETS...
 rails assets:precompile
 ENDSSH
