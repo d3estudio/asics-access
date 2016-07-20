@@ -211,8 +211,8 @@ class AdminController < ApplicationController
         guest = Guest.where(email: email).first;
 
         if guest
-          return {  error: 'GuestNotFound',
-                    message: 'Guest not found',
+          return {  error: 'GuestAlreadyInvited',
+                    message: 'Email already invited',
                     action: ['Stop'] } unless guest.removed_at
         else
           guest = Guest.new
