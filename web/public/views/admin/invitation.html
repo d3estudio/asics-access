@@ -1,8 +1,15 @@
 <div id="invitation-container" class="bg-white">
   <div id="invitation-header">
     <h1 class="txt-blue">{{strings.newInvitation}}</h1>
-    <p class="txt-gray">{{strings.title}}
-    </p>
+    <p class="txt-gray">{{strings.title}}</p>
+    <div class="csv-import">
+      Se você já possui algum arquivo .csv <span>
+      <a href="/files/admin/guests?search_string={{ searchText }}" target="_self">
+        IMPORTE AQUI
+      </a>
+    </span>
+
+    </div>
   </div>
   <form name="adminForm">
     <div id="form-fields-container">
