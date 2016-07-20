@@ -177,7 +177,7 @@ var adminInvitationStrings = {
     formCsvEmailInfo: "Uma vez que seu arquivo for processado, um email será disparado para você notificando.",
     formFile: "Arquivo",
     formFileRequiredError: "Por favor, insira o arquivo",
-    formFileSelect: "Escolher arquivo .csv",
+    formFileSelect: "Selecionar arquivo .csv",
     formFileSelected: "Arquivo selecionado",
     sendInvitation: "ENVIAR CONVITE",
     sendCsvFile: "ENVIAR ARQUIVO"
