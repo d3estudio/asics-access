@@ -53,7 +53,7 @@ class AdminController < ApplicationController
     def get_guests_csv
         str = params[:search_string]
 
-        guests = search_guests(str)
+        guests = search_guests(str).order(country: :asc)
 
         if str
             filename = "Asics Hub guest list (#{str}) (#{Date.today}).csv"
@@ -74,7 +74,7 @@ class AdminController < ApplicationController
     def search_guests_information
         str = params[:search_string] or return missing_field(:search_string)
 
-        guests = search_guests(str)
+        guests = search_guests(str).order(created_at: :desc)
 
         result = {
             guests: guests
@@ -213,7 +213,6 @@ class AdminController < ApplicationController
     def search_guests(str)
         guests = Guest.not_removed
                     .where("name ILIKE :s OR email ILIKE :s OR occupation ILIKE :s", {s: "%#{str}%"})
-                    .order(created_at: :desc)
 
         return guests
     end

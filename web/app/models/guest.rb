@@ -32,7 +32,7 @@ class Guest < ApplicationRecord
   end
 
   def self.to_csv
-    attributes = %w{id email name occupation language country music}
+    attributes = %w{id email name rsvp created_at occupation language country music}
 
     CSV.generate(headers: true, col_sep: ',', encoding: 'UTF-8') do |csv|
       csv << attributes
