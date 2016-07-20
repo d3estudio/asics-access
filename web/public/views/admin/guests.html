@@ -36,9 +36,11 @@
 
 <div id="guests-bottom" class="bg-white">
   <div class="search-container">
-    <button href="/files/admin/guests?search_string={{ searchText }}"> class="csv-export">
-      EXPORT GUESTS
-    </button>
+    <div class="csv-export">
+      <a href="/files/admin/guests?search_string={{ searchText }}" target="_self">
+        EXPORT GUESTS
+      </a>
+    </div>
     <div class="input-group">
       <input type="text" name="search" ng-model="searchText" class="form-control">
       <svg viewBox="0 0 21 21">

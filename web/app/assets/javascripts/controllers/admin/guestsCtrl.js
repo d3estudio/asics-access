@@ -7,6 +7,7 @@ angular.module('asics').controller('GuestsCtrl', [
     $scope.strings = {};
     $scope.language = $stateParams.language;
     $scope.searchText = '';
+    $scope.searchResult = '';
     $scope.cardIsClosed = true;
     $scope.guests = [];
     $scope.count = {
@@ -45,7 +46,6 @@ angular.module('asics').controller('GuestsCtrl', [
 
     function onSearchTextChanged() {
       clearTimeout(searchTimeout);
-
       if ($scope.searchText)
         searchTimeout = setTimeout(applySearch, 400);
       else
