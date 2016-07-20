@@ -8,6 +8,7 @@ angular.module('asics').controller('InvitationCtrl', [
   'countries',
   function ($mdToast, $q, $scope, $state, $stateParams, admin, countries) {
     $scope.strings = {};
+    $scope.csvInvitation = false;
     $scope.occupations = [];
     $scope.countries = countries;
     $scope.language = $stateParams.language;
@@ -131,6 +132,7 @@ var adminInvitationStrings = {
   EN: {
     newInvitation: "New invitation",
     title: "Hello! Fill the fields below to invite someone for the Asics Hub.",
+    csvTitle: "You can import a .csv file with your guest list.",
     asicsAthlete: "Asics Athlete",
     formName: "Name",
     formNameRequireError: "Please, fill the name",
@@ -145,11 +147,16 @@ var adminInvitationStrings = {
     formOccupationOption: "Choose the occupation of the guest",
     formCountry: "Country",
     formCountryOption: "Guest country",
-    sendInvitation: "SEND INVITATION"
+    formCsvEmailInfo: "Once your file is process, an email will be sent for you to notify you.",
+    formFile: "Insert a .csv file",
+    formFileRequiredError: "Please, insert a .csv file",
+    sendInvitation: "SEND INVITATION",
+    sendCsvFile: "SEND FILE"
   },
   PT: {
     newInvitation: "Novo convite",
     title: "Olá, preencha os campos abaixo para convidar uma pessoa para o Asics Hub.",
+    csvTitle: "Você pode importar um arquivo .csv com a lista de convidados.",
     asicsAthlete: "Atleta Asics",
     formName: "Nome",
     formNameRequireError: "Por favor, preencha o nome",
@@ -164,7 +171,11 @@ var adminInvitationStrings = {
     formOccupationOption: "Escolha a função do convidado",
     formCountry: "País",
     formCountryOption: "País do convidado",
-    sendInvitation: "ENVIAR CONVITE"
+    formCsvEmailInfo: "Uma vez que seu arquivo for processado, um email será disparado para você notificando.",
+    formFile: "Insira um arquivo .csv",
+    formFileRequiredError: "Por favor, insira o arquivo",
+    sendInvitation: "ENVIAR CONVITE",
+    sendCsvFile: "ENVIAR ARQUIVO"
   }
 };
 

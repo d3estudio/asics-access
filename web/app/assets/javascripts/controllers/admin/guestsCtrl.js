@@ -5,7 +5,6 @@ angular.module('asics').controller('GuestsCtrl', [
   '$stateParams',
   function ($mdToast, $scope, admin, $stateParams) {
     $scope.strings = {};
-    $scope.csvInvitation = true;
     $scope.language = $stateParams.language;
     $scope.searchText = '';
     $scope.searchResult = '';
