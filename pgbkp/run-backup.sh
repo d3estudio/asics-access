@@ -12,7 +12,7 @@ echo "> Running pg_dumpall with user $POSTGRES_USER"
 PGPASSWORD="$POSTGRES_PASSWORD" pg_dumpall -h postgres -U "$POSTGRES_USER" > $PGDUMPFILE
 
 echo "> Uploading to S3"
-# AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID" AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY" aws s3 cp "$PGDUMPFILE" "$S3_URI"
+aws s3 cp "$PGDUMPFILE" "$S3_URI"
 
 # Clean up
 rm $PGDUMPFILE

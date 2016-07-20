@@ -1,8 +1,8 @@
 set -e # stop if any of these commands fail
 
 : ${POSTGRES_USER:?"--POSTGRES_USER is not set"}
-# : ${AWS_ACCESS_KEY_ID:?"-e AWS_ACCESS_KEY_ID is not set"}
-# : ${AWS_SECRET_ACCESS_KEY:?"-e AWS_SECRET_ACCESS_KEY is not set"}
+: ${AWS_ACCESS_KEY_ID:?"-e AWS_ACCESS_KEY_ID is not set"}
+: ${AWS_SECRET_ACCESS_KEY:?"-e AWS_SECRET_ACCESS_KEY is not set"}
 : ${S3_BUCKET_NAME:?"-e S3_BUCKET_NAME is not set"}
 : ${PREFIX:?"-e PREFIX is not set"}
 
@@ -11,6 +11,8 @@ echo "Cleaning env file..."
 echo "Writing env file..."
 cat <<EOT >> /tmp/env.sh
 POSTGRES_USER=${POSTGRES_USER}
+AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
 S3_BUCKET_NAME=${S3_BUCKET_NAME}
 PREFIX=${PREFIX}
 EOT
