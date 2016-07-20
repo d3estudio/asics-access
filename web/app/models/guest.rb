@@ -14,6 +14,7 @@
 #  updated_at   :datetime         not null
 #  removed_at   :datetime
 #
+require 'csv'
 
 class Guest < ApplicationRecord
   has_many :logs
@@ -28,6 +29,18 @@ class Guest < ApplicationRecord
   def generate_qr_code
       self.qr_code = Digest::SHA1.hexdigest([Time.now, rand].join).last(20)
       self.qr_codes_generated += 1
+  end
+
+  def self.to_csv
+    attributes = %w{id email name occupation language country music}
+
+    CSV.generate(headers: true, col_sep: ',', encoding: 'UTF-8') do |csv|
+      csv << attributes
+
+      all.each do |user|
+        csv << attributes.map{ |attr| user.send(attr) }
+      end
+    end
   end
 
   private

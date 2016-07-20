@@ -50,12 +50,31 @@ class AdminController < ApplicationController
     render json: { succeeded: true, result: result }
   end
 
+    def get_guests_csv
+        str = params[:search_string]
+
+        guests = search_guests(str)
+
+        if str
+            filename = "Asics Hub guest list (#{str}) (#{Date.today}).csv"
+        else
+            filename = "Asics Hub guest list (#{Date.today}).csv"
+        end
+
+        csv = guests.to_csv
+
+        send_data(
+            csv,
+            type: 'text/csv',
+            disposition: 'attachment',
+            filename: filename
+        )
+    end
+
     def search_guests_information
         str = params[:search_string] or return missing_field(:search_string)
 
-        guests = Guest.not_removed
-                    .where("name ILIKE :s OR email ILIKE :s OR occupation ILIKE :s", {s: "%#{str}%"})
-                    .order(created_at: :desc)
+        guests = search_guests(str)
 
         result = {
             guests: guests
@@ -190,4 +209,13 @@ class AdminController < ApplicationController
 
         return logs
     end
+
+    def search_guests(str)
+        guests = Guest.not_removed
+                    .where("name ILIKE :s OR email ILIKE :s OR occupation ILIKE :s", {s: "%#{str}%"})
+                    .order(created_at: :desc)
+
+        return guests
+    end
+
 end
