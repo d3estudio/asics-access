@@ -46,3 +46,4 @@
 //= require directives/logDirective.js
 //= require directives/printDirective.js
 //= require directives/namesOnlyDirective.js
+//= require directives/fileReadDirective.js

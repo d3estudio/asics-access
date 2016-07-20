@@ -5,14 +5,14 @@
     <div id="invitation-header">
       <h1 class="txt-blue">{{strings.newInvitation}}</h1>
       <p class="txt-gray">{{strings.title}}</p>
-      <!--<div class="csv-import">-->
-        <!--Se você já possui alguma lista-->
-        <!--<span>-->
-        <!--<a ng-click="csvInvitation = true">-->
-          <!--importe aqui-->
-        <!--</a>-->
-      <!--</span>-->
-      <!--</div>-->
+      <div class="csv-import">
+        Se você já possui alguma lista
+        <span>
+        <a ng-click="csvInvitation = true">
+          importe aqui
+        </a>
+      </span>
+      </div>
     </div>
     <form name="adminForm">
       <div class="form-fields-container">
@@ -133,15 +133,16 @@
           <div id="admin-csvform-file" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <label for="inputCsvFile">{{strings.formFile}}</label>
             <div class="admin-csvform-file-content">
-              <input ng-model="admin.file" name="adminfile" type="file" required="required" class="form-control" id="inputCsvFile">
+              <span class="inputFileName txt-blue-dark subtitle">{{inputFile ? strings.formFileSelected : strings.formFileSelect}}</span>
+              <input fileread="inputFile" name="adminfile" type="file" required="required" class="form-control" id="inputCsvFile">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="admin-form-button admin-csvform-button"
                class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <button ng-click="" ng-class="adminForm.$invalid ? 'btn-disabled' : '' "
-                    ng-disabled="adminForm.$invalid" type="submit"
+            <button ng-click="" ng-class="adminCsvForm.$invalid ? 'btn-disabled' : '' "
+                    ng-disabled="adminCsvForm.$invalid" type="submit"
                     class="btn btn-default centered">
               {{strings.sendCsvFile}}
             </button>

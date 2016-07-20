@@ -15,6 +15,7 @@ angular.module('asics').controller('InvitationCtrl', [
     $scope.guest = {};
     $scope.isAthlete = false;
     $scope.athleteGuest = {};
+    $scope.inputFile = '';
 
     // Get all strings
     angular.copy(adminInvitationStrings[$scope.language], $scope.strings);
@@ -148,8 +149,10 @@ var adminInvitationStrings = {
     formCountry: "Country",
     formCountryOption: "Guest country",
     formCsvEmailInfo: "Once your file is process, an email will be sent for you to notify you.",
-    formFile: "Insert a .csv file",
+    formFile: "File",
     formFileRequiredError: "Please, insert a .csv file",
+    formFileSelect: "Choose a .csv file",
+    formFileSelected: "File selected",
     sendInvitation: "SEND INVITATION",
     sendCsvFile: "SEND FILE"
   },
@@ -172,8 +175,10 @@ var adminInvitationStrings = {
     formCountry: "País",
     formCountryOption: "País do convidado",
     formCsvEmailInfo: "Uma vez que seu arquivo for processado, um email será disparado para você notificando.",
-    formFile: "Insira um arquivo .csv",
+    formFile: "Arquivo",
     formFileRequiredError: "Por favor, insira o arquivo",
+    formFileSelect: "Escolher arquivo .csv",
+    formFileSelected: "Arquivo selecionado",
     sendInvitation: "ENVIAR CONVITE",
     sendCsvFile: "ENVIAR ARQUIVO"
   }
