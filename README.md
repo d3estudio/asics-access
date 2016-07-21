@@ -5,6 +5,30 @@
 
 ***
 
+## ENV / CONFIG FILES
+nginx/.htpasswd
+	`user:pass`
+
+db/.env
+	`POSTGRES_USER=xxx
+	POSTGRES_PASSWORD=xxx`
+
+pgbkp/.env
+	`AWS_ACCESS_KEY_ID=XXX
+	AWS_SECRET_ACCESS_KEY=XXX`
+
+web/.env
+	`RAILS_LOG_TO_STDOUT=true
+	SECRET_TOKEN=XXX
+	MAILGUN_PASSWORD=XXX
+	PASSBOOK_CERTIFICATE_PASSWORD=XXX`
+	
+web/config/valid_tokens
+	`- 'XXX'
+	- 'XXX'`
+
+***
+
 ## db admin
 
 If server is not configured yet:
