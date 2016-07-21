@@ -7,6 +7,7 @@ angular.module('asics').controller('GuestsCtrl', [
     $scope.strings = {};
     $scope.language = $stateParams.language;
     $scope.searchText = '';
+    $scope.searchResult = '';
     $scope.cardIsClosed = true;
     $scope.guests = [];
     $scope.count = {
@@ -45,7 +46,6 @@ angular.module('asics').controller('GuestsCtrl', [
 
     function onSearchTextChanged() {
       clearTimeout(searchTimeout);
-
       if ($scope.searchText)
         searchTimeout = setTimeout(applySearch, 400);
       else
@@ -131,7 +131,8 @@ var adminGuestsStrings = {
     resend: "Resend",
     invitation: "invitation",
     revoke: "Revoke",
-    access: "access"
+    access: "access",
+    exportGuests: "EXPORTS GUESTS"
   },
   PT: {
     totalConfirmations: "Confirmações totais",
@@ -150,6 +151,7 @@ var adminGuestsStrings = {
     resend: "Reenviar",
     invitation: "convite",
     revoke: "Revogar",
-    access: "acesso"
+    access: "acesso",
+    exportGuests: "EXPORTAR CONVIDADOS"
   }
 };

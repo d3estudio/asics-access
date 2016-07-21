@@ -1,3 +1,5 @@
+require 'csv'
+
 class AdminController < ApplicationController
   protect_from_forgery
 
@@ -9,34 +11,14 @@ class AdminController < ApplicationController
     language = params[:language] or return missing_field(:language)
     country = params[:country] or return missing_field(:country)
 
-    guest = Guest.where(email: email).first;
+    response = invite_guest_and_send_email(name, email, occupation, language, country)
 
-    if guest
-      return reject_request(error: 'GuestAlreadyExists',
-                            message: 'Email already invited',
-                            action: ['Retry']) unless guest.removed_at
+    if response[:succeeded] == true
+        return render json: response
     else
-      guest = Guest.new
-      guest.email = email
-    end
-
-    guest.name = name
-    guest.removed_at = nil
-    guest.occupation = occupation
-    guest.language = language
-    guest.country = country
-
-    if guest.save
-      CommonMailer.invite_email(guest).deliver_later
-      render json: { succeeded: true, result: guest }
-    else
-      reject_request(error: 'ValidationFailed',
-                     message: guest.errors,
-                     action: ['Retry'])
+        return reject_request(response)
     end
   end
-
-
 
   def get_guests_information
     guests = Guest.not_removed.order(created_at: :desc).limit(50)
@@ -50,12 +32,31 @@ class AdminController < ApplicationController
     render json: { succeeded: true, result: result }
   end
 
+    def get_guests_csv
+        str = params[:search_string]
+
+        guests = search_guests(str).order(country: :asc)
+
+        if str
+            filename = "Asics Hub guest list (#{str}) (#{Date.today}).csv"
+        else
+            filename = "Asics Hub guest list (#{Date.today}).csv"
+        end
+
+        csv = guests.to_csv
+
+        send_data(
+            csv,
+            type: 'text/csv',
+            disposition: 'attachment',
+            filename: filename
+        )
+    end
+
     def search_guests_information
         str = params[:search_string] or return missing_field(:search_string)
 
-        guests = Guest.not_removed
-                    .where("name ILIKE :s OR email ILIKE :s OR occupation ILIKE :s", {s: "%#{str}%"})
-                    .order(created_at: :desc)
+        guests = search_guests(str).order(created_at: :desc)
 
         result = {
             guests: guests
@@ -189,5 +190,48 @@ class AdminController < ApplicationController
             .order("logs.created_at DESC")
 
         return logs
+    end
+
+    def search_guests(str)
+        guests = Guest.not_removed
+                    .where("name ILIKE :s OR email ILIKE :s OR occupation ILIKE :s", {s: "%#{str}%"})
+
+        return guests
+    end
+
+    def invite_guest_and_send_email(name, email, occupation, language, country)
+        return missing_field_response('name') unless name
+        return missing_field_response('email') unless email
+        return missing_field_response('occupation') unless occupation
+        return missing_field_response('language') unless language
+        return missing_field_response('country') unless country
+
+        email = email.downcase
+
+        guest = Guest.where(email: email).first;
+
+        if guest
+          return {  error: 'GuestAlreadyInvited',
+                    message: 'Email already invited',
+                    action: ['Stop'] } unless guest.removed_at
+        else
+          guest = Guest.new
+          guest.email = email
+        end
+
+        guest.name = name
+        guest.removed_at = nil
+        guest.occupation = occupation
+        guest.language = language
+        guest.country = country
+
+        if guest.save
+          CommonMailer.invite_email(guest).deliver_later
+          return { succeeded: true, result: guest }
+        else
+          return {   error: 'ValidationFailed',
+                     message: guest.errors,
+                     action: ['Retry'] }
+        end
     end
 end

@@ -102,6 +102,11 @@ class CommonMailer < ApplicationMailer
         img_08: 'http://asicshub.com.br/images/email/confirmation/en/asics_08.jpg',
         salutation: 'Dear GUEST',
         intro: 'This code is your entry to the ASICS Hub. Make sure you bring it with you.',
+        welcome: 'It gives us great pleasure to invite you to our ASICS Hub during the 2016 Rio Olympics.
+                  The name implies exactly what it means: a hub that will bring together all the pillars that
+                  make ASICS the preferred choice for dedicated athletes: our history, sports, athletes, new products,
+                  design and performance. Not to mention a complete hospitality experience with fantastic food, drink,
+                  entertainment and interactions.',
         when: 'WHEN: AUGUST 03RD UNTIL AUGUST 21ST, FROM 12PM TO 10PM',
         where: 'WHERE: EST. BOCA DO MATO, 803, VARGEM PEQUENA - RIO DE JANEIRO',
         schedule: 'Learn more about our schedule here:',
@@ -124,6 +129,11 @@ class CommonMailer < ApplicationMailer
         img_08: 'http://asicshub.com.br/images/email/confirmation/pt/asics_08.jpg',
         salutation: 'Caro CONVIDADO',
         intro: 'Este código garante seu acesso para o Asics Hub. Não se esqueça de levá-lo.',
+        welcome: 'Temos o grande prazer de convidá-lo para o ASICS Hub durante as Olimpíadas Rio 2016.
+                        O nome descreve exatamente o que vamos oferecer: um hub que vai unir todos os pilares que fazem a ASICS
+                        a escolha preferida entre atletas dedicados: nossa história, esportes, atletas, novos produtos,
+                        design e performance. Sem contar uma experiência de hospitalidade completa com comidas e bebidas
+                        incríveis, entretenimento e outras interações.',
         when: 'QUANDO: 03 DE AGOSTO A 21 DE AGOSTO, DAS 12hs ÀS 22hs',
         where: 'ONDE: EST. BOCA DO MATO, 803, VARGEM PEQUENA - RIO DE JANEIRO',
         schedule: 'Conheça mais sobre nossa programação:',

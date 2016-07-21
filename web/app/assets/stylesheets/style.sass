@@ -9,6 +9,12 @@ body
   background-color: $black
 
 //RSVP
+.in-construction
+  height: 100vh
+  width: 100%
+  background: #3CB3E0 url('/images/asics-underconstruction-bg.png') center center no-repeat 
+  background-size: cover
+
 #rsvp-container
   line-height: 20px
   display: table
@@ -94,37 +100,32 @@ body
 //Print page
 .print-content-top
   height: 250px
-  margin-top: 30px
 
 .print-main-content
+  overflow: hidden
   margin-top: 30px
 
 .print-qrcode-container
-  width: 300px
-  height: 300px
+  width: 232px
+  height: 232px
   background-color: $white
   border: 1px solid $gray-medium
   border-radius: 8px
   padding: 15px
-  margin-left: 70px
-  @include media(sm)
-    margin-left: 0
-  @include media(xs)
-    margin-left: 0
+  margin: 20px auto
+  display: block
 
 .print-info
   height: 300px
   font-size: 16pt
   line-height: 22pt
-  div
-    margin-left: 40px
   @include media(sm)
     font-size: 15pt
   @include media(xs)
     font-size: 15pt
 
 .print-info-row
-  margin-top: 18px
+  margin-top: 15px
 
 .print-map
   img
@@ -132,8 +133,18 @@ body
     margin-top: 30px
 
 #confirmed-print-page
+  height: 100%
   background-color: $white
-  height: 120vh
+  overflow: hidden
+  -webkit-transform: rotate(-90deg)
+  -moz-transform: rotate(-90deg)
+  transform: rotate(-90deg)
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3)
+
+.confirmed-print-page-content
+  width: 1080px
+  margin: 250px auto
+  display: block
 
 //ADMIN
 #admin-language
@@ -302,6 +313,28 @@ body
     display: inline-block
     height: 15px
 
+.csv-export
+  float: left
+  height: 24px
+  line-height: 30px
+  font-size: 12px
+  text-align: center
+  &:hover
+    color: $blue-light
+
+.csv-import
+  height: 24px
+  line-height: 30px
+  font-size: 14px
+  color: $gray-dark
+  a
+    cursor: pointer
+  span
+    text-decoration: underline
+    &:hover
+      color: $blue-light
+
+
 #admin-form-language
   width: 115px
   float: right
@@ -319,16 +352,47 @@ body
   @media (max-height: 750px)
     position: relative
 
-#admin-form-button
+.admin-form-button
   button
     width: 205px
+
+.admin-csvform-button
+  margin-top: 50px
 
 .help-block p
   font-size: 12px
   color: $red
 
-#form-fields-container
+.form-fields-container
   height: 360px
+
+.csvform-fields
+  margin-top: 100px
+
+#admin-csvform-file
+  //text-align: center
+  //text-indent: 0
+
+.admin-csvform-file-content
+  cursor: pointer
+  //margin: 8px auto
+  margin-top: 8px
+  text-align: center
+  display: block
+  width: 157px
+  height: 57px
+  line-height: 57px
+  background: $gray-dark
+  color: $white
+  font-weight: 800
+  border-radius: 5px
+  overflow: hidden
+  input
+    display: block !important
+    width: 157px !important
+    height: 57px !important
+    opacity: 0 !important
+    overflow: hidden !important
 
 //GUESTS
 #guests-container
@@ -525,7 +589,7 @@ body
     font-weight: 400
 
 #invitation-header
-  margin-bottom: 60px
+  margin-bottom: 30px
   p
     color: $gray-dark
 
