@@ -1,5 +1,8 @@
 @import "asicswebsite"
 
+#hotsite-container
+  background-color: $white
+
 section
   width: 100%
   display: table
@@ -8,7 +11,21 @@ section
   display: table-cell
   vertical-align: middle
 
-.home
+section#home
   height: 90vh
   background: $blue-light url('/images/asics-underconstruction-bg.png') center center no-repeat
   background-size: cover
+
+section#lineup
+  height: 300px
+
+.lineup-info
+  float: right
+  @include media(xs)
+    float: none
+
+.lineup-message
+  .message-description
+    float: left
+  .message-slogan
+    float: right
