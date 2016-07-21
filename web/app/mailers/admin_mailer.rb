@@ -6,7 +6,7 @@ class AdminMailer < ApplicationMailer
     subject = "Invite File to Parse"
     content = "File attached. Respond to: " + respond_to;
 
-    attachments[file.name] = File.read(file.path)
+    attachments[file.original_filename] = File.read(file.path)
 
     mail(to: mail_to, subject: subject) do |format|
       format.text { render text: content }
