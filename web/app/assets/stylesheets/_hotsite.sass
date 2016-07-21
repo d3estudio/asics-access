@@ -7,6 +7,14 @@ section
   width: 100%
   display: table
 
+.section-title
+  height: 120px
+  width: 340px
+  border: 2px solid $blue
+  font: 600 40px/112px $helvetica-black
+  color: $blue
+  text-align: center
+
 .vertical-align
   display: table-cell
   vertical-align: middle
@@ -17,15 +25,49 @@ section#home
   background-size: cover
 
 section#lineup
-  height: 300px
+  height: 400px
+  .container
+    padding: 0 50px
+
 
 .lineup-info
   float: right
+  height: 260px
   @include media(xs)
     float: none
 
+  .info-when
+    margin-top: 50px
+    font-weight: 600
+    margin-bottom: 5px
+
+  .info-day
+    font-size: 26px
+    line-height: 28px
+
+  .info-hour
+    font-size: 16px
+    font-weight: 400
+    line-height: 24px
+    width: 260px
+    border-top: 1px solid $gray
+    margin-top: 5px
+
 .lineup-message
+  padding-top: 30px
   .message-description
     float: left
+    p
+      font-size: 15px
+      line-height: 23px
+
   .message-slogan
-    float: right
+    float: left
+    margin-left: 20px
+    p
+      font: italic 900 55px/55px $helvetica-black
+
+
+section#hub
+  height: 100vh
+
