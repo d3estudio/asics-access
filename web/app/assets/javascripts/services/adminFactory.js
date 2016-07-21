@@ -1,78 +1,86 @@
 angular.module('asics').factory('admin', ['$http', function ($http) {
-    var logsUpdatedAt;
+  var logsUpdatedAt;
 
-    var o = {
-        logs: [],
-        guests: [],
-        guestsCount: {}
-    };
+  var o = {
+    logs: [],
+    guests: [],
+    guestsCount: {}
+  };
 
-    o.getGuests = function () {
-        return $http.get('/api/admin/guests/all').then(parseGuests, parseError);
-    };
+  o.getGuests = function () {
+    return $http.get('/api/admin/guests/all').then(parseGuests, parseError);
+  };
 
-    o.getLogs = function () {
-        var url = '/api/admin/logs/all';
-        // var url = '/api/admin/logs/all' + (logsUpdatedAt ? '?since=' + logsUpdatedAt : '');
-        return $http.get(url).then(parseLogs, parseError);
-    };
+  o.getLogs = function () {
+    var url = '/api/admin/logs/all';
+    // var url = '/api/admin/logs/all' + (logsUpdatedAt ? '?since=' + logsUpdatedAt : '');
+    return $http.get(url).then(parseLogs, parseError);
+  };
 
-    o.postResendEmail = function (guest_id) {
-        return $http.post('/api/admin/guests/email', { guest_id: guest_id }).then(parseSuccess, parseError);
-    };
+  o.postResendEmail = function (guest_id) {
+    return $http.post('/api/admin/guests/email', {guest_id: guest_id}).then(parseSuccess, parseError);
+  };
 
-    o.postDeleteGuest = function (guest_id) {
-        return $http.post('/api/admin/guests/delete', { guest_id: guest_id }).then(parseSuccess, parseError);
-    };
+  o.postDeleteGuest = function (guest_id) {
+    return $http.post('/api/admin/guests/delete', {guest_id: guest_id}).then(parseSuccess, parseError);
+  };
 
-    o.postInvite = function(guest) {
-        return $http.post('/api/admin/invite', guest).then(parseSuccess, parseErrorObject);
-    };
+  o.postInvite = function (guest) {
+    return $http.post('/api/admin/invite', guest).then(parseSuccess, parseErrorObject);
+  };
 
-    o.postSearchLogs = function(searchString) {
-        var post = { search_string: searchString };
-        return $http.post('/api/admin/logs/search', post).then(parseSuccess, parseError);
-    };
+  o.postSearchLogs = function (searchString) {
+    var post = {search_string: searchString};
+    return $http.post('/api/admin/logs/search', post).then(parseSuccess, parseError);
+  };
 
-    o.postSearchGuests = function(searchString) {
-        var post = { search_string: searchString };
-        return $http.post('/api/admin/guests/search', post).then(parseSuccess, parseError);
-    }
+  o.postSearchGuests = function (searchString) {
+    var post = {search_string: searchString};
+    return $http.post('/api/admin/guests/search', post).then(parseSuccess, parseError);
+  };
 
-    function parseGuests(response) {
-        var result = response.data.result;
+  o.postSendFile = function (email, file) {
+    return $http.post('/api/admin/spreadsheet/send', {email:email, file:file}).then(parseSuccess, parseError);
+  };
 
-        if(result.guests.length > 0)
-            logsUpdatedAt = result.guests[result.guests.length - 1].created_at;
+  o.postSendFile = function (file) {
+    return $http.post('/api/admin/invite/csv', {file:file}).then(parseSuccess, parseError);
+  };
 
-        angular.copy(result.guests, o.guests);
-        angular.copy(result.count, o.guestsCount);
-        return parseSuccess(response);
-    };
+  function parseGuests(response) {
+    var result = response.data.result;
 
-    function parseLogs(response) {
-        var logs = response.data.result.logs;
-        angular.copy(logs, o.logs);
-        return parseSuccess(response);
-    }
+    if (result.guests.length > 0)
+      logsUpdatedAt = result.guests[result.guests.length - 1].created_at;
 
-    function parseSuccessMessage(response) {
-        console.log(response);
-        return response.data.result.message;
-    }
+    angular.copy(result.guests, o.guests);
+    angular.copy(result.count, o.guestsCount);
+    return parseSuccess(response);
+  };
 
-    function parseSuccess(response) {
-        return response.data.result;
-    }
+  function parseLogs(response) {
+    var logs = response.data.result.logs;
+    angular.copy(logs, o.logs);
+    return parseSuccess(response);
+  }
 
-    function parseError(error) {
-        throw error.data.message;
-    }
+  function parseSuccessMessage(response) {
+    console.log(response);
+    return response.data.result.message;
+  }
 
-    function parseErrorObject(error) {
-        throw error.data;
-    }
+  function parseSuccess(response) {
+    return response.data.result;
+  }
 
-    return o;
+  function parseError(error) {
+    throw error.data.message;
+  }
+
+  function parseErrorObject(error) {
+    throw error.data;
+  }
+
+  return o;
 
 }]);

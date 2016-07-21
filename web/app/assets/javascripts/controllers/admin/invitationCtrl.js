@@ -15,7 +15,10 @@ angular.module('asics').controller('InvitationCtrl', [
     $scope.guest = {};
     $scope.isAthlete = false;
     $scope.athleteGuest = {};
-    $scope.inputFile = '';
+    $scope.file = '';
+    $scope.csv = '';
+    $scope.adminEmail = '';
+    $scope.csvFileMessage = '';
 
     // Get all strings
     angular.copy(adminInvitationStrings[$scope.language], $scope.strings);
@@ -46,6 +49,19 @@ angular.module('asics').controller('InvitationCtrl', [
       'Alexandra Priscila do Nascimento'
     ];
 
+    $scope.sendFile = function () {
+      var email = $scope.adminEmail;
+      admin.postSendFile(email, $scope.file)
+        .then(onImportFileSuccess)
+        .catch(errorToast)
+    };
+
+    $scope.sendCsv = function () {
+      admin.postSendFile($scope.csv)
+        .then(onImportCsvSuccess)
+        .catch(errorToast)
+    };
+
     $scope.inviteGuest = function () {
       var postGuest = {};
 
@@ -65,6 +81,15 @@ angular.module('asics').controller('InvitationCtrl', [
         .then(onInviteSuccess)
         .catch(errorToast)
     };
+
+    function onImportFileSuccess() {
+      successImportFileToast();
+      clearFileForm();
+    }
+
+    function onImportCsvSuccess(message) {
+      $scope.csvFileMessage = message;
+    }
 
     function onInviteSuccess(guest) {
       successToast(guest);
@@ -99,6 +124,17 @@ angular.module('asics').controller('InvitationCtrl', [
       clearForm();
     }
 
+    function successImportFileToast() {
+      $mdToast.show(
+        $mdToast.simple()
+          .textContent("File imported! Wait for the email.")
+          .position('top right')
+          .hideDelay(4000)
+          .theme('success-toast')
+      );
+      clearForm();
+    }
+
     function clearForm() {
       $scope.guest = {
         email: '',
@@ -123,6 +159,13 @@ angular.module('asics').controller('InvitationCtrl', [
         $scope.adminForm.occupation.$setUntouched();
     }
 
+    function clearFileForm() {
+      if ($scope.adminEmail)
+        $scope.adminEmail = '';
+      if ($scope.file)
+        $scope.file = '';
+    }
+
     $scope.$on('$viewContentLoaded', function () {
       clearForm();
     });
@@ -133,7 +176,7 @@ var adminInvitationStrings = {
   EN: {
     newInvitation: "New invitation",
     title: "Hello! Fill the fields below to invite someone for the Asics Hub.",
-    csvTitle: "You can import a .csv file with your guest list.",
+    csvTitle: "You can import a file with your guest list.",
     asicsAthlete: "Asics Athlete",
     formName: "Name",
     formNameRequireError: "Please, fill the name",
@@ -150,8 +193,8 @@ var adminInvitationStrings = {
     formCountryOption: "Guest country",
     formCsvEmailInfo: "Once your file is process, an email will be sent for you to notify you.",
     formFile: "File",
-    formFileRequiredError: "Please, insert a .csv file",
-    formFileSelect: "Choose a .csv file",
+    formFileRequiredError: "Please, insert your file",
+    formFileSelect: "Choose your file",
     formFileSelected: "File selected",
     sendInvitation: "SEND INVITATION",
     sendCsvFile: "SEND FILE"
@@ -159,7 +202,7 @@ var adminInvitationStrings = {
   PT: {
     newInvitation: "Novo convite",
     title: "Olá, preencha os campos abaixo para convidar uma pessoa para o Asics Hub.",
-    csvTitle: "Você pode importar um arquivo .csv com a lista de convidados.",
+    csvTitle: "Você pode importar um arquivo com a lista de convidados.",
     asicsAthlete: "Atleta Asics",
     formName: "Nome",
     formNameRequireError: "Por favor, preencha o nome",
@@ -177,7 +220,7 @@ var adminInvitationStrings = {
     formCsvEmailInfo: "Uma vez que seu arquivo for processado, um email será disparado para você notificando.",
     formFile: "Arquivo",
     formFileRequiredError: "Por favor, insira o arquivo",
-    formFileSelect: "Selecionar arquivo .csv",
+    formFileSelect: "Selecionar um arquivo",
     formFileSelected: "Arquivo selecionado",
     sendInvitation: "ENVIAR CONVITE",
     sendCsvFile: "ENVIAR ARQUIVO"
