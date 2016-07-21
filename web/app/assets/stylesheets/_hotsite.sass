@@ -26,6 +26,8 @@ section#home
 
 section#lineup
   height: 400px
+  @include media(sm)
+    height: 630px
   .container
     padding: 0 50px
 
@@ -33,8 +35,12 @@ section#lineup
 .lineup-info
   float: right
   height: 260px
+  @include media(sm)
+    float: none
+    text-align: center
   @include media(xs)
     float: none
+    text-align: center
 
   .info-when
     margin-top: 50px
@@ -52,6 +58,12 @@ section#lineup
     width: 260px
     border-top: 1px solid $gray
     margin-top: 5px
+    @include media(sm)
+      display: block
+      margin: 0 auto
+    @include media(xs)
+      display: block
+      margin: 0 auto
 
 .lineup-message
   padding-top: 30px
@@ -64,10 +76,13 @@ section#lineup
   .message-slogan
     float: left
     margin-left: 20px
+    @include media(sm)
+      margin-top: 30px
     p
       font: italic 900 55px/55px $helvetica-black
 
 
 section#hub
   height: 100vh
+  background-color: $gray-dark
 
