@@ -34,6 +34,8 @@
 //= require services/authFactory.js
 //= require services/adminFactory.js
 //= require services/countriesFactory.js
+//= require services/googleMapsFactory.js
+//= require controllers/indexCtrl.js
 //= require controllers/rsvpCtrl.js
 //= require controllers/rsvpConfirmedCtrl.js
 //= require controllers/rsvpConfirmedPrintCtrl.js

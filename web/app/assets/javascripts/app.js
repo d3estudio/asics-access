@@ -26,7 +26,8 @@ asics.config([
     $stateProvider
         .state('home', {
           url: '/',
-          templateUrl: '/views/index'
+          templateUrl: '/views/index',
+          controller: 'IndexCtrl'
         })
         .state('rsvp', {
           url: '/rsvp',
