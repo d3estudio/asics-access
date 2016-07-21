@@ -8,7 +8,7 @@ Rails.application.routes.draw do
 
   # ADMIN
   post '/api/admin/invite', to: 'admin#invite_guest'
-  post '/api/admin/invite.csv', to: 'admin#invite_guests_csv'
+  post '/api/admin/invite/csv', to: 'admin#invite_guests_csv'
 
   post '/api/admin/guests/search', to: 'admin#search_guests_information'
   get  '/api/admin/guests/all', to: 'admin#get_guests_information'

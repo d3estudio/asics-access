@@ -20,6 +20,15 @@ class AdminController < ApplicationController
     end
   end
 
+  def invite_guests_csv
+      csv = params[:csv] or return missing_field(:csv)
+
+      CSV.foreach(csv.path, :headers => true) do |row|
+          puts row.inspect
+        #   response = invite_guest_and_send_email(row.name, row.email)
+      end
+  end
+
   def get_guests_information
     guests = Guest.not_removed.order(created_at: :desc)
     count = get_count_of_guests(guests)
