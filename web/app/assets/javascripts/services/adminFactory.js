@@ -43,7 +43,7 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     return $http.post('/api/admin/spreadsheet/send', {email:email, file:file}).then(parseSuccess, parseError);
   };
 
-  o.postSendFile = function (file) {
+  o.postSendCsvFile = function (file) {
     return $http.post('/api/admin/invite/csv', {file:file}).then(parseSuccess, parseError);
   };
 

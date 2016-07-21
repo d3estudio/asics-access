@@ -57,7 +57,7 @@ angular.module('asics').controller('InvitationCtrl', [
     };
 
     $scope.sendCsv = function () {
-      admin.postSendFile($scope.csv)
+      admin.postSendCsvFile($scope.csv)
         .then(onImportCsvSuccess)
         .catch(errorToast)
     };
