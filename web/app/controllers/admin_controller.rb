@@ -21,12 +21,38 @@ class AdminController < ApplicationController
   end
 
   def invite_guests_csv
-      csv = params[:csv] or return missing_field(:csv)
+    (csv = params[:csv]) || (return missing_field(:csv))
 
-      CSV.foreach(csv.path, :headers => true) do |row|
-          puts row.inspect
-        #   response = invite_guest_and_send_email(row.name, row.email)
+    result = {
+      errors: [],
+      success: [],
+      alreadyInvited: []
+    }
+    line = 1;
+
+    CSV.foreach(csv.path, headers: true) do |row|
+      newGuest = row.to_hash
+
+      response = invite_guest_and_send_email(
+        newGuest["name"],
+        newGuest["email"],
+        newGuest["occupation"],
+        newGuest["language"],
+        newGuest["country"]
+      )
+
+      if response[:succeeded] == true
+        result[:success] << newGuest
+      elsif response[:error] == 'GuestAlreadyInvited'
+        result[:alreadyInvited] << newGuest
+      else
+        result[:errors] << { csv_line: line, guest: newGuest, error: response[:message] }
       end
+
+      line += 1;
+    end
+
+    render json: result
   end
 
   def get_guests_information
@@ -46,11 +72,7 @@ class AdminController < ApplicationController
 
     guests = search_guests(str).order(country: :asc)
 
-    filename = if str
-                 "Asics Hub guest list (#{str}) (#{Date.today}).csv"
-               else
-                 "Asics Hub guest list (#{Date.today}).csv"
-               end
+    filename = 'Asics Hub guest list ' + (!str.blank? ? "(#{str}) " : '') + "(#{Date.today}).csv"
 
     csv = guests.to_csv
 
