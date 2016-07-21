@@ -56,6 +56,11 @@ asics.config([
           templateUrl: '/views/admin/template',
           controller: 'AdminCtrl'
         })
+        .state('admin.csv', {
+          url: '/invitation/csv',
+          templateUrl: '/views/admin/csv',
+          controller: 'InvitationCtrl'
+        })
         .state('admin.invitation', {
           url: '/invitation',
           templateUrl: '/views/admin/invitation',
