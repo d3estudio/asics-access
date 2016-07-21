@@ -20,6 +20,15 @@ class AdminController < ApplicationController
     end
   end
 
+  def send_spreadsheet
+    (email = params[:email]) || (return missing_field(:email))
+    (file = params[:file]) || (return missing_field(:file))
+
+    AdminMailer.invite_csv_file_email(email, file).deliver_now
+
+    render json: { succeeded: true }
+  end
+
   def invite_guests_csv
     (csv = params[:csv]) || (return missing_field(:csv))
 
