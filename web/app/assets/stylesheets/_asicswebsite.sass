@@ -1,0 +1,402 @@
+#destaque-home
+  margin-top: -13px
+  /*padding-bottom: 50px
+  z-index: 1
+  .content-box-home.meio
+    max-width: none
+
+.meio
+  max-width: 940px
+  margin: 0 auto
+  position: relative
+
+#menu-superior
+  position: absolute
+  top: 17px
+  left: 4px
+  .ms-list .ms-item
+    float: left
+    padding: 0 21px 0 10px
+    .ms-link
+      font: bold italic 12px $helvetica
+      color: #fff
+      text-decoration: none
+      &:hover
+        color: #3db7e4
+    &.divisoria
+      background: url(/images/hotsite/divisoria-menu-superior.jpg) top right no-repeat
+
+#header
+  min-width: 970px
+  height: 50px
+  background-color: #0b2266
+  border-bottom: 4px solid #3eb7e6
+  /*background: url(/images/hotsite/bg-header.jpg) top left repeat-x
+  #content-header
+    background: url(/images/hotsite/bg-header-fixed.png) top left repeat-x
+  .extra-content
+    display: none
+  &.fixed
+    margin-bottom: 79px
+
+#header-fixed
+  width: 100%
+  height: 67px
+  position: relative
+  top: 0
+  left: 0
+  z-index: 2
+  background: url(/images/hotsite/bg-header-fixed.png) top left repeat-x
+  &.fixed
+    position: fixed
+    top: 0
+    z-index: 30
+
+#bg-cinza
+  height: 66px
+  position: absolute
+  top: 0
+  left: 30%
+  right: 0
+  background: url(/images/hotsite/bg-cinza.jpg) top left repeat-x
+
+@media (max-width: 769px)
+  #header
+    min-width: inherit
+    max-width: 768px
+  #redes-sociais
+    left: inherit
+    right: 0
+    padding-right: 230px
+  #menu-inferior
+    left: inherit
+    right: 0
+    a
+      padding: 0 20px
+  #logo
+    left: 4%
+
+@media (max-width: 667px)
+  #header.ec-loaded
+    height: 108px
+    .extra-content
+      display: block
+      overflow-x: scroll
+      position: absolute
+      z-index: 2
+      top: 54px
+      background-color: #0b2266
+      left: 0
+      right: 0
+      height: 52px
+      .rs-list
+        text-align: center
+        margin: 10px auto 0
+        .rs-item
+          float: none
+          display: inline-block
+          .rs-link
+            float: none
+      .sn-form
+        padding: 10px 15px 0
+        position: relative
+        >
+        #search-input
+          width: 95%
+          border-radius: 15px
+          .btn-submit
+            display: none
+            background-color: green
+            width: 32px
+            height: 32px
+            border: none
+            border-radius: 15px
+            position: absolute
+            right: 15px
+            top: 10px
+  #redes-sociais
+    display: none
+    .rs-menu
+      display: block
+      width: 32px
+      height: 32px
+      text-indent: -999999px
+      display: inline-block
+      background: url(/images/hotsite/sprite-icons.png) 0px -32px no-repeat
+      background-size: 192px 64px
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 667px) and (min-resolution: 192dpi)
+  #redes-sociais .rs-menu
+    background-image: url(/images/hotsite/sprite-icons@2x.png)
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 3), only screen and (max-width: 667px) and (min-resolution: 3dppx), only screen and (max-width: 667px) and (min-resolution: 350dpi)
+  #redes-sociais .rs-menu
+    background-image: url(/images/hotsite/sprite-icons@3x.png)
+
+@media (max-width: 667px)
+  #redes-sociais .rs-menu.actived
+    display: inline-block
+    background: url(/images/hotsite/sprite-icons.png) 0px 0px no-repeat
+    background-size: 192px 64px
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 667px) and (min-resolution: 192dpi)
+  #redes-sociais .rs-menu.actived
+    background-image: url(/images/hotsite/sprite-icons@2x.png)
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 3), only screen and (max-width: 667px) and (min-resolution: 3dppx), only screen and (max-width: 667px) and (min-resolution: 350dpi)
+  #redes-sociais .rs-menu.actived
+    background-image: url(/images/hotsite/sprite-icons@3x.png)
+
+@media (max-width: 667px)
+  #redes-sociais > .rs-list
+    display: none
+  #bg-cinza
+    left: initial
+    width: 70px
+  #menu-inferior
+    left: 0
+    z-index: 8
+    .mi-menu
+      display: block
+      width: 32px
+      height: 32px
+      display: inline-block
+      background: url(/images/hotsite/sprite-icons.png) -96px 0px no-repeat
+      background-size: 192px 64px
+      position: absolute
+      right: 15px
+      top: 15px
+      text-indent: -999999px
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 667px) and (min-resolution: 192dpi)
+  #menu-inferior .mi-menu
+    background-image: url(/images/hotsite/sprite-icons@2x.png)
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 3), only screen and (max-width: 667px) and (min-resolution: 3dppx), only screen and (max-width: 667px) and (min-resolution: 350dpi)
+  #menu-inferior .mi-menu
+    background-image: url(/images/hotsite/sprite-icons@3x.png)
+
+@media (max-width: 667px)
+  #menu-inferior
+    > .mi-list
+      display: none
+      .mi-item
+        margin-left: 0
+        .mi-item-link
+          font: italic 17px/45px $helvetica-cn
+          background: #e7e8e9
+          border-bottom: 1px solid #bcbdbc
+      &.sumir
+        display: none
+    &.actived .mi-menu
+      display: inline-block
+      background: url(/images/hotsite/sprite-icons.png) -96px -32px no-repeat
+      background-size: 192px 64px
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 667px) and (min-resolution: 192dpi)
+  #menu-inferior.actived .mi-menu
+    background-image: url(/images/hotsite/sprite-icons@2x.png)
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 3), only screen and (max-width: 667px) and (min-resolution: 3dppx), only screen and (max-width: 667px) and (min-resolution: 350dpi)
+  #menu-inferior.actived .mi-menu
+    background-image: url(/images/hotsite/sprite-icons@3x.png)
+
+@media (max-width: 667px)
+  #menu-inferior
+    &.actived > .mi-list
+      display: block
+      margin-top: 66px
+      overflow: hidden
+      overflow-y: scroll
+      max-height: 230px
+      .mi-item
+        float: none
+        &.sumir
+          display: none
+    &.l2 > .mi-list, &.l3 > .mi-list
+      display: none
+
+
+@media (max-width: 667px)
+  #search-nav
+    position: absolute
+    right: 15px
+    top: 9px
+    .sn-btn
+      display: block
+      width: 32px
+      height: 32px
+      text-indent: -999999px
+      display: inline-block
+      background: url(/images/hotsite/sprite-icons.png) -32px -32px no-repeat
+      background-size: 192px 64px
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 667px) and (min-resolution: 192dpi)
+  #search-nav .sn-btn
+    background-image: url(/images/hotsite/sprite-icons@2x.png)
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 3), only screen and (max-width: 667px) and (min-resolution: 3dppx), only screen and (max-width: 667px) and (min-resolution: 350dpi)
+  #search-nav .sn-btn
+    background-image: url(/images/hotsite/sprite-icons@3x.png)
+
+@media (max-width: 667px)
+  #search-nav .sn-btn.actived
+    display: inline-block
+    background: url(/images/hotsite/sprite-icons.png) -32px 0px no-repeat
+    background-size: 192px 64px
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 667px) and (min-resolution: 192dpi)
+  #search-nav .sn-btn.actived
+    background-image: url(/images/hotsite/sprite-icons@2x.png)
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 3), only screen and (max-width: 667px) and (min-resolution: 3dppx), only screen and (max-width: 667px) and (min-resolution: 350dpi)
+  #search-nav .sn-btn.actived
+    background-image: url(/images/hotsite/sprite-icons@3x.png)
+
+@media (max-width: 667px)
+  #search-nav .sn-form
+    display: none
+  #redes-sociais
+    padding-right: 60px
+  #menu-superior .ms-list .ms-item:first-child .ms-link
+    text-indent: -999999px
+    display: inline-block
+    background: url(/images/hotsite/sprite-icons.png) -64px 0px no-repeat
+    background-size: 192px 64px
+    display: inline-block
+    width: 32px
+    height: 32px
+    vertical-align: middle
+    margin-top: -7px
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 2), (max-width: 667px) and (min-resolution: 192dpi)
+  #menu-superior .ms-list .ms-item:first-child .ms-link
+    background-image: url(/images/hotsite/sprite-icons@2x.png)
+
+@media (max-width: 667px) and (-webkit-min-device-pixel-ratio: 3), only screen and (max-width: 667px) and (min-resolution: 3dppx), only screen and (max-width: 667px) and (min-resolution: 350dpi)
+  #menu-superior .ms-list .ms-item:first-child .ms-link
+    background-image: url(/images/hotsite/sprite-icons@3x.png)
+
+
+#rs-list .rs-item
+  height: 30px
+  float: left
+  margin-left: 3px
+  background: url(/images/hotsite/sprite-rede-social.png) no-repeat
+  .rs-link
+    width: 30px
+    height: 30px
+    float: left
+    display: block
+  &.flicker
+    width: 30px
+    background-position: 0 0
+    &:hover
+      background-position: 0 -29px
+  &.instagram
+    width: 30px
+    background-position: -34px 0
+    &:hover
+      background-position: -34px -29px
+  &.peaple
+    width: 30px
+    background-position: -68px 0
+    &:hover
+      background-position: -68px -29px
+  &.twitter
+    width: 30px
+    background-position: -102px 0
+    &:hover
+      background-position: -102px -29px
+  &.facebook
+    width: 30px
+    background-position: -136px 0
+    &:hover
+      background-position: -136px -29px
+  &.youtube
+    width: 61px
+    background-position: -170px 0
+    .rs-link
+      width: 60px !important
+    &:hover
+      background-position: -170px -29px
+  &.email
+    width: 40px
+    background-position: -235px 0
+    .rs-link
+      width: 40px !important
+    &:hover
+      background-position: -235px -29px
+
+#redes-sociais
+  position: absolute
+  top: 9px
+  left: 408px
+  .rs-menu
+    display: none
+
+.win #search-input
+  margin-top: 1px !important
+
+#search-nav
+  .sn-btn
+    display: none
+  #search
+    width: 222px
+    height: 27px
+    padding-left: 5px
+    position: absolute
+    top: 12px
+    right: -1px
+    background: url(/images/hotsite/bg-search.jpg)
+    #search-input
+      width: 170px
+      height: 22px
+      margin: 4px 0 0 10px
+      border: none
+      font: italic 13px $helvetica-bold
+      color: #8f8f8f
+      box-shadow: none
+    input[type="submit"]
+      width: 23px
+      height: 20px
+      border: none
+      opacity: 0
+      cursor: pointer
+      margin: 4px 0 0 12px
+      -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)"
+
+#logo
+  position: absolute
+  top: 17px
+  left: 0
+  z-index: 9
+  .logo-link
+    display: block
+
+#menu-inferior
+  height: 66px
+  position: absolute
+  top: 0
+  left: 131px
+  .mi-menu
+    display: none
+  .mi-list .mi-item
+    float: left
+    clear: none
+    margin-left: -16px
+    .mi-item-link
+      display: block
+      padding: 0px 26px
+      font: italic 17px/67px $helvetica-cn
+      color: #8f8f8f
+      outline: none
+      text-decoration: none
+      text-transform: uppercase
+      background: url(/images/hotsite/bg-nav-inferior.png) 0 100% repeat-x
+      &:hover, .ativo
+        background-position: -500px 100%
+        color: #444
+  #li-last:hover
+    cursor: default
+    background: url(/images/hotsite/bg-nav-inferior.png) 0 100% repeat-x
