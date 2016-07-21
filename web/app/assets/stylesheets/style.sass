@@ -369,30 +369,40 @@ body
 .csvform-fields
   margin-top: 100px
 
-#admin-csvform-file
-  //text-align: center
-  //text-indent: 0
-
 .admin-csvform-file-content
   cursor: pointer
-  //margin: 8px auto
   margin-top: 8px
   text-align: center
   display: block
-  width: 157px
+  width: 200px
   height: 57px
   line-height: 57px
-  background: $gray-dark
-  color: $white
-  font-weight: 800
+  background: $gray
+  color: $blue
   border-radius: 5px
   overflow: hidden
+  &:hover
+    background-color: $gray-light
+    span
+      color: $blue-light
   input
+    cursor: pointer
     display: block !important
-    width: 157px !important
+    width: 200px !important
     height: 57px !important
     opacity: 0 !important
     overflow: hidden !important
+    position: absolute
+    top: 35px
+
+.inputFileName
+  white-space: nowrap
+  overflow: hidden
+  text-overflow: ellipsis
+  max-width: 200px
+  font-size: 16px
+  font-weight: 800
+
 
 //GUESTS
 #guests-container
