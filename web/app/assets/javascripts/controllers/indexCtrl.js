@@ -1,10 +1,16 @@
 angular.module('asics').controller('IndexCtrl', [
   '$scope',
   '$state',
-  function ($scope, $state) {
+  '$window',
+  function ($scope, $state, $window) {
 
-
-
+    $window.map = new google.maps.Map(document.getElementById('google-map'), {
+      center: {
+        lat: -34.397,
+        lng: 150.644
+      },
+      zoom: 8
+    });
   }
 ]);
 
