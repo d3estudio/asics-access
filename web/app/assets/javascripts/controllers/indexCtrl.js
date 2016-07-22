@@ -2,12 +2,18 @@ angular.module('asics').controller('IndexCtrl', [
   '$scope',
   '$state',
   '$window',
-  'googlemaps',
   '$timeout',
-  function ($scope, $state, $window, googlemaps, $timeout) {
+  '$location',
+  'googlemaps',
+  'smoothScroll',
+  function ($scope, $state, $window, $timeout, $location, googlemaps, smoothScroll) {
     $scope.isDialogOpen = false;
     $scope.address = {
       name: ''
+    };
+    $scope.gotoElement = function (eID){
+      $location.hash('bottom');
+      smoothScroll.scrollTo(eID);
     };
 
     var mapLat = -22.9891368;

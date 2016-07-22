@@ -1,4 +1,4 @@
-angular.module('asics').factory('googlemaps', ['$window', '$q',
+angular.module('asics').service('googlemaps', ['$window', '$q',
   function($window, $q){
 
   // maps loader deferred object
