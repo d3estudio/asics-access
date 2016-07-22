@@ -12,8 +12,8 @@ angular.module('asics').controller('IndexCtrl', [
       name: ''
     };
 
-    $scope.gotoElement = function (eID){
-      $location.hash('bottom');
+    $scope.gotoElement = function (eID) {
+      $location.hash(eID);
       smoothScroll.scrollTo(eID);
     };
 
@@ -21,12 +21,6 @@ angular.module('asics').controller('IndexCtrl', [
     var mapLng = -43.4489302;
     var hubLat = -22.980162;
     var hubLng = -43.4608223;
-
-    var mapOptions = {
-      center: {lat: mapLat, lng: mapLng},
-      zoom: 15,
-      scrollwheel: false
-    };
 
     var styles = [
       {
@@ -42,27 +36,40 @@ angular.module('asics').controller('IndexCtrl', [
 
     googlemaps.mapsInitialized
       .then(function () {
-        var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
         var directionsService = new google.maps.DirectionsService();
-        var directionsDisplay = new google.maps.DirectionsRenderer({
-          suppressMarkers: true,
-          polylineOptions: {
-            strokeColor: "#3DB7E4"
-          }
-        });
+        var directionsDisplay;
+        var map;
 
-        var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
-        var icon = '/images/hotsite/asics-marker.png';
-        var asicsMarker = new google.maps.Marker({
-          position: {lat: hubLat, lng: hubLng},
-          map: map,
-          icon: icon
-        });
+        initialize();
 
-        map.mapTypes.set('map_style', styledMap);
-        map.setMapTypeId('map_style');
+        function initialize() {
+          var mapOptions = {
+            center: {lat: mapLat, lng: mapLng},
+            zoom: 15,
+            scrollwheel: false
+          };
+          map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
 
-        directionsDisplay.setMap(map);
+          directionsDisplay = new google.maps.DirectionsRenderer({
+            suppressMarkers: true,
+            polylineOptions: {
+              strokeColor: "#3DB7E4"
+            }
+          });
+
+          var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
+          var icon = '/images/hotsite/asics-marker.png';
+          var asicsMarker = new google.maps.Marker({
+            position: {lat: hubLat, lng: hubLng},
+            map: map,
+            icon: icon
+          });
+
+          map.mapTypes.set('map_style', styledMap);
+          map.setMapTypeId('map_style');
+          directionsDisplay.setMap(map);
+        }
+
 
         $scope.$watch('address.name', onSearchTextChanged);
 
