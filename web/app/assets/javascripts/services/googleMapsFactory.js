@@ -5,7 +5,7 @@ angular.module('asics').factory('googlemaps', ['$window', '$q',
   var mapsDefer = $q.defer();
 
   // Google's url for async maps initialization accepting callback function
-  var asyncUrl = 'https://maps.googleapis.com/maps/api/js?callback=';
+  var asyncUrl = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyCde22wHu7yqQblJ6OXLDd2hadRn_JoUmw&callback=';
 
   // async loader
   var asyncLoad = function(asyncUrl, callbackName) {
