@@ -4,6 +4,8 @@ angular.module('asics').controller('IndexCtrl', [
   '$window',
   'googlemaps',
   function ($scope, $state, $window, googlemaps) {
+    $scope.isDialogOpen = false;
+
     var mapLat = -22.9891368;
     var mapLng = -43.4489302;
     var hubLat = -22.980162;

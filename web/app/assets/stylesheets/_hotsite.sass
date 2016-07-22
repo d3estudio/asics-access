@@ -11,7 +11,7 @@ section
   height: 120px
   width: 340px
   border: 2px solid $blue
-  font: 600 40px/112px $helvetica-black
+  font: 600 40px/112px $helvetica-medium
   color: $blue
   text-align: center
 
@@ -30,6 +30,8 @@ section#lineup
     height: 630px
   .container
     padding: 0 50px
+  .section-title
+    font-size: 23px
 
 
 .lineup-info
@@ -79,7 +81,7 @@ section#lineup
     @include media(sm)
       margin-top: 30px
     p
-      font: italic 900 55px/55px $helvetica-black
+      font: italic 900 55px/55px $helvetica-medium
 
 
 section#hub
@@ -105,4 +107,79 @@ section#route
 
 .gmnoprint
   display: none
+
+.directions-dialog
+  cursor: pointer
+  background-color: $white
+  border: 2px solid $blue
+  padding: 20px 15px
+  position: absolute
+  top: 210px
+  right: 90px
+  width: 470px
+  height: 92px
+  opacity: 0.85
+  animation: increase ease 0.2s
+  transition: height $anim-duration, padding $anim-duration
+
+  .dialog-title
+    font-size: 28px
+    line-height: 48px
+    font-weight: 600
+
+  .dialog-start
+    margin-top: 15px
+    color: $black-light
+    font-size: 20px
+    font-style: italic
+    border-bottom: 2px solid $blue
+    width: 100%
+    padding: 6px 0
+    input
+      width: 400px
+      padding-left: 0
+      border: none
+      background-color: transparent
+      box-shadow: 0
+
+  .dialog-end
+    margin-top: 30px
+    font-size: 20px
+    border-bottom: 2px solid $blue
+    width: 100%
+    line-height: 25px
+    padding: 6px 0
+
+  .dialog-icon img
+    width: 18px
+    height: 192px
+
+.directions-dialog-button
+  color: $blue
+  position: absolute
+  top: 243px
+  right: 120px
+  width: 25px
+  height: 25px
+
+.dialog-button-open
+  transform: rotate(0deg)
+  transition: transform $anim-duration
+
+.dialog-button-close
+  transform: rotate(135deg)
+  transition: transform $anim-duration
+
+.dialog-open
+  height: 260px
+  .dialog-content
+    opacity: 1
+    transition: opacity $anim-duration
+
+.dialog-close
+  .dialog-content
+    opacity: 0
+
+
+
 
