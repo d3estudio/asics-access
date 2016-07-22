@@ -52,11 +52,11 @@ angular.module('asics').controller('IndexCtrl', [
         });
 
         var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
-        var image = '/images/hotsite/asics-marker.png';
+        var icon = '/images/hotsite/asics-marker.png';
         var asicsMarker = new google.maps.Marker({
           position: {lat: hubLat, lng: hubLng},
           map: map,
-          icon: image
+          icon: icon
         });
 
         map.mapTypes.set('map_style', styledMap);
