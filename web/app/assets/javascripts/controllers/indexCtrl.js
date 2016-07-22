@@ -11,6 +11,7 @@ angular.module('asics').controller('IndexCtrl', [
     $scope.address = {
       name: ''
     };
+
     $scope.gotoElement = function (eID){
       $location.hash('bottom');
       smoothScroll.scrollTo(eID);
@@ -84,8 +85,6 @@ angular.module('asics').controller('IndexCtrl', [
           directionsService.route(request, function (result, status) {
             if (status == google.maps.DirectionsStatus.OK) {
               directionsDisplay.setDirections(result);
-            } else {
-              console.log('Address not found')
             }
           });
         }

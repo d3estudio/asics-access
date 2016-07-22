@@ -1,27 +1,33 @@
-angular.module('asics').service('smoothScroll', function(){
+angular.module('asics').service('smoothScroll', function () {
 
-  this.scrollTo = function(eID) {
+  this.scrollTo = function (eID) {
 
     var startY = currentYPosition();
     var stopY = elmYPosition(eID);
     var distance = stopY > startY ? stopY - startY : startY - stopY;
     if (distance < 100) {
-      scrollTo(0, stopY); return;
+      scrollTo(0, stopY);
+      return;
     }
     var speed = Math.round(distance / 100);
-    if (speed >= 20) speed = 20;
+    if (speed >= 15) speed = 15;
     var step = Math.round(distance / 25);
     var leapY = stopY > startY ? startY + step : startY - step;
     var timer = 0;
     if (stopY > startY) {
-      for ( var i=startY; i<stopY; i+=step ) {
-        setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
-        leapY += step; if (leapY > stopY) leapY = stopY; timer++;
-      } return;
+      for (var i = startY; i < stopY; i += step) {
+        setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+        leapY += step;
+        if (leapY > stopY) leapY = stopY;
+        timer++;
+      }
+      return;
     }
-    for ( var i=startY; i>stopY; i-=step ) {
-      setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
-      leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+    for (var i = startY; i > stopY; i -= step) {
+      setTimeout("window.scrollTo(0, " + leapY + ")", timer * speed);
+      leapY -= step;
+      if (leapY < stopY) leapY = stopY;
+      timer++;
     }
 
     function currentYPosition() {
@@ -42,7 +48,8 @@ angular.module('asics').service('smoothScroll', function(){
       while (node.offsetParent && node.offsetParent != document.body) {
         node = node.offsetParent;
         y += node.offsetTop;
-      } return y;
+      }
+      return y;
     }
   };
 });

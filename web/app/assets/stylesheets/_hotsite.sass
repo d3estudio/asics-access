@@ -37,6 +37,8 @@ section#lineup
 .lineup-info
   float: right
   height: 260px
+  border-left: 2px solid $blue
+  padding-left: 40px
   @include media(sm)
     float: none
     text-align: center
@@ -68,20 +70,22 @@ section#lineup
       margin: 0 auto
 
 .lineup-message
-  padding-top: 30px
+  padding-top: 15px
+  padding-right: 40px
   .message-description
-    float: left
+    float: right
     p
-      font-size: 15px
+      font-size: 16px
+      font-weight: 400
       line-height: 23px
 
   .message-slogan
-    float: left
-    margin-left: 20px
+    float: right
+    margin-top: 20px
     @include media(sm)
       margin-top: 30px
     p
-      font: italic 900 55px/55px $helvetica-medium
+      font: italic 900 20px/35px $helvetica-medium
 
 
 section#hub
