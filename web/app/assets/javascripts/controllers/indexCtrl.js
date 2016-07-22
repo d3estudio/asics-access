@@ -30,6 +30,13 @@ angular.module('asics').controller('IndexCtrl', [
     googlemaps.mapsInitialized
       .then(function(){
         var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+        var directionsService = new google.maps.DirectionsService();
+        var directionsDisplay = new google.maps.DirectionsRenderer({
+          suppressMarkers: true,
+          polylineOptions: {
+            strokeColor: "#3DB7E4"
+          }
+        });
 
         var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
         var image = '/images/hotsite/asics-marker.png';
@@ -41,9 +48,6 @@ angular.module('asics').controller('IndexCtrl', [
 
         map.mapTypes.set('map_style', styledMap);
         map.setMapTypeId('map_style');
-
-        var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
-        var directionsService = new google.maps.DirectionsService();
 
         directionsDisplay.setMap(map);
 
