@@ -4,9 +4,13 @@ angular.module('asics').controller('IndexCtrl', [
   '$window',
   'googlemaps',
   function ($scope, $state, $window, googlemaps) {
+    var mapLat = -22.9891368;
+    var mapLng = -43.4489302;
+    var hubLat = -22.980162;
+    var hubLng = -43.4608223;
 
     var mapOptions = {
-      center: {lat: -22.9891368, lng: -43.4489302},
+      center: {lat: mapLat, lng: mapLng},
       zoom: 15,
       scrollwheel: false
     };
@@ -25,18 +29,36 @@ angular.module('asics').controller('IndexCtrl', [
 
     googlemaps.mapsInitialized
       .then(function(){
-        map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
+        var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
 
         var styledMap = new google.maps.StyledMapType(styles, {name: "Styled Map"});
         var image = '/images/hotsite/asics-marker.png';
         var asicsMarker = new google.maps.Marker({
-          position: {lat: -22.980162, lng: -43.4608223},
+          position: {lat: hubLat, lng: hubLng},
           map: map,
           icon: image
         });
 
         map.mapTypes.set('map_style', styledMap);
         map.setMapTypeId('map_style');
+
+        var directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+        var directionsService = new google.maps.DirectionsService();
+
+        directionsDisplay.setMap(map);
+
+        var start = 'Campo Olimpico de golfe, Barra da Tijuca';
+        var end = new google.maps.LatLng(hubLat, hubLng);
+        var request = {
+          origin:start,
+          destination:end,
+          travelMode: google.maps.TravelMode.DRIVING
+        };
+        directionsService.route(request, function(result, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(result);
+          }
+        });
 
       });
 
