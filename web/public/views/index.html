@@ -176,24 +176,40 @@
             ROUTE
           </div>
           <div class="txt-blue-dark">
-            <div ng-click="isDialogOpen = true" ng-class="isDialogOpen ? 'dialog-open' : 'dialog-close'"
+            <div ng-click="isDialogOpen = true"
+                 ng-class="{'dialog-open' : isDialogOpen, 'dialog-bottom-open' : isLocationFound, 'dialog-close' : !isDialogOpen}"
                  class="directions-dialog container">
-              <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                <div class="dialog-title">HOW TO GET</div>
-              </div>
-              <div ng-if="isDialogOpen" class="dialog-content">
-                <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
-                  <div class="dialog-icon">
-                    <img src="/images/hotsite/icon-route.svg">
+
+              <div class="dialog-top row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="dialog-title">HOW TO GET</div>
+                </div>
+                <div ng-if="isDialogOpen" class="dialog-content">
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-1">
+                    <div class="dialog-icon">
+                      <img src="/images/hotsite/icon-route.svg">
+                    </div>
+                  </div>
+                  <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                    <div>
+                      <div class="dialog-start">
+                        <input id="search-address" type="text" name="address" ng-model="address.name"
+                               placeholder="ENTER AN ADDRESS"/>
+                      </div>
+                      <div class="dialog-end">EST. BOCA DO MATO, 803<br>VARGEM PEQUENA - RJ</div>
+                    </div>
                   </div>
                 </div>
-                <div class="col-lg-11 col-md-11 col-sm-11 col-xs-11">
-                  <div>
-                    <div class="dialog-start">
-                      <input id="search-address" type="text" name="address" ng-model="address.name" placeholder="ENTER AN ADDRESS"/>
-                    </div>
-                    <div class="dialog-end">EST. BOCA DO MATO, 803<br>VARGEM PEQUENA - RJ</div>
-                  </div>
+              </div>
+              <div ng-if="isLocationFound"
+                   class="dialog-bottom row">
+                <div class="dialog-distance txt-white col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                  1H 14MIN 36,7KM
+                </div>
+                <div class="dialog-button-new txt-blue-dark col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                  <button ng-click="address.name = ''">
+                    NEW ROUTE
+                  </button>
                 </div>
               </div>
             </div>
@@ -202,6 +218,7 @@
                  ng-click="isDialogOpen == true ? isDialogOpen = false : isDialogOpen = true">
               <img src="/images/hotsite/icon-close.svg">
             </div>
+
           </div>
         </div>
       </div>

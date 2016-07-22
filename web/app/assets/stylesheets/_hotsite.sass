@@ -126,6 +126,10 @@ section#route
   animation: increase ease 0.2s
   transition: height $anim-duration, padding $anim-duration
 
+  .dialog-top
+    padding-left: 10px
+    padding-right: 10px
+
   .dialog-title
     font-size: 28px
     line-height: 48px
@@ -166,6 +170,23 @@ section#route
   width: 25px
   height: 25px
 
+.dialog-distance
+  background-color: $blue
+  font-size: 14px
+  line-height: 36px
+  height: 36px
+
+.dialog-button-new
+  font-size: 14px
+  line-height: 36px
+  text-align: center
+  height: 36px
+  button
+    width: 100%
+
+.dialog-bottom
+  opacity: 0
+
 .dialog-button-open
   transform: rotate(0deg)
   transition: transform $anim-duration
@@ -180,9 +201,18 @@ section#route
     opacity: 1
     transition: opacity $anim-duration
 
+.dialog-bottom-open
+  height: 300px
+  .dialog-bottom
+    opacity: 1
+    transition: opacity, height $anim-duration
+    transition-delay: $anim-duration
+
 .dialog-close
   .dialog-content
     opacity: 0
+  .dialog-bottom
+    height: 0
 
 
 
