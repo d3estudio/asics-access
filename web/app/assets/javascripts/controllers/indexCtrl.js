@@ -3,8 +3,12 @@ angular.module('asics').controller('IndexCtrl', [
   '$state',
   '$window',
   'googlemaps',
-  function ($scope, $state, $window, googlemaps) {
+  '$timeout',
+  function ($scope, $state, $window, googlemaps, $timeout) {
     $scope.isDialogOpen = false;
+    $scope.address = {
+      name: ''
+    };
 
     var mapLat = -22.9891368;
     var mapLng = -43.4489302;
@@ -20,17 +24,17 @@ angular.module('asics').controller('IndexCtrl', [
     var styles = [
       {
         "stylers": [
-          { "visibility": "simplified" },
-          { "gamma": 0.98 },
-          { "lightness": 43 },
-          { "saturation": -85 },
-          { "hue": "#0008ff" }
+          {"visibility": "simplified"},
+          {"gamma": 0.98},
+          {"lightness": 43},
+          {"saturation": -85},
+          {"hue": "#0008ff"}
         ]
       }
     ];
 
     googlemaps.mapsInitialized
-      .then(function(){
+      .then(function () {
         var map = new google.maps.Map(document.getElementById('google-map'), mapOptions);
         var directionsService = new google.maps.DirectionsService();
         var directionsDisplay = new google.maps.DirectionsRenderer({
@@ -53,18 +57,32 @@ angular.module('asics').controller('IndexCtrl', [
 
         directionsDisplay.setMap(map);
 
-        var start = 'Campo Olimpico de golfe, Barra da Tijuca';
-        var end = new google.maps.LatLng(hubLat, hubLng);
-        var request = {
-          origin:start,
-          destination:end,
-          travelMode: google.maps.TravelMode.DRIVING
-        };
-        directionsService.route(request, function(result, status) {
-          if (status == google.maps.DirectionsStatus.OK) {
-            directionsDisplay.setDirections(result);
-          }
-        });
+        $scope.$watch('address.name', onSearchTextChanged);
+
+        var searchTimeout;
+        function onSearchTextChanged() {
+          clearTimeout(searchTimeout);
+          if ($scope.address.name)
+            searchTimeout = $timeout(applySearch, 3000);
+        }
+
+        function applySearch() {
+          var start = $scope.address.name;
+          var end = new google.maps.LatLng(hubLat, hubLng);
+          var request = {
+            origin: start,
+            destination: end,
+            travelMode: google.maps.TravelMode.DRIVING
+          };
+
+          directionsService.route(request, function (result, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+              directionsDisplay.setDirections(result);
+            } else {
+              console.log('Address not found')
+            }
+          });
+        }
 
       });
 
