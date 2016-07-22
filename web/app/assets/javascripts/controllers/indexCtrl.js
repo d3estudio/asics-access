@@ -9,6 +9,8 @@ angular.module('asics').controller('IndexCtrl', [
   function ($scope, $state, $window, $timeout, $location, googlemaps, smoothScroll) {
     $scope.isDialogOpen = false;
     $scope.isLocationFound = false;
+    $scope.distance = '';
+    $scope.duration = '';
     $scope.address = {
       name: ''
     };
@@ -78,7 +80,7 @@ angular.module('asics').controller('IndexCtrl', [
         function onSearchTextChanged() {
           clearTimeout(searchTimeout);
           if ($scope.address.name)
-            searchTimeout = $timeout(applySearch, 3000);
+            searchTimeout = $timeout(applySearch, 4000);
           else
             $scope.isLocationFound = false;
         }
@@ -86,6 +88,7 @@ angular.module('asics').controller('IndexCtrl', [
         function applySearch() {
           var start = $scope.address.name;
           var end = new google.maps.LatLng(hubLat, hubLng);
+
           var request = {
             origin: start,
             destination: end,
@@ -95,6 +98,9 @@ angular.module('asics').controller('IndexCtrl', [
           directionsService.route(request, function (result, status) {
             if (status == google.maps.DirectionsStatus.OK) {
               directionsDisplay.setDirections(result);
+
+              $scope.distance = result.routes[0].legs[0].distance.text;
+              $scope.duration = result.routes[0].legs[0].duration.text;
             }
           });
 
