@@ -24,7 +24,6 @@ angular.module('asics').factory('googlemaps', ['$window', '$q',
   asyncLoad(asyncUrl, 'googleMapsInitialized');
 
   return {
-
     // usage: Initializer.mapsInitialized.then(callback)
     mapsInitialized : mapsDefer.promise
   };
