@@ -43,7 +43,7 @@ angular.module('asics').service('smoothScroll', function () {
 
     function elmYPosition(eID) {
       var elm = document.getElementById(eID);
-      var y = elm.offsetTop;
+      var y = elm.offsetTop - 110;
       var node = elm;
       while (node.offsetParent && node.offsetParent != document.body) {
         node = node.offsetParent;

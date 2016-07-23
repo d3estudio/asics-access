@@ -64,17 +64,17 @@
             </ul>
           </nav>
 
-          <nav id="search-nav">
-            <p class="sn-btn">
-              Buscar
-            </p>
-            <form action="http://www.asics.com.br" id="search" class="sn-form">
-              <input type="submit"
-                     placeholder="Search"
-                     value="ok"
-                     class="btn-submit"/>
-            </form>
-          </nav>
+          <!--<nav id="search-nav">-->
+            <!--<p class="sn-btn">-->
+              <!--Buscar-->
+            <!--</p>-->
+            <!--<form action="http://www.asics.com.br" id="search" class="sn-form">-->
+              <!--<input type="submit"-->
+                     <!--placeholder="Search"-->
+                     <!--value="ok"-->
+                     <!--class="btn-submit"/>-->
+            <!--</form>-->
+          <!--</nav>-->
 
           <div id="extra-content" class="extra-content"></div>
         </div>
@@ -85,7 +85,8 @@
         <div id="contetnt-header-fixed" class="meio">
           <h1 id="logo" class="logo">
             <a title="Asics"
-               class="logo-link">
+               class="logo-link"
+               ng-click="gotoElement('home')" >
               <img src="/images/asics-logo.png"
                    alt="Asics"
                    title="Asics"
@@ -215,7 +216,7 @@
             </div>
             <div class="directions-dialog-button"
                  ng-class="isDialogOpen ? 'dialog-button-open' : 'dialog-button-close'"
-                 ng-click="isDialogOpen == true ? isDialogOpen = false : isDialogOpen = true">
+                 ng-click="openCloseDialog()">
               <img src="/images/hotsite/icon-close.svg">
             </div>
 

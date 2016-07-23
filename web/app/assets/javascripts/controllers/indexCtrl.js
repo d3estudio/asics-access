@@ -20,6 +20,17 @@ angular.module('asics').controller('IndexCtrl', [
       smoothScroll.scrollTo(eID);
     };
 
+    $scope.openCloseDialog = function () {
+      if ($scope.isDialogOpen){
+        $scope.isDialogOpen = false;
+        $scope.isLocationFound = false;
+      } else {
+        $scope.isDialogOpen = true;
+        if ($scope.address.name)
+          $scope.isLocationFound = true;
+      }
+    };
+
     var mapLat = -22.9891368;
     var mapLng = -43.4489302;
     var hubLat = -22.980162;
