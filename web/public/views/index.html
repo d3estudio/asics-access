@@ -65,15 +65,15 @@
           </nav>
 
           <!--<nav id="search-nav">-->
-            <!--<p class="sn-btn">-->
-              <!--Buscar-->
-            <!--</p>-->
-            <!--<form action="http://www.asics.com.br" id="search" class="sn-form">-->
-              <!--<input type="submit"-->
-                     <!--placeholder="Search"-->
-                     <!--value="ok"-->
-                     <!--class="btn-submit"/>-->
-            <!--</form>-->
+          <!--<p class="sn-btn">-->
+          <!--Buscar-->
+          <!--</p>-->
+          <!--<form action="http://www.asics.com.br" id="search" class="sn-form">-->
+          <!--<input type="submit"-->
+          <!--placeholder="Search"-->
+          <!--value="ok"-->
+          <!--class="btn-submit"/>-->
+          <!--</form>-->
           <!--</nav>-->
 
           <div id="extra-content" class="extra-content"></div>
@@ -86,7 +86,7 @@
           <h1 id="logo" class="logo">
             <a title="Asics"
                class="logo-link"
-               ng-click="gotoElement('home')" >
+               ng-click="gotoElement('home')">
               <img src="/images/asics-logo.png"
                    alt="Asics"
                    title="Asics"
@@ -111,10 +111,15 @@
   </div>
 
   <section id="home">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="home col-lg-12 col-md-12 col-sm-12 col-xs-12">
-
+    <video class="asics-video" width="480" poster=""
+           loop loop="loop" onended="replayVideo()"
+           autoplay="true" muted>
+      <source src="/images/hotsite/asics-background-video.mp4">
+    </video>
+    <div class="home">
+      <div class="vertical-align">
+        <div>
+          <h1 class="txt-white">WANT IT MORE<sup class="trademark"></sup></h1>
         </div>
       </div>
     </div>
