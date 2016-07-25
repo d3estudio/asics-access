@@ -121,10 +121,13 @@ angular.module('asics').controller('IndexCtrl', [
 
           directionsService.route(request, function (result, status) {
             if (status == google.maps.DirectionsStatus.OK) {
+              $scope.locationNotFound = false;
               directionsDisplay.setDirections(result);
 
               $scope.distance = result.routes[0].legs[0].distance.text;
               $scope.duration = result.routes[0].legs[0].duration.text;
+            } else {
+              $scope.locationNotFound = true;
             }
           });
 
