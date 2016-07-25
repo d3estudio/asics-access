@@ -29,6 +29,9 @@
 //= require fastclick.js
 //= require qrcode.js
 //= require angular-qrcode.js
+//= require jquery.min.js
+//= require slick.min.js
+//= require angular-slick.min.js
 
 //= require app.js
 //= require services/rsvpFactory.js

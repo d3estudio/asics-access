@@ -13,6 +13,8 @@
  *= require bootstrap.min.css
  *= require angular-material.css
  *= require angular-print.css
+ *= require slick.min.css
+ *= require slick-theme.min.css
 
  *= require style.sass
  */
