@@ -1,96 +1,156 @@
 <div id="invitation-container" class="bg-white">
-  <div id="invitation-header">
-    <h1 class="txt-blue">{{strings.newInvitation}}</h1>
-    <p class="txt-gray">{{strings.title}}
-    </p>
-  </div>
-  <form name="adminForm">
-    <div id="form-fields-container">
+
+  <!--MANUAL INVITATION-->
+  <div ng-show="!csvInvitation">
+    <div id="invitation-header">
+      <h1 class="txt-blue">{{strings.newInvitation}}</h1>
+      <p class="txt-gray">{{strings.title}}</p>
+      <div class="csv-import">
+        Se você já possui alguma lista
+        <span>
+        <a ng-click="csvInvitation = true">
+          importe aqui
+        </a>
+        </span>
+      </div>
+    </div>
+    <form name="adminForm">
+      <div class="form-fields-container">
+        <div class="row">
+          <div id="admin-form-checkbox" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
+            <label>{{strings.asicsAthlete}}</label>
+            <div id="checkbox">
+              <input ng-model="isAthlete" ng-checked="isAthlete" aria-label="Is athlete Asics?"
+                     type="checkbox"
+                     id="inputIsAthlete">
+              <label for="inputIsAthlete"></label>
+            </div>
+          </div>
+          <div ng-if="!isAthlete" id="admin-form-name" class="form-group col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            <label for="inputName">{{strings.formName}}</label>
+            <input ng-model="guest.name" name="name" ng-required="true" names-only="names-only"
+                   class="form-control" id="inputName">
+            <div class="help-block" ng-messages="adminForm.name.$error" ng-show='adminForm.name.$touched'>
+              <p ng-message="required">{{strings.formNameError}}</p>
+            </div>
+          </div>
+          <div ng-if="isAthlete" id="admin-form-athlete-name"
+               class="form-group col-lg-9 col-md-9 col-sm-9 col-xs-9">
+            <label for="inputName">{{strings.formName}}</label>
+            <select name="athleteName" ng-model="athleteGuest.name" class="form-control"
+                    ng-options="athlete as athlete for athlete in athletes" required>
+              <option value="" disabled selected>{{strings.chooseAthlete}}</option>
+            </select>
+            <div class="help-block" ng-messages="adminForm.occupation.$error"
+                 ng-if='adminForm.occupation.$touched && adminForm.occupation.$error'>
+              <p ng-message="required">{{strings.formOccupationError}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row mg-top-15">
+          <div id="admin-form-email" class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-5">
+            <label for="inputEmail">{{strings.formEmail}}</label>
+            <input ng-model="guest.email" name="email" type="email" minlength="5" maxlength="100"
+                   ng-pattern="/^.+@.+..+$/" required="required" class="form-control" id="inputEmail">
+            <div class="help-block" ng-messages="adminForm.email.$error" multiple="" md-auto-hide="true"
+                 ng-if='adminForm.email.$touched && adminForm.email.$error'>
+              <p ng-message="required">{{strings.formEmailRequiredError}}</p>
+              <p ng-message="pattern">{{strings.formEmailInvalidError}}</p>
+            </div>
+          </div>
+          <div id="admin-form-country" class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-3">
+            <label for="inputName">{{strings.formCountry}}</label>
+            <select name="occupation" ng-model="guest.country_key" class="form-control" required
+                    ng-options="key as value for (key, value) in countries[language]">
+
+            </select>
+            <div class="help-block" ng-messages="adminForm.occupation.$error"
+                 ng-if='adminForm.occupation.$touched && adminForm.occupation.$error'>
+              <p ng-message="required">{{strings.formCountryRequireError}}</p>
+            </div>
+          </div>
+          <div id="admin-form-language" class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+            <label for="inputName">{{strings.formLanguage}}</label>
+            <select ng-model="guest.language" name="language" class="form-control">
+              <option ng-selected="true">PT</option>
+              <option>EN</option>
+            </select>
+          </div>
+        </div>
+        <div ng-if="!isAthlete" class="row mg-top-15">
+          <div id="admin-form-occupation" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="inputName">{{strings.formOccupation}}</label>
+            <select name="occupation" ng-model="guest.occupation" class="form-control"
+                    ng-options="occupation as occupation for occupation in occupations" required>
+              <option value="" disabled selected>{{strings.formOccupationOption}}</option>
+            </select>
+            <div class="help-block" ng-messages="adminForm.occupation.$error"
+                 ng-if='adminForm.occupation.$touched && adminForm.occupation.$error'>
+              <p ng-message="required">{{strings.formOccupationRequireError}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="row">
-        <div id="admin-form-checkbox" class="col-lg-3 col-md-3 col-sm-3 col-xs-3">
-          <label>{{strings.asicsAthlete}}</label>
-          <div id="checkbox">
-            <input ng-model="isAthlete" ng-checked="isAthlete" aria-label="Is athlete Asics?"
-                   type="checkbox"
-                   id="inputIsAthlete">
-            <label for="inputIsAthlete"></label>
-          </div>
-        </div>
-        <div ng-if="!isAthlete" id="admin-form-name" class="form-group col-lg-9 col-md-9 col-sm-9 col-xs-9">
-          <label for="inputName">{{strings.formName}}</label>
-          <input ng-model="guest.name" name="name" ng-required="true" names-only="names-only"
-                 class="form-control" id="inputName">
-          <div class="help-block" ng-messages="adminForm.name.$error" ng-show='adminForm.name.$touched'>
-            <p ng-message="required">{{strings.formNameError}}</p>
-          </div>
-        </div>
-        <div ng-if="isAthlete" id="admin-form-athlete-name"
-             class="form-group col-lg-9 col-md-9 col-sm-9 col-xs-9">
-          <label for="inputName">{{strings.formName}}</label>
-          <select name="athleteName" ng-model="athleteGuest.name" class="form-control"
-                  ng-options="athlete as athlete for athlete in athletes" required>
-            <option value="" disabled selected>{{strings.chooseAthlete}}</option>
-          </select>
-          <div class="help-block" ng-messages="adminForm.occupation.$error"
-               ng-if='adminForm.occupation.$touched && adminForm.occupation.$error'>
-            <p ng-message="required">{{strings.formOccupationError}}</p>
-          </div>
+        <div class="admin-form-button"
+             class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <button ng-click="inviteGuest()" ng-class="adminForm.$invalid ? 'btn-disabled' : '' "
+                  ng-disabled="adminForm.$invalid" type="submit"
+                  class="btn btn-default centered">
+            {{strings.sendInvitation}}
+          </button>
         </div>
       </div>
-      <div class="row mg-top-15">
-        <div id="admin-form-email" class="form-group col-lg-6 col-md-6 col-sm-6 col-xs-5">
-          <label for="inputEmail">{{strings.formEmail}}</label>
-          <input ng-model="guest.email" name="email" type="email" minlength="5" maxlength="100"
-                 ng-pattern="/^.+@.+..+$/" required="required" class="form-control" id="inputEmail">
-          <div class="help-block" ng-messages="adminForm.email.$error" multiple="" md-auto-hide="true"
-               ng-if='adminForm.email.$touched && adminForm.email.$error'>
-            <p ng-message="required">{{strings.formEmailRequiredError}}</p>
-            <p ng-message="pattern">{{strings.formEmailInvalidError}}</p>
-          </div>
-        </div>
-        <div id="admin-form-country" class="form-group col-lg-4 col-md-4 col-sm-4 col-xs-3">
-          <label for="inputName">{{strings.formCountry}}</label>
-          <select name="occupation" ng-model="guest.country_key" class="form-control" required
-            ng-options="key as value for (key, value) in countries[language]">
+    </form>
+  </div>
 
-          </select>
-          <div class="help-block" ng-messages="adminForm.occupation.$error"
-               ng-if='adminForm.occupation.$touched && adminForm.occupation.$error'>
-            <p ng-message="required">{{strings.formCountryRequireError}}</p>
-          </div>
-        </div>
-        <div id="admin-form-language" class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
-          <label for="inputName">{{strings.formLanguage}}</label>
-          <select ng-model="guest.language" name="language" class="form-control">
-            <option ng-selected="true">PT</option>
-            <option>EN</option>
-          </select>
-        </div>
-      </div>
-      <div ng-if="!isAthlete" class="row mg-top-15">
-        <div id="admin-form-occupation" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <label for="inputName">{{strings.formOccupation}}</label>
-          <select name="occupation" ng-model="guest.occupation" class="form-control"
-                  ng-options="occupation as occupation for occupation in occupations" required>
-            <option value="" disabled selected>{{strings.formOccupationOption}}</option>
-          </select>
-          <div class="help-block" ng-messages="adminForm.occupation.$error"
-               ng-if='adminForm.occupation.$touched && adminForm.occupation.$error'>
-            <p ng-message="required">{{strings.formOccupationRequireError}}</p>
-          </div>
-        </div>
-      </div>
+  <!--CSV INVITATION-->
+  <div ng-show="csvInvitation">
+    <h1 class="txt-blue">{{strings.newInvitation}}</h1>
+    <p class="txt-gray">{{strings.csvTitle}}</p>
+    <div class="csv-import">
+      <span>
+        <a ng-click="csvInvitation = false">
+          Convidar manualmente
+        </a>
+      </span>
     </div>
+    <form name="adminCsvForm">
+      <div class="form-fields-container csvform-fields">
+        <div class="row">
+          <div id="admin-csvform-email" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="inputCsvEmail">{{strings.formEmail}} <span class="txt-gray subtitle">({{strings.formCsvEmailInfo}})</span></label>
+            <input ng-model="adminEmail" name="adminemail" type="email" minlength="5" maxlength="100"
+                   ng-pattern="/^.+@.+..+$/" required="required" class="form-control">
+            <div class="help-block" ng-messages="adminCsvForm.adminemail.$error" multiple="" md-auto-hide="true"
+                 ng-if='adminCsvForm.adminemail.$touched && adminCsvForm.adminemail.$error'>
+              <p ng-message="required">{{strings.formEmailRequiredError}}</p>
+              <p ng-message="pattern">{{strings.formEmailInvalidError}}</p>
+            </div>
+          </div>
+        </div>
+        <div class="row mg-top-15">
+          <div id="admin-csvform-file" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <label for="inputCsvFile">{{strings.formFile}}</label>
+            <div class="admin-csvform-file-content">
+              <span class="inputFileName txt-blue-dark subtitle">{{file ? strings.formFileSelected : strings.formFileSelect}}</span>
+              <input fileread="file" name="file" type="file" required="required" class="form-control" id="guestListFile">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="admin-form-button admin-csvform-button"
+               class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <button ng-click="sendFile()" ng-class="adminCsvForm.$invalid ? 'btn-disabled' : '' "
+                    ng-disabled="adminCsvForm.$invalid" type="submit"
+                    class="btn btn-default centered">
+              {{strings.sendCsvFile}}
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
 
-    <div class="row">
-      <div id="admin-form-button"
-           class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <button ng-click="inviteGuest()" ng-class="adminForm.$invalid ? 'btn-disabled' : '' "
-                ng-disabled="adminForm.$invalid" type="submit"
-                class="btn btn-default centered">
-          {{strings.sendInvitation}}
-        </button>
-      </div>
-    </div>
-  </form>
+
 </div>

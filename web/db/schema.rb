@@ -11,11 +11,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160718195125) do
+ActiveRecord::Schema.define(version: 20160725120747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
   enable_extension "uuid-ossp"
+  enable_extension "unaccent"
 
   create_table "guests", force: :cascade do |t|
     t.string   "name"

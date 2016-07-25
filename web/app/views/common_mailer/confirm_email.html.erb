@@ -18,7 +18,7 @@
               <tr>
                 <td align="center">
                   <img src="<%= @strings[:img_01] %>"
-                       alt="Hello! This code is your entry to the ASICS Hub." width="600"
+                       alt="<%= @strings[:intro] %>" width="600"
                        style="display:block; width:100%; margin:0 auto"/>
                 </td>
               </tr>
@@ -49,7 +49,7 @@
               <tr>
                 <td height="178" width="212" class="qrcode-lateral" align="left">
                   <img src="<%= @strings[:img_02_lefthand] %>"
-                       alt="If you are having problems to see your code, go to http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %>"
+                       alt="http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %>"
                        class="hand"
                        height="178"
                        width="212"
@@ -71,7 +71,7 @@
                        class="hand"
                        height="178"
                        width="212"
-                       alt="You have got to"
+                       alt="<%= @strings[:when] %> <%= @strings[:where] %>"
                        style="display: block;"
                   />
                 </td>
@@ -131,7 +131,7 @@
               <tr>
                 <td height="34" width="167" class="qrcode-bottom qrcode-bottom-lateral">
                   <img src="<%= @strings[:img_04_left] %>"
-                       alt="You can"
+                       alt="Apple Wallet"
                        class="qrcode-bottom qrcode-bottom-lateral"
                        height="34" width="167"
                        style="display: block;"/>
@@ -139,7 +139,7 @@
                 <td height="34" width="119" class="qrcode-bottom qrcode-bottom-button">
                   <a href="http://asicshub.com.br/files/passbook?qr_code=<%= @user.qr_code %>" target="_blank">
                     <img src="<%= @strings[:img_04_btwallet] %>"
-                         alt="add to Apple Wallet"
+                         alt="http://asicshub.com.br/files/passbook?qr_code=<%= @user.qr_code %>"
                          class="qrcode-bottom qrcode-bottom-button"
                          height="34" width="119"
                          style="display: block;"/>
@@ -147,7 +147,7 @@
                 </td>
                 <td height="34" width="27" class="qrcode-bottom qrcode-bottom-middle">
                   <img src="<%= @strings[:img_04_center] %>"
-                       alt="or"
+                       alt="Print"
                        class="qrcode-bottom qrcode-bottom-middle"
                        height="34" width="27"
                        style="display: block;"/>
@@ -155,7 +155,7 @@
                 <td height="34" width="116" class="qrcode-bottom qrcode-bottom-button">
                   <a href="http://asicshub.com.br/rsvp/print/<%= @user.invite_token %>" target="_blank">
                     <img src="<%= @strings[:img_04_btprint] %>"
-                         alt="print your code"
+                         alt="http://asicshub.com.br/rsvp/print/<%= @user.invite_token %>"
                          class="qrcode-bottom qrcode-bottom-button"
                          height="34" width="116"
                          style="display: block;"/>
@@ -164,7 +164,7 @@
                 </a>
                 <td height="34" width="171" class="qrcode-bottom qrcode-bottom-lateral">
                   <img src="<%= @strings[:img_04_right] %>"
-                       alt="if you want"
+                       alt="<%= @strings[:explanation] %>"
                        class="qrcode-bottom qrcode-bottom-lateral"
                        height="34" width="171"
                        style="display: block;"/>
@@ -196,7 +196,7 @@
               <tr>
                 <td align="center">
                   <img src="<%= @strings[:img_05] %>"
-                       alt="It gives us great pleasure to invite you to our ASICS Hub during the 2016 Rio Olympics."
+                       alt="<%= @strings[:welcome] %>"
                        width="600"
                        style="display:block; width:100%; margin:0 auto"
                 </td>
@@ -204,7 +204,7 @@
               <tr>
                 <td align="center">
                   <img src="<%= @strings[:img_06] %>"
-                       alt="When: AUGUST 03RD UNTIL AUGUST 21ST."
+                       alt="<%= @strings[:when] %>"
                        width="600"
                        style="display:block; width:100%; margin:0 auto"
                 </td>
@@ -212,7 +212,7 @@
               <tr>
                 <td align="center">
                   <img src="<%= @strings[:img_07] %>"
-                       alt="Time: FROM 12PM TO 10PM."
+                       alt="<%= @strings[:where] %>"
                        width="600"
                        style="display:block; width:100%; margin:0 auto"
                 </td>
@@ -220,7 +220,7 @@
               <tr>
                 <td align="center">
                   <img src="<%= @strings[:img_08] %>"
-                       alt="Where: Est. Boca do Mato, 803 Vargem pequena Rio de Janeiro"
+                       alt="<%= @strings[:salutation] %> <%= @strings[:intro] %>"
                        width="600"
                        style="display:block; width:100%; margin:0 auto"
                 </td>
@@ -258,10 +258,16 @@
                   <%= @strings[:salutation] %>
                 </td>
               </tr>
+              <tr>
+                <td height="3" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;"></td>
+              </tr>
               <tr align="left">
                 <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; text-align: left; color: #D4D4D4;">
                   <%= @strings[:intro] %>
                 </td>
+              </tr>
+              <tr>
+                <td height="3" style="font-size:1px; line-height:1px; mso-line-height-rule: exactly;"></td>
               </tr>
               <tr align="center">
                 <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; text-align: left; color: #D4D4D4;">

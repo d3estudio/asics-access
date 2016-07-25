@@ -51,12 +51,12 @@ var adminStrings = {
     guests: "Guests",
     invite: "Invite",
     logs: "Logs",
-    language: "Language"
+    language: "Idioma"
   },
   PT: {
     guests: "Convidados",
     invite: "Convidar",
     logs: "Acessos",
-    language: "Idioma"
+    language: "Language"
   }
 };

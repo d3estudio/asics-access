@@ -1,9 +1,9 @@
 {
     "formatVersion" : 1,
     "passTypeIdentifier" : "pass.do.d3.asicshubaccess",
-    "description" : "Rio 2016 Olympics ASICS hub access pass",
+    "description" : "ASICS hub access pass",
     "teamIdentifier": "T5275267CU",
-    "organizationName": "ASICS BRASIL Distribuição e Comércio de Artigos Esportivos LTDA.",
+    "organizationName": "ASICS BRASIL LTDA.",
     "serialNumber" : "00001",
     "suppressStripShine" : true,
     "labelColor" : "rgb(118, 199, 230)",
