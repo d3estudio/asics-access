@@ -6,10 +6,10 @@
       <h1 class="txt-blue">{{strings.newInvitation}}</h1>
       <p class="txt-gray">{{strings.title}}</p>
       <div class="csv-import">
-        Se você já possui alguma lista
+        {{strings.importYouList}}
         <span>
         <a ng-click="csvInvitation = true">
-          importe aqui
+          {{strings.here}}.
         </a>
         </span>
       </div>
@@ -111,7 +111,7 @@
     <div class="csv-import">
       <span>
         <a ng-click="csvInvitation = false">
-          Convidar manualmente
+          {{strings.manualInvite}}.
         </a>
       </span>
     </div>

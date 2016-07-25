@@ -203,7 +203,10 @@ var adminInvitationStrings = {
     formFileSelect: "Choose your file",
     formFileSelected: "File selected",
     sendInvitation: "SEND INVITATION",
-    sendCsvFile: "SEND FILE"
+    sendCsvFile: "SEND FILE",
+    importYouList: "Import your list",
+    here: "here",
+    manualInvite: "Invite manually"
   },
   PT: {
     newInvitation: "Novo convite",
@@ -229,7 +232,10 @@ var adminInvitationStrings = {
     formFileSelect: "Selecionar um arquivo",
     formFileSelected: "Arquivo selecionado",
     sendInvitation: "ENVIAR CONVITE",
-    sendCsvFile: "ENVIAR ARQUIVO"
+    sendCsvFile: "ENVIAR ARQUIVO",
+    importYouList: "Importe sua lista",
+    here: "aqui",
+    manualInvite: "Convidar manualmente"
   }
 };
 
