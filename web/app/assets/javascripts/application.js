@@ -24,6 +24,7 @@
 //= require angular-ui-router.min.js
 //= require angular-material.min.js
 //= require angular-locale_pt-br.js
+//= require ng-youtube-embed.min.js
 //= require ngMask.min.js
 //= require fastclick.js
 //= require qrcode.js

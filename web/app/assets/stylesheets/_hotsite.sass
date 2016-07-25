@@ -49,10 +49,44 @@ section#home
     left: 50%
     transform: translateX(-50%) translateY(-50%)
   h1
+    line-height: 140px
     font-size: 100px
     font-family: $helvetica-bold
     font-weight: 600
     text-align: center
+  sup
+    top: -64px
+    font-size: 10px
+    font-family: $helvetica-medium
+    font-weight: 600
+  .slogan
+    line-height: 55px
+    font-family: $helvetica-bold
+    font-size: 30px
+    font-weight: 900
+  .watch
+    line-height: 30px
+    font-family: $helvetica-bold
+    font-size: 10px
+    font-weight: 900
+    letter-spacing: 3px
+
+.player-container
+  cursor: pointer
+  border: 1px solid $white
+  border-radius: 80px
+  height: 80px
+  width: 80px
+  &:hover
+    background-color: rgba(0, 0, 0, 0.3)
+
+.player
+  width: 0
+  height: 0
+  border-top: 13px solid transparent
+  border-bottom: 13px solid transparent
+  border-left: 24px solid $white
+  margin: 25px 30px
 
 section#lineup
   height: 400px

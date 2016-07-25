@@ -115,7 +115,9 @@ angular.module('asics').controller('IndexCtrl', [
             }
           });
 
-          $scope.isLocationFound = true;
+          $timeout(function () {
+            $scope.isLocationFound = true;
+          }, 1000);
         }
 
       });
