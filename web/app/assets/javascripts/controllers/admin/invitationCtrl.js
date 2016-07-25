@@ -15,8 +15,6 @@ angular.module('asics').controller('InvitationCtrl', [
     $scope.guest = {};
     $scope.isAthlete = false;
     $scope.athleteGuest = {};
-    $scope.file = '';
-    $scope.csv = '';
     $scope.adminEmail = '';
     $scope.csvFileMessage = '';
 
@@ -51,13 +49,17 @@ angular.module('asics').controller('InvitationCtrl', [
 
     $scope.sendFile = function () {
       var email = $scope.adminEmail;
-      admin.postSendFile(email, $scope.file)
+      var file = document.querySelector('#guestListFile').files[0];
+
+      admin.postSendFile(email, file)
         .then(onImportFileSuccess)
         .catch(errorToast)
     };
 
     $scope.sendCsv = function () {
-      admin.postSendCsvFile($scope.csv)
+      var csv = document.querySelector('#inputCsvFile').files[0];
+
+      admin.postSendCsvFile(csv)
         .then(onImportCsvSuccess)
         .catch(errorToast)
     };
@@ -88,6 +90,9 @@ angular.module('asics').controller('InvitationCtrl', [
     }
 
     function onImportCsvSuccess(message) {
+      console.log('CSV IMPORTADO COM SUCESSO');
+      console.log(message);
+      
       $scope.csvFileMessage = message;
     }
 
@@ -132,7 +137,6 @@ angular.module('asics').controller('InvitationCtrl', [
           .hideDelay(4000)
           .theme('success-toast')
       );
-      clearForm();
     }
 
     function clearForm() {
@@ -149,6 +153,8 @@ angular.module('asics').controller('InvitationCtrl', [
       };
 
       $scope.isAthlete = false;
+
+      if (! $scope.adminForm) return;
 
       $scope.adminForm.$setPristine();
       $scope.adminForm.email.$setUntouched();
