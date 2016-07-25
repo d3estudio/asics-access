@@ -19,6 +19,7 @@ angular.module('asics').controller('IndexCtrl', [
 
     $scope.openVideo = function () {
       $scope.isVideoOpen = true;
+      window.scrollTo(0,0);
       angular.element( document.querySelector( 'body' ) ).addClass('hide-overflow');
     };
 
