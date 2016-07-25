@@ -241,6 +241,10 @@ class AdminController < ApplicationController
     return missing_field_response('language') unless language
     return missing_field_response('country') unless country
 
+    return {  error: 'LanguageInvalid',
+              message: 'Language not supported, should be "PT" or "EN"',
+              action: ['Stop'] } unless ['EN', 'PT'].include? language
+
     email = email.downcase
 
     guest = Guest.where(email: email).first
