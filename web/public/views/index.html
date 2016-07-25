@@ -194,11 +194,16 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding">
-          <ul rn-carousel class="hub-slides image">
-            <li><img src="/images/hotsite/hub1.jpg"></li>
-            <li><img src="/images/hotsite/hub2.jpg"></li>
-            <li><img src="/images/hotsite/hub3.jpg"></li>
+          <ul rn-carousel rn-carousel-controls rn-carousel-easing rn-carousel-controls-allow-loop
+              class="hub-slides image">
+            <li ng-repeat="slide in slides">
+              <img src="{{slide.imgSrc}}">
+            </li>
           </ul>
+          <div class="slide-bt-next"><img src="/images/hotsite/slick-next.png"></div>
+          <div class="slide-bt-prev"><img src="/images/hotsite/slick-prev.png"></div>
+          <div rn-carousel-indicators ng-if="slides.length > 1" slides="slides" rn-carousel-index="carouselIndex"></div>
+
           <div class="section-title">
             ASICS HUB
           </div>
@@ -206,7 +211,6 @@
       </div>
     </div>
   </section>
-
 
   <section id="route">
     <div class="container-fluid">

@@ -170,7 +170,6 @@ section#lineup
       margin: 0 auto
       font-size: 13px
 
-
 .lineup-info
   float: right
   height: 260px
@@ -290,6 +289,49 @@ section#hub
 .hub-slides
   height: 90vh
   width: 100%
+  img
+    height: 90vh
+
+.rn-carousel-control
+  opacity: 0
+  &:hover
+    opacity: 0
+
+.slide-bt-next
+  position: absolute
+  right: 50px
+  top: 45%
+  img
+    height: 60px
+
+.slide-bt-prev
+  position: absolute
+  left: 50px
+  top: 45%
+  img
+    height: 60px
+
+.rn-carousel-control-next, .rn-carousel-control-prev
+  top: 45%
+  height: 60px
+  width: 30px
+
+.rn-carousel-control-next
+  right: 50px !important
+
+.rn-carousel-control-prev
+  left: 50px !important
+
+.rn-carousel-indicator
+  position: absolute
+  bottom: 10px
+  left: 50%
+
+div.rn-carousel-indicator span
+  color: $white
+
+div.rn-carousel-indicator span.active
+  color: $blue-light
 
 section#route
   height: 700px
