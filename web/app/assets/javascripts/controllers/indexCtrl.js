@@ -10,7 +10,7 @@ angular.module('asics').controller('IndexCtrl', [
     $scope.videoLink = 'https://www.youtube.com/embed/OGNReSh_uyo?autoplay=1&modestbranding=1;controls=1;showinfo=0;rel=0;fs=1';
     $scope.isVideoOpen = false;
     $scope.isDialogOpen = false;
-    $scope.isLocationFound = false;
+    $scope.locationFound = false;
     $scope.distance = '';
     $scope.duration = '';
     $scope.address = {
@@ -36,11 +36,12 @@ angular.module('asics').controller('IndexCtrl', [
     $scope.openCloseDialog = function () {
       if ($scope.isDialogOpen){
         $scope.isDialogOpen = false;
-        $scope.isLocationFound = false;
+        $scope.locationFound = false;
       } else {
         $scope.isDialogOpen = true;
         if ($scope.address.name)
-          $scope.isLocationFound = true;
+          $scope.locationFound = true;
+        $scope.locationFound = false;
       }
     };
 
@@ -106,7 +107,7 @@ angular.module('asics').controller('IndexCtrl', [
           if ($scope.address.name)
             searchTimeout = $timeout(applySearch, 4000);
           else
-            $scope.isLocationFound = false;
+            $scope.locationFound = false;
         }
 
         function applySearch() {
@@ -132,7 +133,8 @@ angular.module('asics').controller('IndexCtrl', [
           });
 
           $timeout(function () {
-            $scope.isLocationFound = true;
+            if ($scope.isDialogOpen)
+              $scope.locationFound = true;
           }, 1000);
         }
 

@@ -212,7 +212,7 @@
           </div>
           <div class="txt-blue-dark">
             <div ng-click="isDialogOpen = true"
-                 ng-class="{'dialog-open' : isDialogOpen, 'dialog-bottom-open' : isLocationFound, 'dialog-close' : !isDialogOpen}"
+                 ng-class="{'dialog-open' : isDialogOpen, 'dialog-bottom-open' : locationFound, 'dialog-close' : !isDialogOpen}"
                  class="directions-dialog container">
 
               <div class="dialog-top row">
@@ -236,7 +236,7 @@
                   </div>
                 </div>
               </div>
-              <div ng-if="isLocationFound"
+              <div ng-if="locationFound && isDialogOpen"
                    class="dialog-bottom row">
                 <div ng-if="!locationNotFound" class="dialog-distance txt-white col-lg-9 col-md-9 col-sm-9 col-xs-12">
                   {{duration}} &nbsp; {{distance}}
