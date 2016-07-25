@@ -7,8 +7,7 @@ var asics = angular.module('asics', [
   'ngMask',
   'AngularPrint',
   'monospaced.qrcode',
-  'ngYoutubeEmbed',
-  'slick'
+  'ngYoutubeEmbed'
 ]);
 
 asics.config([
