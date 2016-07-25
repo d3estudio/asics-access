@@ -17,8 +17,14 @@ angular.module('asics').controller('IndexCtrl', [
       name: ''
     };
 
+    $scope.openVideo = function () {
+      $scope.isVideoOpen = true;
+      angular.element( document.querySelector( 'body' ) ).addClass('hide-overflow');
+    };
+
     $scope.closeVideo = function () {
       $scope.isVideoOpen = false;
+      angular.element( document.querySelector( 'body' ) ).removeClass('hide-overflow');
     };
 
     $scope.gotoElement = function (eID) {
