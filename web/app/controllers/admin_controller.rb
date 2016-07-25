@@ -228,8 +228,8 @@ class AdminController < ApplicationController
   end
 
   def search_guests(str)
-    guests = Guest.not_removed
-                  .where('name ILIKE :s OR email ILIKE :s OR occupation ILIKE :s', s: "%#{str}%")
+      guests = Guest.not_removed
+                  .where("unaccent(name) ILIKE unaccent(:s) OR email ILIKE unaccent(:s) OR occupation ILIKE unaccent(:s)", {s: "%#{str}%"})
 
     guests
   end
