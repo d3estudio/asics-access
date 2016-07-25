@@ -58,6 +58,23 @@ section#home
     top: 50%
     left: 50%
     transform: translateX(-50%) translateY(-50%)
+    @include media(xs)
+      display: none
+  .asics-video-placeholder
+    display: none
+    background: url("/images/hotsite/video-placeholder.jpg") center no-repeat
+    background-size: cover
+    margin-top: 25px
+    min-width: 100%
+    min-height: 100%
+    width: auto
+    height: auto
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translateX(-50%) translateY(-50%)
+    @include media(xs)
+      display: block
   h1
     line-height: 140px
     font-size: 100px
