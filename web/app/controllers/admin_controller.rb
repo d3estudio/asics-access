@@ -61,7 +61,7 @@ class AdminController < ApplicationController
       line += 1;
     end
 
-    render json: result
+    render json: { result: result }
   end
 
   def get_guests_information

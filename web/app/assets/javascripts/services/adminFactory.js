@@ -40,11 +40,28 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
   };
 
   o.postSendFile = function (email, file) {
-    return $http.post('/api/admin/spreadsheet/send', {email:email, file:file}).then(parseSuccess, parseError);
+    var formData = new FormData();
+
+    formData.append("file", file);
+    formData.append("email", email);
+
+    return $http.post('/api/admin/spreadsheet/send', formData, {
+        withCredentials: true,
+        headers: {'Content-Type': undefined },
+        transformRequest: angular.identity
+    }).then(parseSuccess, parseError);
   };
 
-  o.postSendCsvFile = function (file) {
-    return $http.post('/api/admin/invite/csv', {file:file}).then(parseSuccess, parseError);
+  o.postSendCsvFile = function (csv) {
+    var formData = new FormData();
+
+    formData.append("csv", csv);
+
+    return $http.post('/api/admin/invite/csv', formData, {
+        withCredentials: true,
+        headers: {'Content-Type': undefined },
+        transformRequest: angular.identity
+    }).then(parseSuccess, parseError);
   };
 
   function parseGuests(response) {
