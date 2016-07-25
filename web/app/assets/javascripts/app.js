@@ -6,7 +6,10 @@ var asics = angular.module('asics', [
   'ngMessages',
   'ngMask',
   'AngularPrint',
-  'monospaced.qrcode'
+  'monospaced.qrcode',
+  'ngYoutubeEmbed',
+  'ngTouch',
+  'angular-carousel'
 ]);
 
 asics.config([
@@ -26,7 +29,8 @@ asics.config([
     $stateProvider
         .state('home', {
           url: '/',
-          templateUrl: '/views/index'
+          templateUrl: '/views/index',
+          controller: 'IndexCtrl'
         })
         .state('rsvp', {
           url: '/rsvp',

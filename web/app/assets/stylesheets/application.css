@@ -11,8 +11,9 @@
  * It is generally better to create a new file per style scope.
  *
  *= require bootstrap.min.css
- *= require angular-material.css
+ *= require angular-material.min.css
  *= require angular-print.css
+ *= require angular-carousel.min.css
 
  *= require style.sass
  */

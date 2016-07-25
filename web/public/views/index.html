@@ -1,2 +1,276 @@
-<div class="in-construction">
+<div id="hotsite-container" ng-class="isVideoOpen ? 'hide-overflow' : ''">
+  <div class="container-fluid">
+    <div class="header-container row">
+      <header id="header" class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div id="content-header" class="centered">
+                <nav id="menu-superior">
+                  <ul class="ms-list">
+                    <li class="ms-item divisoria">
+                      <a target="_blank"
+                         href="http://www.asics.com.br/lojas/"
+                         class="ms-link">
+                        Lojas </a>
+                    </li>
+                    <li class="ms-item">
+                      <a target="_blank"
+                         href="http://www.asicsgoldenrun.com/"
+                         class="ms-link">
+                        Asics Golden Run </a>
+                    </li>
+                  </ul>
+                </nav>
+
+                <nav id="redes-sociais">
+                  <p class="rs-menu">
+                    Redes sociais
+                  </p>
+                  <ul id="rs-list" class="rs-list">
+                    <li class="rs-item facebook">
+                      <a target="_blank"
+                         href="http://www.facebook.com/ASICSBrasil"
+                         class="rs-link">
+                      </a>
+                    </li>
+                    <li class="rs-item instagram">
+                      <a target="_blank"
+                         href="http://instagram.com/asicsbrasil"
+                         class="rs-link">
+                      </a>
+                    </li>
+                    <li class="rs-item twitter">
+                      <a target="_blank"
+                         href="https://twitter.com/ASICSBrasil"
+                         class="rs-link">
+                      </a>
+                    </li>
+                    <li class="rs-item youtube">
+                      <a target="_blank"
+                         href="http://www.youtube.com/asicsbrasil"
+                         class="rs-link">
+                      </a>
+                    </li>
+                    <li class="rs-item flicker">
+                      <a target="_blank"
+                         href="https://www.flickr.com/photos/asicsblog/albums"
+                         class="rs-link">
+                      </a>
+                    </li>
+                    <li class="rs-item email">
+                      <a target="_blank"
+                         href="http://www.asics.com.br/contato/"
+                         class="rs-link">
+                      </a>
+                    </li>
+                  </ul>
+                </nav>
+                <div id="extra-content" class="extra-content"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <header id="header-fixed" class="col-lg-10 col-md-12 col-sm-12 col-xs-12">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+              <div id="bg-cinza"></div>
+              <div id="content-header-fixed">
+                <h1 id="logo" class="logo">
+                  <a title="Asics"
+                     class="logo-link"
+                     ng-click="gotoElement('home')">
+                    <img src="/images/asics-logo.png"
+                         alt="Asics"
+                         title="Asics"
+                         class="logo-img"/>
+                  </a>
+                </h1>
+
+                <nav id="menu-inferior">
+                  <p class="mi-menu">
+                    menu
+                  </p>
+                  <ul class="mi-list">
+                    <li class="mi-item"><a ng-click="gotoElement('lineup')" class="mi-item-link">LINE UP</a></li>
+                    <!--<li class="mi-item"><a ng-click="gotoElement('hub')" class="mi-item-link">ASICS HUB</a></li>-->
+                    <li class="mi-item"><a ng-click="gotoElement('route')" class="mi-item-link">ROUTE</a></li>
+                  </ul>
+                </nav>
+              </div>
+            </div>
+            <div id="bg-cinza-2"></div>
+          </div>
+        </div>
+      </header>
+    </div>
+  </div>
+
+  <section id="home">
+    <video class="asics-video" width="480" poster=""
+           loop loop="loop" onended="replayVideo()"
+           autoplay="true" muted>
+      <source src="/images/hotsite/asics-background-video.mp4">
+    </video>
+    <div class="asics-video-placeholder">
+    </div>
+    <div class="home">
+      <div class="vertical-align">
+        <div class="centered text-center">
+          <div>
+            <h1 class="txt-white">WANT IT MORE<sup class="trademark">TM</sup></h1>
+          </div>
+          <div>
+            <span class="slogan txt-white">FOR YOU. FOR THEM.</span>
+          </div>
+          <a ng-click="openVideo()" class="player-container centered">
+            <div class="player"></div>
+          </a>
+          <div>
+            <span class="watch txt-white">WATCH THE FILM</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div ng-if="isVideoOpen" class="youtube-video">
+      <ng-youtube-embed
+        url="videoLink"
+        autoplay="true"
+        color="white"
+        disablekb="true"
+        end="20"
+        width="90%"
+        height="100%"
+        fs="false"
+        ivloadpolicy="false"
+        rel="false"
+        showinfo="false">
+      </ng-youtube-embed>
+      <div ng-click="closeVideo()" class="button-close-video">
+        <img src="/images/hotsite/close-video.png">
+      </div>
+    </div>
+  </section>
+
+  <section id="lineup">
+    <div class="vertical-align">
+      <div class="container">
+        <div class="centered row">
+          <div class="lineup-info centered col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="section-title">
+              ASICS HUB SCHEDULE
+            </div>
+            <div class="info-when txt-blue">WHEN:</div>
+            <div class="info-day txt-blue-dark">AUGUST <strong>30TH</strong></div>
+            <div class="info-day txt-blue-dark">UNTIL AUGUST <strong>21TH</strong></div>
+            <div class="info-hour txt-gray">FROM <strong>12PM</strong> TO <strong>10PM</strong></div>
+          </div>
+          <div class="lineup-message txt-blue-dark centered col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="message-description txt-right">
+              <p>If you want it more than all night parties.</p>
+              <p>If you want it more than sleep.</p>
+              <p>If you want it more than perfect hair.</p>
+              <p>Or cake.</p>
+              <br><br>
+              <p>More than straight teeth and a pretty nose.</p>
+              <p>More than soft hands.</p>
+              <p>If you really want to be an athlete,</p>
+              <p>just wanting it isn't enough.</p>
+            </div>
+            <div class="message-slogan txt-right">
+              <p>YOU'VE GOT TO WANT IT MORE</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="hub">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding">
+          <ul rn-carousel rn-carousel-controls rn-carousel-easing rn-carousel-controls-allow-loop
+              class="hub-slides image">
+            <li ng-repeat="slide in slides">
+              <img src="{{slide.imgSrc}}">
+            </li>
+          </ul>
+          <div class="slide-bt-next"><img src="/images/hotsite/slick-next.png"></div>
+          <div class="slide-bt-prev"><img src="/images/hotsite/slick-prev.png"></div>
+          <div rn-carousel-indicators ng-if="slides.length > 1" slides="slides" rn-carousel-index="carouselIndex"></div>
+
+          <div class="section-title">
+            ASICS HUB
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="route">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 nopadding">
+          <div id="google-map"></div>
+          <div class="section-title">
+            ROUTE
+          </div>
+          <div class="txt-blue-dark">
+            <div ng-click="isDialogOpen = true"
+                 ng-class="{'dialog-open' : isDialogOpen, 'dialog-bottom-open' : locationFound, 'dialog-close' : !isDialogOpen}"
+                 class="directions-dialog container">
+
+              <div class="dialog-top row">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                  <div class="dialog-title">HOW TO GET</div>
+                </div>
+                <div ng-if="isDialogOpen" class="dialog-content">
+                  <div class="col-lg-1 col-md-1 col-sm-1 col-xs-0">
+                    <div class="dialog-icon">
+                      <img src="/images/hotsite/icon-route.svg">
+                    </div>
+                  </div>
+                  <div class="col-lg-11 col-md-11 col-sm-11 col-xs-12">
+                    <div>
+                      <div class="dialog-start">
+                        <input id="search-address" type="text" name="address" ng-model="address.name"
+                               placeholder="ENTER AN ADDRESS"/>
+                      </div>
+                      <div class="dialog-end">EST. BOCA DO MATO, 803<br>VARGEM PEQUENA - RJ</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div ng-if="locationFound && isDialogOpen"
+                   class="dialog-bottom row">
+                <div ng-if="!locationNotFound" class="dialog-distance txt-white col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                  {{duration}} &nbsp; {{distance}}
+                </div>
+                <div ng-if="locationNotFound" class="dialog-distance txt-white col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                  LOCATION NOT FOUND
+                </div>
+                <div class="dialog-button-new txt-blue-dark col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                  <button ng-click="address.name = ''">
+                    NEW ROUTE
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="directions-dialog-button"
+                 ng-class="isDialogOpen ? 'dialog-button-open' : 'dialog-button-close'"
+                 ng-click="openCloseDialog()">
+              <img src="/images/hotsite/icon-close.svg">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
 </div>

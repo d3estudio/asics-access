@@ -24,16 +24,22 @@
 //= require angular-ui-router.min.js
 //= require angular-material.min.js
 //= require angular-locale_pt-br.js
+//= require ng-youtube-embed.min.js
 //= require ngMask.min.js
 //= require fastclick.js
 //= require qrcode.js
 //= require angular-qrcode.js
+//= require angular-touch.min.js
+//= require angular-carousel.min.js
 
 //= require app.js
 //= require services/rsvpFactory.js
 //= require services/authFactory.js
 //= require services/adminFactory.js
 //= require services/countriesFactory.js
+//= require services/googleMapsService.js
+//= require services/smoothScrollService.js
+//= require controllers/indexCtrl.js
 //= require controllers/rsvpCtrl.js
 //= require controllers/rsvpConfirmedCtrl.js
 //= require controllers/rsvpConfirmedPrintCtrl.js

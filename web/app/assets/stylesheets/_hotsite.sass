@@ -1,0 +1,500 @@
+@import "asicswebsite"
+
+#hotsite-container
+  background-color: $white
+
+.hide-overflow
+  overflow: hidden
+
+.header-container
+  position: fixed
+  width: 100%
+  background-color: $blue
+  z-index: 1
+  @include media(xs)
+    position: absolute
+
+section
+  width: 100%
+  display: table
+
+.section-title
+  height: 120px
+  width: 340px
+  border: 2px solid $blue
+  font: 600 40px/112px $helvetica-medium
+  color: $blue
+  text-align: center
+  @include media(xs)
+    height: 60px
+    width: 170px
+    font-size: 20px
+    line-height: 58px
+
+.vertical-align
+  display: table-cell
+  vertical-align: middle
+
+section#home
+  width: 100%
+  overflow: hidden
+  position: relative
+  height: 100vh
+  background: $white
+  .home
+    display: table
+    width: 100%
+  .vertical-align
+    height: 100vh
+    width: 100%
+    position: relative
+  video
+    margin-top: 25px
+    min-width: 100%
+    min-height: 100%
+    width: auto
+    height: auto
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translateX(-50%) translateY(-50%)
+    @include media(xs)
+      display: none
+  .asics-video-placeholder
+    display: none
+    background: url("/images/hotsite/video-placeholder.jpg") center no-repeat
+    background-size: cover
+    margin-top: 25px
+    min-width: 100%
+    min-height: 100%
+    width: auto
+    height: auto
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translateX(-50%) translateY(-50%)
+    @include media(xs)
+      display: block
+  h1
+    line-height: 140px
+    font-size: 100px
+    font-family: $helvetica-bold
+    font-weight: 600
+    text-align: center
+    @include media(sm)
+      font-size: 66px
+    @include media(xs)
+      font-size: 32px
+      line-height: 32px
+  sup
+    top: -64px
+    font-size: 10px
+    font-family: $helvetica-medium
+    font-weight: 600
+    @include media(xs)
+      top: -19px
+      font-size: 5px
+      font-weight: 900
+  .slogan
+    line-height: 55px
+    font-family: $helvetica-bold
+    font-size: 30px
+    font-weight: 900
+    @include media(xs)
+      font-size: 16px
+  .watch
+    line-height: 30px
+    font-family: $helvetica-bold
+    font-size: 10px
+    font-weight: 900
+    letter-spacing: 3px
+
+.player-container
+  cursor: pointer
+  border: 1px solid $white
+  border-radius: 80px
+  height: 80px
+  width: 80px
+  &:hover
+    background-color: rgba(0, 0, 0, 0.3)
+
+.player
+  width: 0
+  height: 0
+  border-top: 13px solid transparent
+  border-bottom: 13px solid transparent
+  border-left: 24px solid $white
+  margin: 25px 30px
+
+.youtube-video
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 2
+  background-color: rgba(0, 0, 0, 0.8)
+  iframe
+    height: 90vh
+    margin: 50px auto
+    display: block
+
+.button-close-video
+  cursor: pointer
+  position: absolute
+  top: 30px
+  right: 55px
+  @include media(md)
+    right: 33px
+  @include media(sm)
+    right: 22px
+  @include media(xs)
+    right: 5px
+  img
+    height: 40px
+    width: 40px
+
+section#lineup
+  height: 400px
+  @include media(sm)
+    height: 630px
+  .container
+    padding: 0 50px
+    @include media(xs)
+      padding: 0
+  .section-title
+    font-size: 23px
+    @include media(sm)
+      margin: 0 auto
+    @include media(xs)
+      margin: 0 auto
+      font-size: 13px
+
+.lineup-info
+  float: right
+  height: 260px
+  border-left: 2px solid $blue
+  padding-left: 40px
+  @include media(sm)
+    float: none
+    text-align: center
+    border-left: none
+    border-bottom: 2px solid $blue
+    height: 290px
+    width: 75%
+    margin-top: 55px
+    padding-right: 0
+    padding-left: 0
+  @include media(xs)
+    float: none
+    text-align: center
+    border-left: none
+    border-bottom: 2px solid $blue
+    width: 75%
+    margin-top: 30px
+    padding-right: 0
+    padding-left: 0
+    height: 240px
+
+  .info-when
+    margin-top: 50px
+    font-weight: 600
+    margin-bottom: 5px
+
+  .info-day
+    font-size: 26px
+    line-height: 28px
+    @include media(xs)
+      font-size: 22px
+
+  .info-hour
+    font-size: 16px
+    font-weight: 400
+    line-height: 24px
+    width: 260px
+    border-top: 1px solid $gray
+    margin-top: 5px
+    @include media(sm)
+      display: block
+      margin: 0 auto
+    @include media(xs)
+      display: block
+      margin: 0 auto
+      width: auto
+
+.lineup-message
+  padding-top: 15px
+  padding-right: 40px
+  @include media(sm)
+    margin-top: 30px
+    margin-bottom: 40px
+    padding-right: 0
+    padding-left: 0
+    text-align: center
+  @include media(xs)
+    margin-top: 15px
+    margin-bottom: 40px
+    padding-right: 0
+    padding-left: 0
+    text-align: center
+  .message-description
+    float: right
+    @include media(sm)
+      float: none
+    @include media(xs)
+      float: none
+    p
+      font-size: 16px
+      font-weight: 400
+      line-height: 23px
+      @include media(sm)
+        text-align: center
+      @include media(xs)
+        text-align: center
+        font-size: 14px
+        line-height: 18px
+
+  .message-slogan
+    float: right
+    margin-top: 20px
+    @include media(sm)
+      margin-top: 30px
+      float: none
+    @include media(xs)
+      margin-top: 30px
+      float: none
+    p
+      font: italic 900 20px/35px $helvetica-medium
+      @include media(sm)
+        text-align: center
+      @include media(xs)
+        text-align: center
+        font-size: 15px
+
+section#hub
+  height: 90vh
+  background-color: $blue-light
+  .section-title
+    position: absolute
+    top: 60px
+    left: 90px
+    color: $white
+    border-color: $white
+    @include media(sm)
+      left: 15px
+    @include media(xs)
+      left: 10px
+      top: 30px
+
+.hub-slides
+  height: 90vh
+  width: 100%
+  img
+    height: 90vh
+
+.rn-carousel-control
+  opacity: 0
+  &:hover
+    opacity: 0
+
+.slide-bt-next
+  position: absolute
+  right: 50px
+  top: 45%
+  img
+    height: 60px
+
+.slide-bt-prev
+  position: absolute
+  left: 50px
+  top: 45%
+  img
+    height: 60px
+
+.rn-carousel-control-next, .rn-carousel-control-prev
+  top: 45%
+  height: 60px
+  width: 30px
+
+.rn-carousel-control-next
+  right: 50px !important
+
+.rn-carousel-control-prev
+  left: 50px !important
+
+.rn-carousel-indicator
+  position: absolute
+  bottom: 10px
+  left: 50%
+
+div.rn-carousel-indicator span
+  color: $white
+
+div.rn-carousel-indicator span.active
+  color: $blue-light
+
+section#route
+  height: 700px
+  .section-title
+    position: absolute
+    top: 60px
+    right: 90px
+    @include media(sm)
+      right: 15px
+    @include media(xs)
+      right: 10px
+      top: 30px
+
+#google-map
+  height: 700px
+  width: 100%
+
+.gmnoprint
+  display: none
+
+.directions-dialog
+  cursor: pointer
+  background-color: $white
+  border: 2px solid $blue
+  padding: 20px 15px
+  position: absolute
+  top: 210px
+  right: 90px
+  width: 470px
+  height: 92px
+  opacity: 0.85
+  animation: increase ease 0.2s
+  transition: height $anim-duration, padding $anim-duration
+  @include media(sm)
+    right: 15px
+  @include media(xs)
+    right: 10px
+    top: 100px
+    width: 220px
+    height: 60px
+    padding: 5px 15px
+
+  .dialog-top
+    padding-left: 10px
+    padding-right: 10px
+    @include media(xs)
+      padding-left: 0
+      padding-right: 0
+
+  .dialog-title
+    font-size: 28px
+    line-height: 48px
+    font-weight: 600
+    @include media(xs)
+      font-size: 16px
+      line-height: 44px
+
+  .dialog-start
+    margin-top: 15px
+    color: $black-light
+    font-size: 20px
+    font-style: italic
+    border-bottom: 2px solid $blue
+    width: 100%
+    padding: 6px 0
+    @include media(xs)
+      font-size: 16px
+      padding: 0
+      margin-top: 25px
+    input
+      width: 400px
+      padding-left: 0
+      border: none
+      background-color: transparent
+      box-shadow: 0
+      @include media(xs)
+        width: 100%
+
+  .dialog-end
+    margin-top: 30px
+    font-size: 20px
+    border-bottom: 2px solid $blue
+    width: 100%
+    line-height: 25px
+    padding: 6px 0
+    @include media(xs)
+      margin-top: 20px
+      font-size: 14px
+      line-height: 16px
+      padding: 0
+
+  .dialog-icon img
+    width: 18px
+    height: 192px
+    @include media(xs)
+      display: none
+
+.directions-dialog-button
+  color: $blue
+  position: absolute
+  top: 243px
+  right: 120px
+  width: 25px
+  height: 25px
+  @include media(xs)
+    top: 120px
+    right: 25px
+    width: 17px
+    height: 17px
+
+.dialog-distance
+  background-color: $blue
+  font-size: 14px
+  text-transform: uppercase
+  line-height: 36px
+  height: 36px
+  @include media(xs)
+    margin-top: 30px
+    font-size: 12px
+    text-align: center
+
+.dialog-button-new
+  font-size: 14px
+  line-height: 36px
+  text-align: center
+  height: 36px
+  button
+    width: 100%
+
+.dialog-bottom
+  opacity: 0
+
+.dialog-button-open
+  transform: rotate(0deg)
+  transition: transform $anim-duration
+
+.dialog-button-close
+  transform: rotate(135deg)
+  transition: transform $anim-duration
+
+.dialog-open
+  height: 260px
+  @include media(xs)
+    height: 210px
+  .dialog-content
+    opacity: 1
+    transition: opacity $anim-duration
+
+.dialog-bottom-open
+  height: 300px
+  @include media(xs)
+    height: 260px
+  .dialog-bottom
+    opacity: 1
+    transition: opacity, height $anim-duration
+    transition-delay: $anim-duration
+
+.dialog-close
+  .dialog-content
+    opacity: 0
+  .dialog-bottom
+    height: 0
+
+
+
+
