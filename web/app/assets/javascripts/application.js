@@ -29,6 +29,8 @@
 //= require fastclick.js
 //= require qrcode.js
 //= require angular-qrcode.js
+//= require angular-touch.min.js
+//= require angular-carousel.min.js
 
 //= require app.js
 //= require services/rsvpFactory.js

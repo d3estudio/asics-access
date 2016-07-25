@@ -7,7 +7,9 @@ var asics = angular.module('asics', [
   'ngMask',
   'AngularPrint',
   'monospaced.qrcode',
-  'ngYoutubeEmbed'
+  'ngYoutubeEmbed',
+  'ngTouch',
+  'angular-carousel'
 ]);
 
 asics.config([

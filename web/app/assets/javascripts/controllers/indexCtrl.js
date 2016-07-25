@@ -17,15 +17,30 @@ angular.module('asics').controller('IndexCtrl', [
       name: ''
     };
 
+    $scope.slides = [
+      {
+        imgSrc: '/images/hotsite/hub1.jpg',
+        label: 'Cool'
+      },
+      {
+        imgSrc: '/images/hotsite/hub2.jpg',
+        label: 'Hub'
+      },
+      {
+        imgSrc: '/images/hotsite/hub3.jpg',
+        label: 'Nice'
+      }
+    ];
+
     $scope.openVideo = function () {
       $scope.isVideoOpen = true;
-      window.scrollTo(0,0);
-      angular.element( document.querySelector( 'body' ) ).addClass('hide-overflow');
+      window.scrollTo(0, 0);
+      angular.element(document.querySelector('body')).addClass('hide-overflow');
     };
 
     $scope.closeVideo = function () {
       $scope.isVideoOpen = false;
-      angular.element( document.querySelector( 'body' ) ).removeClass('hide-overflow');
+      angular.element(document.querySelector('body')).removeClass('hide-overflow');
     };
 
     $scope.gotoElement = function (eID) {
@@ -34,7 +49,7 @@ angular.module('asics').controller('IndexCtrl', [
     };
 
     $scope.openCloseDialog = function () {
-      if ($scope.isDialogOpen){
+      if ($scope.isDialogOpen) {
         $scope.isDialogOpen = false;
         $scope.locationFound = false;
       } else {
@@ -102,6 +117,7 @@ angular.module('asics').controller('IndexCtrl', [
         $scope.$watch('address.name', onSearchTextChanged);
 
         var searchTimeout;
+
         function onSearchTextChanged() {
           clearTimeout(searchTimeout);
           if ($scope.address.name)
