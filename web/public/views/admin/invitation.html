@@ -121,7 +121,7 @@
           <div id="admin-csvform-email" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <label for="inputCsvEmail">{{strings.formEmail}} <span class="txt-gray subtitle">({{strings.formCsvEmailInfo}})</span></label>
             <input ng-model="adminEmail" name="adminemail" type="email" minlength="5" maxlength="100"
-                   ng-pattern="/^.+@.+..+$/" required="required" class="form-control" id="guestListFile">
+                   ng-pattern="/^.+@.+..+$/" required="required" class="form-control">
             <div class="help-block" ng-messages="adminCsvForm.adminemail.$error" multiple="" md-auto-hide="true"
                  ng-if='adminCsvForm.adminemail.$touched && adminCsvForm.adminemail.$error'>
               <p ng-message="required">{{strings.formEmailRequiredError}}</p>
@@ -134,7 +134,7 @@
             <label for="inputCsvFile">{{strings.formFile}}</label>
             <div class="admin-csvform-file-content">
               <span class="inputFileName txt-blue-dark subtitle">{{file ? strings.formFileSelected : strings.formFileSelect}}</span>
-              <input fileread="file" name="file" type="file" required="required" class="form-control" id="inputCsvFile">
+              <input fileread="file" name="file" type="file" required="required" class="form-control" id="guestListFile">
             </div>
           </div>
         </div>
