@@ -46,6 +46,8 @@
   left: 0
   z-index: 2
   background: url(/images/hotsite/bg-header-fixed.png) top left repeat-x
+  @include media(xs)
+    height: 52px
   &.fixed
     position: fixed
     top: 0
@@ -58,6 +60,8 @@
   left: 25%
   right: 0
   background: url(/images/hotsite/bg-cinza.jpg) top left repeat-x
+  @include media(xs)
+    display: none
 
 #bg-cinza-2
   height: 66px
@@ -65,6 +69,8 @@
   right: 0
   left: 80%
   background: url(/images/hotsite/bg-cinza.jpg) top left repeat-x
+  @include media(xs)
+    display: none
 
 #rs-list .rs-item
   height: 30px
@@ -119,6 +125,8 @@
 #redes-sociais
   float: right
   margin-top: 9px
+  @include media(xs)
+    display: none
   .rs-menu
     display: none
 
@@ -155,19 +163,23 @@
 
 #logo
   cursor: pointer
-  margin-top: 11px
+  margin-top: 6px
   z-index: 9
   .logo-link
     display: block
   img
     width: auto
     height: 37px
+    @include media(xs)
+      height: 27px
 
 #menu-inferior
   height: 66px
   position: absolute
   left: 155px
   top: 0
+  @include media(xs)
+    display: none
   .mi-menu
     display: none
   .mi-list .mi-item
