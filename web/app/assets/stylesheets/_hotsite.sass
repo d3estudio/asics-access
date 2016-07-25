@@ -3,6 +3,9 @@
 #hotsite-container
   background-color: $white
 
+.hide-overflow
+  overflow: hidden
+
 .header-container
   position: fixed
   width: 100%
@@ -87,6 +90,28 @@ section#home
   border-bottom: 13px solid transparent
   border-left: 24px solid $white
   margin: 25px 30px
+
+.youtube-video
+  position: absolute
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: 2
+  background-color: rgba(0, 0, 0, 0.8)
+  iframe
+    height: 90vh
+    margin: 50px auto
+    display: block
+
+.button-close-video
+  cursor: pointer
+  position: absolute
+  top: 30px
+  right: 55px
+  img
+    height: 40px
+    width: 40px
 
 section#lineup
   height: 400px

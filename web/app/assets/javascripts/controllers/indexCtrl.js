@@ -7,12 +7,18 @@ angular.module('asics').controller('IndexCtrl', [
   'googlemaps',
   'smoothScroll',
   function ($scope, $state, $window, $timeout, $location, googlemaps, smoothScroll) {
+    $scope.videoLink = 'https://www.youtube.com/embed/OGNReSh_uyo?autoplay=1&modestbranding=1;controls=1;showinfo=0;rel=0;fs=1';
+    $scope.isVideoOpen = false;
     $scope.isDialogOpen = false;
     $scope.isLocationFound = false;
     $scope.distance = '';
     $scope.duration = '';
     $scope.address = {
       name: ''
+    };
+
+    $scope.closeVideo = function () {
+      $scope.isVideoOpen = false;
     };
 
     $scope.gotoElement = function (eID) {
