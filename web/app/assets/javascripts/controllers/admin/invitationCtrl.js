@@ -87,12 +87,14 @@ angular.module('asics').controller('InvitationCtrl', [
     function onImportFileSuccess() {
       successImportFileToast();
       clearFileForm();
+      
+      $scope.csvInvitation = false;
     }
 
     function onImportCsvSuccess(message) {
       console.log('CSV IMPORTADO COM SUCESSO');
       console.log(message);
-      
+
       $scope.csvFileMessage = message;
     }
 
