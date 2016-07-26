@@ -13,5 +13,6 @@ module AsicsAccess
     # -- all .rb files in that directory are automatically loaded
 
     config.custom_base_url = ENV['CUSTOM_BASE_URL'] ? ENV['CUSTOM_BASE_URL'] : 'http://www.asicshub.com.br'
+    puts "BASE_URL: " + Rails.configuration.custom_base_url
   end
 end
