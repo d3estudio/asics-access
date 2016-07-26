@@ -42,7 +42,7 @@ class CommonMailer < ApplicationMailer
     invite_strings = {
       EN: {
         img_01: 'http://asicshub.com.br/images/email/invitation/en/asics_01.jpg',
-        img_02: 'http://asicshub.com.br/images/email/invitation/en/asics_02.jpg',
+        img_02: 'http://asicshub.com.br/images/email/invitation/en/asics_02.jpg?v=2',
         img_03: 'http://asicshub.com.br/images/email/invitation/en/asics_03.jpg?v=2',
         img_04: 'http://asicshub.com.br/images/email/invitation/en/asics_04.jpg?v=2',
         img_05: 'http://asicshub.com.br/images/email/invitation/en/asics_05.jpg',
