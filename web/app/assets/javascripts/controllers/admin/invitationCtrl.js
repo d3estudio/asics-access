@@ -166,6 +166,7 @@ angular.module('asics').controller('InvitationCtrl', [
     }
 
     function clearFileForm() {
+
       if ($scope.adminEmail)
         $scope.adminEmail = '';
       if ($scope.file)
