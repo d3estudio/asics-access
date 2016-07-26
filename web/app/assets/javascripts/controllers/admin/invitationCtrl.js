@@ -171,6 +171,9 @@ angular.module('asics').controller('InvitationCtrl', [
         $scope.adminEmail = '';
       if ($scope.file)
         $scope.file = '';
+
+      $scope.adminCsvForm.$setPristine();
+      $scope.adminCsvForm.adminemail.$setUntouched();
     }
 
     $scope.$on('$viewContentLoaded', function () {
