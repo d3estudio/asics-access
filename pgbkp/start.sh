@@ -1,5 +1,10 @@
 set -e # stop if any of these commands fail
 
+if [ "$DISABLE_BACKUP" = "TRUE"  ]; then
+    echo "DATABASE AUTO BACKUP DISABLED"
+    exit 0
+fi
+
 : ${POSTGRES_USER:?"--POSTGRES_USER is not set"}
 : ${AWS_ACCESS_KEY_ID:?"-e AWS_ACCESS_KEY_ID is not set"}
 : ${AWS_SECRET_ACCESS_KEY:?"-e AWS_SECRET_ACCESS_KEY is not set"}
