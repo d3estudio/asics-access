@@ -21,10 +21,7 @@ angular.module('asics').controller('RsvpConfirmedPrintCtrl', [
     }
 
     function closeWindow() {
-      console.log(1234)
-      var currentDocument = angular.element( document.querySelector( '#confirmed-print-page' ) );
-      console.log(currentDocument)
-      currentDocument[0].onfocus = function () {
+      $window.onfocus = function () {
         console.log('focus')
         $timeout(function () {
           $window.close();
