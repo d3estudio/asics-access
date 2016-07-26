@@ -12,7 +12,7 @@ echo "Starting Postgres backup procedure"
 source /tmp/env.sh
 
 DATE=$(date +%Y%m%d_%H%M%S)
-PGDUMPFILE="/tmp/$PREFIX-$DATE.sql"
+PGDUMPFILE="/tmp/$HOSTNAME-$PREFIX-$DATE.sql"
 S3_URI="s3://$S3_BUCKET_NAME/"
 
 echo "Running pg_dumpall with user $POSTGRES_USER"
