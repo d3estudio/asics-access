@@ -65,12 +65,12 @@ class AdminController < ApplicationController
   end
 
   def get_guests_information
-    guests = Guest.not_removed.order(created_at: :desc).limit(50)
+    guests = Guest.not_removed.order(created_at: :desc)
     count = get_count_of_guests(guests)
 
     result = {
       count: count,
-      guests: guests
+      guests: guests.limit(50)
     }
 
     render json: { succeeded: true, result: result }
