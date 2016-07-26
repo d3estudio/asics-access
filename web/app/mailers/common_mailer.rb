@@ -1,5 +1,5 @@
 class CommonMailer < ApplicationMailer
-  default from: "\"Asics Hub\" <no-reply@asicshub.com.br>"
+  default from: "\"ASICS Hub\" <no-reply@asicshub.com.br>"
 
 
 
@@ -7,14 +7,14 @@ class CommonMailer < ApplicationMailer
     @user = user
 
     @strings = get_invite_strings
-    mail(to: @user.email, subject: 'Asics Hub: Convite')
+    mail(to: @user.email, subject: 'ASICS Hub: Convite')
   end
 
   def confirm_email(user)
     @user = user
     get_qr_code_html_string user.qr_code
     @strings = get_confirm_strings
-    mail(to: @user.email, subject: 'Asics Hub: Confirmação')
+    mail(to: @user.email, subject: 'ASICS Hub: Confirmação')
   end
 
 
@@ -42,7 +42,7 @@ class CommonMailer < ApplicationMailer
     invite_strings = {
       EN: {
         img_01: 'http://asicshub.com.br/images/email/invitation/en/asics_01.jpg',
-        img_02: 'http://asicshub.com.br/images/email/invitation/en/asics_02.jpg',
+        img_02: 'http://asicshub.com.br/images/email/invitation/en/asics_02.jpg?v=2',
         img_03: 'http://asicshub.com.br/images/email/invitation/en/asics_03.jpg?v=2',
         img_04: 'http://asicshub.com.br/images/email/invitation/en/asics_04.jpg?v=2',
         img_05: 'http://asicshub.com.br/images/email/invitation/en/asics_05.jpg',

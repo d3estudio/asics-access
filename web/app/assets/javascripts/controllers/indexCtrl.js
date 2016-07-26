@@ -7,7 +7,8 @@ angular.module('asics').controller('IndexCtrl', [
   'googlemaps',
   'smoothScroll',
   function ($scope, $state, $window, $timeout, $location, googlemaps, smoothScroll) {
-    $scope.videoLink = 'https://www.youtube.com/embed/OGNReSh_uyo?autoplay=1&modestbranding=1;controls=1;showinfo=0;rel=0;fs=1';
+    $scope.videoLink = 'https://www.youtube.com/embed/OGNReSh_uyo';
+    $scope.backgroundVideoSrc = '';
     $scope.isVideoOpen = false;
     $scope.isDialogOpen = false;
     $scope.locationFound = false;
@@ -31,6 +32,14 @@ angular.module('asics').controller('IndexCtrl', [
         label: 'Nice'
       }
     ];
+
+    function loadBackgroundVideo() {
+      angular.element(document.querySelector('video')).bind('error', function (event) {
+        $state.reload();
+      }, true);
+
+      $scope.backgroundVideoSrc = '/images/hotsite/asics-background-video.mp4';
+    }
 
     $scope.openVideo = function () {
       $scope.isVideoOpen = true;
@@ -59,6 +68,7 @@ angular.module('asics').controller('IndexCtrl', [
         $scope.locationFound = false;
       }
     };
+
 
     var mapLat = -22.9891368;
     var mapLng = -43.4489302;
@@ -155,6 +165,10 @@ angular.module('asics').controller('IndexCtrl', [
         }
 
       });
+
+    angular.element(document).ready(function () {
+      loadBackgroundVideo();
+    });
 
   }
 ]);

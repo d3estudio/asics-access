@@ -11,12 +11,22 @@ angular.module('asics').controller('RsvpConfirmedPrintCtrl', [
 
     $scope.$on('$viewContentLoaded', function () {
       popupPrintDialog();
+      closeWindow();
     });
 
     function popupPrintDialog() {
       $timeout(function () {
         $window.print();
-      }, 2000);
+      }, 1600);
+    }
+
+    function closeWindow() {
+      $window.onfocus = function () {
+        console.log('focus')
+        $timeout(function () {
+          $window.close();
+        }, 10);
+      }
     }
 
     rsvp.getGuestByToken($stateParams.token)

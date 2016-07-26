@@ -87,12 +87,14 @@ angular.module('asics').controller('InvitationCtrl', [
     function onImportFileSuccess() {
       successImportFileToast();
       clearFileForm();
+      
+      $scope.csvInvitation = false;
     }
 
     function onImportCsvSuccess(message) {
       console.log('CSV IMPORTADO COM SUCESSO');
       console.log(message);
-      
+
       $scope.csvFileMessage = message;
     }
 
@@ -166,10 +168,14 @@ angular.module('asics').controller('InvitationCtrl', [
     }
 
     function clearFileForm() {
+
       if ($scope.adminEmail)
         $scope.adminEmail = '';
       if ($scope.file)
         $scope.file = '';
+
+      $scope.adminCsvForm.$setPristine();
+      $scope.adminCsvForm.adminemail.$setUntouched();
     }
 
     $scope.$on('$viewContentLoaded', function () {
