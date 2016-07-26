@@ -10,9 +10,11 @@ else
 fi
 
 if [ "$2" = "--soft"  ]; then
-    SCRIPT="prod.sh"
+    SCRIPT="bash scripts/prod-soft.sh"
+elif [ "$1" = "--softest"  ]; then
+    SCRIPT="echo DONE"
 else
-    SCRIPT="prod-soft.sh"
+    SCRIPT="bash scripts/prod.sh"
 fi
 
 ssh -T asics@$REMOTEIP bash -c "'
@@ -23,7 +25,7 @@ echo PULLING UPDATES FROM GIT MASTER
 git fetch --all
 git reset --hard origin/master
 
-bash scripts/${SCRIPT}
+${SCRIPT}
 '"
 
 echo DEPLOY COMPLETED
