@@ -49,7 +49,7 @@
               <tr>
                 <td height="178" width="212" class="qrcode-lateral" align="left">
                   <img src="<%= @strings[:img_02_lefthand] %>"
-                       alt="http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %>"
+                       alt="<%= Rails.configuration.custom_base_url %>/rsvp/confirm/<%= @user.invite_token %>"
                        class="hand"
                        height="178"
                        width="212"
@@ -137,9 +137,9 @@
                        style="display: block;"/>
                 </td>
                 <td height="34" width="119" class="qrcode-bottom qrcode-bottom-button">
-                  <a href="http://asicshub.com.br/files/passbook?qr_code=<%= @user.qr_code %>" target="_blank">
+                  <a href="<%= Rails.configuration.custom_base_url %>/files/passbook?qr_code=<%= @user.qr_code %>" target="_blank">
                     <img src="<%= @strings[:img_04_btwallet] %>"
-                         alt="http://asicshub.com.br/files/passbook?qr_code=<%= @user.qr_code %>"
+                         alt="<%= Rails.configuration.custom_base_url %>/files/passbook?qr_code=<%= @user.qr_code %>"
                          class="qrcode-bottom qrcode-bottom-button"
                          height="34" width="119"
                          style="display: block;"/>
@@ -153,9 +153,9 @@
                        style="display: block;"/>
                 </td>
                 <td height="34" width="116" class="qrcode-bottom qrcode-bottom-button">
-                  <a href="http://asicshub.com.br/rsvp/print/<%= @user.invite_token %>" target="_blank">
+                  <a href="<%= Rails.configuration.custom_base_url %>/rsvp/print/<%= @user.invite_token %>" target="_blank">
                     <img src="<%= @strings[:img_04_btprint] %>"
-                         alt="http://asicshub.com.br/rsvp/print/<%= @user.invite_token %>"
+                         alt="<%= Rails.configuration.custom_base_url %>/rsvp/print/<%= @user.invite_token %>"
                          class="qrcode-bottom qrcode-bottom-button"
                          height="34" width="116"
                          style="display: block;"/>
@@ -271,8 +271,8 @@
               </tr>
               <tr align="center">
                 <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 12px; text-align: left; color: #D4D4D4;">
-                  <a href="http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %>" style="color:#D4D4D4">
-                    <span>http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %></span>
+                  <a href="<%= Rails.configuration.custom_base_url %>/rsvp/confirm/<%= @user.invite_token %>" style="color:#D4D4D4">
+                    <span><%= Rails.configuration.custom_base_url %>/confirm/<%= @user.invite_token %></span>
                   </a>
                 </td>
               </tr>

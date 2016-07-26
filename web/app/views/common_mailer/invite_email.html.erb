@@ -47,9 +47,9 @@
               </tr>
               <tr>
                 <td align="center">
-                  <a href="http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %>">
+                  <a href="<%= Rails.configuration.custom_base_url %>/rsvp/confirm/<%= @user.invite_token %>">
                     <img src="<%= @strings[:img_05] %>"
-                         alt="<%= @strings[:link] %> http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %>"
+                         alt="<%= @strings[:link] %> <%= Rails.configuration.custom_base_url %>/rsvp/confirm/<%= @user.invite_token %>"
                          width="600"
                          style="display:block; width:100%; margin:0 auto"/>
                   </a>
@@ -110,8 +110,8 @@
               <tr align="center">
                 <td style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 14px; text-align: left; color: #D4D4D4;">
                   <%= @strings[:link] %> <br>
-                  <a href="http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %>" style="color:#D4D4D4">
-                    <span style="text-decoration: underline;">http://asicshub.com.br/rsvp/confirm/<%= @user.invite_token %></span>
+                  <a href="<%= Rails.configuration.custom_base_url %>/rsvp/confirm/<%= @user.invite_token %>" style="color:#D4D4D4">
+                    <span style="text-decoration: underline;"><%= Rails.configuration.custom_base_url %>/rsvp/confirm/<%= @user.invite_token %></span>
                   </a>
                 </td>
               </tr>

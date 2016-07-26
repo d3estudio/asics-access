@@ -4,7 +4,8 @@ class AdminMailer < ApplicationMailer
   def invite_csv_file_email(respond_to, file)
     mail_to = "no-reply@asicshub.com.br"
     subject = "Invite File to Parse"
-    content = "File attached. Respond to: " + respond_to + " and upload at: http://www.asicshub.com.br/admin/invitation/csv";
+    content = "File attached. Respond to: " + respond_to
+        + " and upload at: " + Rails.configuration.custom_base_url + "/admin/invitation/csv";
 
     attachments[file.original_filename] = File.read(file.path)
 
