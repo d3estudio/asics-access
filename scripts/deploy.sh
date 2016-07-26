@@ -9,10 +9,21 @@ else
     exit 0
 fi
 
-ssh asics@$REMOTEIP <<'ENDSSH'
+if [ "$2" = "--soft"  ]; then
+    SCRIPT="prod.sh"
+else
+    SCRIPT="prod-soft.sh"
+fi
+
+ssh -T asics@$REMOTEIP bash -c "'
 echo ENTERING FOLDER
 cd asics-access
-bash scripts/prod.sh
-ENDSSH
+
+echo PULLING UPDATES FROM GIT MASTER
+git fetch --all
+git reset --hard origin/master
+
+bash scripts/${SCRIPT}
+'"
 
 echo DEPLOY COMPLETED
