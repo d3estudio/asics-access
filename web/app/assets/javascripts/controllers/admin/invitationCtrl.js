@@ -82,6 +82,8 @@ angular.module('asics').controller('InvitationCtrl', [
       admin.postInvite(postGuest)
         .then(onInviteSuccess)
         .catch(errorToast)
+
+
     };
 
     function onImportFileSuccess() {
