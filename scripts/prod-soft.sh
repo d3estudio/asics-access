@@ -9,4 +9,4 @@ rails assets:precompile
 ENDWEBSH
 
 echo STARTING DOCKER INSTANCES
-docker-compose restart
+docker-compose restart web
