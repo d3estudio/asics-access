@@ -19,8 +19,7 @@
             opacity: 1;
         }
     </style>
-    
-    <%= stylesheet_link_tag 'application', media: 'none', onload: "if(media!='all')media='all'", 'data-turbolinks-track' => true %>
+
 
     <title>Asics Hub</title>
 
@@ -35,3 +34,5 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, :async => Rails.env.production? %>
   </body>
 </html>
+
+<%= stylesheet_link_tag 'application', media: 'none', onload: "if(media!='all')media='all'", 'data-turbolinks-track' => true, :async => Rails.env.production? %>
