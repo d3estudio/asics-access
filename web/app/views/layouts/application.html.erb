@@ -24,6 +24,7 @@
   <body ng-app="asics">
     <base href="/">
     <ui-view></ui-view>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, :async => true %>
   </body>
 </html>
