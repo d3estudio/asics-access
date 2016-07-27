@@ -18,13 +18,13 @@
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body ng-app="asics">
     <base href="/">
     <ui-view></ui-view>
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, :async => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, :async => Rails.env.production? %>
   </body>
 </html>
+<%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
