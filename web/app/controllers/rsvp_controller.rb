@@ -68,7 +68,7 @@ class RsvpController < ApplicationController
 
         pkpass = pass.file
 
-        send_file(
+        send_data(
             pkpass.path,
             type: 'application/vnd.apple.pkpass',
             disposition: 'attachment',
