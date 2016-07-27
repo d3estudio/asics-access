@@ -15,8 +15,8 @@
     <link rel="mask-icon" href="/images/favicons/safari-pinned-tab.svg" color="#5bbad5">
 
 
-    <%= stylesheet_link_tag 'application', media: 'bogus', 'data-turbolinks-track' => true %>
-
+    <%= stylesheet_link_tag 'application', media: 'none', onload: "if(media!='all')media='all'", 'data-turbolinks-track' => true %>
+    
     <title>Asics Hub</title>
 
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -28,6 +28,5 @@
     <ui-view></ui-view>
 
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true, :async => Rails.env.production? %>
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   </body>
 </html>
