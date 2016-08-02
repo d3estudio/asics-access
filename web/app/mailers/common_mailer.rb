@@ -44,8 +44,9 @@ class CommonMailer < ApplicationMailer
         img_01: Rails.configuration.custom_base_url + '/images/email/invitation/en/asics_01.jpg',
         img_02: Rails.configuration.custom_base_url + '/images/email/invitation/en/asics_02.jpg?v=2',
         img_03: Rails.configuration.custom_base_url + '/images/email/invitation/en/asics_03.jpg?v=2',
-        img_04: Rails.configuration.custom_base_url + '/images/email/invitation/en/asics_04.jpg?v=2',
-        img_05: Rails.configuration.custom_base_url + '/images/email/invitation/en/asics_05.jpg',
+        img_04: Rails.configuration.custom_base_url + '/images/email/invitation/en/asics_04.jpg?v=3',
+        img_04b: Rails.configuration.custom_base_url + '/images/email/invitation/en/asics_04b.jpg',
+        img_05: Rails.configuration.custom_base_url + '/images/email/invitation/en/asics_05.jpg?v=3',
         img_06: Rails.configuration.custom_base_url + '/images/email/invitation/en/asics_06.jpg',
         salutation: 'Dear GUEST',
         intro: 'It gives us great pleasure to invite you to our ASICS Hub during the 2016 Rio Olympics.
@@ -63,8 +64,9 @@ class CommonMailer < ApplicationMailer
         img_01: Rails.configuration.custom_base_url + '/images/email/invitation/pt/asics_01.jpg',
         img_02: Rails.configuration.custom_base_url + '/images/email/invitation/pt/asics_02.jpg?v=2',
         img_03: Rails.configuration.custom_base_url + '/images/email/invitation/pt/asics_03.jpg?v=2',
-        img_04: Rails.configuration.custom_base_url + '/images/email/invitation/pt/asics_04.jpg?v=2',
-        img_05: Rails.configuration.custom_base_url + '/images/email/invitation/pt/asics_05.jpg',
+        img_04: Rails.configuration.custom_base_url + '/images/email/invitation/pt/asics_04.jpg?v=3',
+        img_04b: Rails.configuration.custom_base_url + '/images/email/invitation/pt/asics_04b.jpg?',
+        img_05: Rails.configuration.custom_base_url + '/images/email/invitation/pt/asics_05.jpg?v=3',
         img_06: Rails.configuration.custom_base_url + '/images/email/invitation/pt/asics_06.jpg',
         salutation: 'Caro CONVIDADO',
         intro: 'Temos o grande prazer de convidá-lo para o ASICS Hub durante as Olimpíadas Rio 2016.
@@ -97,7 +99,9 @@ class CommonMailer < ApplicationMailer
         img_04_left: Rails.configuration.custom_base_url + '/images/email/confirmation/en/asics_04_left.jpg',
         img_04_right: Rails.configuration.custom_base_url + '/images/email/confirmation/en/asics_04_right.jpg',
         img_05: Rails.configuration.custom_base_url + '/images/email/confirmation/en/asics_05.jpg',
-        img_06: Rails.configuration.custom_base_url + '/images/email/confirmation/en/asics_06.jpg',
+        img_06a: Rails.configuration.custom_base_url + '/images/email/confirmation/en/asics_06a.jpg',
+        img_06b: Rails.configuration.custom_base_url + '/images/email/confirmation/en/asics_06b.jpg',
+        img_06c: Rails.configuration.custom_base_url + '/images/email/confirmation/en/asics_06c.jpg',
         img_07: Rails.configuration.custom_base_url + '/images/email/confirmation/en/asics_07.jpg?v=2',
         img_08: Rails.configuration.custom_base_url + '/images/email/confirmation/en/asics_08.jpg',
         salutation: 'Dear GUEST',
@@ -111,7 +115,6 @@ class CommonMailer < ApplicationMailer
         where: 'WHERE: EST. BOCA DO MATO, 803, VARGEM PEQUENA - RIO DE JANEIRO',
         schedule: 'Learn more about our schedule here:',
         explanation: 'You are receiving this message because you were invited to enjoy the ASICS Hub on Rio 2016 Olympics.'
-
       },
       PT: {
         img_01: Rails.configuration.custom_base_url + '/images/email/confirmation/pt/asics_01.jpg',
@@ -124,7 +127,9 @@ class CommonMailer < ApplicationMailer
         img_04_left: Rails.configuration.custom_base_url + '/images/email/confirmation/pt/asics_04_left.jpg',
         img_04_right: Rails.configuration.custom_base_url + '/images/email/confirmation/pt/asics_04_right.jpg',
         img_05: Rails.configuration.custom_base_url + '/images/email/confirmation/pt/asics_05.jpg',
-        img_06: Rails.configuration.custom_base_url + '/images/email/confirmation/pt/asics_06.jpg',
+        img_06a: Rails.configuration.custom_base_url + '/images/email/confirmation/pt/asics_06a.jpg',
+        img_06b: Rails.configuration.custom_base_url + '/images/email/confirmation/pt/asics_06b.jpg',
+        img_06c: Rails.configuration.custom_base_url + '/images/email/confirmation/pt/asics_06c.jpg',
         img_07: Rails.configuration.custom_base_url + '/images/email/confirmation/pt/asics_07.jpg?v=2',
         img_08: Rails.configuration.custom_base_url + '/images/email/confirmation/pt/asics_08.jpg',
         salutation: 'Caro CONVIDADO',
