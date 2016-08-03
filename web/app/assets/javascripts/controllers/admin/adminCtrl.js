@@ -35,6 +35,9 @@ angular.module('asics').controller('AdminCtrl', [
     function updateSelectedTab(stateName) {
       switch (stateName) {
         case 'admin.logs':
+          $scope.selectedTab = 3;
+          break;
+        case 'admin.companion':
           $scope.selectedTab = 2;
           break;
         case 'admin.invitation':
@@ -50,12 +53,14 @@ var adminStrings = {
   EN: {
     guests: "Guests",
     invite: "Invite",
+    companion: "Companion",
     logs: "Logs",
     language: "Idioma"
   },
   PT: {
     guests: "Convidados",
     invite: "Convidar",
+    companion: "Companhia",
     logs: "Acessos",
     language: "Language"
   }

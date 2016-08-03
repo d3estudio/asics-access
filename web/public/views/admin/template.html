@@ -31,6 +31,15 @@
               <div class="arrow-right"></div>
             </li>
             <li ng-class="(selectedTab == 2) ? 'active-tab' : 'default-tab'">
+              <a ui-sref="admin.companion" data-toggle="tab">
+                <svg viewBox="0 0 40 38.67">
+                  <use xlink:href="../../images/icon-invite.svg#svg-invite"></use>
+                </svg>
+                <div>{{strings.companion}}</div>
+              </a>
+              <div class="arrow-right"></div>
+            </li>
+            <li ng-class="(selectedTab == 3) ? 'active-tab' : 'default-tab'">
               <a ui-sref="admin.logs" data-toggle="tab">
                 <svg viewBox="0 0 38.28 36.81">
                   <use xlink:href="../../images/icon-log.svg#svg-log"></use>
