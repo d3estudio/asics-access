@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   # ADMIN
   post '/api/admin/invite', to: 'admin#invite_guest'
+  post '/api/admin/invite/companion', to: 'admin#invite_guest_companion'
   
   post '/api/admin/invite/csv', to: 'admin#invite_guests_csv'
   post '/api/admin/spreadsheet/send', to: 'admin#send_spreadsheet'

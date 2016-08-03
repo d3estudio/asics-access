@@ -86,6 +86,19 @@ angular.module('asics').controller('InvitationCtrl', [
 
     };
 
+    $scope.inviteGuestCompanion = function () {
+      var postGuest = {};
+      postGuest.occupation = 'Companion';
+      postGuest.name = $scope.guest.name;
+      postGuest.language = $scope.guest.language;
+      postGuest.email = $scope.guest.email;
+      postGuest.country = countries.PT[$scope.guest.country_key];
+
+      admin.postCompanion(postGuest)
+        .then(onInviteSuccess)
+        .catch(errorToast)
+    };
+
     function onImportFileSuccess() {
       successImportFileToast();
       clearFileForm();
@@ -214,7 +227,7 @@ var adminInvitationStrings = {
     sendCsvFile: "SEND FILE",
     importYouList: "Import your list",
     here: "here",
-    manualInvite: "Invite manually"
+    manualInvite: "Invite manually",
   },
   PT: {
     newInvitation: "Novo convite",

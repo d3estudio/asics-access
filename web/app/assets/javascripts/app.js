@@ -70,6 +70,11 @@ asics.config([
           templateUrl: '/views/admin/invitation',
           controller: 'InvitationCtrl'
         })
+        .state('admin.companion', {
+          url: '/companion',
+          templateUrl: '/views/admin/companion',
+          controller: 'InvitationCtrl'
+        })
         .state('admin.guests', {
           url: '/guests',
           templateUrl: '/views/admin/guests',

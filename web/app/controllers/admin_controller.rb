@@ -20,6 +20,22 @@ class AdminController < ApplicationController
     end
   end
 
+  def invite_guest_companion
+    (name = params[:name]) || (return missing_field(:name))
+    (email = params[:email].downcase) || (return missing_field(:email))
+    (occupation = params[:occupation]) || (return missing_field(:occupation))
+    (language = params[:language]) || (return missing_field(:language))
+    (country = params[:country]) || (return missing_field(:country))
+
+    response = invite_guest_and_confirm_invite(name, email, occupation, language, country)
+
+    if response[:succeeded] == true
+      return render json: response
+    else
+      return reject_request(response)
+    end
+  end
+
   def send_spreadsheet
     (email = params[:email]) || (return missing_field(:email))
     (file = params[:file]) || (return missing_field(:file))
@@ -257,6 +273,45 @@ class AdminController < ApplicationController
       guest = Guest.new
       guest.email = email
     end
+
+    guest.name = name
+    guest.removed_at = nil
+    guest.occupation = occupation
+    guest.language = language
+    guest.country = country
+
+    if guest.save
+      CommonMailer.invite_email(guest).deliver_later
+      return { succeeded: true, result: guest }
+    else
+      return {   error: 'ValidationFailed',
+                 message: guest.errors,
+                 action: ['Retry'] }
+    end
+  end
+
+  def invite_guest_and_confirm_invite(name, email, occupation, language, country)
+    return missing_field_response('name') unless name
+    return missing_field_response('email') unless email
+    return missing_field_response('occupation') unless occupation
+    return missing_field_response('language') unless language
+    return missing_field_response('country') unless country
+
+    return {  error: 'LanguageInvalid',
+              message: 'Language not supported, should be "PT" or "EN"',
+              action: ['Stop'] } unless ['EN', 'PT'].include? language
+
+    email = email.downcase
+
+    guest = Guest.where(email: email).first
+
+    if ! guest
+      guest = Guest.new
+      guest.email = email
+    end
+
+    guest.rsvp = true
+    guest.generate_qr_code
 
     guest.name = name
     guest.removed_at = nil

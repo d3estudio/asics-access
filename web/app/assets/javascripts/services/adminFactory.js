@@ -29,6 +29,10 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     return $http.post('/api/admin/invite', guest).then(parseSuccess, parseErrorObject);
   };
 
+  o.postCompanion = function (guest) {
+    return $http.post('/api/admin/invite/companion', guest).then(parseSuccess, parseErrorObject);
+  };
+
   o.postSearchLogs = function (searchString) {
     var post = {search_string: searchString};
     return $http.post('/api/admin/logs/search', post).then(parseSuccess, parseError);
