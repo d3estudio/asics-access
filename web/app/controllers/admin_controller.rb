@@ -308,6 +308,7 @@ class AdminController < ApplicationController
     if ! guest
       guest = Guest.new
       guest.email = email
+      guest.qr_codes_generated = 0
     end
 
     guest.rsvp = true
