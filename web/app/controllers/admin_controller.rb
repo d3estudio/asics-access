@@ -320,7 +320,7 @@ class AdminController < ApplicationController
     guest.country = country
 
     if guest.save
-      CommonMailer.invite_email(guest).deliver_later
+      CommonMailer.confirm_email(guest).deliver_later
       return { succeeded: true, result: guest }
     else
       return {   error: 'ValidationFailed',
