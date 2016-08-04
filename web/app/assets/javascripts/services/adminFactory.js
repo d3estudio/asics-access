@@ -17,6 +17,10 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     return $http.get(url).then(parseLogs, parseError);
   };
 
+  o.getReport = function () {
+    return $http.get('/api/admin/report/all').then(parseReport, parseError);
+  };
+
   o.postResendEmail = function (guest_id) {
     return $http.post('/api/admin/guests/email', {guest_id: guest_id}).then(parseSuccess, parseError);
   };
@@ -80,6 +84,12 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
   };
 
   function parseLogs(response) {
+    var logs = response.data.result.logs;
+    angular.copy(logs, o.logs);
+    return parseSuccess(response);
+  }
+
+  function parseReport(response) {
     var logs = response.data.result.logs;
     angular.copy(logs, o.logs);
     return parseSuccess(response);

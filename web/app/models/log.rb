@@ -16,5 +16,6 @@ class Log < ApplicationRecord
 
   scope :created_after, -> (time) { where("created_at > ?", time) }
   scope :from_today, -> { where("created_at > ?", DateTime.now.beginning_of_day) }
+  scope :from_and_until_today, -> { where("created_at > ? AND created_at < ? ", DateTime.now.beginning_of_day, DateTime.now.end_of_day) }
   scope :not_created_by, -> (access_token) { where("access_token != ? OR access_token IS NULL", access_token) }
 end

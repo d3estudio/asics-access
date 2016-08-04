@@ -187,6 +187,20 @@ class AdminController < ApplicationController
     render json: { succeeded: true, result: { logs: logs } }
   end
 
+  def get_report_information
+    logs = Log
+            .select('logs.guest_id')
+            .from_and_until_today
+
+    country_count = Guest
+             .select('guests.country, count(guests.country) as country_count')
+             .where(id: logs)
+             .group('guests.country')
+             .order('country_count DESC')
+
+    render json: { succeeded: true, result: { country_count: country_count } }
+  end
+
   private
 
   def get_count_of_guests(guests)

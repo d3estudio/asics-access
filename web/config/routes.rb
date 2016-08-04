@@ -21,6 +21,8 @@ Rails.application.routes.draw do
   post '/api/admin/logs/search', to: 'admin#search_logs_information'
   get  '/api/admin/logs/all', to: 'admin#get_logs_information'
 
+  get  '/api/admin/report/all', to: 'admin#get_report_information'
+
 
   # GATEWAY
   post '/api/gateway/guests/since', to: 'gateway#get_guests_updated_since'

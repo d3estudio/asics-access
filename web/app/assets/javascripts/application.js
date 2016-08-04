@@ -48,6 +48,7 @@
 //= require controllers/admin/invitationCtrl.js
 //= require controllers/admin/guestsCtrl.js
 //= require controllers/admin/logsCtrl.js
+//= require controllers/admin/reportCtrl.js
 //= require directives/guestDirective.js
 //= require directives/logDirective.js
 //= require directives/printDirective.js

@@ -85,6 +85,11 @@ asics.config([
           templateUrl: '/views/admin/logs',
           controller: 'LogsCtrl'
         })
+        .state('admin.report', {
+          url: '/report',
+          templateUrl: '/views/admin/report',
+          controller: 'ReportCtrl'
+        })
         .state('dashboard', {
           url: '/dashboard',
           templateUrl: '/views/dashboard'

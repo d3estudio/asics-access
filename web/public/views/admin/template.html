@@ -48,6 +48,15 @@
               </a>
               <div class="arrow-right"></div>
             </li>
+            <li ng-class="(selectedTab == 4) ? 'active-tab' : 'default-tab'">
+              <a ui-sref="admin.report" data-toggle="tab">
+                <svg viewBox="0 0 38.28 36.81">
+                  <use xlink:href="../../images/icon-log.svg#svg-log"></use>
+                </svg>
+                <div>{{strings.report}}</div>
+              </a>
+              <div class="arrow-right"></div>
+            </li>
           </ul>
           <div class="tab-content">
             <div class="tab-pane active" id="a">
