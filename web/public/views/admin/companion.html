@@ -9,7 +9,7 @@
     <form name="adminForm">
       <div class="form-fields-container">
         <div class="row">
-          <div id="admin-form-checkbox" class="col-lg-3 col-md-3 col-sm-3 col-xs-3" style="display:none;">
+          <div id="admin-form-checkbox" class="col-lg-3 col-md-3 col-sm-3 col-xs-3" >
             <label>{{strings.asicsAthlete}}</label>
             <div id="checkbox">
               <input ng-model="isAthlete" ng-checked="isAthlete" aria-label="Is athlete Asics?"
@@ -18,7 +18,7 @@
               <label for="inputIsAthlete"></label>
             </div>
           </div>
-          <div ng-if="!isAthlete" id="admin-form-name" class="form-group col-lg-9 col-md-9 col-sm-9 col-xs-9" style="width:100%;">
+          <div ng-if="!isAthlete" id="admin-form-name" class="form-group col-lg-9 col-md-9 col-sm-9 col-xs-9" >
             <label for="inputName">{{strings.formName}}</label>
             <input ng-model="guest.name" name="name" ng-required="true" names-only="names-only"
                    class="form-control" id="inputName">
@@ -61,15 +61,15 @@
               <p ng-message="required">{{strings.formCountryRequireError}}</p>
             </div>
           </div>
-          <div id="admin-form-language" class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2" style="display:none;">
+          <div id="admin-form-language" class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
             <label for="inputName">{{strings.formLanguage}}</label>
             <select ng-model="guest.language" name="language" class="form-control">
-              <option ng-selected="true">PT</option>
-              <option>EN</option>
+              <option ng-selected="true">EN</option>
+              <option>PT</option>
             </select>
           </div>
         </div>
-        <div ng-if="!isAthlete" class="row mg-top-15" style="display:none;">
+        <div ng-if="!isAthlete" class="row mg-top-15" >
           <div id="admin-form-occupation" class="form-group col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <label for="inputName">{{strings.formOccupation}}</label>
             <select name="occupation" ng-model="guest.occupation" class="form-control"

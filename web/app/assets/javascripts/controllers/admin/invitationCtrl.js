@@ -88,8 +88,18 @@ angular.module('asics').controller('InvitationCtrl', [
 
     $scope.inviteGuestCompanion = function () {
       var postGuest = {};
-      postGuest.occupation = 'Companion';
-      postGuest.name = $scope.guest.name;
+
+      if ($scope.isAthlete) {
+        postGuest.occupation = 'Atleta Asics';
+        postGuest.name = $scope.athleteGuest.name;
+      } else {
+        if ($scope.guest.occupation == '')
+          postGuest.occupation = 'Companion';
+        else
+          postGuest.occupation = $scope.guest.occupation;
+        postGuest.name = $scope.guest.name;
+      }
+
       postGuest.language = $scope.guest.language;
       postGuest.email = $scope.guest.email;
       postGuest.country = countries.PT[$scope.guest.country_key];
