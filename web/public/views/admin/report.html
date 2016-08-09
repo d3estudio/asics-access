@@ -1,3 +1,20 @@
-<div id="logs" class="bg-white">
-    <div class="row country-container" ng-repeat="country in country_count" my-log="country"></div>
+<div id="reports" class="bg-white">
+    <div id="report-header">
+        <h1 class="txt-blue">{{strings.title}}</h1>
+        <p class="txt-gray">{{strings.description}}</p>
+    </div>
+    <div class="date-container">
+        <div class="row">
+            <div class="form-group col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                <label for="inputName">{{strings.date}}</label>
+                <select class="form-control" ng-init="current_date" ng-model="current_date"
+                ng-options="dates.date for dates in available_dates"
+                value="{{dates.date}}">
+                </select>
+            </div>
+        </div>
+    </div>
+    <div id="report-container">
+        <div class="row report-container" ng-repeat="country in country_count" my-report="report"></div>
+    </div>
 </div>

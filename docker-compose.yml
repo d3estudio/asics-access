@@ -40,18 +40,18 @@ services:
         env_file:
             - ./db/.env
 
-    pgbkp:
-        build: pgbkp
-        environment:
-            - S3_BUCKET_NAME=asicshub-postgres-backup
-            - POSTGRES_HOST=db
-            - POSTGRES_USER=postgres
-            - POSTGRES_PASSWORD=
-            - PREFIX=postgres-backup # S3 key prefix to save with
-        env_file:
-            - ./pgbkp/.env
-            - ./db/.env
-        links:
-            - db:postgres
-        volumes:
-            - ./pgbkp:/code
+    # pgbkp:
+    #     build: pgbkp
+    #     environment:
+    #         - S3_BUCKET_NAME=asicshub-postgres-backup
+    #         - POSTGRES_HOST=db
+    #         - POSTGRES_USER=postgres
+    #         - POSTGRES_PASSWORD=
+    #         - PREFIX=postgres-backup # S3 key prefix to save with
+    #     env_file:
+    #         - ./pgbkp/.env
+    #         - ./db/.env
+    #     links:
+    #         - db:postgres
+    #     volumes:
+    #         - ./pgbkp:/code

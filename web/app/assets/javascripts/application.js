@@ -51,6 +51,7 @@
 //= require controllers/admin/reportCtrl.js
 //= require directives/guestDirective.js
 //= require directives/logDirective.js
+//= require directives/reportDirective.js
 //= require directives/printDirective.js
 //= require directives/namesOnlyDirective.js
 //= require directives/fileReadDirective.js
