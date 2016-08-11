@@ -17,12 +17,8 @@ angular.module('asics').factory('admin', ['$http', function ($http) {
     return $http.get(url).then(parseLogs, parseError);
   };
 
-  o.getReport = function () {
-    return $http.get('/api/admin/report/all').then(parseReport, parseError);
-  };
-
-  o.getReportDate = function (date) {
-    return $http.get('/api/admin/report/all', {date: date}).then(parseReport, parseError);
+  o.getReport = function (day) {
+    return $http.get('/api/admin/report/byday?day=' + day).then(parseReport, parseError);
   };
 
   o.postResendEmail = function (guest_id) {

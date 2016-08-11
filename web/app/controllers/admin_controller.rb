@@ -188,9 +188,16 @@ class AdminController < ApplicationController
   end
 
   def get_report_information
+    selected_day = params[:day]
+    if selected_day.blank? == false
+      selected_datetime = DateTime.new(2016,8,selected_day.to_f)
+    else
+      selected_datetime = DateTime.now
+    end
+
     logs = Log
             .select('logs.guest_id')
-            .from_and_until_today
+            .from_and_until_selected_day(selected_datetime)
 
     country_count = Guest
              .select('guests.country, count(guests.country) as country_count')

@@ -13,9 +13,11 @@ angular.module('asics').controller('ReportCtrl', [
 
     angular.copy(adminReportStrings[$scope.language], $scope.strings);
 
-    admin.getReport()
-      .then(readReportInformation)
-      .catch(errorToast);
+    function get_reports(day) {
+      admin.getReport(day)
+        .then(readReportInformation)
+        .catch(errorToast);
+    }
 
     createDateList();
     setCurrentDate();
@@ -38,6 +40,10 @@ angular.module('asics').controller('ReportCtrl', [
     function readReportInformation(result) {
       angular.copy(result.country_count, $scope.country_count);
     }
+
+    $scope.$watch('current_date', function () {
+      get_reports($scope.current_date.date)
+    });
 
     function errorToast(error) {
       var toast = $mdToast.simple()
